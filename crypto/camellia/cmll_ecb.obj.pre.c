@@ -201,11 +201,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -241,34 +241,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -294,43 +296,45 @@ extern unsigned long  __cdecl __threadid(void);
 extern uintptr_t __cdecl __threadhandle(void);
 #line 78 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stddef.h"
 #line 17 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/camellia.h"
-typedef unsigned int KEY_TABLE_TYPE[(272 / 4)]; 
-struct camellia_key_st {
-union {
-double d;               
-KEY_TABLE_TYPE rd_key;
-} u;
-int grand_rounds;
+typedef unsigned int KEY_TABLE_TYPE[(272 / 4)];
+struct camellia_key_st
+{
+    union
+    {
+        double d;
+        KEY_TABLE_TYPE rd_key;
+    } u;
+    int grand_rounds;
 };
 typedef struct camellia_key_st CAMELLIA_KEY;
 int Camellia_set_key(const unsigned char *userKey, const int bits,
-CAMELLIA_KEY *key);
+                     CAMELLIA_KEY *key);
 void Camellia_encrypt(const unsigned char *in, unsigned char *out,
-const CAMELLIA_KEY *key);
+                      const CAMELLIA_KEY *key);
 void Camellia_decrypt(const unsigned char *in, unsigned char *out,
-const CAMELLIA_KEY *key);
+                      const CAMELLIA_KEY *key);
 void Camellia_ecb_encrypt(const unsigned char *in, unsigned char *out,
-const CAMELLIA_KEY *key, const int enc);
+                          const CAMELLIA_KEY *key, const int enc);
 void Camellia_cbc_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, const int enc);
+                          size_t length, const CAMELLIA_KEY *key,
+                          unsigned char *ivec, const int enc);
 void Camellia_cfb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                             size_t length, const CAMELLIA_KEY *key,
+                             unsigned char *ivec, int *num, const int enc);
 void Camellia_cfb1_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                           size_t length, const CAMELLIA_KEY *key,
+                           unsigned char *ivec, int *num, const int enc);
 void Camellia_cfb8_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                           size_t length, const CAMELLIA_KEY *key,
+                           unsigned char *ivec, int *num, const int enc);
 void Camellia_ofb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num);
+                             size_t length, const CAMELLIA_KEY *key,
+                             unsigned char *ivec, int *num);
 void Camellia_ctr128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char ivec[16],
-unsigned char ecount_buf[16],
-unsigned int *num);
+                             size_t length, const CAMELLIA_KEY *key,
+                             unsigned char ivec[16],
+                             unsigned char ecount_buf[16],
+                             unsigned int *num);
 #line 82 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/camellia.h"
 #line 84 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/camellia.h"
 #line 11 "crypto\\camellia\\cmll_ecb.c"
@@ -338,24 +342,24 @@ unsigned int *num);
 typedef unsigned int u32;
 typedef unsigned char u8;
 int Camellia_Ekeygen(int keyBitLength, const u8 *rawKey,
-KEY_TABLE_TYPE keyTable);
+                     KEY_TABLE_TYPE keyTable);
 void Camellia_EncryptBlock_Rounds(int grandRounds, const u8 plaintext[],
-const KEY_TABLE_TYPE keyTable,
-u8 ciphertext[]);
+                                  const KEY_TABLE_TYPE keyTable,
+                                  u8 ciphertext[]);
 void Camellia_DecryptBlock_Rounds(int grandRounds, const u8 ciphertext[],
-const KEY_TABLE_TYPE keyTable,
-u8 plaintext[]);
+                                  const KEY_TABLE_TYPE keyTable,
+                                  u8 plaintext[]);
 void Camellia_EncryptBlock(int keyBitLength, const u8 plaintext[],
-const KEY_TABLE_TYPE keyTable, u8 ciphertext[]);
+                           const KEY_TABLE_TYPE keyTable, u8 ciphertext[]);
 void Camellia_DecryptBlock(int keyBitLength, const u8 ciphertext[],
-const KEY_TABLE_TYPE keyTable, u8 plaintext[]);
+                           const KEY_TABLE_TYPE keyTable, u8 plaintext[]);
 #line 44 "d:\\07.opensrc\\gmssl\\crypto\\camellia\\cmll_locl.h"
 #line 12 "crypto\\camellia\\cmll_ecb.c"
 void Camellia_ecb_encrypt(const unsigned char *in, unsigned char *out,
-const CAMELLIA_KEY *key, const int enc)
+                          const CAMELLIA_KEY *key, const int enc)
 {
-if (1 == enc)
-Camellia_encrypt(in, out, key);
-else
-Camellia_decrypt(in, out, key);
+    if (1 == enc)
+        Camellia_encrypt(in, out, key);
+    else
+        Camellia_decrypt(in, out, key);
 }

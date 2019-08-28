@@ -165,11 +165,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -205,34 +205,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -266,37 +268,45 @@ typedef int (__cdecl * _onexit_t)(void);
 #line 61 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 66 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct _div_t {
-int quot;
-int rem;
+typedef struct _div_t
+{
+    int quot;
+    int rem;
 } div_t;
-typedef struct _ldiv_t {
-long quot;
-long rem;
+typedef struct _ldiv_t
+{
+    long quot;
+    long rem;
 } ldiv_t;
-typedef struct _lldiv_t {
-long long quot;
-long long rem;
+typedef struct _lldiv_t
+{
+    long long quot;
+    long long rem;
 } lldiv_t;
 #line 92 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma pack(4)
-typedef struct {
-unsigned char ld[10];
+typedef struct
+{
+    unsigned char ld[10];
 } _LDOUBLE;
 #pragma pack()
 #line 121 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct {
-double x;
+typedef struct
+{
+    double x;
 } _CRT_DOUBLE;
-typedef struct {
-float f;
+typedef struct
+{
+    float f;
 } _CRT_FLOAT;
-typedef struct {
-long double x;
+typedef struct
+{
+    long double x;
 } _LONGDOUBLE;
 #pragma pack(4)
-typedef struct {
-unsigned char ld12[12];
+typedef struct
+{
+    unsigned char ld12[12];
 } _LDBL12;
 #pragma pack()
 #line 151 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -305,12 +315,12 @@ extern int __mb_cur_max;
 int __cdecl ___mb_cur_max_func(void);
 int __cdecl ___mb_cur_max_l_func(_locale_t);
 #line 171 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_purecall_handler)(void); 
+typedef void (__cdecl *_purecall_handler)(void);
 _purecall_handler __cdecl _set_purecall_handler(  _purecall_handler _Handler);
 _purecall_handler __cdecl _get_purecall_handler(void);
 #line 214 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 225 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t); 
+typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t);
 _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(  _invalid_parameter_handler _Handler);
 _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
 #line 234 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -324,21 +334,21 @@ errno_t __cdecl _get_doserrno(  unsigned long * _Value);
 char ** __cdecl __sys_errlist(void);
 int * __cdecl __sys_nerr(void);
 #line 273 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern int __argc;          
-extern char ** __argv;      
-extern wchar_t ** __wargv;  
+extern int __argc;
+extern char ** __argv;
+extern wchar_t ** __wargv;
 #line 288 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 290 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char ** _environ;    
-extern wchar_t ** _wenviron;    
+extern char ** _environ;
+extern wchar_t ** _wenviron;
 #line 301 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 303 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char * _pgmptr;      
-extern wchar_t * _wpgmptr;  
+extern char * _pgmptr;
+extern wchar_t * _wpgmptr;
 #line 327 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _get_pgmptr(  char ** _Value);
 errno_t __cdecl _get_wpgmptr(  wchar_t ** _Value);
-extern int _fmode;          
+extern int _fmode;
 #line 338 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _set_fmode(  int _Mode);
 errno_t __cdecl _get_fmode(  int * _PMode);
@@ -365,20 +375,20 @@ int    __cdecl atoi(  const char *_Str);
 int    __cdecl _atoi_l(  const char *_Str,   _locale_t _Locale);
 long   __cdecl atol(  const char *_Str);
 long   __cdecl _atol_l(  const char *_Str,   _locale_t _Locale);
-void * __cdecl bsearch_s(  const void * _Key,   const void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
+void * __cdecl bsearch_s(  const void * _Key,   const void * _Base,
+                           rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                           int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
 #line 430 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void * __cdecl bsearch(  const void * _Key,   const void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
-void __cdecl qsort_s(  void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
+void * __cdecl bsearch(  const void * _Key,   const void * _Base,
+                         size_t _NumOfElements,   size_t _SizeOfElements,
+                         int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort_s(  void * _Base,
+                       rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                       int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
 #line 439 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void __cdecl qsort(  void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements, 
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort(  void * _Base,
+                     size_t _NumOfElements,   size_t _SizeOfElements,
+                     int (__cdecl * _PtFuncCompare)(const void *, const void *));
 #line 443 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 unsigned short __cdecl _byteswap_ushort(  unsigned short _Short);
 unsigned long  __cdecl _byteswap_ulong (  unsigned long _Long);
@@ -495,7 +505,7 @@ __int64   __cdecl _wtoi64_l(  const wchar_t *_Str,   _locale_t _Locale);
 __int64   __cdecl _wcstoi64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
 __int64   __cdecl _wcstoi64_l(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 unsigned __int64  __cdecl _wcstoui64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
-unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str ,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
+unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 #line 724 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 739 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 char * __cdecl _fullpath(  char * _FullPath,   const char * _Path,   size_t _SizeInBytes);
@@ -515,7 +525,7 @@ int __cdecl _atoflt_l(  _CRT_FLOAT * _Result,   char * _Str,   _locale_t _Locale
 unsigned long __cdecl _lrotl(  unsigned long _Val,   int _Shift);
 unsigned long __cdecl _lrotr(  unsigned long _Val,   int _Shift);
 errno_t   __cdecl _makepath_s(  char * _PathResult,   size_t _SizeInWords,   const char * _Drive,   const char * _Dir,   const char * _Filename,
-const char * _Ext);
+                                const char * _Ext);
 void __cdecl _makepath(  char *_Path,  const char * _Drive,  const char * _Dir,  const char * _Filename,  const char * _Ext);
 #line 783 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 796 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -524,7 +534,7 @@ _onexit_t __cdecl _onexit(  _onexit_t _Func);
 void __cdecl perror(  const char * _ErrMsg);
 #line 803 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning (push)
-#pragma warning (disable:6540) 
+#pragma warning (disable:6540)
 int    __cdecl _putenv(  const char * _EnvString);
 errno_t __cdecl _putenv_s(  const char * _Name,   const char * _Value);
 #line 811 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -537,17 +547,17 @@ errno_t __cdecl _searchenv_s(  const char * _Filename,   const char * _EnvVar,  
 void __cdecl _searchenv( const char * _Filename,  const char * _EnvVar,   char *_ResultPath);
 #line 823 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _splitpath(  const char * _FullPath,     char * _Drive,     char * _Dir,     char * _Filename,     char * _Ext);
-errno_t  __cdecl _splitpath_s(  const char * _FullPath, 
-char * _Drive,   size_t _DriveSize, 
-char * _Dir,   size_t _DirSize, 
-char * _Filename,   size_t _FilenameSize, 
-char * _Ext,   size_t _ExtSize);
+errno_t  __cdecl _splitpath_s(  const char * _FullPath,
+                                char * _Drive,   size_t _DriveSize,
+                                char * _Dir,   size_t _DirSize,
+                                char * _Filename,   size_t _FilenameSize,
+                                char * _Ext,   size_t _ExtSize);
 void   __cdecl _swab(    char * _Buf1,     char * _Buf2, int _SizeInBytes);
 #line 842 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 wchar_t * __cdecl _wfullpath(  wchar_t * _FullPath,   const wchar_t * _Path,   size_t _SizeInWords);
 #line 848 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _wmakepath_s(  wchar_t * _PathResult,   size_t _SIZE,   const wchar_t * _Drive,   const wchar_t * _Dir,   const wchar_t * _Filename,
-const wchar_t * _Ext);        
+                               const wchar_t * _Ext);
 void __cdecl _wmakepath(  wchar_t *_ResultPath,  const wchar_t * _Drive,  const wchar_t * _Dir,  const wchar_t * _Filename,  const wchar_t * _Ext);
 void __cdecl _wperror(  const wchar_t * _ErrMsg);
 #line 857 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -557,11 +567,11 @@ errno_t __cdecl _wsearchenv_s(  const wchar_t * _Filename,   const wchar_t * _En
 void __cdecl _wsearchenv( const wchar_t * _Filename,  const wchar_t * _EnvVar,   wchar_t *_ResultPath);
 #line 865 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _wsplitpath(  const wchar_t * _FullPath,     wchar_t * _Drive,     wchar_t * _Dir,     wchar_t * _Filename,     wchar_t * _Ext);
-errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath, 
-wchar_t * _Drive,   size_t _DriveSize, 
-wchar_t * _Dir,   size_t _DirSize, 
-wchar_t * _Filename,   size_t _FilenameSize, 
-wchar_t * _Ext,   size_t _ExtSize);
+errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath,
+                                wchar_t * _Drive,   size_t _DriveSize,
+                                wchar_t * _Dir,   size_t _DirSize,
+                                wchar_t * _Filename,   size_t _FilenameSize,
+                                wchar_t * _Ext,   size_t _ExtSize);
 #line 876 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "SetErrorMode" " instead. See online help for details."))  void __cdecl _seterrormode(  int _Mode);
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "Beep" " instead. See online help for details."))  void __cdecl _beep(  unsigned _Frequency,   unsigned _Duration);
@@ -571,7 +581,7 @@ __declspec(deprecated("This function or variable has been superceded by newer li
 #line 896 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 903 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning(push)
-#pragma warning(disable: 4141)  
+#pragma warning(disable: 4141)
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_ecvt" ". See online help for details."))   char * __cdecl ecvt(  double _Val,   int _NumOfDigits,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_fcvt" ". See online help for details."))   char * __cdecl fcvt(  double _Val,   int _NumOfDec,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_gcvt" ". See online help for details.")) 		 char * __cdecl gcvt(  double _Val,   int _NumOfDigits,     char * _DstBuf);
@@ -716,10 +726,11 @@ typedef uint32_t ZUC_UINT5;
 typedef uint32_t ZUC_UINT15;
 typedef uint32_t ZUC_UINT31;
 typedef uint32_t ZUC_UINT32;
-typedef struct zuc_key_st {
-ZUC_UINT31 LFSR[16];
-uint32_t R1;
-uint32_t R2;
+typedef struct zuc_key_st
+{
+    ZUC_UINT31 LFSR[16];
+    uint32_t R1;
+    uint32_t R2;
 } ZUC_KEY;
 void ZUC_set_key(ZUC_KEY *key, const unsigned char *user_key, const unsigned char *iv);
 void ZUC_generate_keystream(ZUC_KEY *key, size_t nwords, uint32_t *words);
@@ -727,97 +738,188 @@ uint32_t ZUC_generate_keyword(ZUC_KEY *key);
 #line 89 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/zuc.h"
 #line 90 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/zuc.h"
 #line 52 "crypto\\zuc\\zuc_core.c"
-static const ZUC_UINT15 KD[16] = {
-0x44D7,0x26BC,0x626B,0x135E,0x5789,0x35E2,0x7135,0x09AF,
-0x4D78,0x2F13,0x6BC4,0x1AF1,0x5E26,0x3C4D,0x789A,0x47AC,
+static const ZUC_UINT15 KD[16] =
+{
+    0x44D7,0x26BC,0x626B,0x135E,0x5789,0x35E2,0x7135,0x09AF,
+    0x4D78,0x2F13,0x6BC4,0x1AF1,0x5E26,0x3C4D,0x789A,0x47AC,
 };
-static const uint8_t S0[256] = {
-0x3e,0x72,0x5b,0x47,0xca,0xe0,0x00,0x33,0x04,0xd1,0x54,0x98,0x09,0xb9,0x6d,0xcb,
-0x7b,0x1b,0xf9,0x32,0xaf,0x9d,0x6a,0xa5,0xb8,0x2d,0xfc,0x1d,0x08,0x53,0x03,0x90,
-0x4d,0x4e,0x84,0x99,0xe4,0xce,0xd9,0x91,0xdd,0xb6,0x85,0x48,0x8b,0x29,0x6e,0xac,
-0xcd,0xc1,0xf8,0x1e,0x73,0x43,0x69,0xc6,0xb5,0xbd,0xfd,0x39,0x63,0x20,0xd4,0x38,
-0x76,0x7d,0xb2,0xa7,0xcf,0xed,0x57,0xc5,0xf3,0x2c,0xbb,0x14,0x21,0x06,0x55,0x9b,
-0xe3,0xef,0x5e,0x31,0x4f,0x7f,0x5a,0xa4,0x0d,0x82,0x51,0x49,0x5f,0xba,0x58,0x1c,
-0x4a,0x16,0xd5,0x17,0xa8,0x92,0x24,0x1f,0x8c,0xff,0xd8,0xae,0x2e,0x01,0xd3,0xad,
-0x3b,0x4b,0xda,0x46,0xeb,0xc9,0xde,0x9a,0x8f,0x87,0xd7,0x3a,0x80,0x6f,0x2f,0xc8,
-0xb1,0xb4,0x37,0xf7,0x0a,0x22,0x13,0x28,0x7c,0xcc,0x3c,0x89,0xc7,0xc3,0x96,0x56,
-0x07,0xbf,0x7e,0xf0,0x0b,0x2b,0x97,0x52,0x35,0x41,0x79,0x61,0xa6,0x4c,0x10,0xfe,
-0xbc,0x26,0x95,0x88,0x8a,0xb0,0xa3,0xfb,0xc0,0x18,0x94,0xf2,0xe1,0xe5,0xe9,0x5d,
-0xd0,0xdc,0x11,0x66,0x64,0x5c,0xec,0x59,0x42,0x75,0x12,0xf5,0x74,0x9c,0xaa,0x23,
-0x0e,0x86,0xab,0xbe,0x2a,0x02,0xe7,0x67,0xe6,0x44,0xa2,0x6c,0xc2,0x93,0x9f,0xf1,
-0xf6,0xfa,0x36,0xd2,0x50,0x68,0x9e,0x62,0x71,0x15,0x3d,0xd6,0x40,0xc4,0xe2,0x0f,
-0x8e,0x83,0x77,0x6b,0x25,0x05,0x3f,0x0c,0x30,0xea,0x70,0xb7,0xa1,0xe8,0xa9,0x65,
-0x8d,0x27,0x1a,0xdb,0x81,0xb3,0xa0,0xf4,0x45,0x7a,0x19,0xdf,0xee,0x78,0x34,0x60,
+static const uint8_t S0[256] =
+{
+    0x3e,0x72,0x5b,0x47,0xca,0xe0,0x00,0x33,0x04,0xd1,0x54,0x98,0x09,0xb9,0x6d,0xcb,
+    0x7b,0x1b,0xf9,0x32,0xaf,0x9d,0x6a,0xa5,0xb8,0x2d,0xfc,0x1d,0x08,0x53,0x03,0x90,
+    0x4d,0x4e,0x84,0x99,0xe4,0xce,0xd9,0x91,0xdd,0xb6,0x85,0x48,0x8b,0x29,0x6e,0xac,
+    0xcd,0xc1,0xf8,0x1e,0x73,0x43,0x69,0xc6,0xb5,0xbd,0xfd,0x39,0x63,0x20,0xd4,0x38,
+    0x76,0x7d,0xb2,0xa7,0xcf,0xed,0x57,0xc5,0xf3,0x2c,0xbb,0x14,0x21,0x06,0x55,0x9b,
+    0xe3,0xef,0x5e,0x31,0x4f,0x7f,0x5a,0xa4,0x0d,0x82,0x51,0x49,0x5f,0xba,0x58,0x1c,
+    0x4a,0x16,0xd5,0x17,0xa8,0x92,0x24,0x1f,0x8c,0xff,0xd8,0xae,0x2e,0x01,0xd3,0xad,
+    0x3b,0x4b,0xda,0x46,0xeb,0xc9,0xde,0x9a,0x8f,0x87,0xd7,0x3a,0x80,0x6f,0x2f,0xc8,
+    0xb1,0xb4,0x37,0xf7,0x0a,0x22,0x13,0x28,0x7c,0xcc,0x3c,0x89,0xc7,0xc3,0x96,0x56,
+    0x07,0xbf,0x7e,0xf0,0x0b,0x2b,0x97,0x52,0x35,0x41,0x79,0x61,0xa6,0x4c,0x10,0xfe,
+    0xbc,0x26,0x95,0x88,0x8a,0xb0,0xa3,0xfb,0xc0,0x18,0x94,0xf2,0xe1,0xe5,0xe9,0x5d,
+    0xd0,0xdc,0x11,0x66,0x64,0x5c,0xec,0x59,0x42,0x75,0x12,0xf5,0x74,0x9c,0xaa,0x23,
+    0x0e,0x86,0xab,0xbe,0x2a,0x02,0xe7,0x67,0xe6,0x44,0xa2,0x6c,0xc2,0x93,0x9f,0xf1,
+    0xf6,0xfa,0x36,0xd2,0x50,0x68,0x9e,0x62,0x71,0x15,0x3d,0xd6,0x40,0xc4,0xe2,0x0f,
+    0x8e,0x83,0x77,0x6b,0x25,0x05,0x3f,0x0c,0x30,0xea,0x70,0xb7,0xa1,0xe8,0xa9,0x65,
+    0x8d,0x27,0x1a,0xdb,0x81,0xb3,0xa0,0xf4,0x45,0x7a,0x19,0xdf,0xee,0x78,0x34,0x60,
 };
-static const uint8_t S1[256] = {
-0x55,0xc2,0x63,0x71,0x3b,0xc8,0x47,0x86,0x9f,0x3c,0xda,0x5b,0x29,0xaa,0xfd,0x77,
-0x8c,0xc5,0x94,0x0c,0xa6,0x1a,0x13,0x00,0xe3,0xa8,0x16,0x72,0x40,0xf9,0xf8,0x42,
-0x44,0x26,0x68,0x96,0x81,0xd9,0x45,0x3e,0x10,0x76,0xc6,0xa7,0x8b,0x39,0x43,0xe1,
-0x3a,0xb5,0x56,0x2a,0xc0,0x6d,0xb3,0x05,0x22,0x66,0xbf,0xdc,0x0b,0xfa,0x62,0x48,
-0xdd,0x20,0x11,0x06,0x36,0xc9,0xc1,0xcf,0xf6,0x27,0x52,0xbb,0x69,0xf5,0xd4,0x87,
-0x7f,0x84,0x4c,0xd2,0x9c,0x57,0xa4,0xbc,0x4f,0x9a,0xdf,0xfe,0xd6,0x8d,0x7a,0xeb,
-0x2b,0x53,0xd8,0x5c,0xa1,0x14,0x17,0xfb,0x23,0xd5,0x7d,0x30,0x67,0x73,0x08,0x09,
-0xee,0xb7,0x70,0x3f,0x61,0xb2,0x19,0x8e,0x4e,0xe5,0x4b,0x93,0x8f,0x5d,0xdb,0xa9,
-0xad,0xf1,0xae,0x2e,0xcb,0x0d,0xfc,0xf4,0x2d,0x46,0x6e,0x1d,0x97,0xe8,0xd1,0xe9,
-0x4d,0x37,0xa5,0x75,0x5e,0x83,0x9e,0xab,0x82,0x9d,0xb9,0x1c,0xe0,0xcd,0x49,0x89,
-0x01,0xb6,0xbd,0x58,0x24,0xa2,0x5f,0x38,0x78,0x99,0x15,0x90,0x50,0xb8,0x95,0xe4,
-0xd0,0x91,0xc7,0xce,0xed,0x0f,0xb4,0x6f,0xa0,0xcc,0xf0,0x02,0x4a,0x79,0xc3,0xde,
-0xa3,0xef,0xea,0x51,0xe6,0x6b,0x18,0xec,0x1b,0x2c,0x80,0xf7,0x74,0xe7,0xff,0x21,
-0x5a,0x6a,0x54,0x1e,0x41,0x31,0x92,0x35,0xc4,0x33,0x07,0x0a,0xba,0x7e,0x0e,0x34,
-0x88,0xb1,0x98,0x7c,0xf3,0x3d,0x60,0x6c,0x7b,0xca,0xd3,0x1f,0x32,0x65,0x04,0x28,
-0x64,0xbe,0x85,0x9b,0x2f,0x59,0x8a,0xd7,0xb0,0x25,0xac,0xaf,0x12,0x03,0xe2,0xf2,
+static const uint8_t S1[256] =
+{
+    0x55,0xc2,0x63,0x71,0x3b,0xc8,0x47,0x86,0x9f,0x3c,0xda,0x5b,0x29,0xaa,0xfd,0x77,
+    0x8c,0xc5,0x94,0x0c,0xa6,0x1a,0x13,0x00,0xe3,0xa8,0x16,0x72,0x40,0xf9,0xf8,0x42,
+    0x44,0x26,0x68,0x96,0x81,0xd9,0x45,0x3e,0x10,0x76,0xc6,0xa7,0x8b,0x39,0x43,0xe1,
+    0x3a,0xb5,0x56,0x2a,0xc0,0x6d,0xb3,0x05,0x22,0x66,0xbf,0xdc,0x0b,0xfa,0x62,0x48,
+    0xdd,0x20,0x11,0x06,0x36,0xc9,0xc1,0xcf,0xf6,0x27,0x52,0xbb,0x69,0xf5,0xd4,0x87,
+    0x7f,0x84,0x4c,0xd2,0x9c,0x57,0xa4,0xbc,0x4f,0x9a,0xdf,0xfe,0xd6,0x8d,0x7a,0xeb,
+    0x2b,0x53,0xd8,0x5c,0xa1,0x14,0x17,0xfb,0x23,0xd5,0x7d,0x30,0x67,0x73,0x08,0x09,
+    0xee,0xb7,0x70,0x3f,0x61,0xb2,0x19,0x8e,0x4e,0xe5,0x4b,0x93,0x8f,0x5d,0xdb,0xa9,
+    0xad,0xf1,0xae,0x2e,0xcb,0x0d,0xfc,0xf4,0x2d,0x46,0x6e,0x1d,0x97,0xe8,0xd1,0xe9,
+    0x4d,0x37,0xa5,0x75,0x5e,0x83,0x9e,0xab,0x82,0x9d,0xb9,0x1c,0xe0,0xcd,0x49,0x89,
+    0x01,0xb6,0xbd,0x58,0x24,0xa2,0x5f,0x38,0x78,0x99,0x15,0x90,0x50,0xb8,0x95,0xe4,
+    0xd0,0x91,0xc7,0xce,0xed,0x0f,0xb4,0x6f,0xa0,0xcc,0xf0,0x02,0x4a,0x79,0xc3,0xde,
+    0xa3,0xef,0xea,0x51,0xe6,0x6b,0x18,0xec,0x1b,0x2c,0x80,0xf7,0x74,0xe7,0xff,0x21,
+    0x5a,0x6a,0x54,0x1e,0x41,0x31,0x92,0x35,0xc4,0x33,0x07,0x0a,0xba,0x7e,0x0e,0x34,
+    0x88,0xb1,0x98,0x7c,0xf3,0x3d,0x60,0x6c,0x7b,0xca,0xd3,0x1f,0x32,0x65,0x04,0x28,
+    0x64,0xbe,0x85,0x9b,0x2f,0x59,0x8a,0xd7,0xb0,0x25,0xac,0xaf,0x12,0x03,0xe2,0xf2,
 };
 void ZUC_set_key(ZUC_KEY *key, const unsigned char *user_key, const unsigned char *iv)
 {
-ZUC_UINT31 *LFSR = key->LFSR;
-uint32_t R1, R2;
-uint32_t X0, X1, X2;
-uint32_t W, W1, W2, U, V;
-int i;
-for (i = 0; i < 16; i++) {
-LFSR[i] = (((uint32_t)(user_key[i]) << 23) | ((uint32_t)(KD[i]) << 8) | (uint32_t)(iv[i]));
-}
-R1 = 0;
-R2 = 0;
-for (i = 0; i < 32; i++) {
-X0 = ((LFSR[15] & 0x7FFF8000) << 1) | (LFSR[14] & 0xFFFF); X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15); X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15);
-W = (X0 ^ R1) + R2; W1 = R1 + X1; W2 = R2 ^ X2; U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24))))); V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30))))); R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF]))); R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
-V = LFSR[0]; V += (((((LFSR[0]) << (8)) | ((LFSR[0]) >> (31 - (8)))) & 0x7FFFFFFF)); V = (V & 0x7fffffff) + (V >> 31); V += (((((LFSR[4]) << (20)) | ((LFSR[4]) >> (31 - (20)))) & 0x7FFFFFFF)); V = (V & 0x7fffffff) + (V >> 31); V += (((((LFSR[10]) << (21)) | ((LFSR[10]) >> (31 - (21)))) & 0x7FFFFFFF)); V = (V & 0x7fffffff) + (V >> 31); V += (((((LFSR[13]) << (17)) | ((LFSR[13]) >> (31 - (17)))) & 0x7FFFFFFF)); V = (V & 0x7fffffff) + (V >> 31); V += (((((LFSR[15]) << (15)) | ((LFSR[15]) >> (31 - (15)))) & 0x7FFFFFFF)); V = (V & 0x7fffffff) + (V >> 31); V += ((W >> 1)); V = (V & 0x7fffffff) + (V >> 31); {int j; for (j=0; j<15;j++) LFSR[j]=LFSR[j+1];} LFSR[15] = V;
-}
-X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15); X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15);
-W1 = R1 + X1; W2 = R2 ^ X2; U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24))))); V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30))))); R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF]))); R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
-{ int j; uint64_t a = LFSR[0]; a += ((uint64_t)LFSR[0]) << 8; a += ((uint64_t)LFSR[4]) << 20; a += ((uint64_t)LFSR[10]) << 21; a += ((uint64_t)LFSR[13]) << 17; a += ((uint64_t)LFSR[15]) << 15; a = (a & 0x7fffffff) + (a >> 31); V = (a & 0x7fffffff) + (a >> 31); for (j = 0; j < 15; j++) LFSR[j] = LFSR[j+1]; LFSR[15] = V; };
-key->R1 = R1;
-key->R2 = R2;
+    ZUC_UINT31 *LFSR = key->LFSR;
+    uint32_t R1, R2;
+    uint32_t X0, X1, X2;
+    uint32_t W, W1, W2, U, V;
+    int i;
+    for (i = 0; i < 16; i++)
+    {
+        LFSR[i] = (((uint32_t)(user_key[i]) << 23) | ((uint32_t)(KD[i]) << 8) | (uint32_t)(iv[i]));
+    }
+    R1 = 0;
+    R2 = 0;
+    for (i = 0; i < 32; i++)
+    {
+        X0 = ((LFSR[15] & 0x7FFF8000) << 1) | (LFSR[14] & 0xFFFF);
+        X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15);
+        X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15);
+        W = (X0 ^ R1) + R2;
+        W1 = R1 + X1;
+        W2 = R2 ^ X2;
+        U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24)))));
+        V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30)))));
+        R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF])));
+        R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
+        V = LFSR[0];
+        V += (((((LFSR[0]) << (8)) | ((LFSR[0]) >> (31 - (8)))) & 0x7FFFFFFF));
+        V = (V & 0x7fffffff) + (V >> 31);
+        V += (((((LFSR[4]) << (20)) | ((LFSR[4]) >> (31 - (20)))) & 0x7FFFFFFF));
+        V = (V & 0x7fffffff) + (V >> 31);
+        V += (((((LFSR[10]) << (21)) | ((LFSR[10]) >> (31 - (21)))) & 0x7FFFFFFF));
+        V = (V & 0x7fffffff) + (V >> 31);
+        V += (((((LFSR[13]) << (17)) | ((LFSR[13]) >> (31 - (17)))) & 0x7FFFFFFF));
+        V = (V & 0x7fffffff) + (V >> 31);
+        V += (((((LFSR[15]) << (15)) | ((LFSR[15]) >> (31 - (15)))) & 0x7FFFFFFF));
+        V = (V & 0x7fffffff) + (V >> 31);
+        V += ((W >> 1));
+        V = (V & 0x7fffffff) + (V >> 31);
+        {
+            int j;
+            for (j=0; j<15; j++) LFSR[j]=LFSR[j+1];
+        }
+        LFSR[15] = V;
+    }
+    X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15);
+    X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15);
+    W1 = R1 + X1;
+    W2 = R2 ^ X2;
+    U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24)))));
+    V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30)))));
+    R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF])));
+    R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
+    {
+        int j;
+        uint64_t a = LFSR[0];
+        a += ((uint64_t)LFSR[0]) << 8;
+        a += ((uint64_t)LFSR[4]) << 20;
+        a += ((uint64_t)LFSR[10]) << 21;
+        a += ((uint64_t)LFSR[13]) << 17;
+        a += ((uint64_t)LFSR[15]) << 15;
+        a = (a & 0x7fffffff) + (a >> 31);
+        V = (a & 0x7fffffff) + (a >> 31);
+        for (j = 0; j < 15; j++) LFSR[j] = LFSR[j+1];
+        LFSR[15] = V;
+    };
+    key->R1 = R1;
+    key->R2 = R2;
 }
 uint32_t ZUC_generate_keyword(ZUC_KEY *key)
 {
-ZUC_UINT31 *LFSR = key->LFSR;
-uint32_t R1 = key->R1;
-uint32_t R2 = key->R2;
-uint32_t X0, X1, X2, X3;
-uint32_t W1, W2, U, V;
-uint32_t Z;
-X0 = ((LFSR[15] & 0x7FFF8000) << 1) | (LFSR[14] & 0xFFFF); X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15); X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15); X3 = ((LFSR[2] & 0xFFFF) << 16) | (LFSR[0] >> 15);
-Z = X3 ^ (X0 ^ R1) + R2; W1 = R1 + X1; W2 = R2 ^ X2; U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24))))); V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30))))); R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF]))); R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
-{ int j; uint64_t a = LFSR[0]; a += ((uint64_t)LFSR[0]) << 8; a += ((uint64_t)LFSR[4]) << 20; a += ((uint64_t)LFSR[10]) << 21; a += ((uint64_t)LFSR[13]) << 17; a += ((uint64_t)LFSR[15]) << 15; a = (a & 0x7fffffff) + (a >> 31); V = (a & 0x7fffffff) + (a >> 31); for (j = 0; j < 15; j++) LFSR[j] = LFSR[j+1]; LFSR[15] = V; };
-key->R1 = R1;
-key->R2 = R2;
-return Z;
+    ZUC_UINT31 *LFSR = key->LFSR;
+    uint32_t R1 = key->R1;
+    uint32_t R2 = key->R2;
+    uint32_t X0, X1, X2, X3;
+    uint32_t W1, W2, U, V;
+    uint32_t Z;
+    X0 = ((LFSR[15] & 0x7FFF8000) << 1) | (LFSR[14] & 0xFFFF);
+    X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15);
+    X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15);
+    X3 = ((LFSR[2] & 0xFFFF) << 16) | (LFSR[0] >> 15);
+    Z = X3 ^ (X0 ^ R1) + R2;
+    W1 = R1 + X1;
+    W2 = R2 ^ X2;
+    U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24)))));
+    V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30)))));
+    R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF])));
+    R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
+    {
+        int j;
+        uint64_t a = LFSR[0];
+        a += ((uint64_t)LFSR[0]) << 8;
+        a += ((uint64_t)LFSR[4]) << 20;
+        a += ((uint64_t)LFSR[10]) << 21;
+        a += ((uint64_t)LFSR[13]) << 17;
+        a += ((uint64_t)LFSR[15]) << 15;
+        a = (a & 0x7fffffff) + (a >> 31);
+        V = (a & 0x7fffffff) + (a >> 31);
+        for (j = 0; j < 15; j++) LFSR[j] = LFSR[j+1];
+        LFSR[15] = V;
+    };
+    key->R1 = R1;
+    key->R2 = R2;
+    return Z;
 }
 void ZUC_generate_keystream(ZUC_KEY *key, size_t nwords, uint32_t *keystream)
 {
-ZUC_UINT31 *LFSR = key->LFSR;
-uint32_t R1 = key->R1;
-uint32_t R2 = key->R2;
-uint32_t X0, X1, X2, X3;
-uint32_t W1, W2, U, V;
-size_t i;
-for (i = 0; i < nwords; i ++) {
-X0 = ((LFSR[15] & 0x7FFF8000) << 1) | (LFSR[14] & 0xFFFF); X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15); X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15); X3 = ((LFSR[2] & 0xFFFF) << 16) | (LFSR[0] >> 15);
-keystream[i] = X3 ^ (X0 ^ R1) + R2; W1 = R1 + X1; W2 = R2 ^ X2; U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24))))); V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30))))); R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF]))); R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
-{ int j; uint64_t a = LFSR[0]; a += ((uint64_t)LFSR[0]) << 8; a += ((uint64_t)LFSR[4]) << 20; a += ((uint64_t)LFSR[10]) << 21; a += ((uint64_t)LFSR[13]) << 17; a += ((uint64_t)LFSR[15]) << 15; a = (a & 0x7fffffff) + (a >> 31); V = (a & 0x7fffffff) + (a >> 31); for (j = 0; j < 15; j++) LFSR[j] = LFSR[j+1]; LFSR[15] = V; };
-}
-key->R1 = R1;
-key->R2 = R2;
+    ZUC_UINT31 *LFSR = key->LFSR;
+    uint32_t R1 = key->R1;
+    uint32_t R2 = key->R2;
+    uint32_t X0, X1, X2, X3;
+    uint32_t W1, W2, U, V;
+    size_t i;
+    for (i = 0; i < nwords; i ++)
+    {
+        X0 = ((LFSR[15] & 0x7FFF8000) << 1) | (LFSR[14] & 0xFFFF);
+        X1 = ((LFSR[11] & 0xFFFF) << 16) | (LFSR[9] >> 15);
+        X2 = ((LFSR[7] & 0xFFFF) << 16) | (LFSR[5] >> 15);
+        X3 = ((LFSR[2] & 0xFFFF) << 16) | (LFSR[0] >> 15);
+        keystream[i] = X3 ^ (X0 ^ R1) + R2;
+        W1 = R1 + X1;
+        W2 = R2 ^ X2;
+        U = (((W1 << 16) | (W2 >> 16)) ^ (((((W1 << 16) | (W2 >> 16))) << (2)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (2)))) ^ (((((W1 << 16) | (W2 >> 16))) << (10)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (10)))) ^ (((((W1 << 16) | (W2 >> 16))) << (18)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (18)))) ^ (((((W1 << 16) | (W2 >> 16))) << (24)) | ((((W1 << 16) | (W2 >> 16))) >> (32 - (24)))));
+        V = (((W2 << 16) | (W1 >> 16)) ^ (((((W2 << 16) | (W1 >> 16))) << (8)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (8)))) ^ (((((W2 << 16) | (W1 >> 16))) << (14)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (14)))) ^ (((((W2 << 16) | (W1 >> 16))) << (22)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (22)))) ^ (((((W2 << 16) | (W1 >> 16))) << (30)) | ((((W2 << 16) | (W1 >> 16))) >> (32 - (30)))));
+        R1 = (((uint32_t)(S0[U >> 24]) << 24) | ((uint32_t)(S1[(U >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(U >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[U & 0xFF])));
+        R2 = (((uint32_t)(S0[V >> 24]) << 24) | ((uint32_t)(S1[(V >> 16) & 0xFF]) << 16) | ((uint32_t)(S0[(V >> 8) & 0xFF]) << 8) | ((uint32_t)(S1[V & 0xFF])));
+        {
+            int j;
+            uint64_t a = LFSR[0];
+            a += ((uint64_t)LFSR[0]) << 8;
+            a += ((uint64_t)LFSR[4]) << 20;
+            a += ((uint64_t)LFSR[10]) << 21;
+            a += ((uint64_t)LFSR[13]) << 17;
+            a += ((uint64_t)LFSR[15]) << 15;
+            a = (a & 0x7fffffff) + (a >> 31);
+            V = (a & 0x7fffffff) + (a >> 31);
+            for (j = 0; j < 15; j++) LFSR[j] = LFSR[j+1];
+            LFSR[15] = V;
+        };
+    }
+    key->R1 = R1;
+    key->R2 = R2;
 }

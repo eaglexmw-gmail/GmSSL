@@ -165,11 +165,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -205,34 +205,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -247,15 +249,16 @@ wchar_t * locale_name[6];
 #line 2058 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 21 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma pack(push,8)
-struct _iobuf {
-char *_ptr;
-int   _cnt;
-char *_base;
-int   _flag;
-int   _file;
-int   _charbuf;
-int   _bufsiz;
-char *_tmpfname;
+struct _iobuf
+{
+    char *_ptr;
+    int   _cnt;
+    char *_base;
+    int   _flag;
+    int   _file;
+    int   _charbuf;
+    int   _bufsiz;
+    char *_tmpfname;
 };
 typedef struct _iobuf FILE;
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -285,7 +288,7 @@ int __cdecl ferror(  FILE * _File);
 int __cdecl fflush(  FILE * _File);
 int __cdecl fgetc(  FILE * _File);
 int __cdecl _fgetchar(void);
-int __cdecl fgetpos(  FILE * _File ,   fpos_t * _Pos);
+int __cdecl fgetpos(  FILE * _File,   fpos_t * _Pos);
 char * __cdecl fgets(  char * _Buf,   int _MaxCount,   FILE * _File);
 int __cdecl _fileno(  FILE * _File);
 #line 205 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -396,13 +399,15 @@ int __cdecl vsnprintf_s(  char * _DstBuf,   size_t _DstSize,   size_t _MaxCount,
 int __cdecl _vsnprintf_s(  char * _DstBuf,   size_t _SizeInBytes,   size_t _MaxCount,     const char * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);   int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
+int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);
+int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl vsprintf_s(  char * _DstBuf,   size_t _SizeInBytes,     const char * _Format, va_list _ArgList);
 #line 355 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);   int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
+int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);
+int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _vscprintf(    const char * _Format, va_list _ArgList);
 int __cdecl _snprintf_c(  char * _DstBuf,   size_t _MaxCount,     const char * _Format, ...);
@@ -485,7 +490,8 @@ int __cdecl _snwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _M
 int __cdecl _vsnwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _MaxCount,     const wchar_t * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);   int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
+int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);
+int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _fwprintf_p(  FILE * _File,     const wchar_t * _Format, ...);
 int __cdecl _wprintf_p(    const wchar_t * _Format, ...);
@@ -523,8 +529,10 @@ int __cdecl _vsnwprintf_s_l(  wchar_t * _DstBuf,   size_t _DstSize,   size_t _Ma
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4141 4996 4793)
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
 #pragma warning(pop)
 #line 1 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
 #pragma once
@@ -534,19 +542,19 @@ __declspec(deprecated("swprintf has been changed to conform with the ISO C stand
 #pragma warning( disable : 4793 4412 )
 static __inline int swprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl vswprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 }
 #pragma warning( pop )
 #line 57 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -554,19 +562,19 @@ return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 #pragma warning( disable : 4793 4412 )
 static __inline int _swprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl _vswprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
 }
 #pragma warning( pop )
 #line 128 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -600,7 +608,7 @@ int __cdecl wscanf_s(    const wchar_t * _Format, ...);
 #line 583 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 int __cdecl _wscanf_s_l(    const wchar_t * _Format,   _locale_t _Locale, ...);
 #pragma warning(pop)
-FILE * __cdecl _wfdopen(  int _FileHandle ,   const wchar_t * _Mode);
+FILE * __cdecl _wfdopen(  int _FileHandle,   const wchar_t * _Mode);
 FILE * __cdecl _wfopen(  const wchar_t * _Filename,   const wchar_t * _Mode);
 errno_t __cdecl _wfopen_s(  FILE ** _File,   const wchar_t * _Filename,   const wchar_t * _Mode);
 FILE * __cdecl _wfreopen(  const wchar_t * _Filename,   const wchar_t * _Mode,   FILE * _OldFile);
@@ -689,15 +697,15 @@ __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use 
 #pragma once
 #line 23 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 32 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned short _ino_t;          
+typedef unsigned short _ino_t;
 typedef unsigned short ino_t;
 #line 67 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 70 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned int _dev_t;            
+typedef unsigned int _dev_t;
 typedef unsigned int dev_t;
 #line 80 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 83 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef long _off_t;                    
+typedef long _off_t;
 typedef long off_t;
 #line 93 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 96 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
@@ -797,7 +805,7 @@ typedef unsigned long long uintmax_t;
 #line 21 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 30 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 void *  __cdecl _memccpy(   void * _Dst,   const void * _Src,   int _Val,   size_t _MaxCount);
-void *  __cdecl memchr(   const void * _Buf ,   int _Val,   size_t _MaxCount);
+void *  __cdecl memchr(   const void * _Buf,   int _Val,   size_t _MaxCount);
 int     __cdecl _memicmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
 int     __cdecl _memicmp_l(  const void * _Buf1,   const void * _Buf2,   size_t _Size,   _locale_t _Locale);
 int     __cdecl memcmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
@@ -825,7 +833,7 @@ size_t  __cdecl strnlen(  const char * _Str,   size_t _MaxCount);
 static __inline
 size_t  __cdecl strnlen_s(  const char * _Str,   size_t _MaxCount)
 {
-return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
+    return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
 }
 #line 131 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl memmove_s(  void * _Dst,   rsize_t _DstSize,   const void * _Src,   rsize_t _MaxCount);
@@ -913,7 +921,7 @@ size_t __cdecl wcsnlen(  const wchar_t * _Src,   size_t _MaxCount);
 static __inline
 size_t __cdecl wcsnlen_s(  const wchar_t * _Src,   size_t _MaxCount)
 {
-return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
+    return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
 }
 #line 304 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl wcsncat_s(  wchar_t * _Dst,   rsize_t _SizeInWords,   const wchar_t * _Src,   rsize_t _MaxCount);
@@ -979,8 +987,9 @@ __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use 
 #line 420 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 427 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 64 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sms4.h"
-typedef struct {
-uint32_t rk[32];
+typedef struct
+{
+    uint32_t rk[32];
 } sms4_key_t;
 void sms4_set_encrypt_key(sms4_key_t *key, const unsigned char *user_key);
 void sms4_set_decrypt_key(sms4_key_t *key, const unsigned char *user_key);
@@ -989,20 +998,20 @@ void sms4_encrypt_init(sms4_key_t *key);
 void sms4_encrypt_8blocks(const unsigned char *in, unsigned char *out, const sms4_key_t *key);
 void sms4_encrypt_16blocks(const unsigned char *in, unsigned char *out, const sms4_key_t *key);
 void sms4_ecb_encrypt(const unsigned char *in, unsigned char *out,
-const sms4_key_t *key, int enc);
+                      const sms4_key_t *key, int enc);
 void sms4_cbc_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv, int enc);
+                      size_t len, const sms4_key_t *key, unsigned char *iv, int enc);
 void sms4_cfb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv, int *num, int enc);
+                         size_t len, const sms4_key_t *key, unsigned char *iv, int *num, int enc);
 void sms4_ofb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv, int *num);
+                         size_t len, const sms4_key_t *key, unsigned char *iv, int *num);
 void sms4_ctr128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv,
-unsigned char ecount_buf[16], unsigned int *num);
+                         size_t len, const sms4_key_t *key, unsigned char *iv,
+                         unsigned char ecount_buf[16], unsigned int *num);
 int sms4_wrap_key(sms4_key_t *key, const unsigned char *iv,
-unsigned char *out, const unsigned char *in, unsigned int inlen);
+                  unsigned char *out, const unsigned char *in, unsigned int inlen);
 int sms4_unwrap_key(sms4_key_t *key, const unsigned char *iv,
-unsigned char *out, const unsigned char *in, unsigned int inlen);
+                    unsigned char *out, const unsigned char *in, unsigned int inlen);
 #line 130 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sms4.h"
 #line 131 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sms4.h"
 #line 52 "crypto\\sms4\\sms4_enc.c"
@@ -1017,16 +1026,123 @@ void sms4_init_sbox32(void);
 #line 53 "crypto\\sms4\\sms4_enc.c"
 void sms4_encrypt(const unsigned char *in, unsigned char *out, const sms4_key_t *key)
 {
-const uint32_t *rk = key->rk;
-uint32_t x0, x1, x2, x3, x4;
-x0 = ( ((uint32_t)(in)[0] << 24) ^ ((uint32_t)(in)[1] << 16) ^ ((uint32_t)(in)[2] << 8) ^ ((uint32_t)(in)[3]));
-x1 = ( ((uint32_t)(in + 4)[0] << 24) ^ ((uint32_t)(in + 4)[1] << 16) ^ ((uint32_t)(in + 4)[2] << 8) ^ ((uint32_t)(in + 4)[3]));
-x2 = ( ((uint32_t)(in + 8)[0] << 24) ^ ((uint32_t)(in + 8)[1] << 16) ^ ((uint32_t)(in + 8)[2] << 8) ^ ((uint32_t)(in + 8)[3]));
-x3 = ( ((uint32_t)(in + 12)[0] << 24) ^ ((uint32_t)(in + 12)[1] << 16) ^ ((uint32_t)(in + 12)[2] << 8) ^ ((uint32_t)(in + 12)[3]));
-x4 = x1 ^ x2 ^ x3 ^ *(rk + 0); x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff])); x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24)))); x0 = x2 ^ x3 ^ x4 ^ *(rk + 1); x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff])); x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24)))); x1 = x3 ^ x4 ^ x0 ^ *(rk + 2); x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff])); x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24)))); x2 = x4 ^ x0 ^ x1 ^ *(rk + 3); x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff])); x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24)))); x3 = x0 ^ x1 ^ x2 ^ *(rk + 4); x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff])); x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24)))); x4 = x1 ^ x2 ^ x3 ^ *(rk + 5); x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff])); x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24)))); x0 = x2 ^ x3 ^ x4 ^ *(rk + 6); x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff])); x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24)))); x1 = x3 ^ x4 ^ x0 ^ *(rk + 7); x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff])); x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24)))); x2 = x4 ^ x0 ^ x1 ^ *(rk + 8); x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff])); x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24)))); x3 = x0 ^ x1 ^ x2 ^ *(rk + 9); x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff])); x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24)))); x4 = x1 ^ x2 ^ x3 ^ *(rk + 10); x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff])); x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24)))); x0 = x2 ^ x3 ^ x4 ^ *(rk + 11); x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff])); x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24)))); x1 = x3 ^ x4 ^ x0 ^ *(rk + 12); x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff])); x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24)))); x2 = x4 ^ x0 ^ x1 ^ *(rk + 13); x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff])); x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24)))); x3 = x0 ^ x1 ^ x2 ^ *(rk + 14); x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff])); x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24)))); x4 = x1 ^ x2 ^ x3 ^ *(rk + 15); x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff])); x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24)))); x0 = x2 ^ x3 ^ x4 ^ *(rk + 16); x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff])); x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24)))); x1 = x3 ^ x4 ^ x0 ^ *(rk + 17); x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff])); x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24)))); x2 = x4 ^ x0 ^ x1 ^ *(rk + 18); x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff])); x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24)))); x3 = x0 ^ x1 ^ x2 ^ *(rk + 19); x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff])); x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24)))); x4 = x1 ^ x2 ^ x3 ^ *(rk + 20); x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff])); x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24)))); x0 = x2 ^ x3 ^ x4 ^ *(rk + 21); x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff])); x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24)))); x1 = x3 ^ x4 ^ x0 ^ *(rk + 22); x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff])); x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24)))); x2 = x4 ^ x0 ^ x1 ^ *(rk + 23); x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff])); x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24)))); x3 = x0 ^ x1 ^ x2 ^ *(rk + 24); x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff])); x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24)))); x4 = x1 ^ x2 ^ x3 ^ *(rk + 25); x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff])); x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24)))); x0 = x2 ^ x3 ^ x4 ^ *(rk + 26); x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff])); x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24)))); x1 = x3 ^ x4 ^ x0 ^ *(rk + 27); x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff])); x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24)))); x2 = x4 ^ x0 ^ x1 ^ *(rk + 28); x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff])); x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24)))); x3 = x0 ^ x1 ^ x2 ^ *(rk + 29); x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff])); x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24)))); x4 = x1 ^ x2 ^ x3 ^ *(rk + 30); x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff])); x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24)))); x0 = x2 ^ x3 ^ x4 ^ *(rk + 31); x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff])); x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
-(out)[0] = (uint8_t)((x0) >> 24); (out)[1] = (uint8_t)((x0) >> 16); (out)[2] = (uint8_t)((x0) >> 8); (out)[3] = (uint8_t)(x0);
-(out + 4)[0] = (uint8_t)((x4) >> 24); (out + 4)[1] = (uint8_t)((x4) >> 16); (out + 4)[2] = (uint8_t)((x4) >> 8); (out + 4)[3] = (uint8_t)(x4);
-(out + 8)[0] = (uint8_t)((x3) >> 24); (out + 8)[1] = (uint8_t)((x3) >> 16); (out + 8)[2] = (uint8_t)((x3) >> 8); (out + 8)[3] = (uint8_t)(x3);
-(out + 12)[0] = (uint8_t)((x2) >> 24); (out + 12)[1] = (uint8_t)((x2) >> 16); (out + 12)[2] = (uint8_t)((x2) >> 8); (out + 12)[3] = (uint8_t)(x2);
-x0 = x1 = x2 = x3 = x4 = 0;
+    const uint32_t *rk = key->rk;
+    uint32_t x0, x1, x2, x3, x4;
+    x0 = ( ((uint32_t)(in)[0] << 24) ^ ((uint32_t)(in)[1] << 16) ^ ((uint32_t)(in)[2] << 8) ^ ((uint32_t)(in)[3]));
+    x1 = ( ((uint32_t)(in + 4)[0] << 24) ^ ((uint32_t)(in + 4)[1] << 16) ^ ((uint32_t)(in + 4)[2] << 8) ^ ((uint32_t)(in + 4)[3]));
+    x2 = ( ((uint32_t)(in + 8)[0] << 24) ^ ((uint32_t)(in + 8)[1] << 16) ^ ((uint32_t)(in + 8)[2] << 8) ^ ((uint32_t)(in + 8)[3]));
+    x3 = ( ((uint32_t)(in + 12)[0] << 24) ^ ((uint32_t)(in + 12)[1] << 16) ^ ((uint32_t)(in + 12)[2] << 8) ^ ((uint32_t)(in + 12)[3]));
+    x4 = x1 ^ x2 ^ x3 ^ *(rk + 0);
+    x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff]));
+    x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24))));
+    x0 = x2 ^ x3 ^ x4 ^ *(rk + 1);
+    x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff]));
+    x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
+    x1 = x3 ^ x4 ^ x0 ^ *(rk + 2);
+    x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff]));
+    x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24))));
+    x2 = x4 ^ x0 ^ x1 ^ *(rk + 3);
+    x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff]));
+    x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24))));
+    x3 = x0 ^ x1 ^ x2 ^ *(rk + 4);
+    x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff]));
+    x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24))));
+    x4 = x1 ^ x2 ^ x3 ^ *(rk + 5);
+    x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff]));
+    x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24))));
+    x0 = x2 ^ x3 ^ x4 ^ *(rk + 6);
+    x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff]));
+    x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
+    x1 = x3 ^ x4 ^ x0 ^ *(rk + 7);
+    x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff]));
+    x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24))));
+    x2 = x4 ^ x0 ^ x1 ^ *(rk + 8);
+    x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff]));
+    x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24))));
+    x3 = x0 ^ x1 ^ x2 ^ *(rk + 9);
+    x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff]));
+    x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24))));
+    x4 = x1 ^ x2 ^ x3 ^ *(rk + 10);
+    x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff]));
+    x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24))));
+    x0 = x2 ^ x3 ^ x4 ^ *(rk + 11);
+    x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff]));
+    x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
+    x1 = x3 ^ x4 ^ x0 ^ *(rk + 12);
+    x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff]));
+    x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24))));
+    x2 = x4 ^ x0 ^ x1 ^ *(rk + 13);
+    x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff]));
+    x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24))));
+    x3 = x0 ^ x1 ^ x2 ^ *(rk + 14);
+    x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff]));
+    x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24))));
+    x4 = x1 ^ x2 ^ x3 ^ *(rk + 15);
+    x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff]));
+    x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24))));
+    x0 = x2 ^ x3 ^ x4 ^ *(rk + 16);
+    x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff]));
+    x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
+    x1 = x3 ^ x4 ^ x0 ^ *(rk + 17);
+    x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff]));
+    x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24))));
+    x2 = x4 ^ x0 ^ x1 ^ *(rk + 18);
+    x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff]));
+    x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24))));
+    x3 = x0 ^ x1 ^ x2 ^ *(rk + 19);
+    x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff]));
+    x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24))));
+    x4 = x1 ^ x2 ^ x3 ^ *(rk + 20);
+    x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff]));
+    x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24))));
+    x0 = x2 ^ x3 ^ x4 ^ *(rk + 21);
+    x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff]));
+    x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
+    x1 = x3 ^ x4 ^ x0 ^ *(rk + 22);
+    x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff]));
+    x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24))));
+    x2 = x4 ^ x0 ^ x1 ^ *(rk + 23);
+    x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff]));
+    x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24))));
+    x3 = x0 ^ x1 ^ x2 ^ *(rk + 24);
+    x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff]));
+    x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24))));
+    x4 = x1 ^ x2 ^ x3 ^ *(rk + 25);
+    x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff]));
+    x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24))));
+    x0 = x2 ^ x3 ^ x4 ^ *(rk + 26);
+    x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff]));
+    x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
+    x1 = x3 ^ x4 ^ x0 ^ *(rk + 27);
+    x1 = ((SBOX[((x1) >> 24) ] << 24) ^ (SBOX[((x1) >> 16) & 0xff] << 16) ^ (SBOX[((x1) >> 8) & 0xff] << 8) ^ (SBOX[((x1)) & 0xff]));
+    x1 = x2 ^ ((x1) ^ ((((x1)) << 2) | (((x1)) >> (32-2))) ^ ((((x1)) << 10) | (((x1)) >> (32-10))) ^ ((((x1)) << 18) | (((x1)) >> (32-18))) ^ ((((x1)) << 24) | (((x1)) >> (32-24))));
+    x2 = x4 ^ x0 ^ x1 ^ *(rk + 28);
+    x2 = ((SBOX[((x2) >> 24) ] << 24) ^ (SBOX[((x2) >> 16) & 0xff] << 16) ^ (SBOX[((x2) >> 8) & 0xff] << 8) ^ (SBOX[((x2)) & 0xff]));
+    x2 = x3 ^ ((x2) ^ ((((x2)) << 2) | (((x2)) >> (32-2))) ^ ((((x2)) << 10) | (((x2)) >> (32-10))) ^ ((((x2)) << 18) | (((x2)) >> (32-18))) ^ ((((x2)) << 24) | (((x2)) >> (32-24))));
+    x3 = x0 ^ x1 ^ x2 ^ *(rk + 29);
+    x3 = ((SBOX[((x3) >> 24) ] << 24) ^ (SBOX[((x3) >> 16) & 0xff] << 16) ^ (SBOX[((x3) >> 8) & 0xff] << 8) ^ (SBOX[((x3)) & 0xff]));
+    x3 = x4 ^ ((x3) ^ ((((x3)) << 2) | (((x3)) >> (32-2))) ^ ((((x3)) << 10) | (((x3)) >> (32-10))) ^ ((((x3)) << 18) | (((x3)) >> (32-18))) ^ ((((x3)) << 24) | (((x3)) >> (32-24))));
+    x4 = x1 ^ x2 ^ x3 ^ *(rk + 30);
+    x4 = ((SBOX[((x4) >> 24) ] << 24) ^ (SBOX[((x4) >> 16) & 0xff] << 16) ^ (SBOX[((x4) >> 8) & 0xff] << 8) ^ (SBOX[((x4)) & 0xff]));
+    x4 = x0 ^ ((x4) ^ ((((x4)) << 2) | (((x4)) >> (32-2))) ^ ((((x4)) << 10) | (((x4)) >> (32-10))) ^ ((((x4)) << 18) | (((x4)) >> (32-18))) ^ ((((x4)) << 24) | (((x4)) >> (32-24))));
+    x0 = x2 ^ x3 ^ x4 ^ *(rk + 31);
+    x0 = ((SBOX[((x0) >> 24) ] << 24) ^ (SBOX[((x0) >> 16) & 0xff] << 16) ^ (SBOX[((x0) >> 8) & 0xff] << 8) ^ (SBOX[((x0)) & 0xff]));
+    x0 = x1 ^ ((x0) ^ ((((x0)) << 2) | (((x0)) >> (32-2))) ^ ((((x0)) << 10) | (((x0)) >> (32-10))) ^ ((((x0)) << 18) | (((x0)) >> (32-18))) ^ ((((x0)) << 24) | (((x0)) >> (32-24))));
+    (out)[0] = (uint8_t)((x0) >> 24);
+    (out)[1] = (uint8_t)((x0) >> 16);
+    (out)[2] = (uint8_t)((x0) >> 8);
+    (out)[3] = (uint8_t)(x0);
+    (out + 4)[0] = (uint8_t)((x4) >> 24);
+    (out + 4)[1] = (uint8_t)((x4) >> 16);
+    (out + 4)[2] = (uint8_t)((x4) >> 8);
+    (out + 4)[3] = (uint8_t)(x4);
+    (out + 8)[0] = (uint8_t)((x3) >> 24);
+    (out + 8)[1] = (uint8_t)((x3) >> 16);
+    (out + 8)[2] = (uint8_t)((x3) >> 8);
+    (out + 8)[3] = (uint8_t)(x3);
+    (out + 12)[0] = (uint8_t)((x2) >> 24);
+    (out + 12)[1] = (uint8_t)((x2) >> 16);
+    (out + 12)[2] = (uint8_t)((x2) >> 8);
+    (out + 12)[3] = (uint8_t)(x2);
+    x0 = x1 = x2 = x3 = x4 = 0;
 }

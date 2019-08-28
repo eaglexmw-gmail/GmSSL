@@ -166,11 +166,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -206,34 +206,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -382,16 +384,17 @@ typedef unsigned long long uintmax_t;
 #line 46 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.h"
 typedef long clock_t;
 #line 85 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.h"
-struct tm {
-int tm_sec;     
-int tm_min;     
-int tm_hour;    
-int tm_mday;    
-int tm_mon;     
-int tm_year;    
-int tm_wday;    
-int tm_yday;    
-int tm_isdst;   
+struct tm
+{
+    int tm_sec;
+    int tm_min;
+    int tm_hour;
+    int tm_mday;
+    int tm_mon;
+    int tm_year;
+    int tm_wday;
+    int tm_yday;
+    int tm_isdst;
 };
 #line 119 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.h"
 int* __cdecl __daylight(void);
@@ -417,7 +420,7 @@ size_t __cdecl strftime(  char * _Buf,   size_t _SizeInBytes,     const char * _
 size_t __cdecl _strftime_l(    char *_Buf,   size_t _Max_size,     const char * _Format,   const struct tm *_Tm,   _locale_t _Locale);
 errno_t __cdecl _strdate_s(    char *_Buf,   size_t _SizeInBytes);
 char * __cdecl _strdate( char *_Buffer);
-errno_t __cdecl _strtime_s(    char *_Buf ,   size_t _SizeInBytes);
+errno_t __cdecl _strtime_s(    char *_Buf,   size_t _SizeInBytes);
 char * __cdecl _strtime( char *_Buffer);
 __time32_t __cdecl _time32(  __time32_t * _Time);
 __time32_t __cdecl _mktime32(  struct tm * _Tm);
@@ -459,12 +462,12 @@ static __inline wchar_t * __cdecl _wctime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _wctime64(_Time);
+    return _wctime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl _wctime_s(wchar_t *_Buffer, size_t _SizeInWords, const time_t * _Time)
 {
-return _wctime64_s(_Buffer, _SizeInWords, _Time);
+    return _wctime64_s(_Buffer, _SizeInWords, _Time);
 }
 #line 57 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\wtime.inl"
 #pragma warning(pop)
@@ -478,54 +481,54 @@ return _wctime64_s(_Buffer, _SizeInWords, _Time);
 #line 22 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 static __inline double __cdecl difftime(time_t _Time1, time_t _Time2)
 {
-return _difftime64(_Time1,_Time2);
+    return _difftime64(_Time1,_Time2);
 }
 static __inline char * __cdecl ctime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _ctime64(_Time);
+    return _ctime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl ctime_s(char *_Buffer, size_t _SizeInBytes, const time_t * _Time)
 {
-return _ctime64_s(_Buffer, _SizeInBytes, _Time);
+    return _ctime64_s(_Buffer, _SizeInBytes, _Time);
 }
 #line 99 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 static __inline struct tm * __cdecl gmtime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _gmtime64(_Time);
+    return _gmtime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl gmtime_s(struct tm * _Tm, const time_t * _Time)
 {
-return _gmtime64_s(_Tm, _Time);
+    return _gmtime64_s(_Tm, _Time);
 }
 #line 112 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 static __inline struct tm * __cdecl localtime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _localtime64(_Time);
+    return _localtime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl localtime_s(struct tm * _Tm, const time_t * _Time)
 {
-return _localtime64_s(_Tm, _Time);
+    return _localtime64_s(_Tm, _Time);
 }
 static __inline time_t __cdecl mktime(struct tm * _Tm)
 {
-return _mktime64(_Tm);
+    return _mktime64(_Tm);
 }
 static __inline time_t __cdecl _mkgmtime(struct tm * _Tm)
 {
-return _mkgmtime64(_Tm);
+    return _mkgmtime64(_Tm);
 }
 static __inline time_t __cdecl time(time_t * _Time)
 {
-return _time64(_Time);
+    return _time64(_Time);
 }
 #line 136 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 #line 139 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
@@ -562,15 +565,16 @@ __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use 
 #line 1 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 21 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma pack(push,8)
-struct _iobuf {
-char *_ptr;
-int   _cnt;
-char *_base;
-int   _flag;
-int   _file;
-int   _charbuf;
-int   _bufsiz;
-char *_tmpfname;
+struct _iobuf
+{
+    char *_ptr;
+    int   _cnt;
+    char *_base;
+    int   _flag;
+    int   _file;
+    int   _charbuf;
+    int   _bufsiz;
+    char *_tmpfname;
 };
 typedef struct _iobuf FILE;
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -598,7 +602,7 @@ int __cdecl ferror(  FILE * _File);
 int __cdecl fflush(  FILE * _File);
 int __cdecl fgetc(  FILE * _File);
 int __cdecl _fgetchar(void);
-int __cdecl fgetpos(  FILE * _File ,   fpos_t * _Pos);
+int __cdecl fgetpos(  FILE * _File,   fpos_t * _Pos);
 char * __cdecl fgets(  char * _Buf,   int _MaxCount,   FILE * _File);
 int __cdecl _fileno(  FILE * _File);
 #line 205 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -709,13 +713,15 @@ int __cdecl vsnprintf_s(  char * _DstBuf,   size_t _DstSize,   size_t _MaxCount,
 int __cdecl _vsnprintf_s(  char * _DstBuf,   size_t _SizeInBytes,   size_t _MaxCount,     const char * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);   int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
+int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);
+int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl vsprintf_s(  char * _DstBuf,   size_t _SizeInBytes,     const char * _Format, va_list _ArgList);
 #line 355 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);   int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
+int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);
+int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _vscprintf(    const char * _Format, va_list _ArgList);
 int __cdecl _snprintf_c(  char * _DstBuf,   size_t _MaxCount,     const char * _Format, ...);
@@ -798,7 +804,8 @@ int __cdecl _snwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _M
 int __cdecl _vsnwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _MaxCount,     const wchar_t * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);   int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
+int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);
+int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _fwprintf_p(  FILE * _File,     const wchar_t * _Format, ...);
 int __cdecl _wprintf_p(    const wchar_t * _Format, ...);
@@ -836,8 +843,10 @@ int __cdecl _vsnwprintf_s_l(  wchar_t * _DstBuf,   size_t _DstSize,   size_t _Ma
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4141 4996 4793)
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
 #pragma warning(pop)
 #line 1 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
 #pragma once
@@ -847,19 +856,19 @@ __declspec(deprecated("swprintf has been changed to conform with the ISO C stand
 #pragma warning( disable : 4793 4412 )
 static __inline int swprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl vswprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 }
 #pragma warning( pop )
 #line 57 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -867,19 +876,19 @@ return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 #pragma warning( disable : 4793 4412 )
 static __inline int _swprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl _vswprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
 }
 #pragma warning( pop )
 #line 128 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -913,7 +922,7 @@ int __cdecl wscanf_s(    const wchar_t * _Format, ...);
 #line 583 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 int __cdecl _wscanf_s_l(    const wchar_t * _Format,   _locale_t _Locale, ...);
 #pragma warning(pop)
-FILE * __cdecl _wfdopen(  int _FileHandle ,   const wchar_t * _Mode);
+FILE * __cdecl _wfdopen(  int _FileHandle,   const wchar_t * _Mode);
 FILE * __cdecl _wfopen(  const wchar_t * _Filename,   const wchar_t * _Mode);
 errno_t __cdecl _wfopen_s(  FILE ** _File,   const wchar_t * _Filename,   const wchar_t * _Mode);
 FILE * __cdecl _wfreopen(  const wchar_t * _Filename,   const wchar_t * _Mode,   FILE * _OldFile);
@@ -989,37 +998,45 @@ typedef int (__cdecl * _onexit_t)(void);
 #line 61 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 66 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct _div_t {
-int quot;
-int rem;
+typedef struct _div_t
+{
+    int quot;
+    int rem;
 } div_t;
-typedef struct _ldiv_t {
-long quot;
-long rem;
+typedef struct _ldiv_t
+{
+    long quot;
+    long rem;
 } ldiv_t;
-typedef struct _lldiv_t {
-long long quot;
-long long rem;
+typedef struct _lldiv_t
+{
+    long long quot;
+    long long rem;
 } lldiv_t;
 #line 92 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma pack(4)
-typedef struct {
-unsigned char ld[10];
+typedef struct
+{
+    unsigned char ld[10];
 } _LDOUBLE;
 #pragma pack()
 #line 121 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct {
-double x;
+typedef struct
+{
+    double x;
 } _CRT_DOUBLE;
-typedef struct {
-float f;
+typedef struct
+{
+    float f;
 } _CRT_FLOAT;
-typedef struct {
-long double x;
+typedef struct
+{
+    long double x;
 } _LONGDOUBLE;
 #pragma pack(4)
-typedef struct {
-unsigned char ld12[12];
+typedef struct
+{
+    unsigned char ld12[12];
 } _LDBL12;
 #pragma pack()
 #line 151 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -1028,12 +1045,12 @@ extern int __mb_cur_max;
 int __cdecl ___mb_cur_max_func(void);
 int __cdecl ___mb_cur_max_l_func(_locale_t);
 #line 171 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_purecall_handler)(void); 
+typedef void (__cdecl *_purecall_handler)(void);
 _purecall_handler __cdecl _set_purecall_handler(  _purecall_handler _Handler);
 _purecall_handler __cdecl _get_purecall_handler(void);
 #line 214 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 225 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t); 
+typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t);
 _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(  _invalid_parameter_handler _Handler);
 _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
 #line 234 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -1043,21 +1060,21 @@ errno_t __cdecl _get_doserrno(  unsigned long * _Value);
 char ** __cdecl __sys_errlist(void);
 int * __cdecl __sys_nerr(void);
 #line 273 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern int __argc;          
-extern char ** __argv;      
-extern wchar_t ** __wargv;  
+extern int __argc;
+extern char ** __argv;
+extern wchar_t ** __wargv;
 #line 288 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 290 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char ** _environ;    
-extern wchar_t ** _wenviron;    
+extern char ** _environ;
+extern wchar_t ** _wenviron;
 #line 301 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 303 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char * _pgmptr;      
-extern wchar_t * _wpgmptr;  
+extern char * _pgmptr;
+extern wchar_t * _wpgmptr;
 #line 327 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _get_pgmptr(  char ** _Value);
 errno_t __cdecl _get_wpgmptr(  wchar_t ** _Value);
-extern int _fmode;          
+extern int _fmode;
 #line 338 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _set_fmode(  int _Mode);
 errno_t __cdecl _get_fmode(  int * _PMode);
@@ -1084,20 +1101,20 @@ int    __cdecl atoi(  const char *_Str);
 int    __cdecl _atoi_l(  const char *_Str,   _locale_t _Locale);
 long   __cdecl atol(  const char *_Str);
 long   __cdecl _atol_l(  const char *_Str,   _locale_t _Locale);
-void * __cdecl bsearch_s(  const void * _Key,   const void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
+void * __cdecl bsearch_s(  const void * _Key,   const void * _Base,
+                           rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                           int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
 #line 430 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void * __cdecl bsearch(  const void * _Key,   const void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
-void __cdecl qsort_s(  void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
+void * __cdecl bsearch(  const void * _Key,   const void * _Base,
+                         size_t _NumOfElements,   size_t _SizeOfElements,
+                         int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort_s(  void * _Base,
+                       rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                       int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
 #line 439 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void __cdecl qsort(  void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements, 
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort(  void * _Base,
+                     size_t _NumOfElements,   size_t _SizeOfElements,
+                     int (__cdecl * _PtFuncCompare)(const void *, const void *));
 #line 443 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 unsigned short __cdecl _byteswap_ushort(  unsigned short _Short);
 unsigned long  __cdecl _byteswap_ulong (  unsigned long _Long);
@@ -1214,7 +1231,7 @@ __int64   __cdecl _wtoi64_l(  const wchar_t *_Str,   _locale_t _Locale);
 __int64   __cdecl _wcstoi64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
 __int64   __cdecl _wcstoi64_l(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 unsigned __int64  __cdecl _wcstoui64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
-unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str ,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
+unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 #line 724 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 739 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 char * __cdecl _fullpath(  char * _FullPath,   const char * _Path,   size_t _SizeInBytes);
@@ -1234,14 +1251,14 @@ int __cdecl _atoflt_l(  _CRT_FLOAT * _Result,   char * _Str,   _locale_t _Locale
 unsigned long __cdecl _lrotl(  unsigned long _Val,   int _Shift);
 unsigned long __cdecl _lrotr(  unsigned long _Val,   int _Shift);
 errno_t   __cdecl _makepath_s(  char * _PathResult,   size_t _SizeInWords,   const char * _Drive,   const char * _Dir,   const char * _Filename,
-const char * _Ext);
+                                const char * _Ext);
 void __cdecl _makepath(  char *_Path,  const char * _Drive,  const char * _Dir,  const char * _Filename,  const char * _Ext);
 #line 783 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 796 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 _onexit_t __cdecl _onexit(  _onexit_t _Func);
 #line 798 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning (push)
-#pragma warning (disable:6540) 
+#pragma warning (disable:6540)
 int    __cdecl _putenv(  const char * _EnvString);
 errno_t __cdecl _putenv_s(  const char * _Name,   const char * _Value);
 #line 811 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -1254,17 +1271,17 @@ errno_t __cdecl _searchenv_s(  const char * _Filename,   const char * _EnvVar,  
 void __cdecl _searchenv( const char * _Filename,  const char * _EnvVar,   char *_ResultPath);
 #line 823 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _splitpath(  const char * _FullPath,     char * _Drive,     char * _Dir,     char * _Filename,     char * _Ext);
-errno_t  __cdecl _splitpath_s(  const char * _FullPath, 
-char * _Drive,   size_t _DriveSize, 
-char * _Dir,   size_t _DirSize, 
-char * _Filename,   size_t _FilenameSize, 
-char * _Ext,   size_t _ExtSize);
+errno_t  __cdecl _splitpath_s(  const char * _FullPath,
+                                char * _Drive,   size_t _DriveSize,
+                                char * _Dir,   size_t _DirSize,
+                                char * _Filename,   size_t _FilenameSize,
+                                char * _Ext,   size_t _ExtSize);
 void   __cdecl _swab(    char * _Buf1,     char * _Buf2, int _SizeInBytes);
 #line 842 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 wchar_t * __cdecl _wfullpath(  wchar_t * _FullPath,   const wchar_t * _Path,   size_t _SizeInWords);
 #line 848 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _wmakepath_s(  wchar_t * _PathResult,   size_t _SIZE,   const wchar_t * _Drive,   const wchar_t * _Dir,   const wchar_t * _Filename,
-const wchar_t * _Ext);        
+                               const wchar_t * _Ext);
 void __cdecl _wmakepath(  wchar_t *_ResultPath,  const wchar_t * _Drive,  const wchar_t * _Dir,  const wchar_t * _Filename,  const wchar_t * _Ext);
 int    __cdecl _wputenv(  const wchar_t * _EnvString);
 errno_t __cdecl _wputenv_s(  const wchar_t * _Name,   const wchar_t * _Value);
@@ -1272,11 +1289,11 @@ errno_t __cdecl _wsearchenv_s(  const wchar_t * _Filename,   const wchar_t * _En
 void __cdecl _wsearchenv( const wchar_t * _Filename,  const wchar_t * _EnvVar,   wchar_t *_ResultPath);
 #line 865 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _wsplitpath(  const wchar_t * _FullPath,     wchar_t * _Drive,     wchar_t * _Dir,     wchar_t * _Filename,     wchar_t * _Ext);
-errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath, 
-wchar_t * _Drive,   size_t _DriveSize, 
-wchar_t * _Dir,   size_t _DirSize, 
-wchar_t * _Filename,   size_t _FilenameSize, 
-wchar_t * _Ext,   size_t _ExtSize);
+errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath,
+                                wchar_t * _Drive,   size_t _DriveSize,
+                                wchar_t * _Dir,   size_t _DirSize,
+                                wchar_t * _Filename,   size_t _FilenameSize,
+                                wchar_t * _Ext,   size_t _ExtSize);
 #line 876 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "SetErrorMode" " instead. See online help for details."))  void __cdecl _seterrormode(  int _Mode);
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "Beep" " instead. See online help for details."))  void __cdecl _beep(  unsigned _Frequency,   unsigned _Duration);
@@ -1286,7 +1303,7 @@ __declspec(deprecated("This function or variable has been superceded by newer li
 #line 896 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 903 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning(push)
-#pragma warning(disable: 4141)  
+#pragma warning(disable: 4141)
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_ecvt" ". See online help for details."))   char * __cdecl ecvt(  double _Val,   int _NumOfDigits,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_fcvt" ". See online help for details."))   char * __cdecl fcvt(  double _Val,   int _NumOfDec,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_gcvt" ". See online help for details.")) 		 char * __cdecl gcvt(  double _Val,   int _NumOfDigits,     char * _DstBuf);
@@ -1307,7 +1324,7 @@ _onexit_t __cdecl onexit(  _onexit_t _Func);
 #line 23 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 27 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/stack.h"
-typedef struct stack_st OPENSSL_STACK; 
+typedef struct stack_st OPENSSL_STACK;
 typedef int (*OPENSSL_sk_compfunc)(const void *, const void *);
 typedef void (*OPENSSL_sk_freefunc)(void *);
 typedef void *(*OPENSSL_sk_copyfunc)(const void *);
@@ -1343,10 +1360,283 @@ int OPENSSL_sk_is_sorted(const OPENSSL_STACK *st);
 #line 15 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/safestack.h"
 typedef char *OPENSSL_STRING;
 typedef const char *OPENSSL_CSTRING;
-struct stack_st_OPENSSL_STRING; typedef int (*sk_OPENSSL_STRING_compfunc)(const char * const *a, const char *const *b); typedef void (*sk_OPENSSL_STRING_freefunc)(char *a); typedef char * (*sk_OPENSSL_STRING_copyfunc)(const char *a); static __inline int sk_OPENSSL_STRING_num(const struct stack_st_OPENSSL_STRING *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline char *sk_OPENSSL_STRING_value(const struct stack_st_OPENSSL_STRING *sk, int idx) { return (char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new(sk_OPENSSL_STRING_compfunc compare) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new_null(void) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new_null(); } static __inline void sk_OPENSSL_STRING_free(struct stack_st_OPENSSL_STRING *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_STRING_zero(struct stack_st_OPENSSL_STRING *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline char *sk_OPENSSL_STRING_delete(struct stack_st_OPENSSL_STRING *sk, int i) { return (char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline char *sk_OPENSSL_STRING_delete_ptr(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return (char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_push(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_unshift(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline char *sk_OPENSSL_STRING_pop(struct stack_st_OPENSSL_STRING *sk) { return (char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline char *sk_OPENSSL_STRING_shift(struct stack_st_OPENSSL_STRING *sk) { return (char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_STRING_pop_free(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_OPENSSL_STRING_insert(struct stack_st_OPENSSL_STRING *sk, char *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline char *sk_OPENSSL_STRING_set(struct stack_st_OPENSSL_STRING *sk, int idx, char *ptr) { return (char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_find(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_find_ex(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_OPENSSL_STRING_sort(struct stack_st_OPENSSL_STRING *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_OPENSSL_STRING_is_sorted(const struct stack_st_OPENSSL_STRING *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_STRING * sk_OPENSSL_STRING_dup(const struct stack_st_OPENSSL_STRING *sk) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_deep_copy(const struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_copyfunc copyfunc, sk_OPENSSL_STRING_freefunc freefunc) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_OPENSSL_STRING_compfunc sk_OPENSSL_STRING_set_cmp_func(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_compfunc compare) { return (sk_OPENSSL_STRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_OPENSSL_CSTRING; typedef int (*sk_OPENSSL_CSTRING_compfunc)(const char * const *a, const char *const *b); typedef void (*sk_OPENSSL_CSTRING_freefunc)(char *a); typedef char * (*sk_OPENSSL_CSTRING_copyfunc)(const char *a); static __inline int sk_OPENSSL_CSTRING_num(const struct stack_st_OPENSSL_CSTRING *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline const char *sk_OPENSSL_CSTRING_value(const struct stack_st_OPENSSL_CSTRING *sk, int idx) { return (const char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new(sk_OPENSSL_CSTRING_compfunc compare) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new_null(void) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new_null(); } static __inline void sk_OPENSSL_CSTRING_free(struct stack_st_OPENSSL_CSTRING *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_CSTRING_zero(struct stack_st_OPENSSL_CSTRING *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline const char *sk_OPENSSL_CSTRING_delete(struct stack_st_OPENSSL_CSTRING *sk, int i) { return (const char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline const char *sk_OPENSSL_CSTRING_delete_ptr(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return (const char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_push(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_unshift(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline const char *sk_OPENSSL_CSTRING_pop(struct stack_st_OPENSSL_CSTRING *sk) { return (const char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline const char *sk_OPENSSL_CSTRING_shift(struct stack_st_OPENSSL_CSTRING *sk) { return (const char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_CSTRING_pop_free(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_OPENSSL_CSTRING_insert(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline const char *sk_OPENSSL_CSTRING_set(struct stack_st_OPENSSL_CSTRING *sk, int idx, const char *ptr) { return (const char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_find(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_find_ex(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_OPENSSL_CSTRING_sort(struct stack_st_OPENSSL_CSTRING *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_OPENSSL_CSTRING_is_sorted(const struct stack_st_OPENSSL_CSTRING *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_CSTRING * sk_OPENSSL_CSTRING_dup(const struct stack_st_OPENSSL_CSTRING *sk) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_deep_copy(const struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_copyfunc copyfunc, sk_OPENSSL_CSTRING_freefunc freefunc) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_OPENSSL_CSTRING_compfunc sk_OPENSSL_CSTRING_set_cmp_func(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_compfunc compare) { return (sk_OPENSSL_CSTRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_OPENSSL_STRING;
+typedef int (*sk_OPENSSL_STRING_compfunc)(const char * const *a, const char *const *b);
+typedef void (*sk_OPENSSL_STRING_freefunc)(char *a);
+typedef char * (*sk_OPENSSL_STRING_copyfunc)(const char *a);
+static __inline int sk_OPENSSL_STRING_num(const struct stack_st_OPENSSL_STRING *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline char *sk_OPENSSL_STRING_value(const struct stack_st_OPENSSL_STRING *sk, int idx)
+{
+    return (char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new(sk_OPENSSL_STRING_compfunc compare)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new_null(void)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new_null();
+}
+static __inline void sk_OPENSSL_STRING_free(struct stack_st_OPENSSL_STRING *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_STRING_zero(struct stack_st_OPENSSL_STRING *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline char *sk_OPENSSL_STRING_delete(struct stack_st_OPENSSL_STRING *sk, int i)
+{
+    return (char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline char *sk_OPENSSL_STRING_delete_ptr(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return (char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_push(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_unshift(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline char *sk_OPENSSL_STRING_pop(struct stack_st_OPENSSL_STRING *sk)
+{
+    return (char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline char *sk_OPENSSL_STRING_shift(struct stack_st_OPENSSL_STRING *sk)
+{
+    return (char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_STRING_pop_free(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_OPENSSL_STRING_insert(struct stack_st_OPENSSL_STRING *sk, char *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline char *sk_OPENSSL_STRING_set(struct stack_st_OPENSSL_STRING *sk, int idx, char *ptr)
+{
+    return (char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_find(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_find_ex(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_OPENSSL_STRING_sort(struct stack_st_OPENSSL_STRING *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_OPENSSL_STRING_is_sorted(const struct stack_st_OPENSSL_STRING *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_STRING * sk_OPENSSL_STRING_dup(const struct stack_st_OPENSSL_STRING *sk)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_deep_copy(const struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_copyfunc copyfunc, sk_OPENSSL_STRING_freefunc freefunc)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_OPENSSL_STRING_compfunc sk_OPENSSL_STRING_set_cmp_func(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_compfunc compare)
+{
+    return (sk_OPENSSL_STRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_OPENSSL_CSTRING;
+typedef int (*sk_OPENSSL_CSTRING_compfunc)(const char * const *a, const char *const *b);
+typedef void (*sk_OPENSSL_CSTRING_freefunc)(char *a);
+typedef char * (*sk_OPENSSL_CSTRING_copyfunc)(const char *a);
+static __inline int sk_OPENSSL_CSTRING_num(const struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline const char *sk_OPENSSL_CSTRING_value(const struct stack_st_OPENSSL_CSTRING *sk, int idx)
+{
+    return (const char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new(sk_OPENSSL_CSTRING_compfunc compare)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new_null(void)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new_null();
+}
+static __inline void sk_OPENSSL_CSTRING_free(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_CSTRING_zero(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline const char *sk_OPENSSL_CSTRING_delete(struct stack_st_OPENSSL_CSTRING *sk, int i)
+{
+    return (const char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline const char *sk_OPENSSL_CSTRING_delete_ptr(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return (const char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_push(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_unshift(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline const char *sk_OPENSSL_CSTRING_pop(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return (const char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline const char *sk_OPENSSL_CSTRING_shift(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return (const char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_CSTRING_pop_free(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_OPENSSL_CSTRING_insert(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline const char *sk_OPENSSL_CSTRING_set(struct stack_st_OPENSSL_CSTRING *sk, int idx, const char *ptr)
+{
+    return (const char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_find(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_find_ex(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_OPENSSL_CSTRING_sort(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_OPENSSL_CSTRING_is_sorted(const struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_CSTRING * sk_OPENSSL_CSTRING_dup(const struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_deep_copy(const struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_copyfunc copyfunc, sk_OPENSSL_CSTRING_freefunc freefunc)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_OPENSSL_CSTRING_compfunc sk_OPENSSL_CSTRING_set_cmp_func(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_compfunc compare)
+{
+    return (sk_OPENSSL_CSTRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef void *OPENSSL_BLOCK;
-struct stack_st_OPENSSL_BLOCK; typedef int (*sk_OPENSSL_BLOCK_compfunc)(const void * const *a, const void *const *b); typedef void (*sk_OPENSSL_BLOCK_freefunc)(void *a); typedef void * (*sk_OPENSSL_BLOCK_copyfunc)(const void *a); static __inline int sk_OPENSSL_BLOCK_num(const struct stack_st_OPENSSL_BLOCK *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline void *sk_OPENSSL_BLOCK_value(const struct stack_st_OPENSSL_BLOCK *sk, int idx) { return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new(sk_OPENSSL_BLOCK_compfunc compare) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new_null(void) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new_null(); } static __inline void sk_OPENSSL_BLOCK_free(struct stack_st_OPENSSL_BLOCK *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_BLOCK_zero(struct stack_st_OPENSSL_BLOCK *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline void *sk_OPENSSL_BLOCK_delete(struct stack_st_OPENSSL_BLOCK *sk, int i) { return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline void *sk_OPENSSL_BLOCK_delete_ptr(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_push(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_unshift(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void *sk_OPENSSL_BLOCK_pop(struct stack_st_OPENSSL_BLOCK *sk) { return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline void *sk_OPENSSL_BLOCK_shift(struct stack_st_OPENSSL_BLOCK *sk) { return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_BLOCK_pop_free(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_OPENSSL_BLOCK_insert(struct stack_st_OPENSSL_BLOCK *sk, void *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline void *sk_OPENSSL_BLOCK_set(struct stack_st_OPENSSL_BLOCK *sk, int idx, void *ptr) { return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_find(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_find_ex(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_OPENSSL_BLOCK_sort(struct stack_st_OPENSSL_BLOCK *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_OPENSSL_BLOCK_is_sorted(const struct stack_st_OPENSSL_BLOCK *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_BLOCK * sk_OPENSSL_BLOCK_dup(const struct stack_st_OPENSSL_BLOCK *sk) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_deep_copy(const struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_copyfunc copyfunc, sk_OPENSSL_BLOCK_freefunc freefunc) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_OPENSSL_BLOCK_compfunc sk_OPENSSL_BLOCK_set_cmp_func(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_compfunc compare) { return (sk_OPENSSL_BLOCK_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_OPENSSL_BLOCK;
+typedef int (*sk_OPENSSL_BLOCK_compfunc)(const void * const *a, const void *const *b);
+typedef void (*sk_OPENSSL_BLOCK_freefunc)(void *a);
+typedef void * (*sk_OPENSSL_BLOCK_copyfunc)(const void *a);
+static __inline int sk_OPENSSL_BLOCK_num(const struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline void *sk_OPENSSL_BLOCK_value(const struct stack_st_OPENSSL_BLOCK *sk, int idx)
+{
+    return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new(sk_OPENSSL_BLOCK_compfunc compare)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new_null(void)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new_null();
+}
+static __inline void sk_OPENSSL_BLOCK_free(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_BLOCK_zero(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_OPENSSL_BLOCK_delete(struct stack_st_OPENSSL_BLOCK *sk, int i)
+{
+    return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline void *sk_OPENSSL_BLOCK_delete_ptr(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_push(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_unshift(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void *sk_OPENSSL_BLOCK_pop(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_OPENSSL_BLOCK_shift(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_BLOCK_pop_free(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_OPENSSL_BLOCK_insert(struct stack_st_OPENSSL_BLOCK *sk, void *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline void *sk_OPENSSL_BLOCK_set(struct stack_st_OPENSSL_BLOCK *sk, int idx, void *ptr)
+{
+    return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_find(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_find_ex(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_OPENSSL_BLOCK_sort(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_OPENSSL_BLOCK_is_sorted(const struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_BLOCK * sk_OPENSSL_BLOCK_dup(const struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_deep_copy(const struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_copyfunc copyfunc, sk_OPENSSL_BLOCK_freefunc freefunc)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_OPENSSL_BLOCK_compfunc sk_OPENSSL_BLOCK_set_cmp_func(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_compfunc compare)
+{
+    return (sk_OPENSSL_BLOCK_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 #line 165 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/safestack.h"
 #line 30 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/opensslv.h"
@@ -1475,8 +1765,9 @@ typedef unsigned long ossl_uintmax_t;
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/opensslv.h"
 #line 46 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 47 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
-typedef struct {
-int dummy;
+typedef struct
+{
+    int dummy;
 } CRYPTO_dynlock;
 #line 71 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 typedef void CRYPTO_RWLOCK;
@@ -1486,10 +1777,102 @@ int CRYPTO_THREAD_write_lock(CRYPTO_RWLOCK *lock);
 int CRYPTO_THREAD_unlock(CRYPTO_RWLOCK *lock);
 void CRYPTO_THREAD_lock_free(CRYPTO_RWLOCK *lock);
 int CRYPTO_atomic_add(int *val, int amount, int *ret, CRYPTO_RWLOCK *lock);
-struct crypto_ex_data_st {
-struct stack_st_void *sk;
+struct crypto_ex_data_st
+{
+    struct stack_st_void *sk;
 };
-struct stack_st_void; typedef int (*sk_void_compfunc)(const void * const *a, const void *const *b); typedef void (*sk_void_freefunc)(void *a); typedef void * (*sk_void_copyfunc)(const void *a); static __inline int sk_void_num(const struct stack_st_void *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline void *sk_void_value(const struct stack_st_void *sk, int idx) { return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_void *sk_void_new(sk_void_compfunc compare) { return (struct stack_st_void *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_void *sk_void_new_null(void) { return (struct stack_st_void *)OPENSSL_sk_new_null(); } static __inline void sk_void_free(struct stack_st_void *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_void_zero(struct stack_st_void *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline void *sk_void_delete(struct stack_st_void *sk, int i) { return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline void *sk_void_delete_ptr(struct stack_st_void *sk, void *ptr) { return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_void_push(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_void_unshift(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void *sk_void_pop(struct stack_st_void *sk) { return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline void *sk_void_shift(struct stack_st_void *sk) { return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_void_pop_free(struct stack_st_void *sk, sk_void_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_void_insert(struct stack_st_void *sk, void *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline void *sk_void_set(struct stack_st_void *sk, int idx, void *ptr) { return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_void_find(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_void_find_ex(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_void_sort(struct stack_st_void *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_void_is_sorted(const struct stack_st_void *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_void * sk_void_dup(const struct stack_st_void *sk) { return (struct stack_st_void *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_void *sk_void_deep_copy(const struct stack_st_void *sk, sk_void_copyfunc copyfunc, sk_void_freefunc freefunc) { return (struct stack_st_void *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_void_compfunc sk_void_set_cmp_func(struct stack_st_void *sk, sk_void_compfunc compare) { return (sk_void_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_void;
+typedef int (*sk_void_compfunc)(const void * const *a, const void *const *b);
+typedef void (*sk_void_freefunc)(void *a);
+typedef void * (*sk_void_copyfunc)(const void *a);
+static __inline int sk_void_num(const struct stack_st_void *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline void *sk_void_value(const struct stack_st_void *sk, int idx)
+{
+    return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_void *sk_void_new(sk_void_compfunc compare)
+{
+    return (struct stack_st_void *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_void *sk_void_new_null(void)
+{
+    return (struct stack_st_void *)OPENSSL_sk_new_null();
+}
+static __inline void sk_void_free(struct stack_st_void *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_void_zero(struct stack_st_void *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_void_delete(struct stack_st_void *sk, int i)
+{
+    return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline void *sk_void_delete_ptr(struct stack_st_void *sk, void *ptr)
+{
+    return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_void_push(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_void_unshift(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void *sk_void_pop(struct stack_st_void *sk)
+{
+    return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_void_shift(struct stack_st_void *sk)
+{
+    return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_void_pop_free(struct stack_st_void *sk, sk_void_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_void_insert(struct stack_st_void *sk, void *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline void *sk_void_set(struct stack_st_void *sk, int idx, void *ptr)
+{
+    return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_void_find(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_void_find_ex(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_void_sort(struct stack_st_void *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_void_is_sorted(const struct stack_st_void *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_void * sk_void_dup(const struct stack_st_void *sk)
+{
+    return (struct stack_st_void *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_void *sk_void_deep_copy(const struct stack_st_void *sk, sk_void_copyfunc copyfunc, sk_void_freefunc freefunc)
+{
+    return (struct stack_st_void *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_void_compfunc sk_void_set_cmp_func(struct stack_st_void *sk, sk_void_compfunc compare)
+{
+    return (sk_void_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 int CRYPTO_mem_ctrl(int mode);
 size_t OPENSSL_strlcpy(char *dst, const char *src, size_t siz);
 size_t OPENSSL_strlcat(char *dst, const char *src, size_t siz);
@@ -1501,37 +1884,38 @@ unsigned long OpenSSL_version_num(void);
 const char *OpenSSL_version(int type);
 int OPENSSL_issetugid(void);
 typedef void CRYPTO_EX_new (void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-int idx, long argl, void *argp);
+                            int idx, long argl, void *argp);
 typedef void CRYPTO_EX_free (void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-int idx, long argl, void *argp);
+                             int idx, long argl, void *argp);
 typedef int CRYPTO_EX_dup (CRYPTO_EX_DATA *to, const CRYPTO_EX_DATA *from,
-void *srcp, int idx, long argl, void *argp);
+                           void *srcp, int idx, long argl, void *argp);
 int CRYPTO_get_ex_new_index(int class_index, long argl, void *argp,
-CRYPTO_EX_new *new_func, CRYPTO_EX_dup *dup_func,
-CRYPTO_EX_free *free_func);
+                            CRYPTO_EX_new *new_func, CRYPTO_EX_dup *dup_func,
+                            CRYPTO_EX_free *free_func);
 int CRYPTO_free_ex_index(int class_index, int idx);
 int CRYPTO_new_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
 int CRYPTO_dup_ex_data(int class_index, CRYPTO_EX_DATA *to,
-const CRYPTO_EX_DATA *from);
+                       const CRYPTO_EX_DATA *from);
 void CRYPTO_free_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
 int CRYPTO_set_ex_data(CRYPTO_EX_DATA *ad, int idx, void *val);
 void *CRYPTO_get_ex_data(const CRYPTO_EX_DATA *ad, int idx);
 int CRYPTO_num_locks(void);
 #line 223 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
-typedef struct crypto_threadid_st {
-int dummy;
+typedef struct crypto_threadid_st
+{
+    int dummy;
 } CRYPTO_THREADID;
 #line 257 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 265 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 int CRYPTO_set_mem_functions(
-void *(*m) (size_t, const char *, int),
-void *(*r) (void *, size_t, const char *, int),
-void (*f) (void *, const char *, int));
+    void *(*m) (size_t, const char *, int),
+    void *(*r) (void *, size_t, const char *, int),
+    void (*f) (void *, const char *, int));
 int CRYPTO_set_mem_debug(int flag);
 void CRYPTO_get_mem_functions(
-void *(**m) (size_t, const char *, int),
-void *(**r) (void *, size_t, const char *, int),
-void (**f) (void *, const char *, int));
+    void *(**m) (size_t, const char *, int),
+    void *(**r) (void *, size_t, const char *, int),
+    void (**f) (void *, const char *, int));
 void *CRYPTO_malloc(size_t num, const char *file, int line);
 void *CRYPTO_zalloc(size_t num, const char *file, int line);
 void *CRYPTO_memdup(const void *str, size_t siz, const char *file, int line);
@@ -1541,7 +1925,7 @@ void CRYPTO_free(void *ptr, const char *file, int line);
 void CRYPTO_clear_free(void *ptr, size_t num, const char *file, int line);
 void *CRYPTO_realloc(void *addr, size_t num, const char *file, int line);
 void *CRYPTO_clear_realloc(void *addr, size_t old_num, size_t num,
-const char *file, int line);
+                           const char *file, int line);
 int CRYPTO_secure_malloc_init(size_t sz, int minsize);
 int CRYPTO_secure_malloc_done(void);
 void *CRYPTO_secure_malloc(size_t num, const char *file, int line);
@@ -1561,17 +1945,17 @@ void OPENSSL_init(void);
 struct tm *OPENSSL_gmtime(const time_t *timer, struct tm *result);
 int OPENSSL_gmtime_adj(struct tm *tm, int offset_day, long offset_sec);
 int OPENSSL_gmtime_diff(int *pday, int *psec,
-const struct tm *from, const struct tm *to);
+                        const struct tm *from, const struct tm *to);
 int CRYPTO_memcmp(const volatile void * volatile in_a,
-const volatile void * volatile in_b,
-size_t len);
+                  const volatile void * volatile in_b,
+                  size_t len);
 void OPENSSL_cleanup(void);
 int OPENSSL_init_crypto(uint64_t opts, const OPENSSL_INIT_SETTINGS *settings);
 int OPENSSL_atexit(void (*handler)(void));
 void OPENSSL_thread_stop(void);
 OPENSSL_INIT_SETTINGS *OPENSSL_INIT_new(void);
 int OPENSSL_INIT_set_config_appname(OPENSSL_INIT_SETTINGS *settings,
-const char *config_file);
+                                    const char *config_file);
 #line 400 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 void OPENSSL_INIT_free(OPENSSL_INIT_SETTINGS *settings);
 #line 412 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
@@ -1599,7 +1983,7 @@ void BIO_set_flags(BIO *b, int flags);
 int BIO_test_flags(const BIO *b, int flags);
 void BIO_clear_flags(BIO *b, int flags);
 typedef long (*BIO_callback_fn)(BIO *b, int oper, const char *argp, int argi,
-long argl, long ret);
+                                long argl, long ret);
 BIO_callback_fn BIO_get_callback(const BIO *b);
 void BIO_set_callback(BIO *b, BIO_callback_fn callback);
 char *BIO_get_callback_arg(const BIO *b);
@@ -1608,9 +1992,100 @@ typedef struct bio_method_st BIO_METHOD;
 const char *BIO_method_name(const BIO *b);
 int BIO_method_type(const BIO *b);
 typedef void bio_info_cb(BIO *, int, const char *, int, long, long);
-struct stack_st_BIO; typedef int (*sk_BIO_compfunc)(const BIO * const *a, const BIO *const *b); typedef void (*sk_BIO_freefunc)(BIO *a); typedef BIO * (*sk_BIO_copyfunc)(const BIO *a); static __inline int sk_BIO_num(const struct stack_st_BIO *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline BIO *sk_BIO_value(const struct stack_st_BIO *sk, int idx) { return (BIO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_BIO *sk_BIO_new(sk_BIO_compfunc compare) { return (struct stack_st_BIO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_BIO *sk_BIO_new_null(void) { return (struct stack_st_BIO *)OPENSSL_sk_new_null(); } static __inline void sk_BIO_free(struct stack_st_BIO *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_BIO_zero(struct stack_st_BIO *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline BIO *sk_BIO_delete(struct stack_st_BIO *sk, int i) { return (BIO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline BIO *sk_BIO_delete_ptr(struct stack_st_BIO *sk, BIO *ptr) { return (BIO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIO_push(struct stack_st_BIO *sk, BIO *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIO_unshift(struct stack_st_BIO *sk, BIO *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline BIO *sk_BIO_pop(struct stack_st_BIO *sk) { return (BIO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline BIO *sk_BIO_shift(struct stack_st_BIO *sk) { return (BIO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_BIO_pop_free(struct stack_st_BIO *sk, sk_BIO_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_BIO_insert(struct stack_st_BIO *sk, BIO *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline BIO *sk_BIO_set(struct stack_st_BIO *sk, int idx, BIO *ptr) { return (BIO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_BIO_find(struct stack_st_BIO *sk, BIO *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIO_find_ex(struct stack_st_BIO *sk, BIO *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_BIO_sort(struct stack_st_BIO *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_BIO_is_sorted(const struct stack_st_BIO *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_BIO * sk_BIO_dup(const struct stack_st_BIO *sk) { return (struct stack_st_BIO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_BIO *sk_BIO_deep_copy(const struct stack_st_BIO *sk, sk_BIO_copyfunc copyfunc, sk_BIO_freefunc freefunc) { return (struct stack_st_BIO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_BIO_compfunc sk_BIO_set_cmp_func(struct stack_st_BIO *sk, sk_BIO_compfunc compare) { return (sk_BIO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_BIO;
+typedef int (*sk_BIO_compfunc)(const BIO * const *a, const BIO *const *b);
+typedef void (*sk_BIO_freefunc)(BIO *a);
+typedef BIO * (*sk_BIO_copyfunc)(const BIO *a);
+static __inline int sk_BIO_num(const struct stack_st_BIO *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline BIO *sk_BIO_value(const struct stack_st_BIO *sk, int idx)
+{
+    return (BIO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_BIO *sk_BIO_new(sk_BIO_compfunc compare)
+{
+    return (struct stack_st_BIO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_BIO *sk_BIO_new_null(void)
+{
+    return (struct stack_st_BIO *)OPENSSL_sk_new_null();
+}
+static __inline void sk_BIO_free(struct stack_st_BIO *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_BIO_zero(struct stack_st_BIO *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline BIO *sk_BIO_delete(struct stack_st_BIO *sk, int i)
+{
+    return (BIO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline BIO *sk_BIO_delete_ptr(struct stack_st_BIO *sk, BIO *ptr)
+{
+    return (BIO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIO_push(struct stack_st_BIO *sk, BIO *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIO_unshift(struct stack_st_BIO *sk, BIO *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline BIO *sk_BIO_pop(struct stack_st_BIO *sk)
+{
+    return (BIO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline BIO *sk_BIO_shift(struct stack_st_BIO *sk)
+{
+    return (BIO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_BIO_pop_free(struct stack_st_BIO *sk, sk_BIO_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_BIO_insert(struct stack_st_BIO *sk, BIO *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline BIO *sk_BIO_set(struct stack_st_BIO *sk, int idx, BIO *ptr)
+{
+    return (BIO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_BIO_find(struct stack_st_BIO *sk, BIO *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIO_find_ex(struct stack_st_BIO *sk, BIO *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_BIO_sort(struct stack_st_BIO *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_BIO_is_sorted(const struct stack_st_BIO *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_BIO * sk_BIO_dup(const struct stack_st_BIO *sk)
+{
+    return (struct stack_st_BIO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_BIO *sk_BIO_deep_copy(const struct stack_st_BIO *sk, sk_BIO_copyfunc copyfunc, sk_BIO_freefunc freefunc)
+{
+    return (struct stack_st_BIO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_BIO_compfunc sk_BIO_set_cmp_func(struct stack_st_BIO *sk, sk_BIO_compfunc compare)
+{
+    return (sk_BIO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef int asn1_ps_func (BIO *b, unsigned char **pbuf, int *plen,
-void *parg);
+                          void *parg);
 #line 398 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bio.h"
 #line 427 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bio.h"
 size_t BIO_ctrl_pending(BIO *b);
@@ -1623,13 +2098,13 @@ void *BIO_get_ex_data(BIO *bio, int idx);
 uint64_t BIO_number_read(BIO *bio);
 uint64_t BIO_number_written(BIO *bio);
 int BIO_asn1_set_prefix(BIO *b, asn1_ps_func *prefix,
-asn1_ps_func *prefix_free);
+                        asn1_ps_func *prefix_free);
 int BIO_asn1_get_prefix(BIO *b, asn1_ps_func **pprefix,
-asn1_ps_func **pprefix_free);
+                        asn1_ps_func **pprefix_free);
 int BIO_asn1_set_suffix(BIO *b, asn1_ps_func *suffix,
-asn1_ps_func *suffix_free);
+                        asn1_ps_func *suffix_free);
 int BIO_asn1_get_suffix(BIO *b, asn1_ps_func **psuffix,
-asn1_ps_func **psuffix_free);
+                        asn1_ps_func **psuffix_free);
 const BIO_METHOD *BIO_s_file(void);
 BIO *BIO_new_file(const char *filename, const char *mode);
 BIO *BIO_new_fp(FILE *stream, int close_flag);
@@ -1651,7 +2126,7 @@ int BIO_puts(BIO *bp, const char *buf);
 int BIO_indent(BIO *b, int indent, int max);
 long BIO_ctrl(BIO *bp, int cmd, long larg, void *parg);
 long BIO_callback_ctrl(BIO *b, int cmd,
-void (*fp) (BIO *, int, const char *, int, long, long));
+                       void (*fp) (BIO *, int, const char *, int, long, long));
 void *BIO_ptr_ctrl(BIO *bp, int cmd, long larg);
 long BIO_int_ctrl(BIO *bp, int cmd, long larg, int iarg);
 BIO *BIO_push(BIO *b, BIO *append);
@@ -1669,7 +2144,7 @@ int BIO_nread(BIO *bio, char **buf, int num);
 int BIO_nwrite0(BIO *bio, char **buf);
 int BIO_nwrite(BIO *bio, char **buf, int num);
 long BIO_debug_callback(BIO *bio, int cmd, const char *argp, int argi,
-long argl, long ret);
+                        long argl, long ret);
 const BIO_METHOD *BIO_s_mem(void);
 const BIO_METHOD *BIO_s_secmem(void);
 BIO *BIO_new_mem_buf(const void *buf, int len);
@@ -1695,19 +2170,19 @@ int BIO_sock_non_fatal_error(int error);
 int BIO_fd_should_retry(int i);
 int BIO_fd_non_fatal_error(int error);
 int BIO_dump_cb(int (*cb) (const void *data, size_t len, void *u),
-void *u, const char *s, int len);
+                void *u, const char *s, int len);
 int BIO_dump_indent_cb(int (*cb) (const void *data, size_t len, void *u),
-void *u, const char *s, int len, int indent);
+                       void *u, const char *s, int len, int indent);
 int BIO_dump(BIO *b, const char *bytes, int len);
 int BIO_dump_indent(BIO *b, const char *bytes, int len, int indent);
 int BIO_dump_fp(FILE *fp, const char *s, int len);
 int BIO_dump_indent_fp(FILE *fp, const char *s, int len, int indent);
 #line 627 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bio.h"
 int BIO_hex_string(BIO *out, int indent, int width, unsigned char *data,
-int datalen);
+                   int datalen);
 BIO_ADDR *BIO_ADDR_new(void);
 int BIO_ADDR_rawmake(BIO_ADDR *ap, int family,
-const void *where, size_t wherelen, unsigned short port);
+                     const void *where, size_t wherelen, unsigned short port);
 void BIO_ADDR_free(BIO_ADDR *);
 void BIO_ADDR_clear(BIO_ADDR *ap);
 int BIO_ADDR_family(const BIO_ADDR *ap);
@@ -1722,17 +2197,19 @@ int BIO_ADDRINFO_socktype(const BIO_ADDRINFO *bai);
 int BIO_ADDRINFO_protocol(const BIO_ADDRINFO *bai);
 const BIO_ADDR *BIO_ADDRINFO_address(const BIO_ADDRINFO *bai);
 void BIO_ADDRINFO_free(BIO_ADDRINFO *bai);
-enum BIO_hostserv_priorities {
-BIO_PARSE_PRIO_HOST, BIO_PARSE_PRIO_SERV
+enum BIO_hostserv_priorities
+{
+    BIO_PARSE_PRIO_HOST, BIO_PARSE_PRIO_SERV
 };
 int BIO_parse_hostserv(const char *hostserv, char **host, char **service,
-enum BIO_hostserv_priorities hostserv_prio);
-enum BIO_lookup_type {
-BIO_LOOKUP_CLIENT, BIO_LOOKUP_SERVER
+                       enum BIO_hostserv_priorities hostserv_prio);
+enum BIO_lookup_type
+{
+    BIO_LOOKUP_CLIENT, BIO_LOOKUP_SERVER
 };
 int BIO_lookup(const char *host, const char *service,
-enum BIO_lookup_type lookup_type,
-int family, int socktype, BIO_ADDRINFO **res);
+               enum BIO_lookup_type lookup_type,
+               int family, int socktype, BIO_ADDRINFO **res);
 int BIO_sock_error(int sock);
 int BIO_socket_ioctl(int fd, long type, void *arg);
 int BIO_socket_nbio(int fd, int mode);
@@ -1744,14 +2221,16 @@ int BIO_get_port(const char *str, unsigned short *port_ptr);
 int BIO_get_host_ip(const char *str, unsigned char *ip);
 int BIO_get_accept_socket(char *host_port, int mode);
 int BIO_accept(int sock, char **ip_port);
-union BIO_sock_info_u {
-BIO_ADDR *addr;
+union BIO_sock_info_u
+{
+    BIO_ADDR *addr;
 };
-enum BIO_sock_info_type {
-BIO_SOCK_INFO_ADDRESS
+enum BIO_sock_info_type
+{
+    BIO_SOCK_INFO_ADDRESS
 };
 int BIO_sock_info(int sock,
-enum BIO_sock_info_type type, union BIO_sock_info_u *info);
+                  enum BIO_sock_info_type type, union BIO_sock_info_u *info);
 int BIO_socket(int domain, int socktype, int protocol, int options);
 int BIO_connect(int sock, const BIO_ADDR *addr, int options);
 int BIO_listen(int sock, const BIO_ADDR *addr, int options);
@@ -1763,7 +2242,7 @@ BIO *BIO_new_accept(const char *host_port);
 #line 701 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bio.h"
 BIO *BIO_new_fd(int fd, int close_flag);
 int BIO_new_bio_pair(BIO **bio1, size_t writebuf1,
-BIO **bio2, size_t writebuf2);
+                     BIO **bio2, size_t writebuf2);
 void BIO_copy_next_retry(BIO *b);
 #line 723 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bio.h"
 int BIO_printf(BIO *bio, const char *format, ...)
@@ -1778,19 +2257,19 @@ BIO_METHOD *BIO_meth_new(int type, const char *name);
 void BIO_meth_free(BIO_METHOD *biom);
 int (*BIO_meth_get_write(BIO_METHOD *biom)) (BIO *, const char *, int);
 int BIO_meth_set_write(BIO_METHOD *biom,
-int (*write) (BIO *, const char *, int));
+                       int (*write) (BIO *, const char *, int));
 int (*BIO_meth_get_read(BIO_METHOD *biom)) (BIO *, char *, int);
 int BIO_meth_set_read(BIO_METHOD *biom,
-int (*read) (BIO *, char *, int));
+                      int (*read) (BIO *, char *, int));
 int (*BIO_meth_get_puts(BIO_METHOD *biom)) (BIO *, const char *);
 int BIO_meth_set_puts(BIO_METHOD *biom,
-int (*puts) (BIO *, const char *));
+                      int (*puts) (BIO *, const char *));
 int (*BIO_meth_get_gets(BIO_METHOD *biom)) (BIO *, char *, int);
 int BIO_meth_set_gets(BIO_METHOD *biom,
-int (*gets) (BIO *, char *, int));
+                      int (*gets) (BIO *, char *, int));
 long (*BIO_meth_get_ctrl(BIO_METHOD *biom)) (BIO *, int, long, void *);
 int BIO_meth_set_ctrl(BIO_METHOD *biom,
-long (*ctrl) (BIO *, int, long, void *));
+                      long (*ctrl) (BIO *, int, long, void *));
 int (*BIO_meth_get_create(BIO_METHOD *bion)) (BIO *);
 int BIO_meth_set_create(BIO_METHOD *biom, int (*create) (BIO *));
 int (*BIO_meth_get_destroy(BIO_METHOD *biom)) (BIO *);
@@ -1798,8 +2277,8 @@ int BIO_meth_set_destroy(BIO_METHOD *biom, int (*destroy) (BIO *));
 long (*BIO_meth_get_callback_ctrl(BIO_METHOD *biom))
 (BIO *, int, bio_info_cb *);
 int BIO_meth_set_callback_ctrl(BIO_METHOD *biom,
-long (*callback_ctrl) (BIO *, int,
-bio_info_cb *));
+                               long (*callback_ctrl) (BIO *, int,
+                                       bio_info_cb *));
 int ERR_load_BIO_strings(void);
 #line 855 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bio.h"
 #line 17 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1.h"
@@ -1838,9 +2317,9 @@ int BN_GENCB_call(BN_GENCB *cb, int a, int b);
 BN_GENCB *BN_GENCB_new(void);
 void BN_GENCB_free(BN_GENCB *cb);
 void BN_GENCB_set_old(BN_GENCB *gencb, void (*callback) (int, int, void *),
-void *cb_arg);
+                      void *cb_arg);
 void BN_GENCB_set(BN_GENCB *gencb, int (*callback) (int, int, BN_GENCB *),
-void *cb_arg);
+                  void *cb_arg);
 void *BN_GENCB_get_arg(BN_GENCB *cb);
 int BN_abs_is_word(const BIGNUM *a, const unsigned int w);
 int BN_is_zero(const BIGNUM *a);
@@ -1888,23 +2367,23 @@ int BN_sqr(BIGNUM *r, const BIGNUM *a, BN_CTX *ctx);
 void BN_set_negative(BIGNUM *b, int n);
 int BN_is_negative(const BIGNUM *b);
 int BN_div(BIGNUM *dv, BIGNUM *rem, const BIGNUM *m, const BIGNUM *d,
-BN_CTX *ctx);
+           BN_CTX *ctx);
 int BN_nnmod(BIGNUM *r, const BIGNUM *m, const BIGNUM *d, BN_CTX *ctx);
 int BN_mod_add(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, const BIGNUM *m,
-BN_CTX *ctx);
+               BN_CTX *ctx);
 int BN_mod_add_quick(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *m);
+                     const BIGNUM *m);
 int BN_mod_sub(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, const BIGNUM *m,
-BN_CTX *ctx);
+               BN_CTX *ctx);
 int BN_mod_sub_quick(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *m);
+                     const BIGNUM *m);
 int BN_mod_mul(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, const BIGNUM *m,
-BN_CTX *ctx);
+               BN_CTX *ctx);
 int BN_mod_sqr(BIGNUM *r, const BIGNUM *a, const BIGNUM *m, BN_CTX *ctx);
 int BN_mod_lshift1(BIGNUM *r, const BIGNUM *a, const BIGNUM *m, BN_CTX *ctx);
 int BN_mod_lshift1_quick(BIGNUM *r, const BIGNUM *a, const BIGNUM *m);
 int BN_mod_lshift(BIGNUM *r, const BIGNUM *a, int n, const BIGNUM *m,
-BN_CTX *ctx);
+                  BN_CTX *ctx);
 int BN_mod_lshift_quick(BIGNUM *r, const BIGNUM *a, int n, const BIGNUM *m);
 unsigned int BN_mod_word(const BIGNUM *a, unsigned int w);
 unsigned int BN_div_word(BIGNUM *a, unsigned int w);
@@ -1920,19 +2399,19 @@ int BN_lshift(BIGNUM *r, const BIGNUM *a, int n);
 int BN_lshift1(BIGNUM *r, const BIGNUM *a);
 int BN_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p, BN_CTX *ctx);
 int BN_mod_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx);
+               const BIGNUM *m, BN_CTX *ctx);
 int BN_mod_exp_mont(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
+                    const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
 int BN_mod_exp_mont_consttime(BIGNUM *rr, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx,
-BN_MONT_CTX *in_mont);
+                              const BIGNUM *m, BN_CTX *ctx,
+                              BN_MONT_CTX *in_mont);
 int BN_mod_exp_mont_word(BIGNUM *r, unsigned int a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
+                         const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
 int BN_mod_exp2_mont(BIGNUM *r, const BIGNUM *a1, const BIGNUM *p1,
-const BIGNUM *a2, const BIGNUM *p2, const BIGNUM *m,
-BN_CTX *ctx, BN_MONT_CTX *m_ctx);
+                     const BIGNUM *a2, const BIGNUM *p2, const BIGNUM *m,
+                     BN_CTX *ctx, BN_MONT_CTX *m_ctx);
 int BN_mod_exp_simple(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx);
+                      const BIGNUM *m, BN_CTX *ctx);
 int BN_mask_bits(BIGNUM *a, int n);
 int BN_print_fp(FILE *fp, const BIGNUM *a);
 #line 262 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
@@ -1951,11 +2430,11 @@ int BN_hex2bn(BIGNUM **a, const char *str);
 int BN_dec2bn(BIGNUM **a, const char *str);
 int BN_asc2bn(BIGNUM **a, const char *str);
 int BN_gcd(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, BN_CTX *ctx);
-int BN_kronecker(const BIGNUM *a, const BIGNUM *b, BN_CTX *ctx); 
+int BN_kronecker(const BIGNUM *a, const BIGNUM *b, BN_CTX *ctx);
 BIGNUM *BN_mod_inverse(BIGNUM *ret,
-const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
+                       const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
 BIGNUM *BN_mod_sqrt(BIGNUM *ret,
-const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
+                    const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
 void BN_consttime_swap(unsigned int swap, BIGNUM *a, BIGNUM *b, int nwords);
 BIGNUM *BN_generate_prime(BIGNUM *ret, int bits, int safe, const BIGNUM *add, const BIGNUM *rem, void (*callback) (int, int, void *), void *cb_arg);
 #line 294 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
@@ -1964,30 +2443,30 @@ int BN_is_prime(const BIGNUM *p, int nchecks, void (*callback) (int, int, void *
 int BN_is_prime_fasttest(const BIGNUM *p, int nchecks, void (*callback) (int, int, void *), BN_CTX *ctx, void *cb_arg, int do_trial_division);
 #line 303 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 int BN_generate_prime_ex(BIGNUM *ret, int bits, int safe, const BIGNUM *add,
-const BIGNUM *rem, BN_GENCB *cb);
+                         const BIGNUM *rem, BN_GENCB *cb);
 int BN_is_prime_ex(const BIGNUM *p, int nchecks, BN_CTX *ctx, BN_GENCB *cb);
 int BN_is_prime_fasttest_ex(const BIGNUM *p, int nchecks, BN_CTX *ctx,
-int do_trial_division, BN_GENCB *cb);
+                            int do_trial_division, BN_GENCB *cb);
 int BN_X931_generate_Xpq(BIGNUM *Xp, BIGNUM *Xq, int nbits, BN_CTX *ctx);
 int BN_X931_derive_prime_ex(BIGNUM *p, BIGNUM *p1, BIGNUM *p2,
-const BIGNUM *Xp, const BIGNUM *Xp1,
-const BIGNUM *Xp2, const BIGNUM *e, BN_CTX *ctx,
-BN_GENCB *cb);
+                            const BIGNUM *Xp, const BIGNUM *Xp1,
+                            const BIGNUM *Xp2, const BIGNUM *e, BN_CTX *ctx,
+                            BN_GENCB *cb);
 int BN_X931_generate_prime_ex(BIGNUM *p, BIGNUM *p1, BIGNUM *p2, BIGNUM *Xp1,
-BIGNUM *Xp2, const BIGNUM *Xp, const BIGNUM *e,
-BN_CTX *ctx, BN_GENCB *cb);
+                              BIGNUM *Xp2, const BIGNUM *Xp, const BIGNUM *e,
+                              BN_CTX *ctx, BN_GENCB *cb);
 BN_MONT_CTX *BN_MONT_CTX_new(void);
 int BN_mod_mul_montgomery(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-BN_MONT_CTX *mont, BN_CTX *ctx);
+                          BN_MONT_CTX *mont, BN_CTX *ctx);
 int BN_to_montgomery(BIGNUM *r, const BIGNUM *a, BN_MONT_CTX *mont,
-BN_CTX *ctx);
+                     BN_CTX *ctx);
 int BN_from_montgomery(BIGNUM *r, const BIGNUM *a, BN_MONT_CTX *mont,
-BN_CTX *ctx);
+                       BN_CTX *ctx);
 void BN_MONT_CTX_free(BN_MONT_CTX *mont);
 int BN_MONT_CTX_set(BN_MONT_CTX *mont, const BIGNUM *mod, BN_CTX *ctx);
 BN_MONT_CTX *BN_MONT_CTX_copy(BN_MONT_CTX *to, BN_MONT_CTX *from);
 BN_MONT_CTX *BN_MONT_CTX_set_locked(BN_MONT_CTX **pmont, CRYPTO_RWLOCK *lock,
-const BIGNUM *mod, BN_CTX *ctx);
+                                    const BIGNUM *mod, BN_CTX *ctx);
 BN_BLINDING *BN_BLINDING_new(const BIGNUM *A, const BIGNUM *Ai, BIGNUM *mod);
 void BN_BLINDING_free(BN_BLINDING *b);
 int BN_BLINDING_update(BN_BLINDING *b, BN_CTX *ctx);
@@ -1995,7 +2474,7 @@ int BN_BLINDING_convert(BIGNUM *n, BN_BLINDING *b, BN_CTX *ctx);
 int BN_BLINDING_invert(BIGNUM *n, BN_BLINDING *b, BN_CTX *ctx);
 int BN_BLINDING_convert_ex(BIGNUM *n, BIGNUM *r, BN_BLINDING *b, BN_CTX *);
 int BN_BLINDING_invert_ex(BIGNUM *n, const BIGNUM *r, BN_BLINDING *b,
-BN_CTX *);
+                          BN_CTX *);
 int BN_BLINDING_is_current_thread(BN_BLINDING *b);
 void BN_BLINDING_set_current_thread(BN_BLINDING *b);
 int BN_BLINDING_lock(BN_BLINDING *b);
@@ -2003,54 +2482,54 @@ int BN_BLINDING_unlock(BN_BLINDING *b);
 unsigned long BN_BLINDING_get_flags(const BN_BLINDING *);
 void BN_BLINDING_set_flags(BN_BLINDING *, unsigned long);
 BN_BLINDING *BN_BLINDING_create_param(BN_BLINDING *b,
-const BIGNUM *e, BIGNUM *m, BN_CTX *ctx,
-int (*bn_mod_exp) (BIGNUM *r,
-const BIGNUM *a,
-const BIGNUM *p,
-const BIGNUM *m,
-BN_CTX *ctx,
-BN_MONT_CTX *m_ctx),
-BN_MONT_CTX *m_ctx);
+                                      const BIGNUM *e, BIGNUM *m, BN_CTX *ctx,
+                                      int (*bn_mod_exp) (BIGNUM *r,
+                                              const BIGNUM *a,
+                                              const BIGNUM *p,
+                                              const BIGNUM *m,
+                                              BN_CTX *ctx,
+                                              BN_MONT_CTX *m_ctx),
+                                      BN_MONT_CTX *m_ctx);
 void BN_set_params(int mul, int high, int low, int mont);
-int BN_get_params(int which); 
+int BN_get_params(int which);
 BN_RECP_CTX *BN_RECP_CTX_new(void);
 void BN_RECP_CTX_free(BN_RECP_CTX *recp);
 int BN_RECP_CTX_set(BN_RECP_CTX *recp, const BIGNUM *rdiv, BN_CTX *ctx);
 int BN_mod_mul_reciprocal(BIGNUM *r, const BIGNUM *x, const BIGNUM *y,
-BN_RECP_CTX *recp, BN_CTX *ctx);
+                          BN_RECP_CTX *recp, BN_CTX *ctx);
 int BN_mod_exp_recp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx);
+                    const BIGNUM *m, BN_CTX *ctx);
 int BN_div_recp(BIGNUM *dv, BIGNUM *rem, const BIGNUM *m,
-BN_RECP_CTX *recp, BN_CTX *ctx);
+                BN_RECP_CTX *recp, BN_CTX *ctx);
 int BN_GF2m_add(BIGNUM *r, const BIGNUM *a, const BIGNUM *b);
 int BN_GF2m_mod(BIGNUM *r, const BIGNUM *a, const BIGNUM *p);
 int BN_GF2m_mod_mul(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *p, BN_CTX *ctx);
+                    const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_sqr(BIGNUM *r, const BIGNUM *a, const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_inv(BIGNUM *r, const BIGNUM *b, const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_div(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *p, BN_CTX *ctx);
+                    const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *p, BN_CTX *ctx);
+                    const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_sqrt(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-BN_CTX *ctx);
+                     BN_CTX *ctx);
 int BN_GF2m_mod_solve_quad(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-BN_CTX *ctx);
+                           BN_CTX *ctx);
 int BN_GF2m_mod_arr(BIGNUM *r, const BIGNUM *a, const int p[]);
 int BN_GF2m_mod_mul_arr(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const int p[], BN_CTX *ctx);
+                        const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_sqr_arr(BIGNUM *r, const BIGNUM *a, const int p[],
-BN_CTX *ctx);
+                        BN_CTX *ctx);
 int BN_GF2m_mod_inv_arr(BIGNUM *r, const BIGNUM *b, const int p[],
-BN_CTX *ctx);
+                        BN_CTX *ctx);
 int BN_GF2m_mod_div_arr(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const int p[], BN_CTX *ctx);
+                        const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_exp_arr(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const int p[], BN_CTX *ctx);
+                        const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_sqrt_arr(BIGNUM *r, const BIGNUM *a,
-const int p[], BN_CTX *ctx);
+                         const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_solve_quad_arr(BIGNUM *r, const BIGNUM *a,
-const int p[], BN_CTX *ctx);
+                               const int p[], BN_CTX *ctx);
 int BN_GF2m_poly2arr(const BIGNUM *a, int p[], int max);
 int BN_GF2m_arr2poly(const int p[], BIGNUM *a);
 #line 449 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
@@ -2069,10 +2548,10 @@ const BIGNUM *BN_get0_nist_prime_521(void);
 const BIGNUM *BN_get0_sm2_prime_256(void);
 #line 470 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 int (*BN_nist_mod_func(const BIGNUM *p)) (BIGNUM *r, const BIGNUM *a,
-const BIGNUM *field, BN_CTX *ctx);
+        const BIGNUM *field, BN_CTX *ctx);
 int BN_generate_dsa_nonce(BIGNUM *out, const BIGNUM *range,
-const BIGNUM *priv, const unsigned char *message,
-size_t message_len, BN_CTX *ctx);
+                          const BIGNUM *priv, const unsigned char *message,
+                          size_t message_len, BN_CTX *ctx);
 BIGNUM *BN_get_rfc2409_prime_768(BIGNUM *bn);
 BIGNUM *BN_get_rfc2409_prime_1024(BIGNUM *bn);
 BIGNUM *BN_get_rfc3526_prime_1536(BIGNUM *bn);
@@ -2083,77 +2562,729 @@ BIGNUM *BN_get_rfc3526_prime_6144(BIGNUM *bn);
 BIGNUM *BN_get_rfc3526_prime_8192(BIGNUM *bn);
 #line 500 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 int BN_bntest_rand(BIGNUM *rnd, int bits, int top, int bottom);
-struct stack_st_BIGNUM; typedef int (*sk_BIGNUM_compfunc)(const BIGNUM * const *a, const BIGNUM *const *b); typedef void (*sk_BIGNUM_freefunc)(BIGNUM *a); typedef BIGNUM * (*sk_BIGNUM_copyfunc)(const BIGNUM *a); static __inline int sk_BIGNUM_num(const struct stack_st_BIGNUM *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline BIGNUM *sk_BIGNUM_value(const struct stack_st_BIGNUM *sk, int idx) { return (BIGNUM *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_BIGNUM *sk_BIGNUM_new(sk_BIGNUM_compfunc compare) { return (struct stack_st_BIGNUM *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_BIGNUM *sk_BIGNUM_new_null(void) { return (struct stack_st_BIGNUM *)OPENSSL_sk_new_null(); } static __inline void sk_BIGNUM_free(struct stack_st_BIGNUM *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_BIGNUM_zero(struct stack_st_BIGNUM *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline BIGNUM *sk_BIGNUM_delete(struct stack_st_BIGNUM *sk, int i) { return (BIGNUM *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline BIGNUM *sk_BIGNUM_delete_ptr(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return (BIGNUM *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIGNUM_push(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIGNUM_unshift(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline BIGNUM *sk_BIGNUM_pop(struct stack_st_BIGNUM *sk) { return (BIGNUM *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline BIGNUM *sk_BIGNUM_shift(struct stack_st_BIGNUM *sk) { return (BIGNUM *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_BIGNUM_pop_free(struct stack_st_BIGNUM *sk, sk_BIGNUM_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_BIGNUM_insert(struct stack_st_BIGNUM *sk, BIGNUM *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline BIGNUM *sk_BIGNUM_set(struct stack_st_BIGNUM *sk, int idx, BIGNUM *ptr) { return (BIGNUM *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_BIGNUM_find(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIGNUM_find_ex(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_BIGNUM_sort(struct stack_st_BIGNUM *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_BIGNUM_is_sorted(const struct stack_st_BIGNUM *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_BIGNUM * sk_BIGNUM_dup(const struct stack_st_BIGNUM *sk) { return (struct stack_st_BIGNUM *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_BIGNUM *sk_BIGNUM_deep_copy(const struct stack_st_BIGNUM *sk, sk_BIGNUM_copyfunc copyfunc, sk_BIGNUM_freefunc freefunc) { return (struct stack_st_BIGNUM *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_BIGNUM_compfunc sk_BIGNUM_set_cmp_func(struct stack_st_BIGNUM *sk, sk_BIGNUM_compfunc compare) { return (sk_BIGNUM_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_BIGNUM;
+typedef int (*sk_BIGNUM_compfunc)(const BIGNUM * const *a, const BIGNUM *const *b);
+typedef void (*sk_BIGNUM_freefunc)(BIGNUM *a);
+typedef BIGNUM * (*sk_BIGNUM_copyfunc)(const BIGNUM *a);
+static __inline int sk_BIGNUM_num(const struct stack_st_BIGNUM *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline BIGNUM *sk_BIGNUM_value(const struct stack_st_BIGNUM *sk, int idx)
+{
+    return (BIGNUM *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_BIGNUM *sk_BIGNUM_new(sk_BIGNUM_compfunc compare)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_BIGNUM *sk_BIGNUM_new_null(void)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_new_null();
+}
+static __inline void sk_BIGNUM_free(struct stack_st_BIGNUM *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_BIGNUM_zero(struct stack_st_BIGNUM *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline BIGNUM *sk_BIGNUM_delete(struct stack_st_BIGNUM *sk, int i)
+{
+    return (BIGNUM *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline BIGNUM *sk_BIGNUM_delete_ptr(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return (BIGNUM *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_push(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_unshift(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline BIGNUM *sk_BIGNUM_pop(struct stack_st_BIGNUM *sk)
+{
+    return (BIGNUM *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline BIGNUM *sk_BIGNUM_shift(struct stack_st_BIGNUM *sk)
+{
+    return (BIGNUM *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_BIGNUM_pop_free(struct stack_st_BIGNUM *sk, sk_BIGNUM_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_BIGNUM_insert(struct stack_st_BIGNUM *sk, BIGNUM *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline BIGNUM *sk_BIGNUM_set(struct stack_st_BIGNUM *sk, int idx, BIGNUM *ptr)
+{
+    return (BIGNUM *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_find(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_find_ex(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_BIGNUM_sort(struct stack_st_BIGNUM *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_BIGNUM_is_sorted(const struct stack_st_BIGNUM *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_BIGNUM * sk_BIGNUM_dup(const struct stack_st_BIGNUM *sk)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_BIGNUM *sk_BIGNUM_deep_copy(const struct stack_st_BIGNUM *sk, sk_BIGNUM_copyfunc copyfunc, sk_BIGNUM_freefunc freefunc)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_BIGNUM_compfunc sk_BIGNUM_set_cmp_func(struct stack_st_BIGNUM *sk, sk_BIGNUM_compfunc compare)
+{
+    return (sk_BIGNUM_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 int ERR_load_BN_strings(void);
 #line 610 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 #line 25 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1.h"
 #line 26 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1.h"
 struct X509_algor_st;
-struct stack_st_X509_ALGOR; typedef int (*sk_X509_ALGOR_compfunc)(const X509_ALGOR * const *a, const X509_ALGOR *const *b); typedef void (*sk_X509_ALGOR_freefunc)(X509_ALGOR *a); typedef X509_ALGOR * (*sk_X509_ALGOR_copyfunc)(const X509_ALGOR *a); static __inline int sk_X509_ALGOR_num(const struct stack_st_X509_ALGOR *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_ALGOR *sk_X509_ALGOR_value(const struct stack_st_X509_ALGOR *sk, int idx) { return (X509_ALGOR *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_ALGOR *sk_X509_ALGOR_new(sk_X509_ALGOR_compfunc compare) { return (struct stack_st_X509_ALGOR *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_ALGOR *sk_X509_ALGOR_new_null(void) { return (struct stack_st_X509_ALGOR *)OPENSSL_sk_new_null(); } static __inline void sk_X509_ALGOR_free(struct stack_st_X509_ALGOR *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_ALGOR_zero(struct stack_st_X509_ALGOR *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_ALGOR *sk_X509_ALGOR_delete(struct stack_st_X509_ALGOR *sk, int i) { return (X509_ALGOR *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_ALGOR *sk_X509_ALGOR_delete_ptr(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr) { return (X509_ALGOR *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_ALGOR_push(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_ALGOR_unshift(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_ALGOR *sk_X509_ALGOR_pop(struct stack_st_X509_ALGOR *sk) { return (X509_ALGOR *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_ALGOR *sk_X509_ALGOR_shift(struct stack_st_X509_ALGOR *sk) { return (X509_ALGOR *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_ALGOR_pop_free(struct stack_st_X509_ALGOR *sk, sk_X509_ALGOR_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_ALGOR_insert(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_ALGOR *sk_X509_ALGOR_set(struct stack_st_X509_ALGOR *sk, int idx, X509_ALGOR *ptr) { return (X509_ALGOR *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_ALGOR_find(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_ALGOR_find_ex(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_ALGOR_sort(struct stack_st_X509_ALGOR *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_ALGOR_is_sorted(const struct stack_st_X509_ALGOR *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_ALGOR * sk_X509_ALGOR_dup(const struct stack_st_X509_ALGOR *sk) { return (struct stack_st_X509_ALGOR *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_ALGOR *sk_X509_ALGOR_deep_copy(const struct stack_st_X509_ALGOR *sk, sk_X509_ALGOR_copyfunc copyfunc, sk_X509_ALGOR_freefunc freefunc) { return (struct stack_st_X509_ALGOR *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_ALGOR_compfunc sk_X509_ALGOR_set_cmp_func(struct stack_st_X509_ALGOR *sk, sk_X509_ALGOR_compfunc compare) { return (sk_X509_ALGOR_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct asn1_string_st {
-int length;
-int type;
-unsigned char *data;
-long flags;
+struct stack_st_X509_ALGOR;
+typedef int (*sk_X509_ALGOR_compfunc)(const X509_ALGOR * const *a, const X509_ALGOR *const *b);
+typedef void (*sk_X509_ALGOR_freefunc)(X509_ALGOR *a);
+typedef X509_ALGOR * (*sk_X509_ALGOR_copyfunc)(const X509_ALGOR *a);
+static __inline int sk_X509_ALGOR_num(const struct stack_st_X509_ALGOR *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_ALGOR *sk_X509_ALGOR_value(const struct stack_st_X509_ALGOR *sk, int idx)
+{
+    return (X509_ALGOR *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_ALGOR *sk_X509_ALGOR_new(sk_X509_ALGOR_compfunc compare)
+{
+    return (struct stack_st_X509_ALGOR *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_ALGOR *sk_X509_ALGOR_new_null(void)
+{
+    return (struct stack_st_X509_ALGOR *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_ALGOR_free(struct stack_st_X509_ALGOR *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_ALGOR_zero(struct stack_st_X509_ALGOR *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_ALGOR *sk_X509_ALGOR_delete(struct stack_st_X509_ALGOR *sk, int i)
+{
+    return (X509_ALGOR *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_ALGOR *sk_X509_ALGOR_delete_ptr(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr)
+{
+    return (X509_ALGOR *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_ALGOR_push(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_ALGOR_unshift(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_ALGOR *sk_X509_ALGOR_pop(struct stack_st_X509_ALGOR *sk)
+{
+    return (X509_ALGOR *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_ALGOR *sk_X509_ALGOR_shift(struct stack_st_X509_ALGOR *sk)
+{
+    return (X509_ALGOR *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_ALGOR_pop_free(struct stack_st_X509_ALGOR *sk, sk_X509_ALGOR_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_ALGOR_insert(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_ALGOR *sk_X509_ALGOR_set(struct stack_st_X509_ALGOR *sk, int idx, X509_ALGOR *ptr)
+{
+    return (X509_ALGOR *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_ALGOR_find(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_ALGOR_find_ex(struct stack_st_X509_ALGOR *sk, X509_ALGOR *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_ALGOR_sort(struct stack_st_X509_ALGOR *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_ALGOR_is_sorted(const struct stack_st_X509_ALGOR *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_ALGOR * sk_X509_ALGOR_dup(const struct stack_st_X509_ALGOR *sk)
+{
+    return (struct stack_st_X509_ALGOR *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_ALGOR *sk_X509_ALGOR_deep_copy(const struct stack_st_X509_ALGOR *sk, sk_X509_ALGOR_copyfunc copyfunc, sk_X509_ALGOR_freefunc freefunc)
+{
+    return (struct stack_st_X509_ALGOR *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_ALGOR_compfunc sk_X509_ALGOR_set_cmp_func(struct stack_st_X509_ALGOR *sk, sk_X509_ALGOR_compfunc compare)
+{
+    return (sk_X509_ALGOR_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct asn1_string_st
+{
+    int length;
+    int type;
+    unsigned char *data;
+    long flags;
 };
-typedef struct ASN1_ENCODING_st {
-unsigned char *enc;         
-long len;                   
-int modified;               
+typedef struct ASN1_ENCODING_st
+{
+    unsigned char *enc;
+    long len;
+    int modified;
 } ASN1_ENCODING;
-typedef struct asn1_string_table_st {
-int nid;
-long minsize;
-long maxsize;
-unsigned long mask;
-unsigned long flags;
+typedef struct asn1_string_table_st
+{
+    int nid;
+    long minsize;
+    long maxsize;
+    unsigned long mask;
+    unsigned long flags;
 } ASN1_STRING_TABLE;
-struct stack_st_ASN1_STRING_TABLE; typedef int (*sk_ASN1_STRING_TABLE_compfunc)(const ASN1_STRING_TABLE * const *a, const ASN1_STRING_TABLE *const *b); typedef void (*sk_ASN1_STRING_TABLE_freefunc)(ASN1_STRING_TABLE *a); typedef ASN1_STRING_TABLE * (*sk_ASN1_STRING_TABLE_copyfunc)(const ASN1_STRING_TABLE *a); static __inline int sk_ASN1_STRING_TABLE_num(const struct stack_st_ASN1_STRING_TABLE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_value(const struct stack_st_ASN1_STRING_TABLE *sk, int idx) { return (ASN1_STRING_TABLE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_new(sk_ASN1_STRING_TABLE_compfunc compare) { return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_new_null(void) { return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_new_null(); } static __inline void sk_ASN1_STRING_TABLE_free(struct stack_st_ASN1_STRING_TABLE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_STRING_TABLE_zero(struct stack_st_ASN1_STRING_TABLE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_delete(struct stack_st_ASN1_STRING_TABLE *sk, int i) { return (ASN1_STRING_TABLE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_delete_ptr(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr) { return (ASN1_STRING_TABLE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_STRING_TABLE_push(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_STRING_TABLE_unshift(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_pop(struct stack_st_ASN1_STRING_TABLE *sk) { return (ASN1_STRING_TABLE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_shift(struct stack_st_ASN1_STRING_TABLE *sk) { return (ASN1_STRING_TABLE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_STRING_TABLE_pop_free(struct stack_st_ASN1_STRING_TABLE *sk, sk_ASN1_STRING_TABLE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASN1_STRING_TABLE_insert(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_set(struct stack_st_ASN1_STRING_TABLE *sk, int idx, ASN1_STRING_TABLE *ptr) { return (ASN1_STRING_TABLE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASN1_STRING_TABLE_find(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_STRING_TABLE_find_ex(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASN1_STRING_TABLE_sort(struct stack_st_ASN1_STRING_TABLE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASN1_STRING_TABLE_is_sorted(const struct stack_st_ASN1_STRING_TABLE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_STRING_TABLE * sk_ASN1_STRING_TABLE_dup(const struct stack_st_ASN1_STRING_TABLE *sk) { return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_deep_copy(const struct stack_st_ASN1_STRING_TABLE *sk, sk_ASN1_STRING_TABLE_copyfunc copyfunc, sk_ASN1_STRING_TABLE_freefunc freefunc) { return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASN1_STRING_TABLE_compfunc sk_ASN1_STRING_TABLE_set_cmp_func(struct stack_st_ASN1_STRING_TABLE *sk, sk_ASN1_STRING_TABLE_compfunc compare) { return (sk_ASN1_STRING_TABLE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_ASN1_STRING_TABLE;
+typedef int (*sk_ASN1_STRING_TABLE_compfunc)(const ASN1_STRING_TABLE * const *a, const ASN1_STRING_TABLE *const *b);
+typedef void (*sk_ASN1_STRING_TABLE_freefunc)(ASN1_STRING_TABLE *a);
+typedef ASN1_STRING_TABLE * (*sk_ASN1_STRING_TABLE_copyfunc)(const ASN1_STRING_TABLE *a);
+static __inline int sk_ASN1_STRING_TABLE_num(const struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_value(const struct stack_st_ASN1_STRING_TABLE *sk, int idx)
+{
+    return (ASN1_STRING_TABLE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_new(sk_ASN1_STRING_TABLE_compfunc compare)
+{
+    return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_new_null(void)
+{
+    return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASN1_STRING_TABLE_free(struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_STRING_TABLE_zero(struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_delete(struct stack_st_ASN1_STRING_TABLE *sk, int i)
+{
+    return (ASN1_STRING_TABLE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_delete_ptr(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr)
+{
+    return (ASN1_STRING_TABLE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_STRING_TABLE_push(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_STRING_TABLE_unshift(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_pop(struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    return (ASN1_STRING_TABLE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_shift(struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    return (ASN1_STRING_TABLE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_STRING_TABLE_pop_free(struct stack_st_ASN1_STRING_TABLE *sk, sk_ASN1_STRING_TABLE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASN1_STRING_TABLE_insert(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_set(struct stack_st_ASN1_STRING_TABLE *sk, int idx, ASN1_STRING_TABLE *ptr)
+{
+    return (ASN1_STRING_TABLE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASN1_STRING_TABLE_find(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_STRING_TABLE_find_ex(struct stack_st_ASN1_STRING_TABLE *sk, ASN1_STRING_TABLE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASN1_STRING_TABLE_sort(struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASN1_STRING_TABLE_is_sorted(const struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_STRING_TABLE * sk_ASN1_STRING_TABLE_dup(const struct stack_st_ASN1_STRING_TABLE *sk)
+{
+    return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_STRING_TABLE *sk_ASN1_STRING_TABLE_deep_copy(const struct stack_st_ASN1_STRING_TABLE *sk, sk_ASN1_STRING_TABLE_copyfunc copyfunc, sk_ASN1_STRING_TABLE_freefunc freefunc)
+{
+    return (struct stack_st_ASN1_STRING_TABLE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASN1_STRING_TABLE_compfunc sk_ASN1_STRING_TABLE_set_cmp_func(struct stack_st_ASN1_STRING_TABLE *sk, sk_ASN1_STRING_TABLE_compfunc compare)
+{
+    return (sk_ASN1_STRING_TABLE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct ASN1_TEMPLATE_st ASN1_TEMPLATE;
 typedef struct ASN1_TLC_st ASN1_TLC;
 typedef struct ASN1_VALUE_st ASN1_VALUE;
-typedef void *d2i_of_void(void **,const unsigned char **,long); typedef int i2d_of_void(void *,unsigned char **);
+typedef void *d2i_of_void(void **,const unsigned char **,long);
+typedef int i2d_of_void(void *,unsigned char **);
 typedef const ASN1_ITEM *ASN1_ITEM_EXP (void);
 #line 352 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1.h"
-struct stack_st_ASN1_INTEGER; typedef int (*sk_ASN1_INTEGER_compfunc)(const ASN1_INTEGER * const *a, const ASN1_INTEGER *const *b); typedef void (*sk_ASN1_INTEGER_freefunc)(ASN1_INTEGER *a); typedef ASN1_INTEGER * (*sk_ASN1_INTEGER_copyfunc)(const ASN1_INTEGER *a); static __inline int sk_ASN1_INTEGER_num(const struct stack_st_ASN1_INTEGER *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASN1_INTEGER *sk_ASN1_INTEGER_value(const struct stack_st_ASN1_INTEGER *sk, int idx) { return (ASN1_INTEGER *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASN1_INTEGER *sk_ASN1_INTEGER_new(sk_ASN1_INTEGER_compfunc compare) { return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASN1_INTEGER *sk_ASN1_INTEGER_new_null(void) { return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_new_null(); } static __inline void sk_ASN1_INTEGER_free(struct stack_st_ASN1_INTEGER *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_INTEGER_zero(struct stack_st_ASN1_INTEGER *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASN1_INTEGER *sk_ASN1_INTEGER_delete(struct stack_st_ASN1_INTEGER *sk, int i) { return (ASN1_INTEGER *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASN1_INTEGER *sk_ASN1_INTEGER_delete_ptr(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr) { return (ASN1_INTEGER *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_INTEGER_push(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_INTEGER_unshift(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASN1_INTEGER *sk_ASN1_INTEGER_pop(struct stack_st_ASN1_INTEGER *sk) { return (ASN1_INTEGER *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASN1_INTEGER *sk_ASN1_INTEGER_shift(struct stack_st_ASN1_INTEGER *sk) { return (ASN1_INTEGER *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_INTEGER_pop_free(struct stack_st_ASN1_INTEGER *sk, sk_ASN1_INTEGER_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASN1_INTEGER_insert(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASN1_INTEGER *sk_ASN1_INTEGER_set(struct stack_st_ASN1_INTEGER *sk, int idx, ASN1_INTEGER *ptr) { return (ASN1_INTEGER *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASN1_INTEGER_find(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_INTEGER_find_ex(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASN1_INTEGER_sort(struct stack_st_ASN1_INTEGER *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASN1_INTEGER_is_sorted(const struct stack_st_ASN1_INTEGER *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_INTEGER * sk_ASN1_INTEGER_dup(const struct stack_st_ASN1_INTEGER *sk) { return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_INTEGER *sk_ASN1_INTEGER_deep_copy(const struct stack_st_ASN1_INTEGER *sk, sk_ASN1_INTEGER_copyfunc copyfunc, sk_ASN1_INTEGER_freefunc freefunc) { return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASN1_INTEGER_compfunc sk_ASN1_INTEGER_set_cmp_func(struct stack_st_ASN1_INTEGER *sk, sk_ASN1_INTEGER_compfunc compare) { return (sk_ASN1_INTEGER_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_ASN1_GENERALSTRING; typedef int (*sk_ASN1_GENERALSTRING_compfunc)(const ASN1_GENERALSTRING * const *a, const ASN1_GENERALSTRING *const *b); typedef void (*sk_ASN1_GENERALSTRING_freefunc)(ASN1_GENERALSTRING *a); typedef ASN1_GENERALSTRING * (*sk_ASN1_GENERALSTRING_copyfunc)(const ASN1_GENERALSTRING *a); static __inline int sk_ASN1_GENERALSTRING_num(const struct stack_st_ASN1_GENERALSTRING *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_value(const struct stack_st_ASN1_GENERALSTRING *sk, int idx) { return (ASN1_GENERALSTRING *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_new(sk_ASN1_GENERALSTRING_compfunc compare) { return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_new_null(void) { return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_new_null(); } static __inline void sk_ASN1_GENERALSTRING_free(struct stack_st_ASN1_GENERALSTRING *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_GENERALSTRING_zero(struct stack_st_ASN1_GENERALSTRING *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_delete(struct stack_st_ASN1_GENERALSTRING *sk, int i) { return (ASN1_GENERALSTRING *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_delete_ptr(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr) { return (ASN1_GENERALSTRING *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_GENERALSTRING_push(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_GENERALSTRING_unshift(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_pop(struct stack_st_ASN1_GENERALSTRING *sk) { return (ASN1_GENERALSTRING *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_shift(struct stack_st_ASN1_GENERALSTRING *sk) { return (ASN1_GENERALSTRING *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_GENERALSTRING_pop_free(struct stack_st_ASN1_GENERALSTRING *sk, sk_ASN1_GENERALSTRING_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASN1_GENERALSTRING_insert(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_set(struct stack_st_ASN1_GENERALSTRING *sk, int idx, ASN1_GENERALSTRING *ptr) { return (ASN1_GENERALSTRING *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASN1_GENERALSTRING_find(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_GENERALSTRING_find_ex(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASN1_GENERALSTRING_sort(struct stack_st_ASN1_GENERALSTRING *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASN1_GENERALSTRING_is_sorted(const struct stack_st_ASN1_GENERALSTRING *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_GENERALSTRING * sk_ASN1_GENERALSTRING_dup(const struct stack_st_ASN1_GENERALSTRING *sk) { return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_deep_copy(const struct stack_st_ASN1_GENERALSTRING *sk, sk_ASN1_GENERALSTRING_copyfunc copyfunc, sk_ASN1_GENERALSTRING_freefunc freefunc) { return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASN1_GENERALSTRING_compfunc sk_ASN1_GENERALSTRING_set_cmp_func(struct stack_st_ASN1_GENERALSTRING *sk, sk_ASN1_GENERALSTRING_compfunc compare) { return (sk_ASN1_GENERALSTRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_ASN1_UTF8STRING; typedef int (*sk_ASN1_UTF8STRING_compfunc)(const ASN1_UTF8STRING * const *a, const ASN1_UTF8STRING *const *b); typedef void (*sk_ASN1_UTF8STRING_freefunc)(ASN1_UTF8STRING *a); typedef ASN1_UTF8STRING * (*sk_ASN1_UTF8STRING_copyfunc)(const ASN1_UTF8STRING *a); static __inline int sk_ASN1_UTF8STRING_num(const struct stack_st_ASN1_UTF8STRING *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_value(const struct stack_st_ASN1_UTF8STRING *sk, int idx) { return (ASN1_UTF8STRING *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASN1_UTF8STRING *sk_ASN1_UTF8STRING_new(sk_ASN1_UTF8STRING_compfunc compare) { return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASN1_UTF8STRING *sk_ASN1_UTF8STRING_new_null(void) { return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_new_null(); } static __inline void sk_ASN1_UTF8STRING_free(struct stack_st_ASN1_UTF8STRING *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_UTF8STRING_zero(struct stack_st_ASN1_UTF8STRING *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_delete(struct stack_st_ASN1_UTF8STRING *sk, int i) { return (ASN1_UTF8STRING *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_delete_ptr(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr) { return (ASN1_UTF8STRING *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_UTF8STRING_push(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_UTF8STRING_unshift(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_pop(struct stack_st_ASN1_UTF8STRING *sk) { return (ASN1_UTF8STRING *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_shift(struct stack_st_ASN1_UTF8STRING *sk) { return (ASN1_UTF8STRING *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_UTF8STRING_pop_free(struct stack_st_ASN1_UTF8STRING *sk, sk_ASN1_UTF8STRING_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASN1_UTF8STRING_insert(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_set(struct stack_st_ASN1_UTF8STRING *sk, int idx, ASN1_UTF8STRING *ptr) { return (ASN1_UTF8STRING *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASN1_UTF8STRING_find(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_UTF8STRING_find_ex(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASN1_UTF8STRING_sort(struct stack_st_ASN1_UTF8STRING *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASN1_UTF8STRING_is_sorted(const struct stack_st_ASN1_UTF8STRING *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_UTF8STRING * sk_ASN1_UTF8STRING_dup(const struct stack_st_ASN1_UTF8STRING *sk) { return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_UTF8STRING *sk_ASN1_UTF8STRING_deep_copy(const struct stack_st_ASN1_UTF8STRING *sk, sk_ASN1_UTF8STRING_copyfunc copyfunc, sk_ASN1_UTF8STRING_freefunc freefunc) { return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASN1_UTF8STRING_compfunc sk_ASN1_UTF8STRING_set_cmp_func(struct stack_st_ASN1_UTF8STRING *sk, sk_ASN1_UTF8STRING_compfunc compare) { return (sk_ASN1_UTF8STRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct asn1_type_st {
-int type;
-union {
-char *ptr;
-ASN1_BOOLEAN boolean;
-ASN1_STRING *asn1_string;
-ASN1_OBJECT *object;
-ASN1_INTEGER *integer;
-ASN1_ENUMERATED *enumerated;
-ASN1_BIT_STRING *bit_string;
-ASN1_OCTET_STRING *octet_string;
-ASN1_PRINTABLESTRING *printablestring;
-ASN1_T61STRING *t61string;
-ASN1_IA5STRING *ia5string;
-ASN1_GENERALSTRING *generalstring;
-ASN1_BMPSTRING *bmpstring;
-ASN1_UNIVERSALSTRING *universalstring;
-ASN1_UTCTIME *utctime;
-ASN1_GENERALIZEDTIME *generalizedtime;
-ASN1_VISIBLESTRING *visiblestring;
-ASN1_UTF8STRING *utf8string;
-ASN1_STRING *set;
-ASN1_STRING *sequence;
-ASN1_VALUE *asn1_value;
-} value;
+struct stack_st_ASN1_INTEGER;
+typedef int (*sk_ASN1_INTEGER_compfunc)(const ASN1_INTEGER * const *a, const ASN1_INTEGER *const *b);
+typedef void (*sk_ASN1_INTEGER_freefunc)(ASN1_INTEGER *a);
+typedef ASN1_INTEGER * (*sk_ASN1_INTEGER_copyfunc)(const ASN1_INTEGER *a);
+static __inline int sk_ASN1_INTEGER_num(const struct stack_st_ASN1_INTEGER *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASN1_INTEGER *sk_ASN1_INTEGER_value(const struct stack_st_ASN1_INTEGER *sk, int idx)
+{
+    return (ASN1_INTEGER *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASN1_INTEGER *sk_ASN1_INTEGER_new(sk_ASN1_INTEGER_compfunc compare)
+{
+    return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASN1_INTEGER *sk_ASN1_INTEGER_new_null(void)
+{
+    return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASN1_INTEGER_free(struct stack_st_ASN1_INTEGER *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_INTEGER_zero(struct stack_st_ASN1_INTEGER *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_INTEGER *sk_ASN1_INTEGER_delete(struct stack_st_ASN1_INTEGER *sk, int i)
+{
+    return (ASN1_INTEGER *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASN1_INTEGER *sk_ASN1_INTEGER_delete_ptr(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr)
+{
+    return (ASN1_INTEGER *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_INTEGER_push(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_INTEGER_unshift(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASN1_INTEGER *sk_ASN1_INTEGER_pop(struct stack_st_ASN1_INTEGER *sk)
+{
+    return (ASN1_INTEGER *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_INTEGER *sk_ASN1_INTEGER_shift(struct stack_st_ASN1_INTEGER *sk)
+{
+    return (ASN1_INTEGER *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_INTEGER_pop_free(struct stack_st_ASN1_INTEGER *sk, sk_ASN1_INTEGER_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASN1_INTEGER_insert(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASN1_INTEGER *sk_ASN1_INTEGER_set(struct stack_st_ASN1_INTEGER *sk, int idx, ASN1_INTEGER *ptr)
+{
+    return (ASN1_INTEGER *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASN1_INTEGER_find(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_INTEGER_find_ex(struct stack_st_ASN1_INTEGER *sk, ASN1_INTEGER *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASN1_INTEGER_sort(struct stack_st_ASN1_INTEGER *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASN1_INTEGER_is_sorted(const struct stack_st_ASN1_INTEGER *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_INTEGER * sk_ASN1_INTEGER_dup(const struct stack_st_ASN1_INTEGER *sk)
+{
+    return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_INTEGER *sk_ASN1_INTEGER_deep_copy(const struct stack_st_ASN1_INTEGER *sk, sk_ASN1_INTEGER_copyfunc copyfunc, sk_ASN1_INTEGER_freefunc freefunc)
+{
+    return (struct stack_st_ASN1_INTEGER *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASN1_INTEGER_compfunc sk_ASN1_INTEGER_set_cmp_func(struct stack_st_ASN1_INTEGER *sk, sk_ASN1_INTEGER_compfunc compare)
+{
+    return (sk_ASN1_INTEGER_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_ASN1_GENERALSTRING;
+typedef int (*sk_ASN1_GENERALSTRING_compfunc)(const ASN1_GENERALSTRING * const *a, const ASN1_GENERALSTRING *const *b);
+typedef void (*sk_ASN1_GENERALSTRING_freefunc)(ASN1_GENERALSTRING *a);
+typedef ASN1_GENERALSTRING * (*sk_ASN1_GENERALSTRING_copyfunc)(const ASN1_GENERALSTRING *a);
+static __inline int sk_ASN1_GENERALSTRING_num(const struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_value(const struct stack_st_ASN1_GENERALSTRING *sk, int idx)
+{
+    return (ASN1_GENERALSTRING *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_new(sk_ASN1_GENERALSTRING_compfunc compare)
+{
+    return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_new_null(void)
+{
+    return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASN1_GENERALSTRING_free(struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_GENERALSTRING_zero(struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_delete(struct stack_st_ASN1_GENERALSTRING *sk, int i)
+{
+    return (ASN1_GENERALSTRING *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_delete_ptr(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr)
+{
+    return (ASN1_GENERALSTRING *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_GENERALSTRING_push(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_GENERALSTRING_unshift(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_pop(struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    return (ASN1_GENERALSTRING *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_shift(struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    return (ASN1_GENERALSTRING *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_GENERALSTRING_pop_free(struct stack_st_ASN1_GENERALSTRING *sk, sk_ASN1_GENERALSTRING_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASN1_GENERALSTRING_insert(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_set(struct stack_st_ASN1_GENERALSTRING *sk, int idx, ASN1_GENERALSTRING *ptr)
+{
+    return (ASN1_GENERALSTRING *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASN1_GENERALSTRING_find(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_GENERALSTRING_find_ex(struct stack_st_ASN1_GENERALSTRING *sk, ASN1_GENERALSTRING *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASN1_GENERALSTRING_sort(struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASN1_GENERALSTRING_is_sorted(const struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_GENERALSTRING * sk_ASN1_GENERALSTRING_dup(const struct stack_st_ASN1_GENERALSTRING *sk)
+{
+    return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_GENERALSTRING *sk_ASN1_GENERALSTRING_deep_copy(const struct stack_st_ASN1_GENERALSTRING *sk, sk_ASN1_GENERALSTRING_copyfunc copyfunc, sk_ASN1_GENERALSTRING_freefunc freefunc)
+{
+    return (struct stack_st_ASN1_GENERALSTRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASN1_GENERALSTRING_compfunc sk_ASN1_GENERALSTRING_set_cmp_func(struct stack_st_ASN1_GENERALSTRING *sk, sk_ASN1_GENERALSTRING_compfunc compare)
+{
+    return (sk_ASN1_GENERALSTRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_ASN1_UTF8STRING;
+typedef int (*sk_ASN1_UTF8STRING_compfunc)(const ASN1_UTF8STRING * const *a, const ASN1_UTF8STRING *const *b);
+typedef void (*sk_ASN1_UTF8STRING_freefunc)(ASN1_UTF8STRING *a);
+typedef ASN1_UTF8STRING * (*sk_ASN1_UTF8STRING_copyfunc)(const ASN1_UTF8STRING *a);
+static __inline int sk_ASN1_UTF8STRING_num(const struct stack_st_ASN1_UTF8STRING *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_value(const struct stack_st_ASN1_UTF8STRING *sk, int idx)
+{
+    return (ASN1_UTF8STRING *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASN1_UTF8STRING *sk_ASN1_UTF8STRING_new(sk_ASN1_UTF8STRING_compfunc compare)
+{
+    return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASN1_UTF8STRING *sk_ASN1_UTF8STRING_new_null(void)
+{
+    return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASN1_UTF8STRING_free(struct stack_st_ASN1_UTF8STRING *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_UTF8STRING_zero(struct stack_st_ASN1_UTF8STRING *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_delete(struct stack_st_ASN1_UTF8STRING *sk, int i)
+{
+    return (ASN1_UTF8STRING *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_delete_ptr(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr)
+{
+    return (ASN1_UTF8STRING *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_UTF8STRING_push(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_UTF8STRING_unshift(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_pop(struct stack_st_ASN1_UTF8STRING *sk)
+{
+    return (ASN1_UTF8STRING *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_shift(struct stack_st_ASN1_UTF8STRING *sk)
+{
+    return (ASN1_UTF8STRING *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_UTF8STRING_pop_free(struct stack_st_ASN1_UTF8STRING *sk, sk_ASN1_UTF8STRING_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASN1_UTF8STRING_insert(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASN1_UTF8STRING *sk_ASN1_UTF8STRING_set(struct stack_st_ASN1_UTF8STRING *sk, int idx, ASN1_UTF8STRING *ptr)
+{
+    return (ASN1_UTF8STRING *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASN1_UTF8STRING_find(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_UTF8STRING_find_ex(struct stack_st_ASN1_UTF8STRING *sk, ASN1_UTF8STRING *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASN1_UTF8STRING_sort(struct stack_st_ASN1_UTF8STRING *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASN1_UTF8STRING_is_sorted(const struct stack_st_ASN1_UTF8STRING *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_UTF8STRING * sk_ASN1_UTF8STRING_dup(const struct stack_st_ASN1_UTF8STRING *sk)
+{
+    return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_UTF8STRING *sk_ASN1_UTF8STRING_deep_copy(const struct stack_st_ASN1_UTF8STRING *sk, sk_ASN1_UTF8STRING_copyfunc copyfunc, sk_ASN1_UTF8STRING_freefunc freefunc)
+{
+    return (struct stack_st_ASN1_UTF8STRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASN1_UTF8STRING_compfunc sk_ASN1_UTF8STRING_set_cmp_func(struct stack_st_ASN1_UTF8STRING *sk, sk_ASN1_UTF8STRING_compfunc compare)
+{
+    return (sk_ASN1_UTF8STRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct asn1_type_st
+{
+    int type;
+    union
+    {
+        char *ptr;
+        ASN1_BOOLEAN boolean;
+        ASN1_STRING *asn1_string;
+        ASN1_OBJECT *object;
+        ASN1_INTEGER *integer;
+        ASN1_ENUMERATED *enumerated;
+        ASN1_BIT_STRING *bit_string;
+        ASN1_OCTET_STRING *octet_string;
+        ASN1_PRINTABLESTRING *printablestring;
+        ASN1_T61STRING *t61string;
+        ASN1_IA5STRING *ia5string;
+        ASN1_GENERALSTRING *generalstring;
+        ASN1_BMPSTRING *bmpstring;
+        ASN1_UNIVERSALSTRING *universalstring;
+        ASN1_UTCTIME *utctime;
+        ASN1_GENERALIZEDTIME *generalizedtime;
+        ASN1_VISIBLESTRING *visiblestring;
+        ASN1_UTF8STRING *utf8string;
+        ASN1_STRING *set;
+        ASN1_STRING *sequence;
+        ASN1_VALUE *asn1_value;
+    } value;
 } ASN1_TYPE;
-struct stack_st_ASN1_TYPE; typedef int (*sk_ASN1_TYPE_compfunc)(const ASN1_TYPE * const *a, const ASN1_TYPE *const *b); typedef void (*sk_ASN1_TYPE_freefunc)(ASN1_TYPE *a); typedef ASN1_TYPE * (*sk_ASN1_TYPE_copyfunc)(const ASN1_TYPE *a); static __inline int sk_ASN1_TYPE_num(const struct stack_st_ASN1_TYPE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASN1_TYPE *sk_ASN1_TYPE_value(const struct stack_st_ASN1_TYPE *sk, int idx) { return (ASN1_TYPE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASN1_TYPE *sk_ASN1_TYPE_new(sk_ASN1_TYPE_compfunc compare) { return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASN1_TYPE *sk_ASN1_TYPE_new_null(void) { return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_new_null(); } static __inline void sk_ASN1_TYPE_free(struct stack_st_ASN1_TYPE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_TYPE_zero(struct stack_st_ASN1_TYPE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASN1_TYPE *sk_ASN1_TYPE_delete(struct stack_st_ASN1_TYPE *sk, int i) { return (ASN1_TYPE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASN1_TYPE *sk_ASN1_TYPE_delete_ptr(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr) { return (ASN1_TYPE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_TYPE_push(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_TYPE_unshift(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASN1_TYPE *sk_ASN1_TYPE_pop(struct stack_st_ASN1_TYPE *sk) { return (ASN1_TYPE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASN1_TYPE *sk_ASN1_TYPE_shift(struct stack_st_ASN1_TYPE *sk) { return (ASN1_TYPE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_TYPE_pop_free(struct stack_st_ASN1_TYPE *sk, sk_ASN1_TYPE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASN1_TYPE_insert(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASN1_TYPE *sk_ASN1_TYPE_set(struct stack_st_ASN1_TYPE *sk, int idx, ASN1_TYPE *ptr) { return (ASN1_TYPE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASN1_TYPE_find(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_TYPE_find_ex(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASN1_TYPE_sort(struct stack_st_ASN1_TYPE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASN1_TYPE_is_sorted(const struct stack_st_ASN1_TYPE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_TYPE * sk_ASN1_TYPE_dup(const struct stack_st_ASN1_TYPE *sk) { return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_TYPE *sk_ASN1_TYPE_deep_copy(const struct stack_st_ASN1_TYPE *sk, sk_ASN1_TYPE_copyfunc copyfunc, sk_ASN1_TYPE_freefunc freefunc) { return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASN1_TYPE_compfunc sk_ASN1_TYPE_set_cmp_func(struct stack_st_ASN1_TYPE *sk, sk_ASN1_TYPE_compfunc compare) { return (sk_ASN1_TYPE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_ASN1_TYPE;
+typedef int (*sk_ASN1_TYPE_compfunc)(const ASN1_TYPE * const *a, const ASN1_TYPE *const *b);
+typedef void (*sk_ASN1_TYPE_freefunc)(ASN1_TYPE *a);
+typedef ASN1_TYPE * (*sk_ASN1_TYPE_copyfunc)(const ASN1_TYPE *a);
+static __inline int sk_ASN1_TYPE_num(const struct stack_st_ASN1_TYPE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASN1_TYPE *sk_ASN1_TYPE_value(const struct stack_st_ASN1_TYPE *sk, int idx)
+{
+    return (ASN1_TYPE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASN1_TYPE *sk_ASN1_TYPE_new(sk_ASN1_TYPE_compfunc compare)
+{
+    return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASN1_TYPE *sk_ASN1_TYPE_new_null(void)
+{
+    return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASN1_TYPE_free(struct stack_st_ASN1_TYPE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_TYPE_zero(struct stack_st_ASN1_TYPE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_TYPE *sk_ASN1_TYPE_delete(struct stack_st_ASN1_TYPE *sk, int i)
+{
+    return (ASN1_TYPE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASN1_TYPE *sk_ASN1_TYPE_delete_ptr(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr)
+{
+    return (ASN1_TYPE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_TYPE_push(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_TYPE_unshift(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASN1_TYPE *sk_ASN1_TYPE_pop(struct stack_st_ASN1_TYPE *sk)
+{
+    return (ASN1_TYPE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_TYPE *sk_ASN1_TYPE_shift(struct stack_st_ASN1_TYPE *sk)
+{
+    return (ASN1_TYPE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_TYPE_pop_free(struct stack_st_ASN1_TYPE *sk, sk_ASN1_TYPE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASN1_TYPE_insert(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASN1_TYPE *sk_ASN1_TYPE_set(struct stack_st_ASN1_TYPE *sk, int idx, ASN1_TYPE *ptr)
+{
+    return (ASN1_TYPE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASN1_TYPE_find(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_TYPE_find_ex(struct stack_st_ASN1_TYPE *sk, ASN1_TYPE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASN1_TYPE_sort(struct stack_st_ASN1_TYPE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASN1_TYPE_is_sorted(const struct stack_st_ASN1_TYPE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_TYPE * sk_ASN1_TYPE_dup(const struct stack_st_ASN1_TYPE *sk)
+{
+    return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_TYPE *sk_ASN1_TYPE_deep_copy(const struct stack_st_ASN1_TYPE *sk, sk_ASN1_TYPE_copyfunc copyfunc, sk_ASN1_TYPE_freefunc freefunc)
+{
+    return (struct stack_st_ASN1_TYPE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASN1_TYPE_compfunc sk_ASN1_TYPE_set_cmp_func(struct stack_st_ASN1_TYPE *sk, sk_ASN1_TYPE_compfunc compare)
+{
+    return (sk_ASN1_TYPE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct stack_st_ASN1_TYPE ASN1_SEQUENCE_ANY;
-ASN1_SEQUENCE_ANY *d2i_ASN1_SEQUENCE_ANY(ASN1_SEQUENCE_ANY **a, const unsigned char **in, long len); int i2d_ASN1_SEQUENCE_ANY(const ASN1_SEQUENCE_ANY *a, unsigned char **out); const ASN1_ITEM * ASN1_SEQUENCE_ANY_it(void);
-ASN1_SEQUENCE_ANY *d2i_ASN1_SET_ANY(ASN1_SEQUENCE_ANY **a, const unsigned char **in, long len); int i2d_ASN1_SET_ANY(const ASN1_SEQUENCE_ANY *a, unsigned char **out); const ASN1_ITEM * ASN1_SET_ANY_it(void);
-typedef struct BIT_STRING_BITNAME_st {
-int bitnum;
-const char *lname;
-const char *sname;
+ASN1_SEQUENCE_ANY *d2i_ASN1_SEQUENCE_ANY(ASN1_SEQUENCE_ANY **a, const unsigned char **in, long len);
+int i2d_ASN1_SEQUENCE_ANY(const ASN1_SEQUENCE_ANY *a, unsigned char **out);
+const ASN1_ITEM * ASN1_SEQUENCE_ANY_it(void);
+ASN1_SEQUENCE_ANY *d2i_ASN1_SET_ANY(ASN1_SEQUENCE_ANY **a, const unsigned char **in, long len);
+int i2d_ASN1_SET_ANY(const ASN1_SEQUENCE_ANY *a, unsigned char **out);
+const ASN1_ITEM * ASN1_SET_ANY_it(void);
+typedef struct BIT_STRING_BITNAME_st
+{
+    int bitnum;
+    const char *lname;
+    const char *sname;
 } BIT_STRING_BITNAME;
-ASN1_TYPE *ASN1_TYPE_new(void); void ASN1_TYPE_free(ASN1_TYPE *a); ASN1_TYPE *d2i_ASN1_TYPE(ASN1_TYPE **a, const unsigned char **in, long len); int i2d_ASN1_TYPE(ASN1_TYPE *a, unsigned char **out); const ASN1_ITEM * ASN1_ANY_it(void);
+ASN1_TYPE *ASN1_TYPE_new(void);
+void ASN1_TYPE_free(ASN1_TYPE *a);
+ASN1_TYPE *d2i_ASN1_TYPE(ASN1_TYPE **a, const unsigned char **in, long len);
+int i2d_ASN1_TYPE(ASN1_TYPE *a, unsigned char **out);
+const ASN1_ITEM * ASN1_ANY_it(void);
 int ASN1_TYPE_get(const ASN1_TYPE *a);
 void ASN1_TYPE_set(ASN1_TYPE *a, int type, void *value);
 int ASN1_TYPE_set1(ASN1_TYPE *a, int type, const void *value);
@@ -2164,9 +3295,100 @@ ASN1_OBJECT *ASN1_OBJECT_new(void);
 void ASN1_OBJECT_free(ASN1_OBJECT *a);
 int i2d_ASN1_OBJECT(const ASN1_OBJECT *a, unsigned char **pp);
 ASN1_OBJECT *d2i_ASN1_OBJECT(ASN1_OBJECT **a, const unsigned char **pp,
-long length);
+                             long length);
 const ASN1_ITEM * ASN1_OBJECT_it(void);
-struct stack_st_ASN1_OBJECT; typedef int (*sk_ASN1_OBJECT_compfunc)(const ASN1_OBJECT * const *a, const ASN1_OBJECT *const *b); typedef void (*sk_ASN1_OBJECT_freefunc)(ASN1_OBJECT *a); typedef ASN1_OBJECT * (*sk_ASN1_OBJECT_copyfunc)(const ASN1_OBJECT *a); static __inline int sk_ASN1_OBJECT_num(const struct stack_st_ASN1_OBJECT *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASN1_OBJECT *sk_ASN1_OBJECT_value(const struct stack_st_ASN1_OBJECT *sk, int idx) { return (ASN1_OBJECT *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASN1_OBJECT *sk_ASN1_OBJECT_new(sk_ASN1_OBJECT_compfunc compare) { return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASN1_OBJECT *sk_ASN1_OBJECT_new_null(void) { return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_new_null(); } static __inline void sk_ASN1_OBJECT_free(struct stack_st_ASN1_OBJECT *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_OBJECT_zero(struct stack_st_ASN1_OBJECT *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASN1_OBJECT *sk_ASN1_OBJECT_delete(struct stack_st_ASN1_OBJECT *sk, int i) { return (ASN1_OBJECT *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASN1_OBJECT *sk_ASN1_OBJECT_delete_ptr(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr) { return (ASN1_OBJECT *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_OBJECT_push(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_OBJECT_unshift(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASN1_OBJECT *sk_ASN1_OBJECT_pop(struct stack_st_ASN1_OBJECT *sk) { return (ASN1_OBJECT *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASN1_OBJECT *sk_ASN1_OBJECT_shift(struct stack_st_ASN1_OBJECT *sk) { return (ASN1_OBJECT *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_OBJECT_pop_free(struct stack_st_ASN1_OBJECT *sk, sk_ASN1_OBJECT_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASN1_OBJECT_insert(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASN1_OBJECT *sk_ASN1_OBJECT_set(struct stack_st_ASN1_OBJECT *sk, int idx, ASN1_OBJECT *ptr) { return (ASN1_OBJECT *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASN1_OBJECT_find(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_OBJECT_find_ex(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASN1_OBJECT_sort(struct stack_st_ASN1_OBJECT *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASN1_OBJECT_is_sorted(const struct stack_st_ASN1_OBJECT *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_OBJECT * sk_ASN1_OBJECT_dup(const struct stack_st_ASN1_OBJECT *sk) { return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_OBJECT *sk_ASN1_OBJECT_deep_copy(const struct stack_st_ASN1_OBJECT *sk, sk_ASN1_OBJECT_copyfunc copyfunc, sk_ASN1_OBJECT_freefunc freefunc) { return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASN1_OBJECT_compfunc sk_ASN1_OBJECT_set_cmp_func(struct stack_st_ASN1_OBJECT *sk, sk_ASN1_OBJECT_compfunc compare) { return (sk_ASN1_OBJECT_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_ASN1_OBJECT;
+typedef int (*sk_ASN1_OBJECT_compfunc)(const ASN1_OBJECT * const *a, const ASN1_OBJECT *const *b);
+typedef void (*sk_ASN1_OBJECT_freefunc)(ASN1_OBJECT *a);
+typedef ASN1_OBJECT * (*sk_ASN1_OBJECT_copyfunc)(const ASN1_OBJECT *a);
+static __inline int sk_ASN1_OBJECT_num(const struct stack_st_ASN1_OBJECT *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASN1_OBJECT *sk_ASN1_OBJECT_value(const struct stack_st_ASN1_OBJECT *sk, int idx)
+{
+    return (ASN1_OBJECT *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASN1_OBJECT *sk_ASN1_OBJECT_new(sk_ASN1_OBJECT_compfunc compare)
+{
+    return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASN1_OBJECT *sk_ASN1_OBJECT_new_null(void)
+{
+    return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASN1_OBJECT_free(struct stack_st_ASN1_OBJECT *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_OBJECT_zero(struct stack_st_ASN1_OBJECT *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_OBJECT *sk_ASN1_OBJECT_delete(struct stack_st_ASN1_OBJECT *sk, int i)
+{
+    return (ASN1_OBJECT *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASN1_OBJECT *sk_ASN1_OBJECT_delete_ptr(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr)
+{
+    return (ASN1_OBJECT *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_OBJECT_push(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_OBJECT_unshift(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASN1_OBJECT *sk_ASN1_OBJECT_pop(struct stack_st_ASN1_OBJECT *sk)
+{
+    return (ASN1_OBJECT *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_OBJECT *sk_ASN1_OBJECT_shift(struct stack_st_ASN1_OBJECT *sk)
+{
+    return (ASN1_OBJECT *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_OBJECT_pop_free(struct stack_st_ASN1_OBJECT *sk, sk_ASN1_OBJECT_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASN1_OBJECT_insert(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASN1_OBJECT *sk_ASN1_OBJECT_set(struct stack_st_ASN1_OBJECT *sk, int idx, ASN1_OBJECT *ptr)
+{
+    return (ASN1_OBJECT *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASN1_OBJECT_find(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_OBJECT_find_ex(struct stack_st_ASN1_OBJECT *sk, ASN1_OBJECT *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASN1_OBJECT_sort(struct stack_st_ASN1_OBJECT *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASN1_OBJECT_is_sorted(const struct stack_st_ASN1_OBJECT *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_OBJECT * sk_ASN1_OBJECT_dup(const struct stack_st_ASN1_OBJECT *sk)
+{
+    return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_OBJECT *sk_ASN1_OBJECT_deep_copy(const struct stack_st_ASN1_OBJECT *sk, sk_ASN1_OBJECT_copyfunc copyfunc, sk_ASN1_OBJECT_freefunc freefunc)
+{
+    return (struct stack_st_ASN1_OBJECT *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASN1_OBJECT_compfunc sk_ASN1_OBJECT_set_cmp_func(struct stack_st_ASN1_OBJECT *sk, sk_ASN1_OBJECT_compfunc compare)
+{
+    return (sk_ASN1_OBJECT_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 ASN1_STRING *ASN1_STRING_new(void);
 void ASN1_STRING_free(ASN1_STRING *a);
 void ASN1_STRING_clear_free(ASN1_STRING *a);
@@ -2181,70 +3403,146 @@ void ASN1_STRING_length_set(ASN1_STRING *x, int n);
 int ASN1_STRING_type(const ASN1_STRING *x);
 unsigned char *ASN1_STRING_data(ASN1_STRING *x);
 const unsigned char *ASN1_STRING_get0_data(const ASN1_STRING *x);
-ASN1_BIT_STRING *ASN1_BIT_STRING_new(void); void ASN1_BIT_STRING_free(ASN1_BIT_STRING *a); ASN1_BIT_STRING *d2i_ASN1_BIT_STRING(ASN1_BIT_STRING **a, const unsigned char **in, long len); int i2d_ASN1_BIT_STRING(ASN1_BIT_STRING *a, unsigned char **out); const ASN1_ITEM * ASN1_BIT_STRING_it(void);
+ASN1_BIT_STRING *ASN1_BIT_STRING_new(void);
+void ASN1_BIT_STRING_free(ASN1_BIT_STRING *a);
+ASN1_BIT_STRING *d2i_ASN1_BIT_STRING(ASN1_BIT_STRING **a, const unsigned char **in, long len);
+int i2d_ASN1_BIT_STRING(ASN1_BIT_STRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_BIT_STRING_it(void);
 int ASN1_BIT_STRING_set(ASN1_BIT_STRING *a, unsigned char *d, int length);
 int ASN1_BIT_STRING_set_bit(ASN1_BIT_STRING *a, int n, int value);
 int ASN1_BIT_STRING_get_bit(const ASN1_BIT_STRING *a, int n);
 int ASN1_BIT_STRING_check(const ASN1_BIT_STRING *a,
-const unsigned char *flags, int flags_len);
+                          const unsigned char *flags, int flags_len);
 int ASN1_BIT_STRING_name_print(BIO *out, ASN1_BIT_STRING *bs,
-BIT_STRING_BITNAME *tbl, int indent);
+                               BIT_STRING_BITNAME *tbl, int indent);
 int ASN1_BIT_STRING_num_asc(const char *name, BIT_STRING_BITNAME *tbl);
 int ASN1_BIT_STRING_set_asc(ASN1_BIT_STRING *bs, const char *name, int value,
-BIT_STRING_BITNAME *tbl);
-ASN1_INTEGER *ASN1_INTEGER_new(void); void ASN1_INTEGER_free(ASN1_INTEGER *a); ASN1_INTEGER *d2i_ASN1_INTEGER(ASN1_INTEGER **a, const unsigned char **in, long len); int i2d_ASN1_INTEGER(ASN1_INTEGER *a, unsigned char **out); const ASN1_ITEM * ASN1_INTEGER_it(void);
+                            BIT_STRING_BITNAME *tbl);
+ASN1_INTEGER *ASN1_INTEGER_new(void);
+void ASN1_INTEGER_free(ASN1_INTEGER *a);
+ASN1_INTEGER *d2i_ASN1_INTEGER(ASN1_INTEGER **a, const unsigned char **in, long len);
+int i2d_ASN1_INTEGER(ASN1_INTEGER *a, unsigned char **out);
+const ASN1_ITEM * ASN1_INTEGER_it(void);
 ASN1_INTEGER *d2i_ASN1_UINTEGER(ASN1_INTEGER **a, const unsigned char **pp,
-long length);
+                                long length);
 ASN1_INTEGER *ASN1_INTEGER_dup(const ASN1_INTEGER *x);
 int ASN1_INTEGER_cmp(const ASN1_INTEGER *x, const ASN1_INTEGER *y);
-ASN1_ENUMERATED *ASN1_ENUMERATED_new(void); void ASN1_ENUMERATED_free(ASN1_ENUMERATED *a); ASN1_ENUMERATED *d2i_ASN1_ENUMERATED(ASN1_ENUMERATED **a, const unsigned char **in, long len); int i2d_ASN1_ENUMERATED(ASN1_ENUMERATED *a, unsigned char **out); const ASN1_ITEM * ASN1_ENUMERATED_it(void);
+ASN1_ENUMERATED *ASN1_ENUMERATED_new(void);
+void ASN1_ENUMERATED_free(ASN1_ENUMERATED *a);
+ASN1_ENUMERATED *d2i_ASN1_ENUMERATED(ASN1_ENUMERATED **a, const unsigned char **in, long len);
+int i2d_ASN1_ENUMERATED(ASN1_ENUMERATED *a, unsigned char **out);
+const ASN1_ITEM * ASN1_ENUMERATED_it(void);
 int ASN1_UTCTIME_check(const ASN1_UTCTIME *a);
 ASN1_UTCTIME *ASN1_UTCTIME_set(ASN1_UTCTIME *s, time_t t);
 ASN1_UTCTIME *ASN1_UTCTIME_adj(ASN1_UTCTIME *s, time_t t,
-int offset_day, long offset_sec);
+                               int offset_day, long offset_sec);
 int ASN1_UTCTIME_set_string(ASN1_UTCTIME *s, const char *str);
 int ASN1_UTCTIME_cmp_time_t(const ASN1_UTCTIME *s, time_t t);
 int ASN1_GENERALIZEDTIME_check(const ASN1_GENERALIZEDTIME *a);
 ASN1_GENERALIZEDTIME *ASN1_GENERALIZEDTIME_set(ASN1_GENERALIZEDTIME *s,
-time_t t);
+        time_t t);
 ASN1_GENERALIZEDTIME *ASN1_GENERALIZEDTIME_adj(ASN1_GENERALIZEDTIME *s,
-time_t t, int offset_day,
-long offset_sec);
+        time_t t, int offset_day,
+        long offset_sec);
 int ASN1_GENERALIZEDTIME_set_string(ASN1_GENERALIZEDTIME *s, const char *str);
 int ASN1_TIME_diff(int *pday, int *psec,
-const ASN1_TIME *from, const ASN1_TIME *to);
-ASN1_OCTET_STRING *ASN1_OCTET_STRING_new(void); void ASN1_OCTET_STRING_free(ASN1_OCTET_STRING *a); ASN1_OCTET_STRING *d2i_ASN1_OCTET_STRING(ASN1_OCTET_STRING **a, const unsigned char **in, long len); int i2d_ASN1_OCTET_STRING(ASN1_OCTET_STRING *a, unsigned char **out); const ASN1_ITEM * ASN1_OCTET_STRING_it(void);
+                   const ASN1_TIME *from, const ASN1_TIME *to);
+ASN1_OCTET_STRING *ASN1_OCTET_STRING_new(void);
+void ASN1_OCTET_STRING_free(ASN1_OCTET_STRING *a);
+ASN1_OCTET_STRING *d2i_ASN1_OCTET_STRING(ASN1_OCTET_STRING **a, const unsigned char **in, long len);
+int i2d_ASN1_OCTET_STRING(ASN1_OCTET_STRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_OCTET_STRING_it(void);
 ASN1_OCTET_STRING *ASN1_OCTET_STRING_dup(const ASN1_OCTET_STRING *a);
 int ASN1_OCTET_STRING_cmp(const ASN1_OCTET_STRING *a,
-const ASN1_OCTET_STRING *b);
+                          const ASN1_OCTET_STRING *b);
 int ASN1_OCTET_STRING_set(ASN1_OCTET_STRING *str, const unsigned char *data,
-int len);
+                          int len);
 int ASN1_OCTET_STRING_is_zero(const ASN1_OCTET_STRING *a);
 #line 603 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1.h"
-ASN1_VISIBLESTRING *ASN1_VISIBLESTRING_new(void); void ASN1_VISIBLESTRING_free(ASN1_VISIBLESTRING *a); ASN1_VISIBLESTRING *d2i_ASN1_VISIBLESTRING(ASN1_VISIBLESTRING **a, const unsigned char **in, long len); int i2d_ASN1_VISIBLESTRING(ASN1_VISIBLESTRING *a, unsigned char **out); const ASN1_ITEM * ASN1_VISIBLESTRING_it(void);
-ASN1_UNIVERSALSTRING *ASN1_UNIVERSALSTRING_new(void); void ASN1_UNIVERSALSTRING_free(ASN1_UNIVERSALSTRING *a); ASN1_UNIVERSALSTRING *d2i_ASN1_UNIVERSALSTRING(ASN1_UNIVERSALSTRING **a, const unsigned char **in, long len); int i2d_ASN1_UNIVERSALSTRING(ASN1_UNIVERSALSTRING *a, unsigned char **out); const ASN1_ITEM * ASN1_UNIVERSALSTRING_it(void);
-ASN1_UTF8STRING *ASN1_UTF8STRING_new(void); void ASN1_UTF8STRING_free(ASN1_UTF8STRING *a); ASN1_UTF8STRING *d2i_ASN1_UTF8STRING(ASN1_UTF8STRING **a, const unsigned char **in, long len); int i2d_ASN1_UTF8STRING(ASN1_UTF8STRING *a, unsigned char **out); const ASN1_ITEM * ASN1_UTF8STRING_it(void);
-ASN1_NULL *ASN1_NULL_new(void); void ASN1_NULL_free(ASN1_NULL *a); ASN1_NULL *d2i_ASN1_NULL(ASN1_NULL **a, const unsigned char **in, long len); int i2d_ASN1_NULL(ASN1_NULL *a, unsigned char **out); const ASN1_ITEM * ASN1_NULL_it(void);
-ASN1_BMPSTRING *ASN1_BMPSTRING_new(void); void ASN1_BMPSTRING_free(ASN1_BMPSTRING *a); ASN1_BMPSTRING *d2i_ASN1_BMPSTRING(ASN1_BMPSTRING **a, const unsigned char **in, long len); int i2d_ASN1_BMPSTRING(ASN1_BMPSTRING *a, unsigned char **out); const ASN1_ITEM * ASN1_BMPSTRING_it(void);
+ASN1_VISIBLESTRING *ASN1_VISIBLESTRING_new(void);
+void ASN1_VISIBLESTRING_free(ASN1_VISIBLESTRING *a);
+ASN1_VISIBLESTRING *d2i_ASN1_VISIBLESTRING(ASN1_VISIBLESTRING **a, const unsigned char **in, long len);
+int i2d_ASN1_VISIBLESTRING(ASN1_VISIBLESTRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_VISIBLESTRING_it(void);
+ASN1_UNIVERSALSTRING *ASN1_UNIVERSALSTRING_new(void);
+void ASN1_UNIVERSALSTRING_free(ASN1_UNIVERSALSTRING *a);
+ASN1_UNIVERSALSTRING *d2i_ASN1_UNIVERSALSTRING(ASN1_UNIVERSALSTRING **a, const unsigned char **in, long len);
+int i2d_ASN1_UNIVERSALSTRING(ASN1_UNIVERSALSTRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_UNIVERSALSTRING_it(void);
+ASN1_UTF8STRING *ASN1_UTF8STRING_new(void);
+void ASN1_UTF8STRING_free(ASN1_UTF8STRING *a);
+ASN1_UTF8STRING *d2i_ASN1_UTF8STRING(ASN1_UTF8STRING **a, const unsigned char **in, long len);
+int i2d_ASN1_UTF8STRING(ASN1_UTF8STRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_UTF8STRING_it(void);
+ASN1_NULL *ASN1_NULL_new(void);
+void ASN1_NULL_free(ASN1_NULL *a);
+ASN1_NULL *d2i_ASN1_NULL(ASN1_NULL **a, const unsigned char **in, long len);
+int i2d_ASN1_NULL(ASN1_NULL *a, unsigned char **out);
+const ASN1_ITEM * ASN1_NULL_it(void);
+ASN1_BMPSTRING *ASN1_BMPSTRING_new(void);
+void ASN1_BMPSTRING_free(ASN1_BMPSTRING *a);
+ASN1_BMPSTRING *d2i_ASN1_BMPSTRING(ASN1_BMPSTRING **a, const unsigned char **in, long len);
+int i2d_ASN1_BMPSTRING(ASN1_BMPSTRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_BMPSTRING_it(void);
 int UTF8_getc(const unsigned char *str, int len, unsigned long *val);
 int UTF8_putc(unsigned char *str, int len, unsigned long value);
-ASN1_STRING *ASN1_PRINTABLE_new(void); void ASN1_PRINTABLE_free(ASN1_STRING *a); ASN1_STRING *d2i_ASN1_PRINTABLE(ASN1_STRING **a, const unsigned char **in, long len); int i2d_ASN1_PRINTABLE(ASN1_STRING *a, unsigned char **out); const ASN1_ITEM * ASN1_PRINTABLE_it(void);
-ASN1_STRING *DIRECTORYSTRING_new(void); void DIRECTORYSTRING_free(ASN1_STRING *a); ASN1_STRING *d2i_DIRECTORYSTRING(ASN1_STRING **a, const unsigned char **in, long len); int i2d_DIRECTORYSTRING(ASN1_STRING *a, unsigned char **out); const ASN1_ITEM * DIRECTORYSTRING_it(void);
-ASN1_STRING *DISPLAYTEXT_new(void); void DISPLAYTEXT_free(ASN1_STRING *a); ASN1_STRING *d2i_DISPLAYTEXT(ASN1_STRING **a, const unsigned char **in, long len); int i2d_DISPLAYTEXT(ASN1_STRING *a, unsigned char **out); const ASN1_ITEM * DISPLAYTEXT_it(void);
-ASN1_PRINTABLESTRING *ASN1_PRINTABLESTRING_new(void); void ASN1_PRINTABLESTRING_free(ASN1_PRINTABLESTRING *a); ASN1_PRINTABLESTRING *d2i_ASN1_PRINTABLESTRING(ASN1_PRINTABLESTRING **a, const unsigned char **in, long len); int i2d_ASN1_PRINTABLESTRING(ASN1_PRINTABLESTRING *a, unsigned char **out); const ASN1_ITEM * ASN1_PRINTABLESTRING_it(void);
-ASN1_T61STRING *ASN1_T61STRING_new(void); void ASN1_T61STRING_free(ASN1_T61STRING *a); ASN1_T61STRING *d2i_ASN1_T61STRING(ASN1_T61STRING **a, const unsigned char **in, long len); int i2d_ASN1_T61STRING(ASN1_T61STRING *a, unsigned char **out); const ASN1_ITEM * ASN1_T61STRING_it(void);
-ASN1_IA5STRING *ASN1_IA5STRING_new(void); void ASN1_IA5STRING_free(ASN1_IA5STRING *a); ASN1_IA5STRING *d2i_ASN1_IA5STRING(ASN1_IA5STRING **a, const unsigned char **in, long len); int i2d_ASN1_IA5STRING(ASN1_IA5STRING *a, unsigned char **out); const ASN1_ITEM * ASN1_IA5STRING_it(void);
-ASN1_GENERALSTRING *ASN1_GENERALSTRING_new(void); void ASN1_GENERALSTRING_free(ASN1_GENERALSTRING *a); ASN1_GENERALSTRING *d2i_ASN1_GENERALSTRING(ASN1_GENERALSTRING **a, const unsigned char **in, long len); int i2d_ASN1_GENERALSTRING(ASN1_GENERALSTRING *a, unsigned char **out); const ASN1_ITEM * ASN1_GENERALSTRING_it(void);
-ASN1_UTCTIME *ASN1_UTCTIME_new(void); void ASN1_UTCTIME_free(ASN1_UTCTIME *a); ASN1_UTCTIME *d2i_ASN1_UTCTIME(ASN1_UTCTIME **a, const unsigned char **in, long len); int i2d_ASN1_UTCTIME(ASN1_UTCTIME *a, unsigned char **out); const ASN1_ITEM * ASN1_UTCTIME_it(void);
-ASN1_GENERALIZEDTIME *ASN1_GENERALIZEDTIME_new(void); void ASN1_GENERALIZEDTIME_free(ASN1_GENERALIZEDTIME *a); ASN1_GENERALIZEDTIME *d2i_ASN1_GENERALIZEDTIME(ASN1_GENERALIZEDTIME **a, const unsigned char **in, long len); int i2d_ASN1_GENERALIZEDTIME(ASN1_GENERALIZEDTIME *a, unsigned char **out); const ASN1_ITEM * ASN1_GENERALIZEDTIME_it(void);
-ASN1_TIME *ASN1_TIME_new(void); void ASN1_TIME_free(ASN1_TIME *a); ASN1_TIME *d2i_ASN1_TIME(ASN1_TIME **a, const unsigned char **in, long len); int i2d_ASN1_TIME(ASN1_TIME *a, unsigned char **out); const ASN1_ITEM * ASN1_TIME_it(void);
+ASN1_STRING *ASN1_PRINTABLE_new(void);
+void ASN1_PRINTABLE_free(ASN1_STRING *a);
+ASN1_STRING *d2i_ASN1_PRINTABLE(ASN1_STRING **a, const unsigned char **in, long len);
+int i2d_ASN1_PRINTABLE(ASN1_STRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_PRINTABLE_it(void);
+ASN1_STRING *DIRECTORYSTRING_new(void);
+void DIRECTORYSTRING_free(ASN1_STRING *a);
+ASN1_STRING *d2i_DIRECTORYSTRING(ASN1_STRING **a, const unsigned char **in, long len);
+int i2d_DIRECTORYSTRING(ASN1_STRING *a, unsigned char **out);
+const ASN1_ITEM * DIRECTORYSTRING_it(void);
+ASN1_STRING *DISPLAYTEXT_new(void);
+void DISPLAYTEXT_free(ASN1_STRING *a);
+ASN1_STRING *d2i_DISPLAYTEXT(ASN1_STRING **a, const unsigned char **in, long len);
+int i2d_DISPLAYTEXT(ASN1_STRING *a, unsigned char **out);
+const ASN1_ITEM * DISPLAYTEXT_it(void);
+ASN1_PRINTABLESTRING *ASN1_PRINTABLESTRING_new(void);
+void ASN1_PRINTABLESTRING_free(ASN1_PRINTABLESTRING *a);
+ASN1_PRINTABLESTRING *d2i_ASN1_PRINTABLESTRING(ASN1_PRINTABLESTRING **a, const unsigned char **in, long len);
+int i2d_ASN1_PRINTABLESTRING(ASN1_PRINTABLESTRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_PRINTABLESTRING_it(void);
+ASN1_T61STRING *ASN1_T61STRING_new(void);
+void ASN1_T61STRING_free(ASN1_T61STRING *a);
+ASN1_T61STRING *d2i_ASN1_T61STRING(ASN1_T61STRING **a, const unsigned char **in, long len);
+int i2d_ASN1_T61STRING(ASN1_T61STRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_T61STRING_it(void);
+ASN1_IA5STRING *ASN1_IA5STRING_new(void);
+void ASN1_IA5STRING_free(ASN1_IA5STRING *a);
+ASN1_IA5STRING *d2i_ASN1_IA5STRING(ASN1_IA5STRING **a, const unsigned char **in, long len);
+int i2d_ASN1_IA5STRING(ASN1_IA5STRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_IA5STRING_it(void);
+ASN1_GENERALSTRING *ASN1_GENERALSTRING_new(void);
+void ASN1_GENERALSTRING_free(ASN1_GENERALSTRING *a);
+ASN1_GENERALSTRING *d2i_ASN1_GENERALSTRING(ASN1_GENERALSTRING **a, const unsigned char **in, long len);
+int i2d_ASN1_GENERALSTRING(ASN1_GENERALSTRING *a, unsigned char **out);
+const ASN1_ITEM * ASN1_GENERALSTRING_it(void);
+ASN1_UTCTIME *ASN1_UTCTIME_new(void);
+void ASN1_UTCTIME_free(ASN1_UTCTIME *a);
+ASN1_UTCTIME *d2i_ASN1_UTCTIME(ASN1_UTCTIME **a, const unsigned char **in, long len);
+int i2d_ASN1_UTCTIME(ASN1_UTCTIME *a, unsigned char **out);
+const ASN1_ITEM * ASN1_UTCTIME_it(void);
+ASN1_GENERALIZEDTIME *ASN1_GENERALIZEDTIME_new(void);
+void ASN1_GENERALIZEDTIME_free(ASN1_GENERALIZEDTIME *a);
+ASN1_GENERALIZEDTIME *d2i_ASN1_GENERALIZEDTIME(ASN1_GENERALIZEDTIME **a, const unsigned char **in, long len);
+int i2d_ASN1_GENERALIZEDTIME(ASN1_GENERALIZEDTIME *a, unsigned char **out);
+const ASN1_ITEM * ASN1_GENERALIZEDTIME_it(void);
+ASN1_TIME *ASN1_TIME_new(void);
+void ASN1_TIME_free(ASN1_TIME *a);
+ASN1_TIME *d2i_ASN1_TIME(ASN1_TIME **a, const unsigned char **in, long len);
+int i2d_ASN1_TIME(ASN1_TIME *a, unsigned char **out);
+const ASN1_ITEM * ASN1_TIME_it(void);
 const ASN1_ITEM * ASN1_OCTET_STRING_NDEF_it(void);
 ASN1_TIME *ASN1_TIME_set(ASN1_TIME *s, time_t t);
 ASN1_TIME *ASN1_TIME_adj(ASN1_TIME *s, time_t t,
-int offset_day, long offset_sec);
+                         int offset_day, long offset_sec);
 int ASN1_TIME_check(const ASN1_TIME *t);
 ASN1_GENERALIZEDTIME *ASN1_TIME_to_generalizedtime(ASN1_TIME *t, ASN1_GENERALIZEDTIME
-**out);
+        **out);
 int ASN1_TIME_set_string(ASN1_TIME *s, const char *str);
 int i2a_ASN1_INTEGER(BIO *bp, const ASN1_INTEGER *a);
 int a2i_ASN1_INTEGER(BIO *bp, ASN1_INTEGER *bs, char *buf, int size);
@@ -2256,7 +3554,7 @@ int i2a_ASN1_STRING(BIO *bp, const ASN1_STRING *a, int type);
 int i2t_ASN1_OBJECT(char *buf, int buf_len, const ASN1_OBJECT *a);
 int a2d_ASN1_OBJECT(unsigned char *out, int olen, const char *buf, int num);
 ASN1_OBJECT *ASN1_OBJECT_create(int nid, unsigned char *data, int len,
-const char *sn, const char *ln);
+                                const char *sn, const char *ln);
 int ASN1_INTEGER_get_int64(int64_t *pr, const ASN1_INTEGER *a);
 int ASN1_INTEGER_set_int64(ASN1_INTEGER *a, int64_t r);
 int ASN1_INTEGER_get_uint64(uint64_t *pr, const ASN1_INTEGER *a);
@@ -2274,11 +3572,11 @@ BIGNUM *ASN1_ENUMERATED_to_BN(const ASN1_ENUMERATED *ai, BIGNUM *bn);
 int ASN1_PRINTABLE_type(const unsigned char *s, int max);
 unsigned long ASN1_tag2bit(int tag);
 int ASN1_get_object(const unsigned char **pp, long *plength, int *ptag,
-int *pclass, long omax);
+                    int *pclass, long omax);
 int ASN1_check_infinite_end(unsigned char **p, long len);
 int ASN1_const_check_infinite_end(const unsigned char **p, long len);
 void ASN1_put_object(unsigned char **pp, int constructed, int length,
-int tag, int xclass);
+                     int tag, int xclass);
 int ASN1_put_eoc(unsigned char **pp);
 int ASN1_object_size(int constructed, int length, int tag);
 void *ASN1_dup(i2d_of_void *i2d, d2i_of_void *d2i, void *x);
@@ -2301,49 +3599,49 @@ int ASN1_STRING_print(BIO *bp, const ASN1_STRING *v);
 int ASN1_STRING_print_ex(BIO *out, const ASN1_STRING *str, unsigned long flags);
 int ASN1_buf_print(BIO *bp, const unsigned char *buf, size_t buflen, int off);
 int ASN1_bn_print(BIO *bp, const char *number, const BIGNUM *num,
-unsigned char *buf, int off);
+                  unsigned char *buf, int off);
 int ASN1_parse(BIO *bp, const unsigned char *pp, long len, int indent);
 int ASN1_parse_dump(BIO *bp, const unsigned char *pp, long len, int indent,
-int dump);
+                    int dump);
 const char *ASN1_tag2str(int tag);
 int ASN1_UNIVERSALSTRING_to_string(ASN1_UNIVERSALSTRING *s);
 int ASN1_TYPE_set_octetstring(ASN1_TYPE *a, unsigned char *data, int len);
 int ASN1_TYPE_get_octetstring(const ASN1_TYPE *a, unsigned char *data, int max_len);
 int ASN1_TYPE_set_int_octetstring(ASN1_TYPE *a, long num,
-unsigned char *data, int len);
+                                  unsigned char *data, int len);
 int ASN1_TYPE_get_int_octetstring(const ASN1_TYPE *a, long *num,
-unsigned char *data, int max_len);
+                                  unsigned char *data, int max_len);
 void *ASN1_item_unpack(const ASN1_STRING *oct, const ASN1_ITEM *it);
 ASN1_STRING *ASN1_item_pack(void *obj, const ASN1_ITEM *it,
-ASN1_OCTET_STRING **oct);
+                            ASN1_OCTET_STRING **oct);
 void ASN1_STRING_set_default_mask(unsigned long mask);
 int ASN1_STRING_set_default_mask_asc(const char *p);
 unsigned long ASN1_STRING_get_default_mask(void);
 int ASN1_mbstring_copy(ASN1_STRING **out, const unsigned char *in, int len,
-int inform, unsigned long mask);
+                       int inform, unsigned long mask);
 int ASN1_mbstring_ncopy(ASN1_STRING **out, const unsigned char *in, int len,
-int inform, unsigned long mask,
-long minsize, long maxsize);
+                        int inform, unsigned long mask,
+                        long minsize, long maxsize);
 ASN1_STRING *ASN1_STRING_set_by_NID(ASN1_STRING **out,
-const unsigned char *in, int inlen,
-int inform, int nid);
+                                    const unsigned char *in, int inlen,
+                                    int inform, int nid);
 ASN1_STRING_TABLE *ASN1_STRING_TABLE_get(int nid);
 int ASN1_STRING_TABLE_add(int, long, long, unsigned long, unsigned long);
 void ASN1_STRING_TABLE_cleanup(void);
 ASN1_VALUE *ASN1_item_new(const ASN1_ITEM *it);
 void ASN1_item_free(ASN1_VALUE *val, const ASN1_ITEM *it);
 ASN1_VALUE *ASN1_item_d2i(ASN1_VALUE **val, const unsigned char **in,
-long len, const ASN1_ITEM *it);
+                          long len, const ASN1_ITEM *it);
 int ASN1_item_i2d(ASN1_VALUE *val, unsigned char **out, const ASN1_ITEM *it);
 int ASN1_item_ndef_i2d(ASN1_VALUE *val, unsigned char **out,
-const ASN1_ITEM *it);
+                       const ASN1_ITEM *it);
 void ASN1_add_oid_module(void);
 void ASN1_add_stable_module(void);
 ASN1_TYPE *ASN1_generate_nconf(const char *str, CONF *nconf);
 ASN1_TYPE *ASN1_generate_v3(const char *str, X509V3_CTX *cnf);
 int ASN1_str2mask(const char *str, unsigned long *pmask);
 int ASN1_item_print(BIO *out, ASN1_VALUE *ifld, int indent,
-const ASN1_ITEM *it, const ASN1_PCTX *pctx);
+                    const ASN1_ITEM *it, const ASN1_PCTX *pctx);
 ASN1_PCTX *ASN1_PCTX_new(void);
 void ASN1_PCTX_free(ASN1_PCTX *p);
 unsigned long ASN1_PCTX_get_flags(const ASN1_PCTX *p);
@@ -2366,12 +3664,12 @@ void *ASN1_SCTX_get_app_data(ASN1_SCTX *p);
 const BIO_METHOD *BIO_f_asn1(void);
 BIO *BIO_new_NDEF(BIO *out, ASN1_VALUE *val, const ASN1_ITEM *it);
 int i2d_ASN1_bio_stream(BIO *out, ASN1_VALUE *val, BIO *in, int flags,
-const ASN1_ITEM *it);
+                        const ASN1_ITEM *it);
 int PEM_write_bio_ASN1_stream(BIO *out, ASN1_VALUE *val, BIO *in, int flags,
-const char *hdr, const ASN1_ITEM *it);
+                              const char *hdr, const ASN1_ITEM *it);
 int SMIME_write_ASN1(BIO *bio, ASN1_VALUE *val, BIO *data, int flags,
-int ctype_nid, int econt_nid,
-struct stack_st_X509_ALGOR *mdalgs, const ASN1_ITEM *it);
+                     int ctype_nid, int econt_nid,
+                     struct stack_st_X509_ALGOR *mdalgs, const ASN1_ITEM *it);
 ASN1_VALUE *SMIME_read_ASN1(BIO *bio, BIO **bcont, const ASN1_ITEM *it);
 int SMIME_crlf_copy(BIO *in, BIO *out, int flags);
 int SMIME_text(BIO *in, BIO *out);
@@ -2381,101 +3679,111 @@ int ERR_load_ASN1_strings(void);
 #line 65 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1t.h"
 #line 342 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1t.h"
 #line 451 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1t.h"
-struct ASN1_TEMPLATE_st {
-unsigned long flags;        
-long tag;                   
-unsigned long offset;       
-const char *field_name;     
-ASN1_ITEM_EXP *item;        
+struct ASN1_TEMPLATE_st
+{
+    unsigned long flags;
+    long tag;
+    unsigned long offset;
+    const char *field_name;
+    ASN1_ITEM_EXP *item;
 };
 typedef struct ASN1_ADB_TABLE_st ASN1_ADB_TABLE;
 typedef struct ASN1_ADB_st ASN1_ADB;
-struct ASN1_ADB_st {
-unsigned long flags;        
-unsigned long offset;       
-int (*adb_cb)(long *psel);  
-const ASN1_ADB_TABLE *tbl;  
-long tblcount;              
-const ASN1_TEMPLATE *default_tt; 
-const ASN1_TEMPLATE *null_tt; 
+struct ASN1_ADB_st
+{
+    unsigned long flags;
+    unsigned long offset;
+    int (*adb_cb)(long *psel);
+    const ASN1_ADB_TABLE *tbl;
+    long tblcount;
+    const ASN1_TEMPLATE *default_tt;
+    const ASN1_TEMPLATE *null_tt;
 };
-struct ASN1_ADB_TABLE_st {
-long value;                 
-const ASN1_TEMPLATE tt;     
+struct ASN1_ADB_TABLE_st
+{
+    long value;
+    const ASN1_TEMPLATE tt;
 };
-struct ASN1_ITEM_st {
-char itype;                 
-long utype;                 
-const ASN1_TEMPLATE *templates; 
-long tcount;                
-const void *funcs;          
-long size;                  
-const char *sname;          
+struct ASN1_ITEM_st
+{
+    char itype;
+    long utype;
+    const ASN1_TEMPLATE *templates;
+    long tcount;
+    const void *funcs;
+    long size;
+    const char *sname;
 };
-struct ASN1_TLC_st {
-char valid;                 
-int ret;                    
-long plen;                  
-int ptag;                   
-int pclass;                 
-int hdrlen;                 
+struct ASN1_TLC_st
+{
+    char valid;
+    int ret;
+    long plen;
+    int ptag;
+    int pclass;
+    int hdrlen;
 };
 typedef int ASN1_ex_d2i(ASN1_VALUE **pval, const unsigned char **in, long len,
-const ASN1_ITEM *it, int tag, int aclass, char opt,
-ASN1_TLC *ctx);
+                        const ASN1_ITEM *it, int tag, int aclass, char opt,
+                        ASN1_TLC *ctx);
 typedef int ASN1_ex_i2d(ASN1_VALUE **pval, unsigned char **out,
-const ASN1_ITEM *it, int tag, int aclass);
+                        const ASN1_ITEM *it, int tag, int aclass);
 typedef int ASN1_ex_new_func(ASN1_VALUE **pval, const ASN1_ITEM *it);
 typedef void ASN1_ex_free_func(ASN1_VALUE **pval, const ASN1_ITEM *it);
 typedef int ASN1_ex_print_func(BIO *out, ASN1_VALUE **pval,
-int indent, const char *fname,
-const ASN1_PCTX *pctx);
+                               int indent, const char *fname,
+                               const ASN1_PCTX *pctx);
 typedef int ASN1_primitive_i2c(ASN1_VALUE **pval, unsigned char *cont,
-int *putype, const ASN1_ITEM *it);
+                               int *putype, const ASN1_ITEM *it);
 typedef int ASN1_primitive_c2i(ASN1_VALUE **pval, const unsigned char *cont,
-int len, int utype, char *free_cont,
-const ASN1_ITEM *it);
+                               int len, int utype, char *free_cont,
+                               const ASN1_ITEM *it);
 typedef int ASN1_primitive_print(BIO *out, ASN1_VALUE **pval,
-const ASN1_ITEM *it, int indent,
-const ASN1_PCTX *pctx);
-typedef struct ASN1_EXTERN_FUNCS_st {
-void *app_data;
-ASN1_ex_new_func *asn1_ex_new;
-ASN1_ex_free_func *asn1_ex_free;
-ASN1_ex_free_func *asn1_ex_clear;
-ASN1_ex_d2i *asn1_ex_d2i;
-ASN1_ex_i2d *asn1_ex_i2d;
-ASN1_ex_print_func *asn1_ex_print;
+                                 const ASN1_ITEM *it, int indent,
+                                 const ASN1_PCTX *pctx);
+typedef struct ASN1_EXTERN_FUNCS_st
+{
+    void *app_data;
+    ASN1_ex_new_func *asn1_ex_new;
+    ASN1_ex_free_func *asn1_ex_free;
+    ASN1_ex_free_func *asn1_ex_clear;
+    ASN1_ex_d2i *asn1_ex_d2i;
+    ASN1_ex_i2d *asn1_ex_i2d;
+    ASN1_ex_print_func *asn1_ex_print;
 } ASN1_EXTERN_FUNCS;
-typedef struct ASN1_PRIMITIVE_FUNCS_st {
-void *app_data;
-unsigned long flags;
-ASN1_ex_new_func *prim_new;
-ASN1_ex_free_func *prim_free;
-ASN1_ex_free_func *prim_clear;
-ASN1_primitive_c2i *prim_c2i;
-ASN1_primitive_i2c *prim_i2c;
-ASN1_primitive_print *prim_print;
+typedef struct ASN1_PRIMITIVE_FUNCS_st
+{
+    void *app_data;
+    unsigned long flags;
+    ASN1_ex_new_func *prim_new;
+    ASN1_ex_free_func *prim_free;
+    ASN1_ex_free_func *prim_clear;
+    ASN1_primitive_c2i *prim_c2i;
+    ASN1_primitive_i2c *prim_i2c;
+    ASN1_primitive_print *prim_print;
 } ASN1_PRIMITIVE_FUNCS;
 typedef int ASN1_aux_cb(int operation, ASN1_VALUE **in, const ASN1_ITEM *it,
-void *exarg);
-typedef struct ASN1_AUX_st {
-void *app_data;
-int flags;
-int ref_offset;             
-int ref_lock;               
-ASN1_aux_cb *asn1_cb;
-int enc_offset;             
+                        void *exarg);
+typedef struct ASN1_AUX_st
+{
+    void *app_data;
+    int flags;
+    int ref_offset;
+    int ref_lock;
+    ASN1_aux_cb *asn1_cb;
+    int enc_offset;
 } ASN1_AUX;
-typedef struct ASN1_PRINT_ARG_st {
-BIO *out;
-int indent;
-const ASN1_PCTX *pctx;
+typedef struct ASN1_PRINT_ARG_st
+{
+    BIO *out;
+    int indent;
+    const ASN1_PCTX *pctx;
 } ASN1_PRINT_ARG;
-typedef struct ASN1_STREAM_ARG_st {
-BIO *out;
-BIO *ndef_bio;
-unsigned char **boundary;
+typedef struct ASN1_STREAM_ARG_st
+{
+    BIO *out;
+    BIO *ndef_bio;
+    unsigned char **boundary;
 } ASN1_STREAM_ARG;
 const ASN1_ITEM * ASN1_BOOLEAN_it(void);
 const ASN1_ITEM * ASN1_TBOOLEAN_it(void);
@@ -2485,14 +3793,105 @@ const ASN1_ITEM * CBIGNUM_it(void);
 const ASN1_ITEM * BIGNUM_it(void);
 const ASN1_ITEM * LONG_it(void);
 const ASN1_ITEM * ZLONG_it(void);
-struct stack_st_ASN1_VALUE; typedef int (*sk_ASN1_VALUE_compfunc)(const ASN1_VALUE * const *a, const ASN1_VALUE *const *b); typedef void (*sk_ASN1_VALUE_freefunc)(ASN1_VALUE *a); typedef ASN1_VALUE * (*sk_ASN1_VALUE_copyfunc)(const ASN1_VALUE *a); static __inline int sk_ASN1_VALUE_num(const struct stack_st_ASN1_VALUE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASN1_VALUE *sk_ASN1_VALUE_value(const struct stack_st_ASN1_VALUE *sk, int idx) { return (ASN1_VALUE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASN1_VALUE *sk_ASN1_VALUE_new(sk_ASN1_VALUE_compfunc compare) { return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASN1_VALUE *sk_ASN1_VALUE_new_null(void) { return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_new_null(); } static __inline void sk_ASN1_VALUE_free(struct stack_st_ASN1_VALUE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_VALUE_zero(struct stack_st_ASN1_VALUE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASN1_VALUE *sk_ASN1_VALUE_delete(struct stack_st_ASN1_VALUE *sk, int i) { return (ASN1_VALUE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASN1_VALUE *sk_ASN1_VALUE_delete_ptr(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr) { return (ASN1_VALUE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_VALUE_push(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_VALUE_unshift(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASN1_VALUE *sk_ASN1_VALUE_pop(struct stack_st_ASN1_VALUE *sk) { return (ASN1_VALUE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASN1_VALUE *sk_ASN1_VALUE_shift(struct stack_st_ASN1_VALUE *sk) { return (ASN1_VALUE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASN1_VALUE_pop_free(struct stack_st_ASN1_VALUE *sk, sk_ASN1_VALUE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASN1_VALUE_insert(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASN1_VALUE *sk_ASN1_VALUE_set(struct stack_st_ASN1_VALUE *sk, int idx, ASN1_VALUE *ptr) { return (ASN1_VALUE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASN1_VALUE_find(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASN1_VALUE_find_ex(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASN1_VALUE_sort(struct stack_st_ASN1_VALUE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASN1_VALUE_is_sorted(const struct stack_st_ASN1_VALUE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_VALUE * sk_ASN1_VALUE_dup(const struct stack_st_ASN1_VALUE *sk) { return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASN1_VALUE *sk_ASN1_VALUE_deep_copy(const struct stack_st_ASN1_VALUE *sk, sk_ASN1_VALUE_copyfunc copyfunc, sk_ASN1_VALUE_freefunc freefunc) { return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASN1_VALUE_compfunc sk_ASN1_VALUE_set_cmp_func(struct stack_st_ASN1_VALUE *sk, sk_ASN1_VALUE_compfunc compare) { return (sk_ASN1_VALUE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_ASN1_VALUE;
+typedef int (*sk_ASN1_VALUE_compfunc)(const ASN1_VALUE * const *a, const ASN1_VALUE *const *b);
+typedef void (*sk_ASN1_VALUE_freefunc)(ASN1_VALUE *a);
+typedef ASN1_VALUE * (*sk_ASN1_VALUE_copyfunc)(const ASN1_VALUE *a);
+static __inline int sk_ASN1_VALUE_num(const struct stack_st_ASN1_VALUE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASN1_VALUE *sk_ASN1_VALUE_value(const struct stack_st_ASN1_VALUE *sk, int idx)
+{
+    return (ASN1_VALUE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASN1_VALUE *sk_ASN1_VALUE_new(sk_ASN1_VALUE_compfunc compare)
+{
+    return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASN1_VALUE *sk_ASN1_VALUE_new_null(void)
+{
+    return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASN1_VALUE_free(struct stack_st_ASN1_VALUE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_VALUE_zero(struct stack_st_ASN1_VALUE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_VALUE *sk_ASN1_VALUE_delete(struct stack_st_ASN1_VALUE *sk, int i)
+{
+    return (ASN1_VALUE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASN1_VALUE *sk_ASN1_VALUE_delete_ptr(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr)
+{
+    return (ASN1_VALUE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_VALUE_push(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_VALUE_unshift(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASN1_VALUE *sk_ASN1_VALUE_pop(struct stack_st_ASN1_VALUE *sk)
+{
+    return (ASN1_VALUE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASN1_VALUE *sk_ASN1_VALUE_shift(struct stack_st_ASN1_VALUE *sk)
+{
+    return (ASN1_VALUE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASN1_VALUE_pop_free(struct stack_st_ASN1_VALUE *sk, sk_ASN1_VALUE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASN1_VALUE_insert(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASN1_VALUE *sk_ASN1_VALUE_set(struct stack_st_ASN1_VALUE *sk, int idx, ASN1_VALUE *ptr)
+{
+    return (ASN1_VALUE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASN1_VALUE_find(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASN1_VALUE_find_ex(struct stack_st_ASN1_VALUE *sk, ASN1_VALUE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASN1_VALUE_sort(struct stack_st_ASN1_VALUE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASN1_VALUE_is_sorted(const struct stack_st_ASN1_VALUE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_VALUE * sk_ASN1_VALUE_dup(const struct stack_st_ASN1_VALUE *sk)
+{
+    return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASN1_VALUE *sk_ASN1_VALUE_deep_copy(const struct stack_st_ASN1_VALUE *sk, sk_ASN1_VALUE_copyfunc copyfunc, sk_ASN1_VALUE_freefunc freefunc)
+{
+    return (struct stack_st_ASN1_VALUE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASN1_VALUE_compfunc sk_ASN1_VALUE_set_cmp_func(struct stack_st_ASN1_VALUE *sk, sk_ASN1_VALUE_compfunc compare)
+{
+    return (sk_ASN1_VALUE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 int ASN1_item_ex_new(ASN1_VALUE **pval, const ASN1_ITEM *it);
 void ASN1_item_ex_free(ASN1_VALUE **pval, const ASN1_ITEM *it);
 int ASN1_item_ex_d2i(ASN1_VALUE **pval, const unsigned char **in, long len,
-const ASN1_ITEM *it, int tag, int aclass, char opt,
-ASN1_TLC *ctx);
+                     const ASN1_ITEM *it, int tag, int aclass, char opt,
+                     ASN1_TLC *ctx);
 int ASN1_item_ex_i2d(ASN1_VALUE **pval, unsigned char **out,
-const ASN1_ITEM *it, int tag, int aclass);
+                     const ASN1_ITEM *it, int tag, int aclass);
 #line 925 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1t.h"
 #line 11 "crypto\\cms\\cms_io.c"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
@@ -2509,26 +3908,27 @@ const ASN1_ITEM *it, int tag, int aclass);
 #pragma once
 #line 23 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 32 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned short _ino_t;          
+typedef unsigned short _ino_t;
 typedef unsigned short ino_t;
 #line 67 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 70 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned int _dev_t;            
+typedef unsigned int _dev_t;
 typedef unsigned int dev_t;
 #line 80 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 83 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef long _off_t;                    
+typedef long _off_t;
 typedef long off_t;
 #line 93 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 96 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 98 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 27 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/buffer.h"
 #line 28 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/buffer.h"
-struct buf_mem_st {
-size_t length;              
-char *data;
-size_t max;                 
-unsigned long flags;
+struct buf_mem_st
+{
+    size_t length;
+    char *data;
+    size_t max;
+    unsigned long flags;
 };
 BUF_MEM *BUF_MEM_new(void);
 BUF_MEM *BUF_MEM_new_ex(unsigned long flags);
@@ -2564,25 +3964,26 @@ int ERR_load_BUF_strings(void);
 #line 916 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/objects.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/asn1.h"
 #line 917 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/objects.h"
-typedef struct obj_name_st {
-int type;
-int alias;
-const char *name;
-const char *data;
+typedef struct obj_name_st
+{
+    int type;
+    int alias;
+    const char *name;
+    const char *data;
 } OBJ_NAME;
 int OBJ_NAME_init(void);
 int OBJ_NAME_new_index(unsigned long (*hash_func) (const char *),
-int (*cmp_func) (const char *, const char *),
-void (*free_func) (const char *, int, const char *));
+                       int (*cmp_func) (const char *, const char *),
+                       void (*free_func) (const char *, int, const char *));
 const char *OBJ_NAME_get(const char *name, int type);
 int OBJ_NAME_add(const char *name, int type, const char *data);
 int OBJ_NAME_remove(const char *name, int type);
-void OBJ_NAME_cleanup(int type); 
+void OBJ_NAME_cleanup(int type);
 void OBJ_NAME_do_all(int type, void (*fn) (const OBJ_NAME *, void *arg),
-void *arg);
+                     void *arg);
 void OBJ_NAME_do_all_sorted(int type,
-void (*fn) (const OBJ_NAME *, void *arg),
-void *arg);
+                            void (*fn) (const OBJ_NAME *, void *arg),
+                            void *arg);
 ASN1_OBJECT *OBJ_dup(const ASN1_OBJECT *o);
 ASN1_OBJECT *OBJ_nid2obj(int n);
 const char *OBJ_nid2ln(int n);
@@ -2595,11 +3996,11 @@ int OBJ_ln2nid(const char *s);
 int OBJ_sn2nid(const char *s);
 int OBJ_cmp(const ASN1_OBJECT *a, const ASN1_OBJECT *b);
 const void *OBJ_bsearch_(const void *key, const void *base, int num, int size,
-int (*cmp) (const void *, const void *));
+                         int (*cmp) (const void *, const void *));
 const void *OBJ_bsearch_ex_(const void *key, const void *base, int num,
-int size,
-int (*cmp) (const void *, const void *),
-int flags);
+                            int size,
+                            int (*cmp) (const void *, const void *),
+                            int flags);
 int OBJ_new_nid(int num);
 int OBJ_add_object(const ASN1_OBJECT *obj);
 int OBJ_create(const char *oid, const char *sn, const char *ln);
@@ -2625,30 +4026,30 @@ int EVP_MD_meth_set_app_datasize(EVP_MD *md, int datasize);
 int EVP_MD_meth_set_flags(EVP_MD *md, unsigned long flags);
 int EVP_MD_meth_set_init(EVP_MD *md, int (*init)(EVP_MD_CTX *ctx));
 int EVP_MD_meth_set_update(EVP_MD *md, int (*update)(EVP_MD_CTX *ctx,
-const void *data,
-size_t count));
+                           const void *data,
+                           size_t count));
 int EVP_MD_meth_set_final(EVP_MD *md, int (*final)(EVP_MD_CTX *ctx,
-unsigned char *md));
+                          unsigned char *md));
 int EVP_MD_meth_set_copy(EVP_MD *md, int (*copy)(EVP_MD_CTX *to,
-const EVP_MD_CTX *from));
+                         const EVP_MD_CTX *from));
 int EVP_MD_meth_set_cleanup(EVP_MD *md, int (*cleanup)(EVP_MD_CTX *ctx));
 int EVP_MD_meth_set_ctrl(EVP_MD *md, int (*ctrl)(EVP_MD_CTX *ctx, int cmd,
-int p1, void *p2));
+                         int p1, void *p2));
 int EVP_MD_meth_get_input_blocksize(const EVP_MD *md);
 int EVP_MD_meth_get_result_size(const EVP_MD *md);
 int EVP_MD_meth_get_app_datasize(const EVP_MD *md);
 unsigned long EVP_MD_meth_get_flags(const EVP_MD *md);
 int (*EVP_MD_meth_get_init(const EVP_MD *md))(EVP_MD_CTX *ctx);
 int (*EVP_MD_meth_get_update(const EVP_MD *md))(EVP_MD_CTX *ctx,
-const void *data,
-size_t count);
+        const void *data,
+        size_t count);
 int (*EVP_MD_meth_get_final(const EVP_MD *md))(EVP_MD_CTX *ctx,
-unsigned char *md);
+        unsigned char *md);
 int (*EVP_MD_meth_get_copy(const EVP_MD *md))(EVP_MD_CTX *to,
-const EVP_MD_CTX *from);
+        const EVP_MD_CTX *from);
 int (*EVP_MD_meth_get_cleanup(const EVP_MD *md))(EVP_MD_CTX *ctx);
 int (*EVP_MD_meth_get_ctrl(const EVP_MD *md))(EVP_MD_CTX *ctx, int cmd,
-int p1, void *p2);
+        int p1, void *p2);
 #line 188 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 EVP_CIPHER *EVP_CIPHER_meth_new(int cipher_type, int block_size, int key_len);
 EVP_CIPHER *EVP_CIPHER_meth_dup(const EVP_CIPHER *cipher);
@@ -2657,56 +4058,58 @@ int EVP_CIPHER_meth_set_iv_length(EVP_CIPHER *cipher, int iv_len);
 int EVP_CIPHER_meth_set_flags(EVP_CIPHER *cipher, unsigned long flags);
 int EVP_CIPHER_meth_set_impl_ctx_size(EVP_CIPHER *cipher, int ctx_size);
 int EVP_CIPHER_meth_set_init(EVP_CIPHER *cipher,
-int (*init) (EVP_CIPHER_CTX *ctx,
-const unsigned char *key,
-const unsigned char *iv,
-int enc));
+                             int (*init) (EVP_CIPHER_CTX *ctx,
+                                     const unsigned char *key,
+                                     const unsigned char *iv,
+                                     int enc));
 int EVP_CIPHER_meth_set_do_cipher(EVP_CIPHER *cipher,
-int (*do_cipher) (EVP_CIPHER_CTX *ctx,
-unsigned char *out,
-const unsigned char *in,
-size_t inl));
+                                  int (*do_cipher) (EVP_CIPHER_CTX *ctx,
+                                          unsigned char *out,
+                                          const unsigned char *in,
+                                          size_t inl));
 int EVP_CIPHER_meth_set_cleanup(EVP_CIPHER *cipher,
-int (*cleanup) (EVP_CIPHER_CTX *));
+                                int (*cleanup) (EVP_CIPHER_CTX *));
 int EVP_CIPHER_meth_set_set_asn1_params(EVP_CIPHER *cipher,
-int (*set_asn1_parameters) (EVP_CIPHER_CTX *,
-ASN1_TYPE *));
+                                        int (*set_asn1_parameters) (EVP_CIPHER_CTX *,
+                                                ASN1_TYPE *));
 int EVP_CIPHER_meth_set_get_asn1_params(EVP_CIPHER *cipher,
-int (*get_asn1_parameters) (EVP_CIPHER_CTX *,
-ASN1_TYPE *));
+                                        int (*get_asn1_parameters) (EVP_CIPHER_CTX *,
+                                                ASN1_TYPE *));
 int EVP_CIPHER_meth_set_ctrl(EVP_CIPHER *cipher,
-int (*ctrl) (EVP_CIPHER_CTX *, int type,
-int arg, void *ptr));
+                             int (*ctrl) (EVP_CIPHER_CTX *, int type,
+                                     int arg, void *ptr));
 int (*EVP_CIPHER_meth_get_init(const EVP_CIPHER *cipher))(EVP_CIPHER_CTX *ctx,
-const unsigned char *key,
-const unsigned char *iv,
-int enc);
+        const unsigned char *key,
+        const unsigned char *iv,
+        int enc);
 int (*EVP_CIPHER_meth_get_do_cipher(const EVP_CIPHER *cipher))(EVP_CIPHER_CTX *ctx,
-unsigned char *out,
-const unsigned char *in,
-size_t inl);
+        unsigned char *out,
+        const unsigned char *in,
+        size_t inl);
 int (*EVP_CIPHER_meth_get_cleanup(const EVP_CIPHER *cipher))(EVP_CIPHER_CTX *);
 int (*EVP_CIPHER_meth_get_set_asn1_params(const EVP_CIPHER *cipher))(EVP_CIPHER_CTX *,
-ASN1_TYPE *);
+        ASN1_TYPE *);
 int (*EVP_CIPHER_meth_get_get_asn1_params(const EVP_CIPHER *cipher))(EVP_CIPHER_CTX *,
-ASN1_TYPE *);
+        ASN1_TYPE *);
 int (*EVP_CIPHER_meth_get_ctrl(const EVP_CIPHER *cipher))(EVP_CIPHER_CTX *,
-int type, int arg,
-void *ptr);
-typedef struct {
-unsigned char *out;
-const unsigned char *inp;
-size_t len;
-unsigned int interleave;
+        int type, int arg,
+        void *ptr);
+typedef struct
+{
+    unsigned char *out;
+    const unsigned char *inp;
+    size_t len;
+    unsigned int interleave;
 } EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM;
-typedef struct evp_cipher_info_st {
-const EVP_CIPHER *cipher;
-unsigned char iv[16];
+typedef struct evp_cipher_info_st
+{
+    const EVP_CIPHER *cipher;
+    unsigned char iv[16];
 } EVP_CIPHER_INFO;
 typedef int (EVP_PBE_KEYGEN) (EVP_CIPHER_CTX *ctx, const char *pass,
-int passlen, ASN1_TYPE *param,
-const EVP_CIPHER *cipher, const EVP_MD *md,
-int en_de);
+                              int passlen, ASN1_TYPE *param,
+                              const EVP_CIPHER *cipher, const EVP_MD *md,
+                              int en_de);
 #line 438 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 #line 443 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 #line 448 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
@@ -2720,10 +4123,10 @@ int EVP_MD_block_size(const EVP_MD *md);
 unsigned long EVP_MD_flags(const EVP_MD *md);
 const EVP_MD *EVP_MD_CTX_md(const EVP_MD_CTX *ctx);
 int (*EVP_MD_CTX_update_fn(EVP_MD_CTX *ctx))(EVP_MD_CTX *ctx,
-const void *data, size_t count);
+        const void *data, size_t count);
 void EVP_MD_CTX_set_update_fn(EVP_MD_CTX *ctx,
-int (*update) (EVP_MD_CTX *ctx,
-const void *data, size_t count));
+                              int (*update) (EVP_MD_CTX *ctx,
+                                      const void *data, size_t count));
 EVP_PKEY_CTX *EVP_MD_CTX_pkey_ctx(const EVP_MD_CTX *ctx);
 void *EVP_MD_CTX_md_data(const EVP_MD_CTX *ctx);
 void *EVP_MD_CTX_set_md_data(EVP_MD_CTX *ctx, void *md_data);
@@ -2753,8 +4156,8 @@ void *EVP_CIPHER_CTX_set_cipher_data(EVP_CIPHER_CTX *ctx, void *cipher_data);
 #line 527 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 #line 548 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 int EVP_Cipher(EVP_CIPHER_CTX *c,
-unsigned char *out,
-const unsigned char *in, unsigned int inl);
+               unsigned char *out,
+               const unsigned char *in, unsigned int inl);
 int EVP_MD_CTX_ctrl(EVP_MD_CTX *ctx, int cmd, int p1, void *p2);
 EVP_MD_CTX *EVP_MD_CTX_new(void);
 int EVP_MD_CTX_reset(EVP_MD_CTX *ctx);
@@ -2764,89 +4167,89 @@ void EVP_MD_CTX_set_flags(EVP_MD_CTX *ctx, int flags);
 void EVP_MD_CTX_clear_flags(EVP_MD_CTX *ctx, int flags);
 int EVP_MD_CTX_test_flags(const EVP_MD_CTX *ctx, int flags);
 int EVP_DigestInit_ex(EVP_MD_CTX *ctx, const EVP_MD *type,
-ENGINE *impl);
+                      ENGINE *impl);
 int EVP_DigestUpdate(EVP_MD_CTX *ctx, const void *d,
-size_t cnt);
+                     size_t cnt);
 int EVP_DigestFinal_ex(EVP_MD_CTX *ctx, unsigned char *md,
-unsigned int *s);
+                       unsigned int *s);
 int EVP_Digest(const void *data, size_t count,
-unsigned char *md, unsigned int *size,
-const EVP_MD *type, ENGINE *impl);
+               unsigned char *md, unsigned int *size,
+               const EVP_MD *type, ENGINE *impl);
 int EVP_MD_CTX_copy(EVP_MD_CTX *out, const EVP_MD_CTX *in);
 int EVP_DigestInit(EVP_MD_CTX *ctx, const EVP_MD *type);
 int EVP_DigestFinal(EVP_MD_CTX *ctx, unsigned char *md,
-unsigned int *s);
+                    unsigned int *s);
 int EVP_read_pw_string(char *buf, int length, const char *prompt, int verify);
 int EVP_read_pw_string_min(char *buf, int minlen, int maxlen,
-const char *prompt, int verify);
+                           const char *prompt, int verify);
 void EVP_set_pw_prompt(const char *prompt);
 char *EVP_get_pw_prompt(void);
 #line 600 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 int EVP_BytesToKey(const EVP_CIPHER *type, const EVP_MD *md,
-const unsigned char *salt,
-const unsigned char *data, int datal, int count,
-unsigned char *key, unsigned char *iv);
+                   const unsigned char *salt,
+                   const unsigned char *data, int datal, int count,
+                   unsigned char *key, unsigned char *iv);
 void EVP_CIPHER_CTX_set_flags(EVP_CIPHER_CTX *ctx, int flags);
 void EVP_CIPHER_CTX_clear_flags(EVP_CIPHER_CTX *ctx, int flags);
 int EVP_CIPHER_CTX_test_flags(const EVP_CIPHER_CTX *ctx, int flags);
 int EVP_EncryptInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
-const unsigned char *key, const unsigned char *iv);
+                    const unsigned char *key, const unsigned char *iv);
 int EVP_EncryptInit_ex(EVP_CIPHER_CTX *ctx,
-const EVP_CIPHER *cipher, ENGINE *impl,
-const unsigned char *key,
-const unsigned char *iv);
+                       const EVP_CIPHER *cipher, ENGINE *impl,
+                       const unsigned char *key,
+                       const unsigned char *iv);
 int EVP_EncryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out,
-int *outl, const unsigned char *in, int inl);
+                      int *outl, const unsigned char *in, int inl);
 int EVP_EncryptFinal_ex(EVP_CIPHER_CTX *ctx, unsigned char *out,
-int *outl);
+                        int *outl);
 int EVP_EncryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *out,
-int *outl);
+                     int *outl);
 int EVP_DecryptInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
-const unsigned char *key, const unsigned char *iv);
+                    const unsigned char *key, const unsigned char *iv);
 int EVP_DecryptInit_ex(EVP_CIPHER_CTX *ctx,
-const EVP_CIPHER *cipher, ENGINE *impl,
-const unsigned char *key,
-const unsigned char *iv);
+                       const EVP_CIPHER *cipher, ENGINE *impl,
+                       const unsigned char *key,
+                       const unsigned char *iv);
 int EVP_DecryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out,
-int *outl, const unsigned char *in, int inl);
+                      int *outl, const unsigned char *in, int inl);
 int EVP_DecryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *outm,
-int *outl);
+                     int *outl);
 int EVP_DecryptFinal_ex(EVP_CIPHER_CTX *ctx, unsigned char *outm,
-int *outl);
+                        int *outl);
 int EVP_CipherInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
-const unsigned char *key, const unsigned char *iv,
-int enc);
+                   const unsigned char *key, const unsigned char *iv,
+                   int enc);
 int EVP_CipherInit_ex(EVP_CIPHER_CTX *ctx,
-const EVP_CIPHER *cipher, ENGINE *impl,
-const unsigned char *key,
-const unsigned char *iv, int enc);
+                      const EVP_CIPHER *cipher, ENGINE *impl,
+                      const unsigned char *key,
+                      const unsigned char *iv, int enc);
 int EVP_CipherUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out,
-int *outl, const unsigned char *in, int inl);
+                     int *outl, const unsigned char *in, int inl);
 int EVP_CipherFinal(EVP_CIPHER_CTX *ctx, unsigned char *outm,
-int *outl);
+                    int *outl);
 int EVP_CipherFinal_ex(EVP_CIPHER_CTX *ctx, unsigned char *outm,
-int *outl);
+                       int *outl);
 int EVP_SignFinal(EVP_MD_CTX *ctx, unsigned char *md, unsigned int *s,
-EVP_PKEY *pkey);
+                  EVP_PKEY *pkey);
 int EVP_VerifyFinal(EVP_MD_CTX *ctx, const unsigned char *sigbuf,
-unsigned int siglen, EVP_PKEY *pkey);
+                    unsigned int siglen, EVP_PKEY *pkey);
 int EVP_DigestSignInit(EVP_MD_CTX *ctx, EVP_PKEY_CTX **pctx,
-const EVP_MD *type, ENGINE *e,
-EVP_PKEY *pkey);
+                       const EVP_MD *type, ENGINE *e,
+                       EVP_PKEY *pkey);
 int EVP_DigestSignFinal(EVP_MD_CTX *ctx, unsigned char *sigret,
-size_t *siglen);
+                        size_t *siglen);
 int EVP_DigestVerifyInit(EVP_MD_CTX *ctx, EVP_PKEY_CTX **pctx,
-const EVP_MD *type, ENGINE *e,
-EVP_PKEY *pkey);
+                         const EVP_MD *type, ENGINE *e,
+                         EVP_PKEY *pkey);
 int EVP_DigestVerifyFinal(EVP_MD_CTX *ctx, const unsigned char *sig,
-size_t siglen);
+                          size_t siglen);
 int EVP_OpenInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *type,
-const unsigned char *ek, int ekl,
-const unsigned char *iv, EVP_PKEY *priv);
+                 const unsigned char *ek, int ekl,
+                 const unsigned char *iv, EVP_PKEY *priv);
 int EVP_OpenFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl);
 int EVP_SealInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *type,
-unsigned char **ek, int *ekl, unsigned char *iv,
-EVP_PKEY **pubk, int npubk);
+                 unsigned char **ek, int *ekl, unsigned char *iv,
+                 EVP_PKEY **pubk, int npubk);
 int EVP_SealFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl);
 #line 679 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 EVP_ENCODE_CTX *EVP_ENCODE_CTX_new(void);
@@ -2855,14 +4258,14 @@ int EVP_ENCODE_CTX_copy(EVP_ENCODE_CTX *dctx, EVP_ENCODE_CTX *sctx);
 int EVP_ENCODE_CTX_num(EVP_ENCODE_CTX *ctx);
 void EVP_EncodeInit(EVP_ENCODE_CTX *ctx);
 int EVP_EncodeUpdate(EVP_ENCODE_CTX *ctx, unsigned char *out, int *outl,
-const unsigned char *in, int inl);
+                     const unsigned char *in, int inl);
 void EVP_EncodeFinal(EVP_ENCODE_CTX *ctx, unsigned char *out, int *outl);
 int EVP_EncodeBlock(unsigned char *t, const unsigned char *f, int n);
 void EVP_DecodeInit(EVP_ENCODE_CTX *ctx);
 int EVP_DecodeUpdate(EVP_ENCODE_CTX *ctx, unsigned char *out, int *outl,
-const unsigned char *in, int inl);
+                     const unsigned char *in, int inl);
 int EVP_DecodeFinal(EVP_ENCODE_CTX *ctx, unsigned
-char *out, int *outl);
+                    char *out, int *outl);
 int EVP_DecodeBlock(unsigned char *t, const unsigned char *f, int n);
 #line 701 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 EVP_CIPHER_CTX *EVP_CIPHER_CTX_new(void);
@@ -2877,7 +4280,7 @@ const BIO_METHOD *BIO_f_base64(void);
 const BIO_METHOD *BIO_f_cipher(void);
 const BIO_METHOD *BIO_f_reliable(void);
 int BIO_set_cipher(BIO *b, const EVP_CIPHER *c, const unsigned char *k,
-const unsigned char *i, int enc);
+                   const unsigned char *i, int enc);
 const EVP_MD *EVP_md_null(void);
 const EVP_MD *EVP_md4(void);
 #line 723 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
@@ -2902,7 +4305,7 @@ const EVP_MD *EVP_sm3(void);
 const EVP_MD *EVP_sm9hash2_sm3(void);
 #line 750 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 #line 751 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
-const EVP_CIPHER *EVP_enc_null(void); 
+const EVP_CIPHER *EVP_enc_null(void);
 const EVP_CIPHER *EVP_des_ecb(void);
 const EVP_CIPHER *EVP_des_ede(void);
 const EVP_CIPHER *EVP_des_ede3(void);
@@ -3052,23 +4455,23 @@ const EVP_MD *EVP_get_default_digest(void);
 const EVP_CIPHER *EVP_get_cipherbyname(const char *name);
 const EVP_MD *EVP_get_digestbyname(const char *name);
 void EVP_CIPHER_do_all(void (*fn) (const EVP_CIPHER *ciph,
-const char *from, const char *to, void *x),
-void *arg);
+                                   const char *from, const char *to, void *x),
+                       void *arg);
 void EVP_CIPHER_do_all_sorted(void (*fn)
-(const EVP_CIPHER *ciph, const char *from,
-const char *to, void *x), void *arg);
+                              (const EVP_CIPHER *ciph, const char *from,
+                               const char *to, void *x), void *arg);
 void EVP_MD_do_all(void (*fn) (const EVP_MD *ciph,
-const char *from, const char *to, void *x),
-void *arg);
+                               const char *from, const char *to, void *x),
+                   void *arg);
 void EVP_MD_do_all_sorted(void (*fn)
-(const EVP_MD *ciph, const char *from,
-const char *to, void *x), void *arg);
+                          (const EVP_MD *ciph, const char *from,
+                           const char *to, void *x), void *arg);
 int EVP_PKEY_decrypt_old(unsigned char *dec_key,
-const unsigned char *enc_key, int enc_key_len,
-EVP_PKEY *private_key);
+                         const unsigned char *enc_key, int enc_key_len,
+                         EVP_PKEY *private_key);
 int EVP_PKEY_encrypt_old(unsigned char *enc_key,
-const unsigned char *key, int key_len,
-EVP_PKEY *pub_key);
+                         const unsigned char *key, int key_len,
+                         EVP_PKEY *pub_key);
 int EVP_PKEY_type(int type);
 int EVP_PKEY_id(const EVP_PKEY *pkey);
 int EVP_PKEY_base_id(const EVP_PKEY *pkey);
@@ -3118,12 +4521,12 @@ EVP_PKEY *EVP_PKEY_new(void);
 int EVP_PKEY_up_ref(EVP_PKEY *pkey);
 void EVP_PKEY_free(EVP_PKEY *pkey);
 EVP_PKEY *d2i_PublicKey(int type, EVP_PKEY **a, const unsigned char **pp,
-long length);
+                        long length);
 int i2d_PublicKey(EVP_PKEY *a, unsigned char **pp);
 EVP_PKEY *d2i_PrivateKey(int type, EVP_PKEY **a, const unsigned char **pp,
-long length);
+                         long length);
 EVP_PKEY *d2i_AutoPrivateKey(EVP_PKEY **a, const unsigned char **pp,
-long length);
+                             long length);
 int i2d_PrivateKey(EVP_PKEY *a, unsigned char **pp);
 int EVP_PKEY_copy_parameters(EVP_PKEY *to, const EVP_PKEY *from);
 int EVP_PKEY_missing_parameters(const EVP_PKEY *pkey);
@@ -3131,14 +4534,14 @@ int EVP_PKEY_save_parameters(EVP_PKEY *pkey, int mode);
 int EVP_PKEY_cmp_parameters(const EVP_PKEY *a, const EVP_PKEY *b);
 int EVP_PKEY_cmp(const EVP_PKEY *a, const EVP_PKEY *b);
 int EVP_PKEY_print_public(BIO *out, const EVP_PKEY *pkey,
-int indent, ASN1_PCTX *pctx);
+                          int indent, ASN1_PCTX *pctx);
 int EVP_PKEY_print_private(BIO *out, const EVP_PKEY *pkey,
-int indent, ASN1_PCTX *pctx);
+                           int indent, ASN1_PCTX *pctx);
 int EVP_PKEY_print_params(BIO *out, const EVP_PKEY *pkey,
-int indent, ASN1_PCTX *pctx);
+                          int indent, ASN1_PCTX *pctx);
 int EVP_PKEY_get_default_digest_nid(EVP_PKEY *pkey, int *pnid);
 int EVP_PKEY_set1_tls_encodedpoint(EVP_PKEY *pkey,
-const unsigned char *pt, size_t ptlen);
+                                   const unsigned char *pt, size_t ptlen);
 size_t EVP_PKEY_get1_tls_encodedpoint(EVP_PKEY *pkey, unsigned char **ppt);
 int EVP_CIPHER_type(const EVP_CIPHER *ctx);
 int EVP_CIPHER_param_to_asn1(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
@@ -3146,117 +4549,117 @@ int EVP_CIPHER_asn1_to_param(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
 int EVP_CIPHER_set_asn1_iv(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
 int EVP_CIPHER_get_asn1_iv(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
 int PKCS5_PBE_keyivgen(EVP_CIPHER_CTX *ctx, const char *pass, int passlen,
-ASN1_TYPE *param, const EVP_CIPHER *cipher,
-const EVP_MD *md, int en_de);
+                       ASN1_TYPE *param, const EVP_CIPHER *cipher,
+                       const EVP_MD *md, int en_de);
 int PKCS5_PBKDF2_HMAC_SHA1(const char *pass, int passlen,
-const unsigned char *salt, int saltlen, int iter,
-int keylen, unsigned char *out);
+                           const unsigned char *salt, int saltlen, int iter,
+                           int keylen, unsigned char *out);
 #line 1118 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 int PKCS5_PBKDF2_HMAC(const char *pass, int passlen,
-const unsigned char *salt, int saltlen, int iter,
-const EVP_MD *digest, int keylen, unsigned char *out);
+                      const unsigned char *salt, int saltlen, int iter,
+                      const EVP_MD *digest, int keylen, unsigned char *out);
 int PKCS5_v2_PBE_keyivgen(EVP_CIPHER_CTX *ctx, const char *pass, int passlen,
-ASN1_TYPE *param, const EVP_CIPHER *cipher,
-const EVP_MD *md, int en_de);
+                          ASN1_TYPE *param, const EVP_CIPHER *cipher,
+                          const EVP_MD *md, int en_de);
 int EVP_PBE_scrypt(const char *pass, size_t passlen,
-const unsigned char *salt, size_t saltlen,
-uint64_t N, uint64_t r, uint64_t p, uint64_t maxmem,
-unsigned char *key, size_t keylen);
+                   const unsigned char *salt, size_t saltlen,
+                   uint64_t N, uint64_t r, uint64_t p, uint64_t maxmem,
+                   unsigned char *key, size_t keylen);
 int PKCS5_v2_scrypt_keyivgen(EVP_CIPHER_CTX *ctx, const char *pass,
-int passlen, ASN1_TYPE *param,
-const EVP_CIPHER *c, const EVP_MD *md, int en_de);
+                             int passlen, ASN1_TYPE *param,
+                             const EVP_CIPHER *c, const EVP_MD *md, int en_de);
 #line 1135 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
 void PKCS5_PBE_add(void);
 int EVP_PBE_CipherInit(ASN1_OBJECT *pbe_obj, const char *pass, int passlen,
-ASN1_TYPE *param, EVP_CIPHER_CTX *ctx, int en_de);
+                       ASN1_TYPE *param, EVP_CIPHER_CTX *ctx, int en_de);
 int EVP_PBE_alg_add_type(int pbe_type, int pbe_nid, int cipher_nid,
-int md_nid, EVP_PBE_KEYGEN *keygen);
+                         int md_nid, EVP_PBE_KEYGEN *keygen);
 int EVP_PBE_alg_add(int nid, const EVP_CIPHER *cipher, const EVP_MD *md,
-EVP_PBE_KEYGEN *keygen);
+                    EVP_PBE_KEYGEN *keygen);
 int EVP_PBE_find(int type, int pbe_nid, int *pcnid, int *pmnid,
-EVP_PBE_KEYGEN **pkeygen);
+                 EVP_PBE_KEYGEN **pkeygen);
 void EVP_PBE_cleanup(void);
 int EVP_PBE_get(int *ptype, int *ppbe_nid, size_t num);
 int EVP_PKEY_asn1_get_count(void);
 const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_get0(int idx);
 const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_find(ENGINE **pe, int type);
 const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_find_str(ENGINE **pe,
-const char *str, int len);
+        const char *str, int len);
 int EVP_PKEY_asn1_add0(const EVP_PKEY_ASN1_METHOD *ameth);
 int EVP_PKEY_asn1_add_alias(int to, int from);
 int EVP_PKEY_asn1_get0_info(int *ppkey_id, int *pkey_base_id,
-int *ppkey_flags, const char **pinfo,
-const char **ppem_str,
-const EVP_PKEY_ASN1_METHOD *ameth);
+                            int *ppkey_flags, const char **pinfo,
+                            const char **ppem_str,
+                            const EVP_PKEY_ASN1_METHOD *ameth);
 const EVP_PKEY_ASN1_METHOD *EVP_PKEY_get0_asn1(const EVP_PKEY *pkey);
 EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_new(int id, int flags,
-const char *pem_str,
-const char *info);
+                                        const char *pem_str,
+                                        const char *info);
 void EVP_PKEY_asn1_copy(EVP_PKEY_ASN1_METHOD *dst,
-const EVP_PKEY_ASN1_METHOD *src);
+                        const EVP_PKEY_ASN1_METHOD *src);
 void EVP_PKEY_asn1_free(EVP_PKEY_ASN1_METHOD *ameth);
 void EVP_PKEY_asn1_set_public(EVP_PKEY_ASN1_METHOD *ameth,
-int (*pub_decode) (EVP_PKEY *pk,
-X509_PUBKEY *pub),
-int (*pub_encode) (X509_PUBKEY *pub,
-const EVP_PKEY *pk),
-int (*pub_cmp) (const EVP_PKEY *a,
-const EVP_PKEY *b),
-int (*pub_print) (BIO *out,
-const EVP_PKEY *pkey,
-int indent, ASN1_PCTX *pctx),
-int (*pkey_size) (const EVP_PKEY *pk),
-int (*pkey_bits) (const EVP_PKEY *pk));
+                              int (*pub_decode) (EVP_PKEY *pk,
+                                      X509_PUBKEY *pub),
+                              int (*pub_encode) (X509_PUBKEY *pub,
+                                      const EVP_PKEY *pk),
+                              int (*pub_cmp) (const EVP_PKEY *a,
+                                      const EVP_PKEY *b),
+                              int (*pub_print) (BIO *out,
+                                      const EVP_PKEY *pkey,
+                                      int indent, ASN1_PCTX *pctx),
+                              int (*pkey_size) (const EVP_PKEY *pk),
+                              int (*pkey_bits) (const EVP_PKEY *pk));
 void EVP_PKEY_asn1_set_private(EVP_PKEY_ASN1_METHOD *ameth,
-int (*priv_decode) (EVP_PKEY *pk,
-const PKCS8_PRIV_KEY_INFO
-*p8inf),
-int (*priv_encode) (PKCS8_PRIV_KEY_INFO *p8,
-const EVP_PKEY *pk),
-int (*priv_print) (BIO *out,
-const EVP_PKEY *pkey,
-int indent,
-ASN1_PCTX *pctx));
+                               int (*priv_decode) (EVP_PKEY *pk,
+                                       const PKCS8_PRIV_KEY_INFO
+                                       *p8inf),
+                               int (*priv_encode) (PKCS8_PRIV_KEY_INFO *p8,
+                                       const EVP_PKEY *pk),
+                               int (*priv_print) (BIO *out,
+                                       const EVP_PKEY *pkey,
+                                       int indent,
+                                       ASN1_PCTX *pctx));
 void EVP_PKEY_asn1_set_param(EVP_PKEY_ASN1_METHOD *ameth,
-int (*param_decode) (EVP_PKEY *pkey,
-const unsigned char **pder,
-int derlen),
-int (*param_encode) (const EVP_PKEY *pkey,
-unsigned char **pder),
-int (*param_missing) (const EVP_PKEY *pk),
-int (*param_copy) (EVP_PKEY *to,
-const EVP_PKEY *from),
-int (*param_cmp) (const EVP_PKEY *a,
-const EVP_PKEY *b),
-int (*param_print) (BIO *out,
-const EVP_PKEY *pkey,
-int indent,
-ASN1_PCTX *pctx));
+                             int (*param_decode) (EVP_PKEY *pkey,
+                                     const unsigned char **pder,
+                                     int derlen),
+                             int (*param_encode) (const EVP_PKEY *pkey,
+                                     unsigned char **pder),
+                             int (*param_missing) (const EVP_PKEY *pk),
+                             int (*param_copy) (EVP_PKEY *to,
+                                     const EVP_PKEY *from),
+                             int (*param_cmp) (const EVP_PKEY *a,
+                                     const EVP_PKEY *b),
+                             int (*param_print) (BIO *out,
+                                     const EVP_PKEY *pkey,
+                                     int indent,
+                                     ASN1_PCTX *pctx));
 void EVP_PKEY_asn1_set_free(EVP_PKEY_ASN1_METHOD *ameth,
-void (*pkey_free) (EVP_PKEY *pkey));
+                            void (*pkey_free) (EVP_PKEY *pkey));
 void EVP_PKEY_asn1_set_ctrl(EVP_PKEY_ASN1_METHOD *ameth,
-int (*pkey_ctrl) (EVP_PKEY *pkey, int op,
-long arg1, void *arg2));
+                            int (*pkey_ctrl) (EVP_PKEY *pkey, int op,
+                                    long arg1, void *arg2));
 void EVP_PKEY_asn1_set_item(EVP_PKEY_ASN1_METHOD *ameth,
-int (*item_verify) (EVP_MD_CTX *ctx,
-const ASN1_ITEM *it,
-void *asn,
-X509_ALGOR *a,
-ASN1_BIT_STRING *sig,
-EVP_PKEY *pkey),
-int (*item_sign) (EVP_MD_CTX *ctx,
-const ASN1_ITEM *it,
-void *asn,
-X509_ALGOR *alg1,
-X509_ALGOR *alg2,
-ASN1_BIT_STRING *sig));
+                            int (*item_verify) (EVP_MD_CTX *ctx,
+                                    const ASN1_ITEM *it,
+                                    void *asn,
+                                    X509_ALGOR *a,
+                                    ASN1_BIT_STRING *sig,
+                                    EVP_PKEY *pkey),
+                            int (*item_sign) (EVP_MD_CTX *ctx,
+                                    const ASN1_ITEM *it,
+                                    void *asn,
+                                    X509_ALGOR *alg1,
+                                    X509_ALGOR *alg2,
+                                    ASN1_BIT_STRING *sig));
 void EVP_PKEY_asn1_set_security_bits(EVP_PKEY_ASN1_METHOD *ameth,
-int (*pkey_security_bits) (const EVP_PKEY
-*pk));
+                                     int (*pkey_security_bits) (const EVP_PKEY
+                                             *pk));
 const EVP_PKEY_METHOD *EVP_PKEY_meth_find(int type);
 EVP_PKEY_METHOD *EVP_PKEY_meth_new(int id, int flags);
 void EVP_PKEY_meth_get0_info(int *ppkey_id, int *pflags,
-const EVP_PKEY_METHOD *meth);
+                             const EVP_PKEY_METHOD *meth);
 void EVP_PKEY_meth_copy(EVP_PKEY_METHOD *dst, const EVP_PKEY_METHOD *src);
 void EVP_PKEY_meth_free(EVP_PKEY_METHOD *pmeth);
 int EVP_PKEY_meth_add0(const EVP_PKEY_METHOD *pmeth);
@@ -3265,15 +4668,15 @@ EVP_PKEY_CTX *EVP_PKEY_CTX_new_id(int id, ENGINE *e);
 EVP_PKEY_CTX *EVP_PKEY_CTX_dup(EVP_PKEY_CTX *ctx);
 void EVP_PKEY_CTX_free(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_CTX_ctrl(EVP_PKEY_CTX *ctx, int keytype, int optype,
-int cmd, int p1, void *p2);
+                      int cmd, int p1, void *p2);
 int EVP_PKEY_CTX_ctrl_str(EVP_PKEY_CTX *ctx, const char *type,
-const char *value);
+                          const char *value);
 int EVP_PKEY_CTX_str2ctrl(EVP_PKEY_CTX *ctx, int cmd, const char *str);
 int EVP_PKEY_CTX_hex2ctrl(EVP_PKEY_CTX *ctx, int cmd, const char *hex);
 int EVP_PKEY_CTX_get_operation(EVP_PKEY_CTX *ctx);
 void EVP_PKEY_CTX_set0_keygen_info(EVP_PKEY_CTX *ctx, int *dat, int datlen);
 EVP_PKEY *EVP_PKEY_new_mac_key(int type, ENGINE *e,
-const unsigned char *key, int keylen);
+                               const unsigned char *key, int keylen);
 void EVP_PKEY_CTX_set_data(EVP_PKEY_CTX *ctx, void *data);
 void *EVP_PKEY_CTX_get_data(EVP_PKEY_CTX *ctx);
 EVP_PKEY *EVP_PKEY_CTX_get0_pkey(EVP_PKEY_CTX *ctx);
@@ -3282,24 +4685,24 @@ void EVP_PKEY_CTX_set_app_data(EVP_PKEY_CTX *ctx, void *data);
 void *EVP_PKEY_CTX_get_app_data(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_sign_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_sign(EVP_PKEY_CTX *ctx,
-unsigned char *sig, size_t *siglen,
-const unsigned char *tbs, size_t tbslen);
+                  unsigned char *sig, size_t *siglen,
+                  const unsigned char *tbs, size_t tbslen);
 int EVP_PKEY_verify_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_verify(EVP_PKEY_CTX *ctx,
-const unsigned char *sig, size_t siglen,
-const unsigned char *tbs, size_t tbslen);
+                    const unsigned char *sig, size_t siglen,
+                    const unsigned char *tbs, size_t tbslen);
 int EVP_PKEY_verify_recover_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_verify_recover(EVP_PKEY_CTX *ctx,
-unsigned char *rout, size_t *routlen,
-const unsigned char *sig, size_t siglen);
+                            unsigned char *rout, size_t *routlen,
+                            const unsigned char *sig, size_t siglen);
 int EVP_PKEY_encrypt_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_encrypt(EVP_PKEY_CTX *ctx,
-unsigned char *out, size_t *outlen,
-const unsigned char *in, size_t inlen);
+                     unsigned char *out, size_t *outlen,
+                     const unsigned char *in, size_t inlen);
 int EVP_PKEY_decrypt_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_decrypt(EVP_PKEY_CTX *ctx,
-unsigned char *out, size_t *outlen,
-const unsigned char *in, size_t inlen);
+                     unsigned char *out, size_t *outlen,
+                     const unsigned char *in, size_t inlen);
 int EVP_PKEY_derive_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_derive_set_peer(EVP_PKEY_CTX *ctx, EVP_PKEY *peer);
 int EVP_PKEY_derive(EVP_PKEY_CTX *ctx, unsigned char *key, size_t *keylen);
@@ -3312,161 +4715,161 @@ void EVP_PKEY_CTX_set_cb(EVP_PKEY_CTX *ctx, EVP_PKEY_gen_cb *cb);
 EVP_PKEY_gen_cb *EVP_PKEY_CTX_get_cb(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_CTX_get_keygen_info(EVP_PKEY_CTX *ctx, int idx);
 void EVP_PKEY_meth_set_init(EVP_PKEY_METHOD *pmeth,
-int (*init) (EVP_PKEY_CTX *ctx));
+                            int (*init) (EVP_PKEY_CTX *ctx));
 void EVP_PKEY_meth_set_copy(EVP_PKEY_METHOD *pmeth,
-int (*copy) (EVP_PKEY_CTX *dst,
-EVP_PKEY_CTX *src));
+                            int (*copy) (EVP_PKEY_CTX *dst,
+                                    EVP_PKEY_CTX *src));
 void EVP_PKEY_meth_set_cleanup(EVP_PKEY_METHOD *pmeth,
-void (*cleanup) (EVP_PKEY_CTX *ctx));
+                               void (*cleanup) (EVP_PKEY_CTX *ctx));
 void EVP_PKEY_meth_set_paramgen(EVP_PKEY_METHOD *pmeth,
-int (*paramgen_init) (EVP_PKEY_CTX *ctx),
-int (*paramgen) (EVP_PKEY_CTX *ctx,
-EVP_PKEY *pkey));
+                                int (*paramgen_init) (EVP_PKEY_CTX *ctx),
+                                int (*paramgen) (EVP_PKEY_CTX *ctx,
+                                        EVP_PKEY *pkey));
 void EVP_PKEY_meth_set_keygen(EVP_PKEY_METHOD *pmeth,
-int (*keygen_init) (EVP_PKEY_CTX *ctx),
-int (*keygen) (EVP_PKEY_CTX *ctx,
-EVP_PKEY *pkey));
+                              int (*keygen_init) (EVP_PKEY_CTX *ctx),
+                              int (*keygen) (EVP_PKEY_CTX *ctx,
+                                      EVP_PKEY *pkey));
 void EVP_PKEY_meth_set_sign(EVP_PKEY_METHOD *pmeth,
-int (*sign_init) (EVP_PKEY_CTX *ctx),
-int (*sign) (EVP_PKEY_CTX *ctx,
-unsigned char *sig, size_t *siglen,
-const unsigned char *tbs,
-size_t tbslen));
+                            int (*sign_init) (EVP_PKEY_CTX *ctx),
+                            int (*sign) (EVP_PKEY_CTX *ctx,
+                                    unsigned char *sig, size_t *siglen,
+                                    const unsigned char *tbs,
+                                    size_t tbslen));
 void EVP_PKEY_meth_set_verify(EVP_PKEY_METHOD *pmeth,
-int (*verify_init) (EVP_PKEY_CTX *ctx),
-int (*verify) (EVP_PKEY_CTX *ctx,
-const unsigned char *sig,
-size_t siglen,
-const unsigned char *tbs,
-size_t tbslen));
+                              int (*verify_init) (EVP_PKEY_CTX *ctx),
+                              int (*verify) (EVP_PKEY_CTX *ctx,
+                                      const unsigned char *sig,
+                                      size_t siglen,
+                                      const unsigned char *tbs,
+                                      size_t tbslen));
 void EVP_PKEY_meth_set_verify_recover(EVP_PKEY_METHOD *pmeth,
-int (*verify_recover_init) (EVP_PKEY_CTX
-*ctx),
-int (*verify_recover) (EVP_PKEY_CTX
-*ctx,
-unsigned char
-*sig,
-size_t *siglen,
-const unsigned
-char *tbs,
-size_t tbslen));
+                                      int (*verify_recover_init) (EVP_PKEY_CTX
+                                              *ctx),
+                                      int (*verify_recover) (EVP_PKEY_CTX
+                                              *ctx,
+                                              unsigned char
+                                              *sig,
+                                              size_t *siglen,
+                                              const unsigned
+                                              char *tbs,
+                                              size_t tbslen));
 void EVP_PKEY_meth_set_signctx(EVP_PKEY_METHOD *pmeth,
-int (*signctx_init) (EVP_PKEY_CTX *ctx,
-EVP_MD_CTX *mctx),
-int (*signctx) (EVP_PKEY_CTX *ctx,
-unsigned char *sig,
-size_t *siglen,
-EVP_MD_CTX *mctx));
+                               int (*signctx_init) (EVP_PKEY_CTX *ctx,
+                                       EVP_MD_CTX *mctx),
+                               int (*signctx) (EVP_PKEY_CTX *ctx,
+                                       unsigned char *sig,
+                                       size_t *siglen,
+                                       EVP_MD_CTX *mctx));
 void EVP_PKEY_meth_set_verifyctx(EVP_PKEY_METHOD *pmeth,
-int (*verifyctx_init) (EVP_PKEY_CTX *ctx,
-EVP_MD_CTX *mctx),
-int (*verifyctx) (EVP_PKEY_CTX *ctx,
-const unsigned char *sig,
-int siglen,
-EVP_MD_CTX *mctx));
+                                 int (*verifyctx_init) (EVP_PKEY_CTX *ctx,
+                                         EVP_MD_CTX *mctx),
+                                 int (*verifyctx) (EVP_PKEY_CTX *ctx,
+                                         const unsigned char *sig,
+                                         int siglen,
+                                         EVP_MD_CTX *mctx));
 void EVP_PKEY_meth_set_encrypt(EVP_PKEY_METHOD *pmeth,
-int (*encrypt_init) (EVP_PKEY_CTX *ctx),
-int (*encryptfn) (EVP_PKEY_CTX *ctx,
-unsigned char *out,
-size_t *outlen,
-const unsigned char *in,
-size_t inlen));
+                               int (*encrypt_init) (EVP_PKEY_CTX *ctx),
+                               int (*encryptfn) (EVP_PKEY_CTX *ctx,
+                                       unsigned char *out,
+                                       size_t *outlen,
+                                       const unsigned char *in,
+                                       size_t inlen));
 void EVP_PKEY_meth_set_decrypt(EVP_PKEY_METHOD *pmeth,
-int (*decrypt_init) (EVP_PKEY_CTX *ctx),
-int (*decrypt) (EVP_PKEY_CTX *ctx,
-unsigned char *out,
-size_t *outlen,
-const unsigned char *in,
-size_t inlen));
+                               int (*decrypt_init) (EVP_PKEY_CTX *ctx),
+                               int (*decrypt) (EVP_PKEY_CTX *ctx,
+                                       unsigned char *out,
+                                       size_t *outlen,
+                                       const unsigned char *in,
+                                       size_t inlen));
 void EVP_PKEY_meth_set_derive(EVP_PKEY_METHOD *pmeth,
-int (*derive_init) (EVP_PKEY_CTX *ctx),
-int (*derive) (EVP_PKEY_CTX *ctx,
-unsigned char *key,
-size_t *keylen));
+                              int (*derive_init) (EVP_PKEY_CTX *ctx),
+                              int (*derive) (EVP_PKEY_CTX *ctx,
+                                      unsigned char *key,
+                                      size_t *keylen));
 void EVP_PKEY_meth_set_ctrl(EVP_PKEY_METHOD *pmeth,
-int (*ctrl) (EVP_PKEY_CTX *ctx, int type, int p1,
-void *p2),
-int (*ctrl_str) (EVP_PKEY_CTX *ctx,
-const char *type,
-const char *value));
+                            int (*ctrl) (EVP_PKEY_CTX *ctx, int type, int p1,
+                                    void *p2),
+                            int (*ctrl_str) (EVP_PKEY_CTX *ctx,
+                                    const char *type,
+                                    const char *value));
 void EVP_PKEY_meth_get_init(EVP_PKEY_METHOD *pmeth,
-int (**pinit) (EVP_PKEY_CTX *ctx));
+                            int (**pinit) (EVP_PKEY_CTX *ctx));
 void EVP_PKEY_meth_get_copy(EVP_PKEY_METHOD *pmeth,
-int (**pcopy) (EVP_PKEY_CTX *dst,
-EVP_PKEY_CTX *src));
+                            int (**pcopy) (EVP_PKEY_CTX *dst,
+                                    EVP_PKEY_CTX *src));
 void EVP_PKEY_meth_get_cleanup(EVP_PKEY_METHOD *pmeth,
-void (**pcleanup) (EVP_PKEY_CTX *ctx));
+                               void (**pcleanup) (EVP_PKEY_CTX *ctx));
 void EVP_PKEY_meth_get_paramgen(EVP_PKEY_METHOD *pmeth,
-int (**pparamgen_init) (EVP_PKEY_CTX *ctx),
-int (**pparamgen) (EVP_PKEY_CTX *ctx,
-EVP_PKEY *pkey));
+                                int (**pparamgen_init) (EVP_PKEY_CTX *ctx),
+                                int (**pparamgen) (EVP_PKEY_CTX *ctx,
+                                        EVP_PKEY *pkey));
 void EVP_PKEY_meth_get_keygen(EVP_PKEY_METHOD *pmeth,
-int (**pkeygen_init) (EVP_PKEY_CTX *ctx),
-int (**pkeygen) (EVP_PKEY_CTX *ctx,
-EVP_PKEY *pkey));
+                              int (**pkeygen_init) (EVP_PKEY_CTX *ctx),
+                              int (**pkeygen) (EVP_PKEY_CTX *ctx,
+                                      EVP_PKEY *pkey));
 void EVP_PKEY_meth_get_sign(EVP_PKEY_METHOD *pmeth,
-int (**psign_init) (EVP_PKEY_CTX *ctx),
-int (**psign) (EVP_PKEY_CTX *ctx,
-unsigned char *sig, size_t *siglen,
-const unsigned char *tbs,
-size_t tbslen));
+                            int (**psign_init) (EVP_PKEY_CTX *ctx),
+                            int (**psign) (EVP_PKEY_CTX *ctx,
+                                    unsigned char *sig, size_t *siglen,
+                                    const unsigned char *tbs,
+                                    size_t tbslen));
 void EVP_PKEY_meth_get_verify(EVP_PKEY_METHOD *pmeth,
-int (**pverify_init) (EVP_PKEY_CTX *ctx),
-int (**pverify) (EVP_PKEY_CTX *ctx,
-const unsigned char *sig,
-size_t siglen,
-const unsigned char *tbs,
-size_t tbslen));
+                              int (**pverify_init) (EVP_PKEY_CTX *ctx),
+                              int (**pverify) (EVP_PKEY_CTX *ctx,
+                                      const unsigned char *sig,
+                                      size_t siglen,
+                                      const unsigned char *tbs,
+                                      size_t tbslen));
 void EVP_PKEY_meth_get_verify_recover(EVP_PKEY_METHOD *pmeth,
-int (**pverify_recover_init) (EVP_PKEY_CTX
-*ctx),
-int (**pverify_recover) (EVP_PKEY_CTX
-*ctx,
-unsigned char
-*sig,
-size_t *siglen,
-const unsigned
-char *tbs,
-size_t tbslen));
+                                      int (**pverify_recover_init) (EVP_PKEY_CTX
+                                              *ctx),
+                                      int (**pverify_recover) (EVP_PKEY_CTX
+                                              *ctx,
+                                              unsigned char
+                                              *sig,
+                                              size_t *siglen,
+                                              const unsigned
+                                              char *tbs,
+                                              size_t tbslen));
 void EVP_PKEY_meth_get_signctx(EVP_PKEY_METHOD *pmeth,
-int (**psignctx_init) (EVP_PKEY_CTX *ctx,
-EVP_MD_CTX *mctx),
-int (**psignctx) (EVP_PKEY_CTX *ctx,
-unsigned char *sig,
-size_t *siglen,
-EVP_MD_CTX *mctx));
+                               int (**psignctx_init) (EVP_PKEY_CTX *ctx,
+                                       EVP_MD_CTX *mctx),
+                               int (**psignctx) (EVP_PKEY_CTX *ctx,
+                                       unsigned char *sig,
+                                       size_t *siglen,
+                                       EVP_MD_CTX *mctx));
 void EVP_PKEY_meth_get_verifyctx(EVP_PKEY_METHOD *pmeth,
-int (**pverifyctx_init) (EVP_PKEY_CTX *ctx,
-EVP_MD_CTX *mctx),
-int (**pverifyctx) (EVP_PKEY_CTX *ctx,
-const unsigned char *sig,
-int siglen,
-EVP_MD_CTX *mctx));
+                                 int (**pverifyctx_init) (EVP_PKEY_CTX *ctx,
+                                         EVP_MD_CTX *mctx),
+                                 int (**pverifyctx) (EVP_PKEY_CTX *ctx,
+                                         const unsigned char *sig,
+                                         int siglen,
+                                         EVP_MD_CTX *mctx));
 void EVP_PKEY_meth_get_encrypt(EVP_PKEY_METHOD *pmeth,
-int (**pencrypt_init) (EVP_PKEY_CTX *ctx),
-int (**pencryptfn) (EVP_PKEY_CTX *ctx,
-unsigned char *out,
-size_t *outlen,
-const unsigned char *in,
-size_t inlen));
+                               int (**pencrypt_init) (EVP_PKEY_CTX *ctx),
+                               int (**pencryptfn) (EVP_PKEY_CTX *ctx,
+                                       unsigned char *out,
+                                       size_t *outlen,
+                                       const unsigned char *in,
+                                       size_t inlen));
 void EVP_PKEY_meth_get_decrypt(EVP_PKEY_METHOD *pmeth,
-int (**pdecrypt_init) (EVP_PKEY_CTX *ctx),
-int (**pdecrypt) (EVP_PKEY_CTX *ctx,
-unsigned char *out,
-size_t *outlen,
-const unsigned char *in,
-size_t inlen));
+                               int (**pdecrypt_init) (EVP_PKEY_CTX *ctx),
+                               int (**pdecrypt) (EVP_PKEY_CTX *ctx,
+                                       unsigned char *out,
+                                       size_t *outlen,
+                                       const unsigned char *in,
+                                       size_t inlen));
 void EVP_PKEY_meth_get_derive(EVP_PKEY_METHOD *pmeth,
-int (**pderive_init) (EVP_PKEY_CTX *ctx),
-int (**pderive) (EVP_PKEY_CTX *ctx,
-unsigned char *key,
-size_t *keylen));
+                              int (**pderive_init) (EVP_PKEY_CTX *ctx),
+                              int (**pderive) (EVP_PKEY_CTX *ctx,
+                                      unsigned char *key,
+                                      size_t *keylen));
 void EVP_PKEY_meth_get_ctrl(EVP_PKEY_METHOD *pmeth,
-int (**pctrl) (EVP_PKEY_CTX *ctx, int type, int p1,
-void *p2),
-int (**pctrl_str) (EVP_PKEY_CTX *ctx,
-const char *type,
-const char *value));
+                            int (**pctrl) (EVP_PKEY_CTX *ctx, int type, int p1,
+                                    void *p2),
+                            int (**pctrl_str) (EVP_PKEY_CTX *ctx,
+                                    const char *type,
+                                    const char *value));
 void EVP_add_alg_module(void);
 int ERR_load_EVP_strings(void);
 #line 1741 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/evp.h"
@@ -3498,10 +4901,11 @@ int ERR_load_EVP_strings(void);
 #line 34 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
 #line 35 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
 #line 42 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
-typedef enum {
-POINT_CONVERSION_COMPRESSED = 2,
-POINT_CONVERSION_UNCOMPRESSED = 4,
-POINT_CONVERSION_HYBRID = 6
+typedef enum
+{
+    POINT_CONVERSION_COMPRESSED = 2,
+    POINT_CONVERSION_UNCOMPRESSED = 4,
+    POINT_CONVERSION_HYBRID = 6
 } point_conversion_form_t;
 typedef struct ec_method_st EC_METHOD;
 typedef struct ec_group_st EC_GROUP;
@@ -3521,53 +4925,54 @@ EC_GROUP *EC_GROUP_dup(const EC_GROUP *src);
 const EC_METHOD *EC_GROUP_method_of(const EC_GROUP *group);
 int EC_METHOD_get_field_type(const EC_METHOD *meth);
 int EC_GROUP_set_generator(EC_GROUP *group, const EC_POINT *generator,
-const BIGNUM *order, const BIGNUM *cofactor);
+                           const BIGNUM *order, const BIGNUM *cofactor);
 const EC_POINT *EC_GROUP_get0_generator(const EC_GROUP *group);
 BN_MONT_CTX *EC_GROUP_get_mont_data(const EC_GROUP *group);
 int EC_GROUP_get_order(const EC_GROUP *group, BIGNUM *order, BN_CTX *ctx);
 const BIGNUM *EC_GROUP_get0_order(const EC_GROUP *group);
 int EC_GROUP_order_bits(const EC_GROUP *group);
 int EC_GROUP_get_cofactor(const EC_GROUP *group, BIGNUM *cofactor,
-BN_CTX *ctx);
+                          BN_CTX *ctx);
 const BIGNUM *EC_GROUP_get0_cofactor(const EC_GROUP *group);
 void EC_GROUP_set_curve_name(EC_GROUP *group, int nid);
 int EC_GROUP_get_curve_name(const EC_GROUP *group);
 void EC_GROUP_set_asn1_flag(EC_GROUP *group, int flag);
 int EC_GROUP_get_asn1_flag(const EC_GROUP *group);
 void EC_GROUP_set_point_conversion_form(EC_GROUP *group,
-point_conversion_form_t form);
+                                        point_conversion_form_t form);
 point_conversion_form_t EC_GROUP_get_point_conversion_form(const EC_GROUP *);
 unsigned char *EC_GROUP_get0_seed(const EC_GROUP *x);
 size_t EC_GROUP_get_seed_len(const EC_GROUP *);
 size_t EC_GROUP_set_seed(EC_GROUP *, const unsigned char *, size_t len);
 int EC_GROUP_set_curve_GFp(EC_GROUP *group, const BIGNUM *p, const BIGNUM *a,
-const BIGNUM *b, BN_CTX *ctx);
+                           const BIGNUM *b, BN_CTX *ctx);
 int EC_GROUP_get_curve_GFp(const EC_GROUP *group, BIGNUM *p, BIGNUM *a,
-BIGNUM *b, BN_CTX *ctx);
+                           BIGNUM *b, BN_CTX *ctx);
 int EC_GROUP_set_curve_GF2m(EC_GROUP *group, const BIGNUM *p, const BIGNUM *a,
-const BIGNUM *b, BN_CTX *ctx);
+                            const BIGNUM *b, BN_CTX *ctx);
 int EC_GROUP_get_curve_GF2m(const EC_GROUP *group, BIGNUM *p, BIGNUM *a,
-BIGNUM *b, BN_CTX *ctx);
+                            BIGNUM *b, BN_CTX *ctx);
 #line 287 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
 int EC_GROUP_get_degree(const EC_GROUP *group);
 int EC_GROUP_check(const EC_GROUP *group, BN_CTX *ctx);
 int EC_GROUP_check_discriminant(const EC_GROUP *group, BN_CTX *ctx);
 int EC_GROUP_cmp(const EC_GROUP *a, const EC_GROUP *b, BN_CTX *ctx);
 EC_GROUP *EC_GROUP_new_curve_GFp(const BIGNUM *p, const BIGNUM *a,
-const BIGNUM *b, BN_CTX *ctx);
+                                 const BIGNUM *b, BN_CTX *ctx);
 EC_GROUP *EC_GROUP_new_curve_GF2m(const BIGNUM *p, const BIGNUM *a,
-const BIGNUM *b, BN_CTX *ctx);
+                                  const BIGNUM *b, BN_CTX *ctx);
 #line 342 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
 EC_GROUP *EC_GROUP_new_by_curve_name(int nid);
 EC_GROUP *EC_GROUP_new_from_ecparameters(const ECPARAMETERS *params);
 ECPARAMETERS *EC_GROUP_get_ecparameters(const EC_GROUP *group,
-ECPARAMETERS *params);
+                                        ECPARAMETERS *params);
 EC_GROUP *EC_GROUP_new_from_ecpkparameters(const ECPKPARAMETERS *params);
 ECPKPARAMETERS *EC_GROUP_get_ecpkparameters(const EC_GROUP *group,
-ECPKPARAMETERS *params);
-typedef struct {
-int nid;
-const char *comment;
+        ECPKPARAMETERS *params);
+typedef struct
+{
+    int nid;
+    const char *comment;
 } EC_builtin_curve;
 size_t EC_get_builtin_curves(EC_builtin_curve *r, size_t nitems);
 const char *EC_curve_nid2nist(int nid);
@@ -3580,76 +4985,78 @@ EC_POINT *EC_POINT_dup(const EC_POINT *src, const EC_GROUP *group);
 const EC_METHOD *EC_POINT_method_of(const EC_POINT *point);
 int EC_POINT_set_to_infinity(const EC_GROUP *group, EC_POINT *point);
 int EC_POINT_set_Jprojective_coordinates_GFp(const EC_GROUP *group,
-EC_POINT *p, const BIGNUM *x,
-const BIGNUM *y, const BIGNUM *z,
-BN_CTX *ctx);
+        EC_POINT *p, const BIGNUM *x,
+        const BIGNUM *y, const BIGNUM *z,
+        BN_CTX *ctx);
 int EC_POINT_get_Jprojective_coordinates_GFp(const EC_GROUP *group,
-const EC_POINT *p, BIGNUM *x,
-BIGNUM *y, BIGNUM *z,
-BN_CTX *ctx);
+        const EC_POINT *p, BIGNUM *x,
+        BIGNUM *y, BIGNUM *z,
+        BN_CTX *ctx);
 int EC_POINT_set_affine_coordinates_GFp(const EC_GROUP *group, EC_POINT *p,
-const BIGNUM *x, const BIGNUM *y,
-BN_CTX *ctx);
+                                        const BIGNUM *x, const BIGNUM *y,
+                                        BN_CTX *ctx);
 int EC_POINT_get_affine_coordinates_GFp(const EC_GROUP *group,
-const EC_POINT *p, BIGNUM *x,
-BIGNUM *y, BN_CTX *ctx);
+                                        const EC_POINT *p, BIGNUM *x,
+                                        BIGNUM *y, BN_CTX *ctx);
 int EC_POINT_set_compressed_coordinates_GFp(const EC_GROUP *group,
-EC_POINT *p, const BIGNUM *x,
-int y_bit, BN_CTX *ctx);
+        EC_POINT *p, const BIGNUM *x,
+        int y_bit, BN_CTX *ctx);
 int EC_POINT_set_affine_coordinates_GF2m(const EC_GROUP *group, EC_POINT *p,
-const BIGNUM *x, const BIGNUM *y,
-BN_CTX *ctx);
+        const BIGNUM *x, const BIGNUM *y,
+        BN_CTX *ctx);
 int EC_POINT_get_affine_coordinates_GF2m(const EC_GROUP *group,
-const EC_POINT *p, BIGNUM *x,
-BIGNUM *y, BN_CTX *ctx);
+        const EC_POINT *p, BIGNUM *x,
+        BIGNUM *y, BN_CTX *ctx);
 int EC_POINT_set_compressed_coordinates_GF2m(const EC_GROUP *group,
-EC_POINT *p, const BIGNUM *x,
-int y_bit, BN_CTX *ctx);
+        EC_POINT *p, const BIGNUM *x,
+        int y_bit, BN_CTX *ctx);
 #line 550 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
 size_t EC_POINT_point2oct(const EC_GROUP *group, const EC_POINT *p,
-point_conversion_form_t form,
-unsigned char *buf, size_t len, BN_CTX *ctx);
+                          point_conversion_form_t form,
+                          unsigned char *buf, size_t len, BN_CTX *ctx);
 int EC_POINT_oct2point(const EC_GROUP *group, EC_POINT *p,
-const unsigned char *buf, size_t len, BN_CTX *ctx);
+                       const unsigned char *buf, size_t len, BN_CTX *ctx);
 size_t EC_POINT_point2buf(const EC_GROUP *group, const EC_POINT *point,
-point_conversion_form_t form,
-unsigned char **pbuf, BN_CTX *ctx);
+                          point_conversion_form_t form,
+                          unsigned char **pbuf, BN_CTX *ctx);
 BIGNUM *EC_POINT_point2bn(const EC_GROUP *, const EC_POINT *,
-point_conversion_form_t form, BIGNUM *, BN_CTX *);
+                          point_conversion_form_t form, BIGNUM *, BN_CTX *);
 EC_POINT *EC_POINT_bn2point(const EC_GROUP *, const BIGNUM *,
-EC_POINT *, BN_CTX *);
+                            EC_POINT *, BN_CTX *);
 char *EC_POINT_point2hex(const EC_GROUP *, const EC_POINT *,
-point_conversion_form_t form, BN_CTX *);
+                         point_conversion_form_t form, BN_CTX *);
 EC_POINT *EC_POINT_hex2point(const EC_GROUP *, const char *,
-EC_POINT *, BN_CTX *);
+                             EC_POINT *, BN_CTX *);
 int EC_POINT_add(const EC_GROUP *group, EC_POINT *r, const EC_POINT *a,
-const EC_POINT *b, BN_CTX *ctx);
+                 const EC_POINT *b, BN_CTX *ctx);
 int EC_POINT_dbl(const EC_GROUP *group, EC_POINT *r, const EC_POINT *a,
-BN_CTX *ctx);
+                 BN_CTX *ctx);
 int EC_POINT_invert(const EC_GROUP *group, EC_POINT *a, BN_CTX *ctx);
 int EC_POINT_is_at_infinity(const EC_GROUP *group, const EC_POINT *p);
 int EC_POINT_is_on_curve(const EC_GROUP *group, const EC_POINT *point,
-BN_CTX *ctx);
+                         BN_CTX *ctx);
 int EC_POINT_cmp(const EC_GROUP *group, const EC_POINT *a, const EC_POINT *b,
-BN_CTX *ctx);
+                 BN_CTX *ctx);
 int EC_POINT_make_affine(const EC_GROUP *group, EC_POINT *point, BN_CTX *ctx);
 int EC_POINTs_make_affine(const EC_GROUP *group, size_t num,
-EC_POINT *points[], BN_CTX *ctx);
+                          EC_POINT *points[], BN_CTX *ctx);
 int EC_POINTs_mul(const EC_GROUP *group, EC_POINT *r, const BIGNUM *n,
-size_t num, const EC_POINT *p[], const BIGNUM *m[],
-BN_CTX *ctx);
+                  size_t num, const EC_POINT *p[], const BIGNUM *m[],
+                  BN_CTX *ctx);
 int EC_POINT_mul(const EC_GROUP *group, EC_POINT *r, const BIGNUM *n,
-const EC_POINT *q, const BIGNUM *m, BN_CTX *ctx);
+                 const EC_POINT *q, const BIGNUM *m, BN_CTX *ctx);
 int EC_GROUP_precompute_mult(EC_GROUP *group, BN_CTX *ctx);
 int EC_GROUP_have_precompute_mult(const EC_GROUP *group);
 const ASN1_ITEM * ECPKPARAMETERS_it(void);
-ECPKPARAMETERS *ECPKPARAMETERS_new(void); void ECPKPARAMETERS_free(ECPKPARAMETERS *a);
+ECPKPARAMETERS *ECPKPARAMETERS_new(void);
+void ECPKPARAMETERS_free(ECPKPARAMETERS *a);
 const ASN1_ITEM * ECPARAMETERS_it(void);
-ECPARAMETERS *ECPARAMETERS_new(void); void ECPARAMETERS_free(ECPARAMETERS *a);
+ECPARAMETERS *ECPARAMETERS_new(void);
+void ECPARAMETERS_free(ECPARAMETERS *a);
 int EC_GROUP_get_basis_type(const EC_GROUP *);
 int EC_GROUP_get_trinomial_basis(const EC_GROUP *, unsigned int *k);
 int EC_GROUP_get_pentanomial_basis(const EC_GROUP *, unsigned int *k1,
-unsigned int *k2, unsigned int *k3);
+                                   unsigned int *k2, unsigned int *k3);
 #line 720 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
 EC_GROUP *d2i_ECPKParameters(EC_GROUP **, const unsigned char **in, long len);
 int i2d_ECPKParameters(const EC_GROUP *, unsigned char **out);
@@ -3683,11 +5090,11 @@ int EC_KEY_generate_key(EC_KEY *key);
 int EC_KEY_check_key(const EC_KEY *key);
 int EC_KEY_can_sign(const EC_KEY *eckey);
 int EC_KEY_set_public_key_affine_coordinates(EC_KEY *key, BIGNUM *x,
-BIGNUM *y);
+        BIGNUM *y);
 size_t EC_KEY_key2buf(const EC_KEY *key, point_conversion_form_t form,
-unsigned char **pbuf, BN_CTX *ctx);
+                      unsigned char **pbuf, BN_CTX *ctx);
 int EC_KEY_oct2key(EC_KEY *key, const unsigned char *buf, size_t len,
-BN_CTX *ctx);
+                   BN_CTX *ctx);
 int EC_KEY_oct2priv(EC_KEY *key, const unsigned char *buf, size_t len);
 size_t EC_KEY_priv2oct(const EC_KEY *key, unsigned char *buf, size_t len);
 size_t EC_KEY_priv2buf(const EC_KEY *eckey, unsigned char **pbuf);
@@ -3709,13 +5116,13 @@ const EC_KEY_METHOD *EC_KEY_get_method(const EC_KEY *key);
 int EC_KEY_set_method(EC_KEY *key, const EC_KEY_METHOD *meth);
 EC_KEY *EC_KEY_new_method(ENGINE *engine);
 int ECDH_KDF_X9_62(unsigned char *out, size_t outlen,
-const unsigned char *Z, size_t Zlen,
-const unsigned char *sinfo, size_t sinfolen,
-const EVP_MD *md);
+                   const unsigned char *Z, size_t Zlen,
+                   const unsigned char *sinfo, size_t sinfolen,
+                   const EVP_MD *md);
 int ECDH_compute_key(void *out, size_t outlen, const EC_POINT *pub_key,
-const EC_KEY *ecdh,
-void *(*KDF) (const void *in, size_t inlen,
-void *out, size_t *outlen));
+                     const EC_KEY *ecdh,
+                     void *(*KDF) (const void *in, size_t inlen,
+                                   void *out, size_t *outlen));
 typedef struct ECDSA_SIG_st ECDSA_SIG;
 ECDSA_SIG *ECDSA_SIG_new(void);
 void ECDSA_SIG_free(ECDSA_SIG *sig);
@@ -3727,103 +5134,194 @@ ECDSA_SIG *d2i_ECDSA_SIG_fp(FILE *fp, ECDSA_SIG **a);
 void ECDSA_SIG_get0(const ECDSA_SIG *sig, const BIGNUM **pr, const BIGNUM **ps);
 int ECDSA_SIG_set0(ECDSA_SIG *sig, BIGNUM *r, BIGNUM *s);
 ECDSA_SIG *ECDSA_do_sign(const unsigned char *dgst, int dgst_len,
-EC_KEY *eckey);
+                         EC_KEY *eckey);
 ECDSA_SIG *ECDSA_do_sign_ex(const unsigned char *dgst, int dgstlen,
-const BIGNUM *kinv, const BIGNUM *rp,
-EC_KEY *eckey);
+                            const BIGNUM *kinv, const BIGNUM *rp,
+                            EC_KEY *eckey);
 int ECDSA_do_verify(const unsigned char *dgst, int dgst_len,
-const ECDSA_SIG *sig, EC_KEY *eckey);
+                    const ECDSA_SIG *sig, EC_KEY *eckey);
 int ECDSA_sign_setup(EC_KEY *eckey, BN_CTX *ctx, BIGNUM **kinv, BIGNUM **rp);
 int ECDSA_sign(int type, const unsigned char *dgst, int dgstlen,
-unsigned char *sig, unsigned int *siglen, EC_KEY *eckey);
+               unsigned char *sig, unsigned int *siglen, EC_KEY *eckey);
 int ECDSA_sign_ex(int type, const unsigned char *dgst, int dgstlen,
-unsigned char *sig, unsigned int *siglen,
-const BIGNUM *kinv, const BIGNUM *rp, EC_KEY *eckey);
+                  unsigned char *sig, unsigned int *siglen,
+                  const BIGNUM *kinv, const BIGNUM *rp, EC_KEY *eckey);
 int ECDSA_verify(int type, const unsigned char *dgst, int dgstlen,
-const unsigned char *sig, int siglen, EC_KEY *eckey);
+                 const unsigned char *sig, int siglen, EC_KEY *eckey);
 int ECDSA_size(const EC_KEY *eckey);
 EC_KEY_METHOD *EC_KEY_METHOD_new(const EC_KEY_METHOD *meth);
 void EC_KEY_METHOD_free(EC_KEY_METHOD *meth);
 void EC_KEY_METHOD_set_init(EC_KEY_METHOD *meth,
-int (*init)(EC_KEY *key),
-void (*finish)(EC_KEY *key),
-int (*copy)(EC_KEY *dest, const EC_KEY *src),
-int (*set_group)(EC_KEY *key, const EC_GROUP *grp),
-int (*set_private)(EC_KEY *key,
-const BIGNUM *priv_key),
-int (*set_public)(EC_KEY *key,
-const EC_POINT *pub_key));
+                            int (*init)(EC_KEY *key),
+                            void (*finish)(EC_KEY *key),
+                            int (*copy)(EC_KEY *dest, const EC_KEY *src),
+                            int (*set_group)(EC_KEY *key, const EC_GROUP *grp),
+                            int (*set_private)(EC_KEY *key,
+                                    const BIGNUM *priv_key),
+                            int (*set_public)(EC_KEY *key,
+                                    const EC_POINT *pub_key));
 void EC_KEY_METHOD_set_keygen(EC_KEY_METHOD *meth,
-int (*keygen)(EC_KEY *key));
+                              int (*keygen)(EC_KEY *key));
 void EC_KEY_METHOD_set_compute_key(EC_KEY_METHOD *meth,
-int (*ckey)(unsigned char **psec,
-size_t *pseclen,
-const EC_POINT *pub_key,
-const EC_KEY *ecdh));
+                                   int (*ckey)(unsigned char **psec,
+                                           size_t *pseclen,
+                                           const EC_POINT *pub_key,
+                                           const EC_KEY *ecdh));
 void EC_KEY_METHOD_set_sign(EC_KEY_METHOD *meth,
-int (*sign)(int type, const unsigned char *dgst,
-int dlen, unsigned char *sig,
-unsigned int *siglen,
-const BIGNUM *kinv, const BIGNUM *r,
-EC_KEY *eckey),
-int (*sign_setup)(EC_KEY *eckey, BN_CTX *ctx_in,
-BIGNUM **kinvp, BIGNUM **rp),
-ECDSA_SIG *(*sign_sig)(const unsigned char *dgst,
-int dgst_len,
-const BIGNUM *in_kinv,
-const BIGNUM *in_r,
-EC_KEY *eckey));
+                            int (*sign)(int type, const unsigned char *dgst,
+                                        int dlen, unsigned char *sig,
+                                        unsigned int *siglen,
+                                        const BIGNUM *kinv, const BIGNUM *r,
+                                        EC_KEY *eckey),
+                            int (*sign_setup)(EC_KEY *eckey, BN_CTX *ctx_in,
+                                    BIGNUM **kinvp, BIGNUM **rp),
+                            ECDSA_SIG *(*sign_sig)(const unsigned char *dgst,
+                                    int dgst_len,
+                                    const BIGNUM *in_kinv,
+                                    const BIGNUM *in_r,
+                                    EC_KEY *eckey));
 void EC_KEY_METHOD_set_verify(EC_KEY_METHOD *meth,
-int (*verify)(int type, const unsigned
-char *dgst, int dgst_len,
-const unsigned char *sigbuf,
-int sig_len, EC_KEY *eckey),
-int (*verify_sig)(const unsigned char *dgst,
-int dgst_len,
-const ECDSA_SIG *sig,
-EC_KEY *eckey));
+                              int (*verify)(int type, const unsigned
+                                      char *dgst, int dgst_len,
+                                      const unsigned char *sigbuf,
+                                      int sig_len, EC_KEY *eckey),
+                              int (*verify_sig)(const unsigned char *dgst,
+                                      int dgst_len,
+                                      const ECDSA_SIG *sig,
+                                      EC_KEY *eckey));
 void EC_KEY_METHOD_get_init(EC_KEY_METHOD *meth,
-int (**pinit)(EC_KEY *key),
-void (**pfinish)(EC_KEY *key),
-int (**pcopy)(EC_KEY *dest, const EC_KEY *src),
-int (**pset_group)(EC_KEY *key,
-const EC_GROUP *grp),
-int (**pset_private)(EC_KEY *key,
-const BIGNUM *priv_key),
-int (**pset_public)(EC_KEY *key,
-const EC_POINT *pub_key));
+                            int (**pinit)(EC_KEY *key),
+                            void (**pfinish)(EC_KEY *key),
+                            int (**pcopy)(EC_KEY *dest, const EC_KEY *src),
+                            int (**pset_group)(EC_KEY *key,
+                                    const EC_GROUP *grp),
+                            int (**pset_private)(EC_KEY *key,
+                                    const BIGNUM *priv_key),
+                            int (**pset_public)(EC_KEY *key,
+                                    const EC_POINT *pub_key));
 void EC_KEY_METHOD_get_keygen(EC_KEY_METHOD *meth,
-int (**pkeygen)(EC_KEY *key));
+                              int (**pkeygen)(EC_KEY *key));
 void EC_KEY_METHOD_get_compute_key(EC_KEY_METHOD *meth,
-int (**pck)(unsigned char **psec,
-size_t *pseclen,
-const EC_POINT *pub_key,
-const EC_KEY *ecdh));
+                                   int (**pck)(unsigned char **psec,
+                                           size_t *pseclen,
+                                           const EC_POINT *pub_key,
+                                           const EC_KEY *ecdh));
 void EC_KEY_METHOD_get_sign(EC_KEY_METHOD *meth,
-int (**psign)(int type, const unsigned char *dgst,
-int dlen, unsigned char *sig,
-unsigned int *siglen,
-const BIGNUM *kinv, const BIGNUM *r,
-EC_KEY *eckey),
-int (**psign_setup)(EC_KEY *eckey, BN_CTX *ctx_in,
-BIGNUM **kinvp, BIGNUM **rp),
-ECDSA_SIG *(**psign_sig)(const unsigned char *dgst,
-int dgst_len,
-const BIGNUM *in_kinv,
-const BIGNUM *in_r,
-EC_KEY *eckey));
+                            int (**psign)(int type, const unsigned char *dgst,
+                                    int dlen, unsigned char *sig,
+                                    unsigned int *siglen,
+                                    const BIGNUM *kinv, const BIGNUM *r,
+                                    EC_KEY *eckey),
+                            int (**psign_setup)(EC_KEY *eckey, BN_CTX *ctx_in,
+                                    BIGNUM **kinvp, BIGNUM **rp),
+                            ECDSA_SIG *(**psign_sig)(const unsigned char *dgst,
+                                    int dgst_len,
+                                    const BIGNUM *in_kinv,
+                                    const BIGNUM *in_r,
+                                    EC_KEY *eckey));
 void EC_KEY_METHOD_get_verify(EC_KEY_METHOD *meth,
-int (**pverify)(int type, const unsigned
-char *dgst, int dgst_len,
-const unsigned char *sigbuf,
-int sig_len, EC_KEY *eckey),
-int (**pverify_sig)(const unsigned char *dgst,
-int dgst_len,
-const ECDSA_SIG *sig,
-EC_KEY *eckey));
+                              int (**pverify)(int type, const unsigned
+                                      char *dgst, int dgst_len,
+                                      const unsigned char *sigbuf,
+                                      int sig_len, EC_KEY *eckey),
+                              int (**pverify_sig)(const unsigned char *dgst,
+                                      int dgst_len,
+                                      const ECDSA_SIG *sig,
+                                      EC_KEY *eckey));
 #line 1292 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
 #line 1293 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ec.h"
-struct stack_st_EC_KEY; typedef int (*sk_EC_KEY_compfunc)(const EC_KEY * const *a, const EC_KEY *const *b); typedef void (*sk_EC_KEY_freefunc)(EC_KEY *a); typedef EC_KEY * (*sk_EC_KEY_copyfunc)(const EC_KEY *a); static __inline int sk_EC_KEY_num(const struct stack_st_EC_KEY *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline EC_KEY *sk_EC_KEY_value(const struct stack_st_EC_KEY *sk, int idx) { return (EC_KEY *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_EC_KEY *sk_EC_KEY_new(sk_EC_KEY_compfunc compare) { return (struct stack_st_EC_KEY *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_EC_KEY *sk_EC_KEY_new_null(void) { return (struct stack_st_EC_KEY *)OPENSSL_sk_new_null(); } static __inline void sk_EC_KEY_free(struct stack_st_EC_KEY *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_EC_KEY_zero(struct stack_st_EC_KEY *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline EC_KEY *sk_EC_KEY_delete(struct stack_st_EC_KEY *sk, int i) { return (EC_KEY *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline EC_KEY *sk_EC_KEY_delete_ptr(struct stack_st_EC_KEY *sk, EC_KEY *ptr) { return (EC_KEY *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_EC_KEY_push(struct stack_st_EC_KEY *sk, EC_KEY *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_EC_KEY_unshift(struct stack_st_EC_KEY *sk, EC_KEY *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline EC_KEY *sk_EC_KEY_pop(struct stack_st_EC_KEY *sk) { return (EC_KEY *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline EC_KEY *sk_EC_KEY_shift(struct stack_st_EC_KEY *sk) { return (EC_KEY *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_EC_KEY_pop_free(struct stack_st_EC_KEY *sk, sk_EC_KEY_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_EC_KEY_insert(struct stack_st_EC_KEY *sk, EC_KEY *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline EC_KEY *sk_EC_KEY_set(struct stack_st_EC_KEY *sk, int idx, EC_KEY *ptr) { return (EC_KEY *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_EC_KEY_find(struct stack_st_EC_KEY *sk, EC_KEY *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_EC_KEY_find_ex(struct stack_st_EC_KEY *sk, EC_KEY *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_EC_KEY_sort(struct stack_st_EC_KEY *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_EC_KEY_is_sorted(const struct stack_st_EC_KEY *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_EC_KEY * sk_EC_KEY_dup(const struct stack_st_EC_KEY *sk) { return (struct stack_st_EC_KEY *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_EC_KEY *sk_EC_KEY_deep_copy(const struct stack_st_EC_KEY *sk, sk_EC_KEY_copyfunc copyfunc, sk_EC_KEY_freefunc freefunc) { return (struct stack_st_EC_KEY *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_EC_KEY_compfunc sk_EC_KEY_set_cmp_func(struct stack_st_EC_KEY *sk, sk_EC_KEY_compfunc compare) { return (sk_EC_KEY_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_EC_KEY;
+typedef int (*sk_EC_KEY_compfunc)(const EC_KEY * const *a, const EC_KEY *const *b);
+typedef void (*sk_EC_KEY_freefunc)(EC_KEY *a);
+typedef EC_KEY * (*sk_EC_KEY_copyfunc)(const EC_KEY *a);
+static __inline int sk_EC_KEY_num(const struct stack_st_EC_KEY *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline EC_KEY *sk_EC_KEY_value(const struct stack_st_EC_KEY *sk, int idx)
+{
+    return (EC_KEY *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_EC_KEY *sk_EC_KEY_new(sk_EC_KEY_compfunc compare)
+{
+    return (struct stack_st_EC_KEY *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_EC_KEY *sk_EC_KEY_new_null(void)
+{
+    return (struct stack_st_EC_KEY *)OPENSSL_sk_new_null();
+}
+static __inline void sk_EC_KEY_free(struct stack_st_EC_KEY *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_EC_KEY_zero(struct stack_st_EC_KEY *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline EC_KEY *sk_EC_KEY_delete(struct stack_st_EC_KEY *sk, int i)
+{
+    return (EC_KEY *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline EC_KEY *sk_EC_KEY_delete_ptr(struct stack_st_EC_KEY *sk, EC_KEY *ptr)
+{
+    return (EC_KEY *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_EC_KEY_push(struct stack_st_EC_KEY *sk, EC_KEY *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_EC_KEY_unshift(struct stack_st_EC_KEY *sk, EC_KEY *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline EC_KEY *sk_EC_KEY_pop(struct stack_st_EC_KEY *sk)
+{
+    return (EC_KEY *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline EC_KEY *sk_EC_KEY_shift(struct stack_st_EC_KEY *sk)
+{
+    return (EC_KEY *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_EC_KEY_pop_free(struct stack_st_EC_KEY *sk, sk_EC_KEY_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_EC_KEY_insert(struct stack_st_EC_KEY *sk, EC_KEY *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline EC_KEY *sk_EC_KEY_set(struct stack_st_EC_KEY *sk, int idx, EC_KEY *ptr)
+{
+    return (EC_KEY *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_EC_KEY_find(struct stack_st_EC_KEY *sk, EC_KEY *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_EC_KEY_find_ex(struct stack_st_EC_KEY *sk, EC_KEY *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_EC_KEY_sort(struct stack_st_EC_KEY *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_EC_KEY_is_sorted(const struct stack_st_EC_KEY *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_EC_KEY * sk_EC_KEY_dup(const struct stack_st_EC_KEY *sk)
+{
+    return (struct stack_st_EC_KEY *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_EC_KEY *sk_EC_KEY_deep_copy(const struct stack_st_EC_KEY *sk, sk_EC_KEY_copyfunc copyfunc, sk_EC_KEY_freefunc freefunc)
+{
+    return (struct stack_st_EC_KEY *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_EC_KEY_compfunc sk_EC_KEY_set_cmp_func(struct stack_st_EC_KEY *sk, sk_EC_KEY_compfunc compare)
+{
+    return (sk_EC_KEY_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 struct stack_st_EC_KEY *EC_KEY_split(EC_KEY *ec_key, int k, int n);
 EC_KEY *EC_KEY_merge(struct stack_st_EC_KEY *ec_keys);
 int ERR_load_EC_strings(void);
@@ -3857,8 +5355,12 @@ int PAILLIER_decrypt(BIGNUM *out, const BIGNUM *in, PAILLIER *key);
 int PAILLIER_ciphertext_add(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, PAILLIER *key);
 int PAILLIER_ciphertext_scalar_mul(BIGNUM *r, const BIGNUM *scalar, const BIGNUM *a, PAILLIER *key);
 int PAILLIER_up_ref(PAILLIER *key);
-PAILLIER *d2i_PaillierPrivateKey(PAILLIER **a, const unsigned char **in, long len); int i2d_PaillierPrivateKey(const PAILLIER *a, unsigned char **out); const ASN1_ITEM * PaillierPrivateKey_it(void);
-PAILLIER *d2i_PaillierPublicKey(PAILLIER **a, const unsigned char **in, long len); int i2d_PaillierPublicKey(const PAILLIER *a, unsigned char **out); const ASN1_ITEM * PaillierPublicKey_it(void);
+PAILLIER *d2i_PaillierPrivateKey(PAILLIER **a, const unsigned char **in, long len);
+int i2d_PaillierPrivateKey(const PAILLIER *a, unsigned char **out);
+const ASN1_ITEM * PaillierPrivateKey_it(void);
+PAILLIER *d2i_PaillierPublicKey(PAILLIER **a, const unsigned char **in, long len);
+int i2d_PaillierPublicKey(const PAILLIER *a, unsigned char **out);
+const ASN1_ITEM * PaillierPublicKey_it(void);
 int ERR_load_PAILLIER_strings(void);
 #line 153 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/paillier.h"
 #line 154 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/paillier.h"
@@ -3895,79 +5397,79 @@ SM9_MASTER_KEY *SM9_MASTER_KEY_new(void);
 void SM9_MASTER_KEY_free(SM9_MASTER_KEY *a);
 SM9_KEY *SM9_KEY_new(void);
 void SM9_KEY_free(SM9_KEY *a);
-int SM9_setup(int pairing, 
-int scheme, 
-int hash1, 
-SM9PublicParameters **mpk,
-SM9MasterSecret **msk);
+int SM9_setup(int pairing,
+              int scheme,
+              int hash1,
+              SM9PublicParameters **mpk,
+              SM9MasterSecret **msk);
 SM9MasterSecret *SM9_generate_master_secret(int pairing, int scheme, int hash1);
 SM9PublicParameters *SM9_extract_public_parameters(SM9MasterSecret *msk);
 SM9PrivateKey *SM9_extract_private_key(SM9MasterSecret *msk,
-const char *id, size_t idlen);
+                                       const char *id, size_t idlen);
 SM9PublicKey *SM9_extract_public_key(SM9PublicParameters *mpk,
-const char *id, size_t idlen);
+                                     const char *id, size_t idlen);
 SM9PublicKey *SM9PrivateKey_get_public_key(SM9PrivateKey *sk);
 int SM9PrivateKey_get_gmtls_public_key(SM9PublicParameters *mpk,
-SM9PrivateKey *sk, unsigned char pub_key[1024]);
+                                       SM9PrivateKey *sk, unsigned char pub_key[1024]);
 int SM9PublicKey_get_gmtls_encoded(SM9PublicParameters *mpk,
-SM9PublicKey *pk, unsigned char encoded[1024]);
+                                   SM9PublicKey *pk, unsigned char encoded[1024]);
 int SM9_signature_size(const SM9PublicParameters *mpk);
 SM9Signature *SM9_do_sign(const unsigned char *dgst, int dgstlen, SM9_KEY *sm9);
 int SM9_do_verify(const unsigned char *dgst, int dgstlen,
-const SM9Signature *sig, SM9_KEY *sm9);
+                  const SM9Signature *sig, SM9_KEY *sm9);
 int SM9_sign(int type,
-const unsigned char *data, size_t datalen,
-unsigned char *sig, size_t *siglen,
-SM9PrivateKey *sk);
+             const unsigned char *data, size_t datalen,
+             unsigned char *sig, size_t *siglen,
+             SM9PrivateKey *sk);
 int SM9_verify(int type,
-const unsigned char *data, size_t datalen,
-const unsigned char *sig, size_t siglen,
-SM9PublicParameters *mpk, const char *id, size_t idlen);
+               const unsigned char *data, size_t datalen,
+               const unsigned char *sig, size_t siglen,
+               SM9PublicParameters *mpk, const char *id, size_t idlen);
 int SM9_SignInit(EVP_MD_CTX *ctx, const EVP_MD *md, ENGINE *engine);
 SM9Signature *SM9_SignFinal(EVP_MD_CTX *ctx, SM9PrivateKey *sk);
 int SM9_VerifyInit(EVP_MD_CTX *ctx, const EVP_MD *md, ENGINE *engine);
 int SM9_VerifyFinal(EVP_MD_CTX *ctx, const SM9Signature *sig, SM9PublicKey *pk);
-int SM9_wrap_key(int type, 
-unsigned char *key, size_t keylen,
-unsigned char *enced_key, size_t *enced_len,
-SM9PublicParameters *mpk, const char *id, size_t idlen);
+int SM9_wrap_key(int type,
+                 unsigned char *key, size_t keylen,
+                 unsigned char *enced_key, size_t *enced_len,
+                 SM9PublicParameters *mpk, const char *id, size_t idlen);
 int SM9_unwrap_key(int type,
-unsigned char *key, size_t keylen,
-const unsigned char *enced_key, size_t enced_len,
-SM9PrivateKey *sk);
+                   unsigned char *key, size_t keylen,
+                   const unsigned char *enced_key, size_t enced_len,
+                   SM9PrivateKey *sk);
 int SM9_ciphertext_size(const SM9_MASTER_KEY *params, size_t inlen);
-int SM9_encrypt(int type, 
-const unsigned char *in, size_t inlen,
-unsigned char *out, size_t *outlen,
-SM9PublicParameters *mpk, const char *id, size_t idlen);
+int SM9_encrypt(int type,
+                const unsigned char *in, size_t inlen,
+                unsigned char *out, size_t *outlen,
+                SM9PublicParameters *mpk, const char *id, size_t idlen);
 int SM9_decrypt(int type,
-const unsigned char *in, size_t inlen,
-unsigned char *out, size_t *outlen,
-SM9PrivateKey *sk);
-int SM9_generate_key_exchange(unsigned char *R, size_t *Rlen, 
-BIGNUM *r, unsigned char *gr, size_t *grlen, 
-const char *peer_id, size_t peer_idlen, 
-SM9PrivateKey *sk, int initiator);
+                const unsigned char *in, size_t inlen,
+                unsigned char *out, size_t *outlen,
+                SM9PrivateKey *sk);
+int SM9_generate_key_exchange(unsigned char *R, size_t *Rlen,
+                              BIGNUM *r, unsigned char *gr, size_t *grlen,
+                              const char *peer_id, size_t peer_idlen,
+                              SM9PrivateKey *sk, int initiator);
 int SM9_compute_share_key_A(int type,
-unsigned char *SKA, size_t SKAlen,
-unsigned char SA[32], 
-const unsigned char SB[32], 
-const BIGNUM *rA,
-const unsigned char RA[65],
-const unsigned char RB[65],
-const unsigned char g1[384],
-const char *IDB, size_t IDBlen,
-SM9PrivateKey *skA);
+                            unsigned char *SKA, size_t SKAlen,
+                            unsigned char SA[32],
+                            const unsigned char SB[32],
+                            const BIGNUM *rA,
+                            const unsigned char RA[65],
+                            const unsigned char RB[65],
+                            const unsigned char g1[384],
+                            const char *IDB, size_t IDBlen,
+                            SM9PrivateKey *skA);
 int SM9_compute_share_key_B(int type,
-unsigned char *SKB, size_t SKBlen,
-unsigned char SB[32], 
-unsigned char S2[32], 
-const BIGNUM *rB,
-const unsigned char RB[65],
-const unsigned char RA[65],
-const unsigned char g2[384],
-const char *IDA, size_t IDAlen,
-SM9PrivateKey *skB);
+                            unsigned char *SKB, size_t SKBlen,
+                            unsigned char SB[32],
+                            unsigned char S2[32],
+                            const BIGNUM *rB,
+                            const unsigned char RB[65],
+                            const unsigned char RA[65],
+                            const unsigned char g2[384],
+                            const char *IDA, size_t IDAlen,
+                            SM9PrivateKey *skB);
 int SM9_MASTER_KEY_print(BIO *bp, const SM9_MASTER_KEY *x, int off);
 int SM9_KEY_print(BIO *bp, const SM9_KEY *x, int off);
 SM9Ciphertext *d2i_SM9Ciphertext_bio(BIO *bp, SM9Ciphertext **a);
@@ -3993,12 +5495,28 @@ int i2d_SM9Ciphertext_fp(FILE *fp, SM9Ciphertext *a);
 #line 206 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm9.h"
 int SM9_MASTER_KEY_up_ref(SM9_MASTER_KEY *msk);
 int SM9_KEY_up_ref(SM9_KEY *sk);
-SM9_MASTER_KEY *d2i_SM9MasterSecret(SM9_MASTER_KEY **a, const unsigned char **in, long len); int i2d_SM9MasterSecret(const SM9_MASTER_KEY *a, unsigned char **out); const ASN1_ITEM * SM9MasterSecret_it(void);
-SM9_MASTER_KEY *d2i_SM9PublicParameters(SM9_MASTER_KEY **a, const unsigned char **in, long len); int i2d_SM9PublicParameters(const SM9_MASTER_KEY *a, unsigned char **out); const ASN1_ITEM * SM9PublicParameters_it(void);
-SM9_KEY *d2i_SM9PrivateKey(SM9_KEY **a, const unsigned char **in, long len); int i2d_SM9PrivateKey(const SM9_KEY *a, unsigned char **out); const ASN1_ITEM * SM9PrivateKey_it(void);
-SM9_KEY *d2i_SM9PublicKey(SM9_KEY **a, const unsigned char **in, long len); int i2d_SM9PublicKey(const SM9_KEY *a, unsigned char **out); const ASN1_ITEM * SM9PublicKey_it(void);
-SM9Signature *SM9Signature_new(void); void SM9Signature_free(SM9Signature *a); SM9Signature *d2i_SM9Signature(SM9Signature **a, const unsigned char **in, long len); int i2d_SM9Signature(SM9Signature *a, unsigned char **out); const ASN1_ITEM * SM9Signature_it(void);
-SM9Ciphertext *SM9Ciphertext_new(void); void SM9Ciphertext_free(SM9Ciphertext *a); SM9Ciphertext *d2i_SM9Ciphertext(SM9Ciphertext **a, const unsigned char **in, long len); int i2d_SM9Ciphertext(SM9Ciphertext *a, unsigned char **out); const ASN1_ITEM * SM9Ciphertext_it(void);
+SM9_MASTER_KEY *d2i_SM9MasterSecret(SM9_MASTER_KEY **a, const unsigned char **in, long len);
+int i2d_SM9MasterSecret(const SM9_MASTER_KEY *a, unsigned char **out);
+const ASN1_ITEM * SM9MasterSecret_it(void);
+SM9_MASTER_KEY *d2i_SM9PublicParameters(SM9_MASTER_KEY **a, const unsigned char **in, long len);
+int i2d_SM9PublicParameters(const SM9_MASTER_KEY *a, unsigned char **out);
+const ASN1_ITEM * SM9PublicParameters_it(void);
+SM9_KEY *d2i_SM9PrivateKey(SM9_KEY **a, const unsigned char **in, long len);
+int i2d_SM9PrivateKey(const SM9_KEY *a, unsigned char **out);
+const ASN1_ITEM * SM9PrivateKey_it(void);
+SM9_KEY *d2i_SM9PublicKey(SM9_KEY **a, const unsigned char **in, long len);
+int i2d_SM9PublicKey(const SM9_KEY *a, unsigned char **out);
+const ASN1_ITEM * SM9PublicKey_it(void);
+SM9Signature *SM9Signature_new(void);
+void SM9Signature_free(SM9Signature *a);
+SM9Signature *d2i_SM9Signature(SM9Signature **a, const unsigned char **in, long len);
+int i2d_SM9Signature(SM9Signature *a, unsigned char **out);
+const ASN1_ITEM * SM9Signature_it(void);
+SM9Ciphertext *SM9Ciphertext_new(void);
+void SM9Ciphertext_free(SM9Ciphertext *a);
+SM9Ciphertext *d2i_SM9Ciphertext(SM9Ciphertext **a, const unsigned char **in, long len);
+int i2d_SM9Ciphertext(SM9Ciphertext *a, unsigned char **out);
+const ASN1_ITEM * SM9Ciphertext_it(void);
 int ERR_load_SM9_strings(void);
 #line 387 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm9.h"
 #line 388 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm9.h"
@@ -4040,11 +5558,11 @@ int RSA_set0_key(RSA *r, BIGNUM *n, BIGNUM *e, BIGNUM *d);
 int RSA_set0_factors(RSA *r, BIGNUM *p, BIGNUM *q);
 int RSA_set0_crt_params(RSA *r,BIGNUM *dmp1, BIGNUM *dmq1, BIGNUM *iqmp);
 void RSA_get0_key(const RSA *r,
-const BIGNUM **n, const BIGNUM **e, const BIGNUM **d);
+                  const BIGNUM **n, const BIGNUM **e, const BIGNUM **d);
 void RSA_get0_factors(const RSA *r, const BIGNUM **p, const BIGNUM **q);
 void RSA_get0_crt_params(const RSA *r,
-const BIGNUM **dmp1, const BIGNUM **dmq1,
-const BIGNUM **iqmp);
+                         const BIGNUM **dmp1, const BIGNUM **dmq1,
+                         const BIGNUM **iqmp);
 void RSA_clear_flags(RSA *r, int flags);
 int RSA_test_flags(const RSA *r, int flags);
 void RSA_set_flags(RSA *r, int flags);
@@ -4053,21 +5571,21 @@ RSA *RSA_generate_key(int bits, unsigned long e, void (*callback) (int, int, voi
 #line 196 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/rsa.h"
 int RSA_generate_key_ex(RSA *rsa, int bits, BIGNUM *e, BN_GENCB *cb);
 int RSA_X931_derive_ex(RSA *rsa, BIGNUM *p1, BIGNUM *p2, BIGNUM *q1,
-BIGNUM *q2, const BIGNUM *Xp1, const BIGNUM *Xp2,
-const BIGNUM *Xp, const BIGNUM *Xq1, const BIGNUM *Xq2,
-const BIGNUM *Xq, const BIGNUM *e, BN_GENCB *cb);
+                       BIGNUM *q2, const BIGNUM *Xp1, const BIGNUM *Xp2,
+                       const BIGNUM *Xp, const BIGNUM *Xq1, const BIGNUM *Xq2,
+                       const BIGNUM *Xq, const BIGNUM *e, BN_GENCB *cb);
 int RSA_X931_generate_key_ex(RSA *rsa, int bits, const BIGNUM *e,
-BN_GENCB *cb);
+                             BN_GENCB *cb);
 int RSA_check_key(const RSA *);
 int RSA_check_key_ex(const RSA *, BN_GENCB *cb);
 int RSA_public_encrypt(int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+                       unsigned char *to, RSA *rsa, int padding);
 int RSA_private_encrypt(int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+                        unsigned char *to, RSA *rsa, int padding);
 int RSA_public_decrypt(int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+                       unsigned char *to, RSA *rsa, int padding);
 int RSA_private_decrypt(int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+                        unsigned char *to, RSA *rsa, int padding);
 void RSA_free(RSA *r);
 int RSA_up_ref(RSA *r);
 int RSA_flags(const RSA *r);
@@ -4077,91 +5595,105 @@ const RSA_METHOD *RSA_get_method(const RSA *rsa);
 int RSA_set_method(RSA *rsa, const RSA_METHOD *meth);
 const RSA_METHOD *RSA_PKCS1_OpenSSL(void);
 const RSA_METHOD *RSA_null_method(void);
-RSA *d2i_RSAPublicKey(RSA **a, const unsigned char **in, long len); int i2d_RSAPublicKey(const RSA *a, unsigned char **out); const ASN1_ITEM * RSAPublicKey_it(void);
-RSA *d2i_RSAPrivateKey(RSA **a, const unsigned char **in, long len); int i2d_RSAPrivateKey(const RSA *a, unsigned char **out); const ASN1_ITEM * RSAPrivateKey_it(void);
-typedef struct rsa_pss_params_st {
-X509_ALGOR *hashAlgorithm;
-X509_ALGOR *maskGenAlgorithm;
-ASN1_INTEGER *saltLength;
-ASN1_INTEGER *trailerField;
+RSA *d2i_RSAPublicKey(RSA **a, const unsigned char **in, long len);
+int i2d_RSAPublicKey(const RSA *a, unsigned char **out);
+const ASN1_ITEM * RSAPublicKey_it(void);
+RSA *d2i_RSAPrivateKey(RSA **a, const unsigned char **in, long len);
+int i2d_RSAPrivateKey(const RSA *a, unsigned char **out);
+const ASN1_ITEM * RSAPrivateKey_it(void);
+typedef struct rsa_pss_params_st
+{
+    X509_ALGOR *hashAlgorithm;
+    X509_ALGOR *maskGenAlgorithm;
+    ASN1_INTEGER *saltLength;
+    ASN1_INTEGER *trailerField;
 } RSA_PSS_PARAMS;
-RSA_PSS_PARAMS *RSA_PSS_PARAMS_new(void); void RSA_PSS_PARAMS_free(RSA_PSS_PARAMS *a); RSA_PSS_PARAMS *d2i_RSA_PSS_PARAMS(RSA_PSS_PARAMS **a, const unsigned char **in, long len); int i2d_RSA_PSS_PARAMS(RSA_PSS_PARAMS *a, unsigned char **out); const ASN1_ITEM * RSA_PSS_PARAMS_it(void);
-typedef struct rsa_oaep_params_st {
-X509_ALGOR *hashFunc;
-X509_ALGOR *maskGenFunc;
-X509_ALGOR *pSourceFunc;
+RSA_PSS_PARAMS *RSA_PSS_PARAMS_new(void);
+void RSA_PSS_PARAMS_free(RSA_PSS_PARAMS *a);
+RSA_PSS_PARAMS *d2i_RSA_PSS_PARAMS(RSA_PSS_PARAMS **a, const unsigned char **in, long len);
+int i2d_RSA_PSS_PARAMS(RSA_PSS_PARAMS *a, unsigned char **out);
+const ASN1_ITEM * RSA_PSS_PARAMS_it(void);
+typedef struct rsa_oaep_params_st
+{
+    X509_ALGOR *hashFunc;
+    X509_ALGOR *maskGenFunc;
+    X509_ALGOR *pSourceFunc;
 } RSA_OAEP_PARAMS;
-RSA_OAEP_PARAMS *RSA_OAEP_PARAMS_new(void); void RSA_OAEP_PARAMS_free(RSA_OAEP_PARAMS *a); RSA_OAEP_PARAMS *d2i_RSA_OAEP_PARAMS(RSA_OAEP_PARAMS **a, const unsigned char **in, long len); int i2d_RSA_OAEP_PARAMS(RSA_OAEP_PARAMS *a, unsigned char **out); const ASN1_ITEM * RSA_OAEP_PARAMS_it(void);
+RSA_OAEP_PARAMS *RSA_OAEP_PARAMS_new(void);
+void RSA_OAEP_PARAMS_free(RSA_OAEP_PARAMS *a);
+RSA_OAEP_PARAMS *d2i_RSA_OAEP_PARAMS(RSA_OAEP_PARAMS **a, const unsigned char **in, long len);
+int i2d_RSA_OAEP_PARAMS(RSA_OAEP_PARAMS *a, unsigned char **out);
+const ASN1_ITEM * RSA_OAEP_PARAMS_it(void);
 int RSA_print_fp(FILE *fp, const RSA *r, int offset);
 #line 257 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/rsa.h"
 int RSA_print(BIO *bp, const RSA *r, int offset);
 int RSA_sign(int type, const unsigned char *m, unsigned int m_length,
-unsigned char *sigret, unsigned int *siglen, RSA *rsa);
+             unsigned char *sigret, unsigned int *siglen, RSA *rsa);
 int RSA_verify(int type, const unsigned char *m, unsigned int m_length,
-const unsigned char *sigbuf, unsigned int siglen, RSA *rsa);
+               const unsigned char *sigbuf, unsigned int siglen, RSA *rsa);
 int RSA_sign_ASN1_OCTET_STRING(int type,
-const unsigned char *m, unsigned int m_length,
-unsigned char *sigret, unsigned int *siglen,
-RSA *rsa);
+                               const unsigned char *m, unsigned int m_length,
+                               unsigned char *sigret, unsigned int *siglen,
+                               RSA *rsa);
 int RSA_verify_ASN1_OCTET_STRING(int type, const unsigned char *m,
-unsigned int m_length, unsigned char *sigbuf,
-unsigned int siglen, RSA *rsa);
+                                 unsigned int m_length, unsigned char *sigbuf,
+                                 unsigned int siglen, RSA *rsa);
 int RSA_blinding_on(RSA *rsa, BN_CTX *ctx);
 void RSA_blinding_off(RSA *rsa);
 BN_BLINDING *RSA_setup_blinding(RSA *rsa, BN_CTX *ctx);
 int RSA_padding_add_PKCS1_type_1(unsigned char *to, int tlen,
-const unsigned char *f, int fl);
+                                 const unsigned char *f, int fl);
 int RSA_padding_check_PKCS1_type_1(unsigned char *to, int tlen,
-const unsigned char *f, int fl,
-int rsa_len);
+                                   const unsigned char *f, int fl,
+                                   int rsa_len);
 int RSA_padding_add_PKCS1_type_2(unsigned char *to, int tlen,
-const unsigned char *f, int fl);
+                                 const unsigned char *f, int fl);
 int RSA_padding_check_PKCS1_type_2(unsigned char *to, int tlen,
-const unsigned char *f, int fl,
-int rsa_len);
+                                   const unsigned char *f, int fl,
+                                   int rsa_len);
 int PKCS1_MGF1(unsigned char *mask, long len, const unsigned char *seed,
-long seedlen, const EVP_MD *dgst);
+               long seedlen, const EVP_MD *dgst);
 int RSA_padding_add_PKCS1_OAEP(unsigned char *to, int tlen,
-const unsigned char *f, int fl,
-const unsigned char *p, int pl);
+                               const unsigned char *f, int fl,
+                               const unsigned char *p, int pl);
 int RSA_padding_check_PKCS1_OAEP(unsigned char *to, int tlen,
-const unsigned char *f, int fl, int rsa_len,
-const unsigned char *p, int pl);
+                                 const unsigned char *f, int fl, int rsa_len,
+                                 const unsigned char *p, int pl);
 int RSA_padding_add_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
-const unsigned char *from, int flen,
-const unsigned char *param, int plen,
-const EVP_MD *md, const EVP_MD *mgf1md);
+                                    const unsigned char *from, int flen,
+                                    const unsigned char *param, int plen,
+                                    const EVP_MD *md, const EVP_MD *mgf1md);
 int RSA_padding_check_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
-const unsigned char *from, int flen,
-int num, const unsigned char *param,
-int plen, const EVP_MD *md,
-const EVP_MD *mgf1md);
+                                      const unsigned char *from, int flen,
+                                      int num, const unsigned char *param,
+                                      int plen, const EVP_MD *md,
+                                      const EVP_MD *mgf1md);
 int RSA_padding_add_SSLv23(unsigned char *to, int tlen,
-const unsigned char *f, int fl);
+                           const unsigned char *f, int fl);
 int RSA_padding_check_SSLv23(unsigned char *to, int tlen,
-const unsigned char *f, int fl, int rsa_len);
+                             const unsigned char *f, int fl, int rsa_len);
 int RSA_padding_add_none(unsigned char *to, int tlen, const unsigned char *f,
-int fl);
+                         int fl);
 int RSA_padding_check_none(unsigned char *to, int tlen,
-const unsigned char *f, int fl, int rsa_len);
+                           const unsigned char *f, int fl, int rsa_len);
 int RSA_padding_add_X931(unsigned char *to, int tlen, const unsigned char *f,
-int fl);
+                         int fl);
 int RSA_padding_check_X931(unsigned char *to, int tlen,
-const unsigned char *f, int fl, int rsa_len);
+                           const unsigned char *f, int fl, int rsa_len);
 int RSA_X931_hash_id(int nid);
 int RSA_verify_PKCS1_PSS(RSA *rsa, const unsigned char *mHash,
-const EVP_MD *Hash, const unsigned char *EM,
-int sLen);
+                         const EVP_MD *Hash, const unsigned char *EM,
+                         int sLen);
 int RSA_padding_add_PKCS1_PSS(RSA *rsa, unsigned char *EM,
-const unsigned char *mHash, const EVP_MD *Hash,
-int sLen);
+                              const unsigned char *mHash, const EVP_MD *Hash,
+                              int sLen);
 int RSA_verify_PKCS1_PSS_mgf1(RSA *rsa, const unsigned char *mHash,
-const EVP_MD *Hash, const EVP_MD *mgf1Hash,
-const unsigned char *EM, int sLen);
+                              const EVP_MD *Hash, const EVP_MD *mgf1Hash,
+                              const unsigned char *EM, int sLen);
 int RSA_padding_add_PKCS1_PSS_mgf1(RSA *rsa, unsigned char *EM,
-const unsigned char *mHash,
-const EVP_MD *Hash, const EVP_MD *mgf1Hash,
-int sLen);
+                                   const unsigned char *mHash,
+                                   const EVP_MD *Hash, const EVP_MD *mgf1Hash,
+                                   int sLen);
 int RSA_set_ex_data(RSA *r, int idx, void *arg);
 void *RSA_get_ex_data(const RSA *r, int idx);
 RSA *RSAPublicKey_dup(RSA *rsa);
@@ -4177,75 +5709,75 @@ void *RSA_meth_get0_app_data(const RSA_METHOD *meth);
 int RSA_meth_set0_app_data(RSA_METHOD *meth, void *app_data);
 int (*RSA_meth_get_pub_enc(const RSA_METHOD *meth))
 (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+ unsigned char *to, RSA *rsa, int padding);
 int RSA_meth_set_pub_enc(RSA_METHOD *rsa,
-int (*pub_enc) (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa,
-int padding));
+                         int (*pub_enc) (int flen, const unsigned char *from,
+                                 unsigned char *to, RSA *rsa,
+                                 int padding));
 int (*RSA_meth_get_pub_dec(const RSA_METHOD *meth))
 (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+ unsigned char *to, RSA *rsa, int padding);
 int RSA_meth_set_pub_dec(RSA_METHOD *rsa,
-int (*pub_dec) (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa,
-int padding));
+                         int (*pub_dec) (int flen, const unsigned char *from,
+                                 unsigned char *to, RSA *rsa,
+                                 int padding));
 int (*RSA_meth_get_priv_enc(const RSA_METHOD *meth))
 (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+ unsigned char *to, RSA *rsa, int padding);
 int RSA_meth_set_priv_enc(RSA_METHOD *rsa,
-int (*priv_enc) (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa,
-int padding));
+                          int (*priv_enc) (int flen, const unsigned char *from,
+                                  unsigned char *to, RSA *rsa,
+                                  int padding));
 int (*RSA_meth_get_priv_dec(const RSA_METHOD *meth))
 (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa, int padding);
+ unsigned char *to, RSA *rsa, int padding);
 int RSA_meth_set_priv_dec(RSA_METHOD *rsa,
-int (*priv_dec) (int flen, const unsigned char *from,
-unsigned char *to, RSA *rsa,
-int padding));
+                          int (*priv_dec) (int flen, const unsigned char *from,
+                                  unsigned char *to, RSA *rsa,
+                                  int padding));
 int (*RSA_meth_get_mod_exp(const RSA_METHOD *meth))
 (BIGNUM *r0, const BIGNUM *I, RSA *rsa, BN_CTX *ctx);
 int RSA_meth_set_mod_exp(RSA_METHOD *rsa,
-int (*mod_exp) (BIGNUM *r0, const BIGNUM *I, RSA *rsa,
-BN_CTX *ctx));
+                         int (*mod_exp) (BIGNUM *r0, const BIGNUM *I, RSA *rsa,
+                                 BN_CTX *ctx));
 int (*RSA_meth_get_bn_mod_exp(const RSA_METHOD *meth))
 (BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
+ const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
 int RSA_meth_set_bn_mod_exp(RSA_METHOD *rsa,
-int (*bn_mod_exp) (BIGNUM *r,
-const BIGNUM *a,
-const BIGNUM *p,
-const BIGNUM *m,
-BN_CTX *ctx,
-BN_MONT_CTX *m_ctx));
+                            int (*bn_mod_exp) (BIGNUM *r,
+                                    const BIGNUM *a,
+                                    const BIGNUM *p,
+                                    const BIGNUM *m,
+                                    BN_CTX *ctx,
+                                    BN_MONT_CTX *m_ctx));
 int (*RSA_meth_get_init(const RSA_METHOD *meth)) (RSA *rsa);
 int RSA_meth_set_init(RSA_METHOD *rsa, int (*init) (RSA *rsa));
 int (*RSA_meth_get_finish(const RSA_METHOD *meth)) (RSA *rsa);
 int RSA_meth_set_finish(RSA_METHOD *rsa, int (*finish) (RSA *rsa));
 int (*RSA_meth_get_sign(const RSA_METHOD *meth))
 (int type,
-const unsigned char *m, unsigned int m_length,
-unsigned char *sigret, unsigned int *siglen,
-const RSA *rsa);
+ const unsigned char *m, unsigned int m_length,
+ unsigned char *sigret, unsigned int *siglen,
+ const RSA *rsa);
 int RSA_meth_set_sign(RSA_METHOD *rsa,
-int (*sign) (int type, const unsigned char *m,
-unsigned int m_length,
-unsigned char *sigret, unsigned int *siglen,
-const RSA *rsa));
+                      int (*sign) (int type, const unsigned char *m,
+                                   unsigned int m_length,
+                                   unsigned char *sigret, unsigned int *siglen,
+                                   const RSA *rsa));
 int (*RSA_meth_get_verify(const RSA_METHOD *meth))
 (int dtype, const unsigned char *m,
-unsigned int m_length, const unsigned char *sigbuf,
-unsigned int siglen, const RSA *rsa);
+ unsigned int m_length, const unsigned char *sigbuf,
+ unsigned int siglen, const RSA *rsa);
 int RSA_meth_set_verify(RSA_METHOD *rsa,
-int (*verify) (int dtype, const unsigned char *m,
-unsigned int m_length,
-const unsigned char *sigbuf,
-unsigned int siglen, const RSA *rsa));
+                        int (*verify) (int dtype, const unsigned char *m,
+                                       unsigned int m_length,
+                                       const unsigned char *sigbuf,
+                                       unsigned int siglen, const RSA *rsa));
 int (*RSA_meth_get_keygen(const RSA_METHOD *meth))
 (RSA *rsa, int bits, BIGNUM *e, BN_GENCB *cb);
 int RSA_meth_set_keygen(RSA_METHOD *rsa,
-int (*keygen) (RSA *rsa, int bits, BIGNUM *e,
-BN_GENCB *cb));
+                        int (*keygen) (RSA *rsa, int bits, BIGNUM *e,
+                                       BN_GENCB *cb));
 int ERR_load_RSA_strings(void);
 #line 603 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/rsa.h"
 #line 604 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/rsa.h"
@@ -4324,7 +5856,7 @@ void *DH_get_ex_data(DH *d, int idx);
 DH *DH_generate_parameters(int prime_len, int generator, void (*callback) (int, int, void *), void *cb_arg);
 #line 122 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/dh.h"
 int DH_generate_parameters_ex(DH *dh, int prime_len, int generator,
-BN_GENCB *cb);
+                              BN_GENCB *cb);
 int DH_check_params(const DH *dh, int *ret);
 int DH_check(const DH *dh, int *codes);
 int DH_check_pub_key(const DH *dh, const BIGNUM *pub_key, int *codes);
@@ -4342,15 +5874,15 @@ DH *DH_get_1024_160(void);
 DH *DH_get_2048_224(void);
 DH *DH_get_2048_256(void);
 int DH_KDF_X9_42(unsigned char *out, size_t outlen,
-const unsigned char *Z, size_t Zlen,
-ASN1_OBJECT *key_oid,
-const unsigned char *ukm, size_t ukmlen, const EVP_MD *md);
+                 const unsigned char *Z, size_t Zlen,
+                 ASN1_OBJECT *key_oid,
+                 const unsigned char *ukm, size_t ukmlen, const EVP_MD *md);
 #line 154 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/dh.h"
 void DH_get0_pqg(const DH *dh,
-const BIGNUM **p, const BIGNUM **q, const BIGNUM **g);
+                 const BIGNUM **p, const BIGNUM **q, const BIGNUM **g);
 int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g);
 void DH_get0_key(const DH *dh,
-const BIGNUM **pub_key, const BIGNUM **priv_key);
+                 const BIGNUM **pub_key, const BIGNUM **priv_key);
 int DH_set0_key(DH *dh, BIGNUM *pub_key, BIGNUM *priv_key);
 void DH_clear_flags(DH *dh, int flags);
 int DH_test_flags(const DH *dh, int flags);
@@ -4372,13 +5904,13 @@ int DH_meth_set_generate_key(DH_METHOD *dhm, int (*generate_key) (DH *));
 int (*DH_meth_get_compute_key(const DH_METHOD *dhm))
 (unsigned char *key, const BIGNUM *pub_key, DH *dh);
 int DH_meth_set_compute_key(DH_METHOD *dhm,
-int (*compute_key) (unsigned char *key, const BIGNUM *pub_key, DH *dh));
+                            int (*compute_key) (unsigned char *key, const BIGNUM *pub_key, DH *dh));
 int (*DH_meth_get_bn_mod_exp(const DH_METHOD *dhm))
 (const DH *, BIGNUM *, const BIGNUM *, const BIGNUM *, const BIGNUM *,
-BN_CTX *, BN_MONT_CTX *);
+ BN_CTX *, BN_MONT_CTX *);
 int DH_meth_set_bn_mod_exp(DH_METHOD *dhm,
-int (*bn_mod_exp) (const DH *, BIGNUM *, const BIGNUM *, const BIGNUM *,
-const BIGNUM *, BN_CTX *, BN_MONT_CTX *));
+                           int (*bn_mod_exp) (const DH *, BIGNUM *, const BIGNUM *, const BIGNUM *,
+                                   const BIGNUM *, BN_CTX *, BN_MONT_CTX *));
 int (*DH_meth_get_init(const DH_METHOD *dhm))(DH *);
 int DH_meth_set_init(DH_METHOD *dhm, int (*init)(DH *));
 int (*DH_meth_get_finish(const DH_METHOD *dhm)) (DH *);
@@ -4386,7 +5918,7 @@ int DH_meth_set_finish(DH_METHOD *dhm, int (*finish) (DH *));
 int (*DH_meth_get_generate_params(const DH_METHOD *dhm))
 (DH *, int, int, BN_GENCB *);
 int DH_meth_set_generate_params(DH_METHOD *dhm,
-int (*generate_params) (DH *, int, int, BN_GENCB *));
+                                int (*generate_params) (DH *, int, int, BN_GENCB *));
 #line 293 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/dh.h"
 int ERR_load_DH_strings(void);
 #line 344 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/dh.h"
@@ -4405,7 +5937,7 @@ void DSA_SIG_get0(const DSA_SIG *sig, const BIGNUM **pr, const BIGNUM **ps);
 int DSA_SIG_set0(DSA_SIG *sig, BIGNUM *r, BIGNUM *s);
 DSA_SIG *DSA_do_sign(const unsigned char *dgst, int dlen, DSA *dsa);
 int DSA_do_verify(const unsigned char *dgst, int dgst_len,
-DSA_SIG *sig, DSA *dsa);
+                  DSA_SIG *sig, DSA *dsa);
 const DSA_METHOD *DSA_OpenSSL(void);
 void DSA_set_default_method(const DSA_METHOD *);
 const DSA_METHOD *DSA_get_default_method(void);
@@ -4420,9 +5952,9 @@ int DSA_bits(const DSA *d);
 int DSA_security_bits(const DSA *d);
 int DSA_sign_setup(DSA *dsa, BN_CTX *ctx_in, BIGNUM **kinvp, BIGNUM **rp);
 int DSA_sign(int type, const unsigned char *dgst, int dlen,
-unsigned char *sig, unsigned int *siglen, DSA *dsa);
+             unsigned char *sig, unsigned int *siglen, DSA *dsa);
 int DSA_verify(int type, const unsigned char *dgst, int dgst_len,
-const unsigned char *sigbuf, int siglen, DSA *dsa);
+               const unsigned char *sigbuf, int siglen, DSA *dsa);
 int DSA_set_ex_data(DSA *d, int idx, void *arg);
 void *DSA_get_ex_data(DSA *d, int idx);
 DSA *d2i_DSAPublicKey(DSA **a, const unsigned char **pp, long length);
@@ -4431,9 +5963,9 @@ DSA *d2i_DSAparams(DSA **a, const unsigned char **pp, long length);
 DSA *DSA_generate_parameters(int bits, unsigned char *seed, int seed_len, int *counter_ret, unsigned long *h_ret, void (*callback) (int, int, void *), void *cb_arg);
 #line 130 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/dsa.h"
 int DSA_generate_parameters_ex(DSA *dsa, int bits,
-const unsigned char *seed, int seed_len,
-int *counter_ret, unsigned long *h_ret,
-BN_GENCB *cb);
+                               const unsigned char *seed, int seed_len,
+                               int *counter_ret, unsigned long *h_ret,
+                               BN_GENCB *cb);
 int DSA_generate_key(DSA *a);
 int i2d_DSAPublicKey(const DSA *a, unsigned char **pp);
 int i2d_DSAPrivateKey(const DSA *a, unsigned char **pp);
@@ -4446,10 +5978,10 @@ int DSA_print_fp(FILE *bp, const DSA *x, int off);
 DH *DSA_dup_DH(const DSA *r);
 #line 164 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/dsa.h"
 void DSA_get0_pqg(const DSA *d,
-const BIGNUM **p, const BIGNUM **q, const BIGNUM **g);
+                  const BIGNUM **p, const BIGNUM **q, const BIGNUM **g);
 int DSA_set0_pqg(DSA *d, BIGNUM *p, BIGNUM *q, BIGNUM *g);
 void DSA_get0_key(const DSA *d,
-const BIGNUM **pub_key, const BIGNUM **priv_key);
+                  const BIGNUM **pub_key, const BIGNUM **priv_key);
 int DSA_set0_key(DSA *d, BIGNUM *pub_key, BIGNUM *priv_key);
 void DSA_clear_flags(DSA *d, int flags);
 int DSA_test_flags(const DSA *d, int flags);
@@ -4467,38 +5999,38 @@ int DSA_meth_set0_app_data(DSA_METHOD *dsam, void *app_data);
 DSA_SIG *(*DSA_meth_get_sign(const DSA_METHOD *dsam))
 (const unsigned char *, int, DSA *);
 int DSA_meth_set_sign(DSA_METHOD *dsam,
-DSA_SIG *(*sign) (const unsigned char *, int, DSA *));
+                      DSA_SIG *(*sign) (const unsigned char *, int, DSA *));
 int (*DSA_meth_get_sign_setup(const DSA_METHOD *dsam))
 (DSA *, BN_CTX *, BIGNUM **, BIGNUM **);
 int DSA_meth_set_sign_setup(DSA_METHOD *dsam,
-int (*sign_setup) (DSA *, BN_CTX *, BIGNUM **, BIGNUM **));
+                            int (*sign_setup) (DSA *, BN_CTX *, BIGNUM **, BIGNUM **));
 int (*DSA_meth_get_verify(const DSA_METHOD *dsam))
-(const unsigned char *, int , DSA_SIG *, DSA *);
+(const unsigned char *, int, DSA_SIG *, DSA *);
 int DSA_meth_set_verify(DSA_METHOD *dsam,
-int (*verify) (const unsigned char *, int, DSA_SIG *, DSA *));
+                        int (*verify) (const unsigned char *, int, DSA_SIG *, DSA *));
 int (*DSA_meth_get_mod_exp(const DSA_METHOD *dsam))
 (DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, const BIGNUM *,
-const BIGNUM *, const BIGNUM *, BN_CTX *, BN_MONT_CTX *);
+ const BIGNUM *, const BIGNUM *, BN_CTX *, BN_MONT_CTX *);
 int DSA_meth_set_mod_exp(DSA_METHOD *dsam,
-int (*mod_exp) (DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *,
-const BIGNUM *, const BIGNUM *, const BIGNUM *, BN_CTX *,
-BN_MONT_CTX *));
+                         int (*mod_exp) (DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *,
+                                 const BIGNUM *, const BIGNUM *, const BIGNUM *, BN_CTX *,
+                                 BN_MONT_CTX *));
 int (*DSA_meth_get_bn_mod_exp(const DSA_METHOD *dsam))
 (DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, const BIGNUM *,
-BN_CTX *, BN_MONT_CTX *);
+ BN_CTX *, BN_MONT_CTX *);
 int DSA_meth_set_bn_mod_exp(DSA_METHOD *dsam,
-int (*bn_mod_exp) (DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *,
-const BIGNUM *, BN_CTX *, BN_MONT_CTX *));
+                            int (*bn_mod_exp) (DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *,
+                                    const BIGNUM *, BN_CTX *, BN_MONT_CTX *));
 int (*DSA_meth_get_init(const DSA_METHOD *dsam))(DSA *);
 int DSA_meth_set_init(DSA_METHOD *dsam, int (*init)(DSA *));
 int (*DSA_meth_get_finish(const DSA_METHOD *dsam)) (DSA *);
 int DSA_meth_set_finish(DSA_METHOD *dsam, int (*finish) (DSA *));
 int (*DSA_meth_get_paramgen(const DSA_METHOD *dsam))
 (DSA *, int, const unsigned char *, int, int *, unsigned long *,
-BN_GENCB *);
+ BN_GENCB *);
 int DSA_meth_set_paramgen(DSA_METHOD *dsam,
-int (*paramgen) (DSA *, int, const unsigned char *, int, int *,
-unsigned long *, BN_GENCB *));
+                          int (*paramgen) (DSA *, int, const unsigned char *, int, int *,
+                                  unsigned long *, BN_GENCB *));
 int (*DSA_meth_get_keygen(const DSA_METHOD *dsam)) (DSA *);
 int DSA_meth_set_keygen(DSA_METHOD *dsam, int (*keygen) (DSA *));
 int ERR_load_DSA_strings(void);
@@ -4513,22 +6045,24 @@ int ERR_load_DSA_strings(void);
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sha.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/e_os2.h"
 #line 14 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sha.h"
-typedef struct SHAstate_st {
-unsigned int h0, h1, h2, h3, h4;
-unsigned int Nl, Nh;
-unsigned int data[16];
-unsigned int num;
+typedef struct SHAstate_st
+{
+    unsigned int h0, h1, h2, h3, h4;
+    unsigned int Nl, Nh;
+    unsigned int data[16];
+    unsigned int num;
 } SHA_CTX;
 int SHA1_Init(SHA_CTX *c);
 int SHA1_Update(SHA_CTX *c, const void *data, size_t len);
 int SHA1_Final(unsigned char *md, SHA_CTX *c);
 unsigned char *SHA1(const unsigned char *d, size_t n, unsigned char *md);
 void SHA1_Transform(SHA_CTX *c, const unsigned char *data);
-typedef struct SHA256state_st {
-unsigned int h[8];
-unsigned int Nl, Nh;
-unsigned int data[16];
-unsigned int num, md_len;
+typedef struct SHA256state_st
+{
+    unsigned int h[8];
+    unsigned int Nl, Nh;
+    unsigned int data[16];
+    unsigned int num, md_len;
 } SHA256_CTX;
 int SHA224_Init(SHA256_CTX *c);
 int SHA224_Update(SHA256_CTX *c, const void *data, size_t len);
@@ -4540,14 +6074,16 @@ int SHA256_Final(unsigned char *md, SHA256_CTX *c);
 unsigned char *SHA256(const unsigned char *d, size_t n, unsigned char *md);
 void SHA256_Transform(SHA256_CTX *c, const unsigned char *data);
 #line 94 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sha.h"
-typedef struct SHA512state_st {
-unsigned __int64 h[8];
-unsigned __int64 Nl, Nh;
-union {
-unsigned __int64 d[16];
-unsigned char p[(16*8)];
-} u;
-unsigned int num, md_len;
+typedef struct SHA512state_st
+{
+    unsigned __int64 h[8];
+    unsigned __int64 Nl, Nh;
+    union
+    {
+        unsigned __int64 d[16];
+        unsigned char p[(16*8)];
+    } u;
+    unsigned int num, md_len;
 } SHA512_CTX;
 int SHA384_Init(SHA512_CTX *c);
 int SHA384_Update(SHA512_CTX *c, const void *data, size_t len);
@@ -4561,86 +6097,916 @@ void SHA512_Transform(SHA512_CTX *c, const unsigned char *data);
 #line 120 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sha.h"
 #line 51 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
 #line 52 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
-struct X509_algor_st {
-ASN1_OBJECT *algorithm;
-ASN1_TYPE *parameter;
+struct X509_algor_st
+{
+    ASN1_OBJECT *algorithm;
+    ASN1_TYPE *parameter;
 }  ;
 typedef struct stack_st_X509_ALGOR X509_ALGORS;
-typedef struct X509_val_st {
-ASN1_TIME *notBefore;
-ASN1_TIME *notAfter;
+typedef struct X509_val_st
+{
+    ASN1_TIME *notBefore;
+    ASN1_TIME *notAfter;
 } X509_VAL;
 typedef struct X509_sig_st X509_SIG;
 typedef struct X509_name_entry_st X509_NAME_ENTRY;
-struct stack_st_X509_NAME_ENTRY; typedef int (*sk_X509_NAME_ENTRY_compfunc)(const X509_NAME_ENTRY * const *a, const X509_NAME_ENTRY *const *b); typedef void (*sk_X509_NAME_ENTRY_freefunc)(X509_NAME_ENTRY *a); typedef X509_NAME_ENTRY * (*sk_X509_NAME_ENTRY_copyfunc)(const X509_NAME_ENTRY *a); static __inline int sk_X509_NAME_ENTRY_num(const struct stack_st_X509_NAME_ENTRY *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_value(const struct stack_st_X509_NAME_ENTRY *sk, int idx) { return (X509_NAME_ENTRY *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_NAME_ENTRY *sk_X509_NAME_ENTRY_new(sk_X509_NAME_ENTRY_compfunc compare) { return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_NAME_ENTRY *sk_X509_NAME_ENTRY_new_null(void) { return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_new_null(); } static __inline void sk_X509_NAME_ENTRY_free(struct stack_st_X509_NAME_ENTRY *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_NAME_ENTRY_zero(struct stack_st_X509_NAME_ENTRY *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_delete(struct stack_st_X509_NAME_ENTRY *sk, int i) { return (X509_NAME_ENTRY *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_delete_ptr(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr) { return (X509_NAME_ENTRY *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_NAME_ENTRY_push(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_NAME_ENTRY_unshift(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_pop(struct stack_st_X509_NAME_ENTRY *sk) { return (X509_NAME_ENTRY *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_shift(struct stack_st_X509_NAME_ENTRY *sk) { return (X509_NAME_ENTRY *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_NAME_ENTRY_pop_free(struct stack_st_X509_NAME_ENTRY *sk, sk_X509_NAME_ENTRY_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_NAME_ENTRY_insert(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_set(struct stack_st_X509_NAME_ENTRY *sk, int idx, X509_NAME_ENTRY *ptr) { return (X509_NAME_ENTRY *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_NAME_ENTRY_find(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_NAME_ENTRY_find_ex(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_NAME_ENTRY_sort(struct stack_st_X509_NAME_ENTRY *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_NAME_ENTRY_is_sorted(const struct stack_st_X509_NAME_ENTRY *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_NAME_ENTRY * sk_X509_NAME_ENTRY_dup(const struct stack_st_X509_NAME_ENTRY *sk) { return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_NAME_ENTRY *sk_X509_NAME_ENTRY_deep_copy(const struct stack_st_X509_NAME_ENTRY *sk, sk_X509_NAME_ENTRY_copyfunc copyfunc, sk_X509_NAME_ENTRY_freefunc freefunc) { return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_NAME_ENTRY_compfunc sk_X509_NAME_ENTRY_set_cmp_func(struct stack_st_X509_NAME_ENTRY *sk, sk_X509_NAME_ENTRY_compfunc compare) { return (sk_X509_NAME_ENTRY_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_X509_NAME; typedef int (*sk_X509_NAME_compfunc)(const X509_NAME * const *a, const X509_NAME *const *b); typedef void (*sk_X509_NAME_freefunc)(X509_NAME *a); typedef X509_NAME * (*sk_X509_NAME_copyfunc)(const X509_NAME *a); static __inline int sk_X509_NAME_num(const struct stack_st_X509_NAME *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_NAME *sk_X509_NAME_value(const struct stack_st_X509_NAME *sk, int idx) { return (X509_NAME *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_NAME *sk_X509_NAME_new(sk_X509_NAME_compfunc compare) { return (struct stack_st_X509_NAME *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_NAME *sk_X509_NAME_new_null(void) { return (struct stack_st_X509_NAME *)OPENSSL_sk_new_null(); } static __inline void sk_X509_NAME_free(struct stack_st_X509_NAME *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_NAME_zero(struct stack_st_X509_NAME *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_NAME *sk_X509_NAME_delete(struct stack_st_X509_NAME *sk, int i) { return (X509_NAME *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_NAME *sk_X509_NAME_delete_ptr(struct stack_st_X509_NAME *sk, X509_NAME *ptr) { return (X509_NAME *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_NAME_push(struct stack_st_X509_NAME *sk, X509_NAME *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_NAME_unshift(struct stack_st_X509_NAME *sk, X509_NAME *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_NAME *sk_X509_NAME_pop(struct stack_st_X509_NAME *sk) { return (X509_NAME *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_NAME *sk_X509_NAME_shift(struct stack_st_X509_NAME *sk) { return (X509_NAME *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_NAME_pop_free(struct stack_st_X509_NAME *sk, sk_X509_NAME_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_NAME_insert(struct stack_st_X509_NAME *sk, X509_NAME *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_NAME *sk_X509_NAME_set(struct stack_st_X509_NAME *sk, int idx, X509_NAME *ptr) { return (X509_NAME *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_NAME_find(struct stack_st_X509_NAME *sk, X509_NAME *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_NAME_find_ex(struct stack_st_X509_NAME *sk, X509_NAME *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_NAME_sort(struct stack_st_X509_NAME *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_NAME_is_sorted(const struct stack_st_X509_NAME *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_NAME * sk_X509_NAME_dup(const struct stack_st_X509_NAME *sk) { return (struct stack_st_X509_NAME *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_NAME *sk_X509_NAME_deep_copy(const struct stack_st_X509_NAME *sk, sk_X509_NAME_copyfunc copyfunc, sk_X509_NAME_freefunc freefunc) { return (struct stack_st_X509_NAME *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_NAME_compfunc sk_X509_NAME_set_cmp_func(struct stack_st_X509_NAME *sk, sk_X509_NAME_compfunc compare) { return (sk_X509_NAME_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_X509_NAME_ENTRY;
+typedef int (*sk_X509_NAME_ENTRY_compfunc)(const X509_NAME_ENTRY * const *a, const X509_NAME_ENTRY *const *b);
+typedef void (*sk_X509_NAME_ENTRY_freefunc)(X509_NAME_ENTRY *a);
+typedef X509_NAME_ENTRY * (*sk_X509_NAME_ENTRY_copyfunc)(const X509_NAME_ENTRY *a);
+static __inline int sk_X509_NAME_ENTRY_num(const struct stack_st_X509_NAME_ENTRY *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_value(const struct stack_st_X509_NAME_ENTRY *sk, int idx)
+{
+    return (X509_NAME_ENTRY *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_NAME_ENTRY *sk_X509_NAME_ENTRY_new(sk_X509_NAME_ENTRY_compfunc compare)
+{
+    return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_NAME_ENTRY *sk_X509_NAME_ENTRY_new_null(void)
+{
+    return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_NAME_ENTRY_free(struct stack_st_X509_NAME_ENTRY *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_NAME_ENTRY_zero(struct stack_st_X509_NAME_ENTRY *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_delete(struct stack_st_X509_NAME_ENTRY *sk, int i)
+{
+    return (X509_NAME_ENTRY *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_delete_ptr(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr)
+{
+    return (X509_NAME_ENTRY *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_ENTRY_push(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_ENTRY_unshift(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_pop(struct stack_st_X509_NAME_ENTRY *sk)
+{
+    return (X509_NAME_ENTRY *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_shift(struct stack_st_X509_NAME_ENTRY *sk)
+{
+    return (X509_NAME_ENTRY *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_NAME_ENTRY_pop_free(struct stack_st_X509_NAME_ENTRY *sk, sk_X509_NAME_ENTRY_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_NAME_ENTRY_insert(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_NAME_ENTRY *sk_X509_NAME_ENTRY_set(struct stack_st_X509_NAME_ENTRY *sk, int idx, X509_NAME_ENTRY *ptr)
+{
+    return (X509_NAME_ENTRY *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_ENTRY_find(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_ENTRY_find_ex(struct stack_st_X509_NAME_ENTRY *sk, X509_NAME_ENTRY *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_NAME_ENTRY_sort(struct stack_st_X509_NAME_ENTRY *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_NAME_ENTRY_is_sorted(const struct stack_st_X509_NAME_ENTRY *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_NAME_ENTRY * sk_X509_NAME_ENTRY_dup(const struct stack_st_X509_NAME_ENTRY *sk)
+{
+    return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_NAME_ENTRY *sk_X509_NAME_ENTRY_deep_copy(const struct stack_st_X509_NAME_ENTRY *sk, sk_X509_NAME_ENTRY_copyfunc copyfunc, sk_X509_NAME_ENTRY_freefunc freefunc)
+{
+    return (struct stack_st_X509_NAME_ENTRY *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_NAME_ENTRY_compfunc sk_X509_NAME_ENTRY_set_cmp_func(struct stack_st_X509_NAME_ENTRY *sk, sk_X509_NAME_ENTRY_compfunc compare)
+{
+    return (sk_X509_NAME_ENTRY_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_X509_NAME;
+typedef int (*sk_X509_NAME_compfunc)(const X509_NAME * const *a, const X509_NAME *const *b);
+typedef void (*sk_X509_NAME_freefunc)(X509_NAME *a);
+typedef X509_NAME * (*sk_X509_NAME_copyfunc)(const X509_NAME *a);
+static __inline int sk_X509_NAME_num(const struct stack_st_X509_NAME *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_NAME *sk_X509_NAME_value(const struct stack_st_X509_NAME *sk, int idx)
+{
+    return (X509_NAME *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_NAME *sk_X509_NAME_new(sk_X509_NAME_compfunc compare)
+{
+    return (struct stack_st_X509_NAME *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_NAME *sk_X509_NAME_new_null(void)
+{
+    return (struct stack_st_X509_NAME *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_NAME_free(struct stack_st_X509_NAME *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_NAME_zero(struct stack_st_X509_NAME *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_NAME *sk_X509_NAME_delete(struct stack_st_X509_NAME *sk, int i)
+{
+    return (X509_NAME *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_NAME *sk_X509_NAME_delete_ptr(struct stack_st_X509_NAME *sk, X509_NAME *ptr)
+{
+    return (X509_NAME *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_push(struct stack_st_X509_NAME *sk, X509_NAME *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_unshift(struct stack_st_X509_NAME *sk, X509_NAME *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_NAME *sk_X509_NAME_pop(struct stack_st_X509_NAME *sk)
+{
+    return (X509_NAME *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_NAME *sk_X509_NAME_shift(struct stack_st_X509_NAME *sk)
+{
+    return (X509_NAME *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_NAME_pop_free(struct stack_st_X509_NAME *sk, sk_X509_NAME_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_NAME_insert(struct stack_st_X509_NAME *sk, X509_NAME *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_NAME *sk_X509_NAME_set(struct stack_st_X509_NAME *sk, int idx, X509_NAME *ptr)
+{
+    return (X509_NAME *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_find(struct stack_st_X509_NAME *sk, X509_NAME *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_NAME_find_ex(struct stack_st_X509_NAME *sk, X509_NAME *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_NAME_sort(struct stack_st_X509_NAME *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_NAME_is_sorted(const struct stack_st_X509_NAME *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_NAME * sk_X509_NAME_dup(const struct stack_st_X509_NAME *sk)
+{
+    return (struct stack_st_X509_NAME *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_NAME *sk_X509_NAME_deep_copy(const struct stack_st_X509_NAME *sk, sk_X509_NAME_copyfunc copyfunc, sk_X509_NAME_freefunc freefunc)
+{
+    return (struct stack_st_X509_NAME *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_NAME_compfunc sk_X509_NAME_set_cmp_func(struct stack_st_X509_NAME *sk, sk_X509_NAME_compfunc compare)
+{
+    return (sk_X509_NAME_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct X509_extension_st X509_EXTENSION;
 typedef struct stack_st_X509_EXTENSION X509_EXTENSIONS;
-struct stack_st_X509_EXTENSION; typedef int (*sk_X509_EXTENSION_compfunc)(const X509_EXTENSION * const *a, const X509_EXTENSION *const *b); typedef void (*sk_X509_EXTENSION_freefunc)(X509_EXTENSION *a); typedef X509_EXTENSION * (*sk_X509_EXTENSION_copyfunc)(const X509_EXTENSION *a); static __inline int sk_X509_EXTENSION_num(const struct stack_st_X509_EXTENSION *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_EXTENSION *sk_X509_EXTENSION_value(const struct stack_st_X509_EXTENSION *sk, int idx) { return (X509_EXTENSION *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_EXTENSION *sk_X509_EXTENSION_new(sk_X509_EXTENSION_compfunc compare) { return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_EXTENSION *sk_X509_EXTENSION_new_null(void) { return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_new_null(); } static __inline void sk_X509_EXTENSION_free(struct stack_st_X509_EXTENSION *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_EXTENSION_zero(struct stack_st_X509_EXTENSION *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_EXTENSION *sk_X509_EXTENSION_delete(struct stack_st_X509_EXTENSION *sk, int i) { return (X509_EXTENSION *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_EXTENSION *sk_X509_EXTENSION_delete_ptr(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr) { return (X509_EXTENSION *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_EXTENSION_push(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_EXTENSION_unshift(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_EXTENSION *sk_X509_EXTENSION_pop(struct stack_st_X509_EXTENSION *sk) { return (X509_EXTENSION *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_EXTENSION *sk_X509_EXTENSION_shift(struct stack_st_X509_EXTENSION *sk) { return (X509_EXTENSION *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_EXTENSION_pop_free(struct stack_st_X509_EXTENSION *sk, sk_X509_EXTENSION_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_EXTENSION_insert(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_EXTENSION *sk_X509_EXTENSION_set(struct stack_st_X509_EXTENSION *sk, int idx, X509_EXTENSION *ptr) { return (X509_EXTENSION *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_EXTENSION_find(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_EXTENSION_find_ex(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_EXTENSION_sort(struct stack_st_X509_EXTENSION *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_EXTENSION_is_sorted(const struct stack_st_X509_EXTENSION *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_EXTENSION * sk_X509_EXTENSION_dup(const struct stack_st_X509_EXTENSION *sk) { return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_EXTENSION *sk_X509_EXTENSION_deep_copy(const struct stack_st_X509_EXTENSION *sk, sk_X509_EXTENSION_copyfunc copyfunc, sk_X509_EXTENSION_freefunc freefunc) { return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_EXTENSION_compfunc sk_X509_EXTENSION_set_cmp_func(struct stack_st_X509_EXTENSION *sk, sk_X509_EXTENSION_compfunc compare) { return (sk_X509_EXTENSION_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_X509_EXTENSION;
+typedef int (*sk_X509_EXTENSION_compfunc)(const X509_EXTENSION * const *a, const X509_EXTENSION *const *b);
+typedef void (*sk_X509_EXTENSION_freefunc)(X509_EXTENSION *a);
+typedef X509_EXTENSION * (*sk_X509_EXTENSION_copyfunc)(const X509_EXTENSION *a);
+static __inline int sk_X509_EXTENSION_num(const struct stack_st_X509_EXTENSION *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_EXTENSION *sk_X509_EXTENSION_value(const struct stack_st_X509_EXTENSION *sk, int idx)
+{
+    return (X509_EXTENSION *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_EXTENSION *sk_X509_EXTENSION_new(sk_X509_EXTENSION_compfunc compare)
+{
+    return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_EXTENSION *sk_X509_EXTENSION_new_null(void)
+{
+    return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_EXTENSION_free(struct stack_st_X509_EXTENSION *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_EXTENSION_zero(struct stack_st_X509_EXTENSION *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_EXTENSION *sk_X509_EXTENSION_delete(struct stack_st_X509_EXTENSION *sk, int i)
+{
+    return (X509_EXTENSION *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_EXTENSION *sk_X509_EXTENSION_delete_ptr(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr)
+{
+    return (X509_EXTENSION *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_EXTENSION_push(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_EXTENSION_unshift(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_EXTENSION *sk_X509_EXTENSION_pop(struct stack_st_X509_EXTENSION *sk)
+{
+    return (X509_EXTENSION *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_EXTENSION *sk_X509_EXTENSION_shift(struct stack_st_X509_EXTENSION *sk)
+{
+    return (X509_EXTENSION *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_EXTENSION_pop_free(struct stack_st_X509_EXTENSION *sk, sk_X509_EXTENSION_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_EXTENSION_insert(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_EXTENSION *sk_X509_EXTENSION_set(struct stack_st_X509_EXTENSION *sk, int idx, X509_EXTENSION *ptr)
+{
+    return (X509_EXTENSION *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_EXTENSION_find(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_EXTENSION_find_ex(struct stack_st_X509_EXTENSION *sk, X509_EXTENSION *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_EXTENSION_sort(struct stack_st_X509_EXTENSION *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_EXTENSION_is_sorted(const struct stack_st_X509_EXTENSION *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_EXTENSION * sk_X509_EXTENSION_dup(const struct stack_st_X509_EXTENSION *sk)
+{
+    return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_EXTENSION *sk_X509_EXTENSION_deep_copy(const struct stack_st_X509_EXTENSION *sk, sk_X509_EXTENSION_copyfunc copyfunc, sk_X509_EXTENSION_freefunc freefunc)
+{
+    return (struct stack_st_X509_EXTENSION *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_EXTENSION_compfunc sk_X509_EXTENSION_set_cmp_func(struct stack_st_X509_EXTENSION *sk, sk_X509_EXTENSION_compfunc compare)
+{
+    return (sk_X509_EXTENSION_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct x509_attributes_st X509_ATTRIBUTE;
-struct stack_st_X509_ATTRIBUTE; typedef int (*sk_X509_ATTRIBUTE_compfunc)(const X509_ATTRIBUTE * const *a, const X509_ATTRIBUTE *const *b); typedef void (*sk_X509_ATTRIBUTE_freefunc)(X509_ATTRIBUTE *a); typedef X509_ATTRIBUTE * (*sk_X509_ATTRIBUTE_copyfunc)(const X509_ATTRIBUTE *a); static __inline int sk_X509_ATTRIBUTE_num(const struct stack_st_X509_ATTRIBUTE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_value(const struct stack_st_X509_ATTRIBUTE *sk, int idx) { return (X509_ATTRIBUTE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_ATTRIBUTE *sk_X509_ATTRIBUTE_new(sk_X509_ATTRIBUTE_compfunc compare) { return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_ATTRIBUTE *sk_X509_ATTRIBUTE_new_null(void) { return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_new_null(); } static __inline void sk_X509_ATTRIBUTE_free(struct stack_st_X509_ATTRIBUTE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_ATTRIBUTE_zero(struct stack_st_X509_ATTRIBUTE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_delete(struct stack_st_X509_ATTRIBUTE *sk, int i) { return (X509_ATTRIBUTE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_delete_ptr(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr) { return (X509_ATTRIBUTE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_ATTRIBUTE_push(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_ATTRIBUTE_unshift(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_pop(struct stack_st_X509_ATTRIBUTE *sk) { return (X509_ATTRIBUTE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_shift(struct stack_st_X509_ATTRIBUTE *sk) { return (X509_ATTRIBUTE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_ATTRIBUTE_pop_free(struct stack_st_X509_ATTRIBUTE *sk, sk_X509_ATTRIBUTE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_ATTRIBUTE_insert(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_set(struct stack_st_X509_ATTRIBUTE *sk, int idx, X509_ATTRIBUTE *ptr) { return (X509_ATTRIBUTE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_ATTRIBUTE_find(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_ATTRIBUTE_find_ex(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_ATTRIBUTE_sort(struct stack_st_X509_ATTRIBUTE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_ATTRIBUTE_is_sorted(const struct stack_st_X509_ATTRIBUTE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_ATTRIBUTE * sk_X509_ATTRIBUTE_dup(const struct stack_st_X509_ATTRIBUTE *sk) { return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_ATTRIBUTE *sk_X509_ATTRIBUTE_deep_copy(const struct stack_st_X509_ATTRIBUTE *sk, sk_X509_ATTRIBUTE_copyfunc copyfunc, sk_X509_ATTRIBUTE_freefunc freefunc) { return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_ATTRIBUTE_compfunc sk_X509_ATTRIBUTE_set_cmp_func(struct stack_st_X509_ATTRIBUTE *sk, sk_X509_ATTRIBUTE_compfunc compare) { return (sk_X509_ATTRIBUTE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_X509_ATTRIBUTE;
+typedef int (*sk_X509_ATTRIBUTE_compfunc)(const X509_ATTRIBUTE * const *a, const X509_ATTRIBUTE *const *b);
+typedef void (*sk_X509_ATTRIBUTE_freefunc)(X509_ATTRIBUTE *a);
+typedef X509_ATTRIBUTE * (*sk_X509_ATTRIBUTE_copyfunc)(const X509_ATTRIBUTE *a);
+static __inline int sk_X509_ATTRIBUTE_num(const struct stack_st_X509_ATTRIBUTE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_value(const struct stack_st_X509_ATTRIBUTE *sk, int idx)
+{
+    return (X509_ATTRIBUTE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_ATTRIBUTE *sk_X509_ATTRIBUTE_new(sk_X509_ATTRIBUTE_compfunc compare)
+{
+    return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_ATTRIBUTE *sk_X509_ATTRIBUTE_new_null(void)
+{
+    return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_ATTRIBUTE_free(struct stack_st_X509_ATTRIBUTE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_ATTRIBUTE_zero(struct stack_st_X509_ATTRIBUTE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_delete(struct stack_st_X509_ATTRIBUTE *sk, int i)
+{
+    return (X509_ATTRIBUTE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_delete_ptr(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr)
+{
+    return (X509_ATTRIBUTE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_ATTRIBUTE_push(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_ATTRIBUTE_unshift(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_pop(struct stack_st_X509_ATTRIBUTE *sk)
+{
+    return (X509_ATTRIBUTE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_shift(struct stack_st_X509_ATTRIBUTE *sk)
+{
+    return (X509_ATTRIBUTE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_ATTRIBUTE_pop_free(struct stack_st_X509_ATTRIBUTE *sk, sk_X509_ATTRIBUTE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_ATTRIBUTE_insert(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_ATTRIBUTE *sk_X509_ATTRIBUTE_set(struct stack_st_X509_ATTRIBUTE *sk, int idx, X509_ATTRIBUTE *ptr)
+{
+    return (X509_ATTRIBUTE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_ATTRIBUTE_find(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_ATTRIBUTE_find_ex(struct stack_st_X509_ATTRIBUTE *sk, X509_ATTRIBUTE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_ATTRIBUTE_sort(struct stack_st_X509_ATTRIBUTE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_ATTRIBUTE_is_sorted(const struct stack_st_X509_ATTRIBUTE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_ATTRIBUTE * sk_X509_ATTRIBUTE_dup(const struct stack_st_X509_ATTRIBUTE *sk)
+{
+    return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_ATTRIBUTE *sk_X509_ATTRIBUTE_deep_copy(const struct stack_st_X509_ATTRIBUTE *sk, sk_X509_ATTRIBUTE_copyfunc copyfunc, sk_X509_ATTRIBUTE_freefunc freefunc)
+{
+    return (struct stack_st_X509_ATTRIBUTE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_ATTRIBUTE_compfunc sk_X509_ATTRIBUTE_set_cmp_func(struct stack_st_X509_ATTRIBUTE *sk, sk_X509_ATTRIBUTE_compfunc compare)
+{
+    return (sk_X509_ATTRIBUTE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct X509_req_info_st X509_REQ_INFO;
 typedef struct X509_req_st X509_REQ;
 typedef struct x509_cert_aux_st X509_CERT_AUX;
 typedef struct x509_cinf_st X509_CINF;
-struct stack_st_X509; typedef int (*sk_X509_compfunc)(const X509 * const *a, const X509 *const *b); typedef void (*sk_X509_freefunc)(X509 *a); typedef X509 * (*sk_X509_copyfunc)(const X509 *a); static __inline int sk_X509_num(const struct stack_st_X509 *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509 *sk_X509_value(const struct stack_st_X509 *sk, int idx) { return (X509 *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509 *sk_X509_new(sk_X509_compfunc compare) { return (struct stack_st_X509 *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509 *sk_X509_new_null(void) { return (struct stack_st_X509 *)OPENSSL_sk_new_null(); } static __inline void sk_X509_free(struct stack_st_X509 *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_zero(struct stack_st_X509 *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509 *sk_X509_delete(struct stack_st_X509 *sk, int i) { return (X509 *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509 *sk_X509_delete_ptr(struct stack_st_X509 *sk, X509 *ptr) { return (X509 *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_push(struct stack_st_X509 *sk, X509 *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_unshift(struct stack_st_X509 *sk, X509 *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509 *sk_X509_pop(struct stack_st_X509 *sk) { return (X509 *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509 *sk_X509_shift(struct stack_st_X509 *sk) { return (X509 *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_pop_free(struct stack_st_X509 *sk, sk_X509_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_insert(struct stack_st_X509 *sk, X509 *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509 *sk_X509_set(struct stack_st_X509 *sk, int idx, X509 *ptr) { return (X509 *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_find(struct stack_st_X509 *sk, X509 *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_find_ex(struct stack_st_X509 *sk, X509 *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_sort(struct stack_st_X509 *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_is_sorted(const struct stack_st_X509 *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509 * sk_X509_dup(const struct stack_st_X509 *sk) { return (struct stack_st_X509 *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509 *sk_X509_deep_copy(const struct stack_st_X509 *sk, sk_X509_copyfunc copyfunc, sk_X509_freefunc freefunc) { return (struct stack_st_X509 *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_compfunc sk_X509_set_cmp_func(struct stack_st_X509 *sk, sk_X509_compfunc compare) { return (sk_X509_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct x509_trust_st {
-int trust;
-int flags;
-int (*check_trust) (struct x509_trust_st *, X509 *, int);
-char *name;
-int arg1;
-void *arg2;
+struct stack_st_X509;
+typedef int (*sk_X509_compfunc)(const X509 * const *a, const X509 *const *b);
+typedef void (*sk_X509_freefunc)(X509 *a);
+typedef X509 * (*sk_X509_copyfunc)(const X509 *a);
+static __inline int sk_X509_num(const struct stack_st_X509 *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509 *sk_X509_value(const struct stack_st_X509 *sk, int idx)
+{
+    return (X509 *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509 *sk_X509_new(sk_X509_compfunc compare)
+{
+    return (struct stack_st_X509 *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509 *sk_X509_new_null(void)
+{
+    return (struct stack_st_X509 *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_free(struct stack_st_X509 *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_zero(struct stack_st_X509 *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509 *sk_X509_delete(struct stack_st_X509 *sk, int i)
+{
+    return (X509 *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509 *sk_X509_delete_ptr(struct stack_st_X509 *sk, X509 *ptr)
+{
+    return (X509 *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_push(struct stack_st_X509 *sk, X509 *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_unshift(struct stack_st_X509 *sk, X509 *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509 *sk_X509_pop(struct stack_st_X509 *sk)
+{
+    return (X509 *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509 *sk_X509_shift(struct stack_st_X509 *sk)
+{
+    return (X509 *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_pop_free(struct stack_st_X509 *sk, sk_X509_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_insert(struct stack_st_X509 *sk, X509 *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509 *sk_X509_set(struct stack_st_X509 *sk, int idx, X509 *ptr)
+{
+    return (X509 *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_find(struct stack_st_X509 *sk, X509 *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_find_ex(struct stack_st_X509 *sk, X509 *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_sort(struct stack_st_X509 *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_is_sorted(const struct stack_st_X509 *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509 * sk_X509_dup(const struct stack_st_X509 *sk)
+{
+    return (struct stack_st_X509 *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509 *sk_X509_deep_copy(const struct stack_st_X509 *sk, sk_X509_copyfunc copyfunc, sk_X509_freefunc freefunc)
+{
+    return (struct stack_st_X509 *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_compfunc sk_X509_set_cmp_func(struct stack_st_X509 *sk, sk_X509_compfunc compare)
+{
+    return (sk_X509_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct x509_trust_st
+{
+    int trust;
+    int flags;
+    int (*check_trust) (struct x509_trust_st *, X509 *, int);
+    char *name;
+    int arg1;
+    void *arg2;
 } X509_TRUST;
-struct stack_st_X509_TRUST; typedef int (*sk_X509_TRUST_compfunc)(const X509_TRUST * const *a, const X509_TRUST *const *b); typedef void (*sk_X509_TRUST_freefunc)(X509_TRUST *a); typedef X509_TRUST * (*sk_X509_TRUST_copyfunc)(const X509_TRUST *a); static __inline int sk_X509_TRUST_num(const struct stack_st_X509_TRUST *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_TRUST *sk_X509_TRUST_value(const struct stack_st_X509_TRUST *sk, int idx) { return (X509_TRUST *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_TRUST *sk_X509_TRUST_new(sk_X509_TRUST_compfunc compare) { return (struct stack_st_X509_TRUST *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_TRUST *sk_X509_TRUST_new_null(void) { return (struct stack_st_X509_TRUST *)OPENSSL_sk_new_null(); } static __inline void sk_X509_TRUST_free(struct stack_st_X509_TRUST *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_TRUST_zero(struct stack_st_X509_TRUST *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_TRUST *sk_X509_TRUST_delete(struct stack_st_X509_TRUST *sk, int i) { return (X509_TRUST *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_TRUST *sk_X509_TRUST_delete_ptr(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr) { return (X509_TRUST *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_TRUST_push(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_TRUST_unshift(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_TRUST *sk_X509_TRUST_pop(struct stack_st_X509_TRUST *sk) { return (X509_TRUST *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_TRUST *sk_X509_TRUST_shift(struct stack_st_X509_TRUST *sk) { return (X509_TRUST *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_TRUST_pop_free(struct stack_st_X509_TRUST *sk, sk_X509_TRUST_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_TRUST_insert(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_TRUST *sk_X509_TRUST_set(struct stack_st_X509_TRUST *sk, int idx, X509_TRUST *ptr) { return (X509_TRUST *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_TRUST_find(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_TRUST_find_ex(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_TRUST_sort(struct stack_st_X509_TRUST *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_TRUST_is_sorted(const struct stack_st_X509_TRUST *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_TRUST * sk_X509_TRUST_dup(const struct stack_st_X509_TRUST *sk) { return (struct stack_st_X509_TRUST *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_TRUST *sk_X509_TRUST_deep_copy(const struct stack_st_X509_TRUST *sk, sk_X509_TRUST_copyfunc copyfunc, sk_X509_TRUST_freefunc freefunc) { return (struct stack_st_X509_TRUST *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_TRUST_compfunc sk_X509_TRUST_set_cmp_func(struct stack_st_X509_TRUST *sk, sk_X509_TRUST_compfunc compare) { return (sk_X509_TRUST_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_X509_REVOKED; typedef int (*sk_X509_REVOKED_compfunc)(const X509_REVOKED * const *a, const X509_REVOKED *const *b); typedef void (*sk_X509_REVOKED_freefunc)(X509_REVOKED *a); typedef X509_REVOKED * (*sk_X509_REVOKED_copyfunc)(const X509_REVOKED *a); static __inline int sk_X509_REVOKED_num(const struct stack_st_X509_REVOKED *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_REVOKED *sk_X509_REVOKED_value(const struct stack_st_X509_REVOKED *sk, int idx) { return (X509_REVOKED *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_REVOKED *sk_X509_REVOKED_new(sk_X509_REVOKED_compfunc compare) { return (struct stack_st_X509_REVOKED *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_REVOKED *sk_X509_REVOKED_new_null(void) { return (struct stack_st_X509_REVOKED *)OPENSSL_sk_new_null(); } static __inline void sk_X509_REVOKED_free(struct stack_st_X509_REVOKED *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_REVOKED_zero(struct stack_st_X509_REVOKED *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_REVOKED *sk_X509_REVOKED_delete(struct stack_st_X509_REVOKED *sk, int i) { return (X509_REVOKED *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_REVOKED *sk_X509_REVOKED_delete_ptr(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr) { return (X509_REVOKED *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_REVOKED_push(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_REVOKED_unshift(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_REVOKED *sk_X509_REVOKED_pop(struct stack_st_X509_REVOKED *sk) { return (X509_REVOKED *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_REVOKED *sk_X509_REVOKED_shift(struct stack_st_X509_REVOKED *sk) { return (X509_REVOKED *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_REVOKED_pop_free(struct stack_st_X509_REVOKED *sk, sk_X509_REVOKED_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_REVOKED_insert(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_REVOKED *sk_X509_REVOKED_set(struct stack_st_X509_REVOKED *sk, int idx, X509_REVOKED *ptr) { return (X509_REVOKED *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_REVOKED_find(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_REVOKED_find_ex(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_REVOKED_sort(struct stack_st_X509_REVOKED *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_REVOKED_is_sorted(const struct stack_st_X509_REVOKED *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_REVOKED * sk_X509_REVOKED_dup(const struct stack_st_X509_REVOKED *sk) { return (struct stack_st_X509_REVOKED *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_REVOKED *sk_X509_REVOKED_deep_copy(const struct stack_st_X509_REVOKED *sk, sk_X509_REVOKED_copyfunc copyfunc, sk_X509_REVOKED_freefunc freefunc) { return (struct stack_st_X509_REVOKED *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_REVOKED_compfunc sk_X509_REVOKED_set_cmp_func(struct stack_st_X509_REVOKED *sk, sk_X509_REVOKED_compfunc compare) { return (sk_X509_REVOKED_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_X509_TRUST;
+typedef int (*sk_X509_TRUST_compfunc)(const X509_TRUST * const *a, const X509_TRUST *const *b);
+typedef void (*sk_X509_TRUST_freefunc)(X509_TRUST *a);
+typedef X509_TRUST * (*sk_X509_TRUST_copyfunc)(const X509_TRUST *a);
+static __inline int sk_X509_TRUST_num(const struct stack_st_X509_TRUST *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_TRUST *sk_X509_TRUST_value(const struct stack_st_X509_TRUST *sk, int idx)
+{
+    return (X509_TRUST *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_TRUST *sk_X509_TRUST_new(sk_X509_TRUST_compfunc compare)
+{
+    return (struct stack_st_X509_TRUST *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_TRUST *sk_X509_TRUST_new_null(void)
+{
+    return (struct stack_st_X509_TRUST *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_TRUST_free(struct stack_st_X509_TRUST *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_TRUST_zero(struct stack_st_X509_TRUST *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_TRUST *sk_X509_TRUST_delete(struct stack_st_X509_TRUST *sk, int i)
+{
+    return (X509_TRUST *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_TRUST *sk_X509_TRUST_delete_ptr(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr)
+{
+    return (X509_TRUST *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_TRUST_push(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_TRUST_unshift(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_TRUST *sk_X509_TRUST_pop(struct stack_st_X509_TRUST *sk)
+{
+    return (X509_TRUST *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_TRUST *sk_X509_TRUST_shift(struct stack_st_X509_TRUST *sk)
+{
+    return (X509_TRUST *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_TRUST_pop_free(struct stack_st_X509_TRUST *sk, sk_X509_TRUST_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_TRUST_insert(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_TRUST *sk_X509_TRUST_set(struct stack_st_X509_TRUST *sk, int idx, X509_TRUST *ptr)
+{
+    return (X509_TRUST *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_TRUST_find(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_TRUST_find_ex(struct stack_st_X509_TRUST *sk, X509_TRUST *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_TRUST_sort(struct stack_st_X509_TRUST *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_TRUST_is_sorted(const struct stack_st_X509_TRUST *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_TRUST * sk_X509_TRUST_dup(const struct stack_st_X509_TRUST *sk)
+{
+    return (struct stack_st_X509_TRUST *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_TRUST *sk_X509_TRUST_deep_copy(const struct stack_st_X509_TRUST *sk, sk_X509_TRUST_copyfunc copyfunc, sk_X509_TRUST_freefunc freefunc)
+{
+    return (struct stack_st_X509_TRUST *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_TRUST_compfunc sk_X509_TRUST_set_cmp_func(struct stack_st_X509_TRUST *sk, sk_X509_TRUST_compfunc compare)
+{
+    return (sk_X509_TRUST_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_X509_REVOKED;
+typedef int (*sk_X509_REVOKED_compfunc)(const X509_REVOKED * const *a, const X509_REVOKED *const *b);
+typedef void (*sk_X509_REVOKED_freefunc)(X509_REVOKED *a);
+typedef X509_REVOKED * (*sk_X509_REVOKED_copyfunc)(const X509_REVOKED *a);
+static __inline int sk_X509_REVOKED_num(const struct stack_st_X509_REVOKED *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_REVOKED *sk_X509_REVOKED_value(const struct stack_st_X509_REVOKED *sk, int idx)
+{
+    return (X509_REVOKED *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_REVOKED *sk_X509_REVOKED_new(sk_X509_REVOKED_compfunc compare)
+{
+    return (struct stack_st_X509_REVOKED *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_REVOKED *sk_X509_REVOKED_new_null(void)
+{
+    return (struct stack_st_X509_REVOKED *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_REVOKED_free(struct stack_st_X509_REVOKED *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_REVOKED_zero(struct stack_st_X509_REVOKED *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_REVOKED *sk_X509_REVOKED_delete(struct stack_st_X509_REVOKED *sk, int i)
+{
+    return (X509_REVOKED *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_REVOKED *sk_X509_REVOKED_delete_ptr(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr)
+{
+    return (X509_REVOKED *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_REVOKED_push(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_REVOKED_unshift(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_REVOKED *sk_X509_REVOKED_pop(struct stack_st_X509_REVOKED *sk)
+{
+    return (X509_REVOKED *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_REVOKED *sk_X509_REVOKED_shift(struct stack_st_X509_REVOKED *sk)
+{
+    return (X509_REVOKED *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_REVOKED_pop_free(struct stack_st_X509_REVOKED *sk, sk_X509_REVOKED_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_REVOKED_insert(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_REVOKED *sk_X509_REVOKED_set(struct stack_st_X509_REVOKED *sk, int idx, X509_REVOKED *ptr)
+{
+    return (X509_REVOKED *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_REVOKED_find(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_REVOKED_find_ex(struct stack_st_X509_REVOKED *sk, X509_REVOKED *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_REVOKED_sort(struct stack_st_X509_REVOKED *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_REVOKED_is_sorted(const struct stack_st_X509_REVOKED *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_REVOKED * sk_X509_REVOKED_dup(const struct stack_st_X509_REVOKED *sk)
+{
+    return (struct stack_st_X509_REVOKED *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_REVOKED *sk_X509_REVOKED_deep_copy(const struct stack_st_X509_REVOKED *sk, sk_X509_REVOKED_copyfunc copyfunc, sk_X509_REVOKED_freefunc freefunc)
+{
+    return (struct stack_st_X509_REVOKED *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_REVOKED_compfunc sk_X509_REVOKED_set_cmp_func(struct stack_st_X509_REVOKED *sk, sk_X509_REVOKED_compfunc compare)
+{
+    return (sk_X509_REVOKED_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct X509_crl_info_st X509_CRL_INFO;
-struct stack_st_X509_CRL; typedef int (*sk_X509_CRL_compfunc)(const X509_CRL * const *a, const X509_CRL *const *b); typedef void (*sk_X509_CRL_freefunc)(X509_CRL *a); typedef X509_CRL * (*sk_X509_CRL_copyfunc)(const X509_CRL *a); static __inline int sk_X509_CRL_num(const struct stack_st_X509_CRL *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_CRL *sk_X509_CRL_value(const struct stack_st_X509_CRL *sk, int idx) { return (X509_CRL *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_CRL *sk_X509_CRL_new(sk_X509_CRL_compfunc compare) { return (struct stack_st_X509_CRL *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_CRL *sk_X509_CRL_new_null(void) { return (struct stack_st_X509_CRL *)OPENSSL_sk_new_null(); } static __inline void sk_X509_CRL_free(struct stack_st_X509_CRL *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_CRL_zero(struct stack_st_X509_CRL *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_CRL *sk_X509_CRL_delete(struct stack_st_X509_CRL *sk, int i) { return (X509_CRL *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_CRL *sk_X509_CRL_delete_ptr(struct stack_st_X509_CRL *sk, X509_CRL *ptr) { return (X509_CRL *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_CRL_push(struct stack_st_X509_CRL *sk, X509_CRL *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_CRL_unshift(struct stack_st_X509_CRL *sk, X509_CRL *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_CRL *sk_X509_CRL_pop(struct stack_st_X509_CRL *sk) { return (X509_CRL *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_CRL *sk_X509_CRL_shift(struct stack_st_X509_CRL *sk) { return (X509_CRL *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_CRL_pop_free(struct stack_st_X509_CRL *sk, sk_X509_CRL_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_CRL_insert(struct stack_st_X509_CRL *sk, X509_CRL *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_CRL *sk_X509_CRL_set(struct stack_st_X509_CRL *sk, int idx, X509_CRL *ptr) { return (X509_CRL *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_CRL_find(struct stack_st_X509_CRL *sk, X509_CRL *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_CRL_find_ex(struct stack_st_X509_CRL *sk, X509_CRL *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_CRL_sort(struct stack_st_X509_CRL *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_CRL_is_sorted(const struct stack_st_X509_CRL *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_CRL * sk_X509_CRL_dup(const struct stack_st_X509_CRL *sk) { return (struct stack_st_X509_CRL *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_CRL *sk_X509_CRL_deep_copy(const struct stack_st_X509_CRL *sk, sk_X509_CRL_copyfunc copyfunc, sk_X509_CRL_freefunc freefunc) { return (struct stack_st_X509_CRL *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_CRL_compfunc sk_X509_CRL_set_cmp_func(struct stack_st_X509_CRL *sk, sk_X509_CRL_compfunc compare) { return (sk_X509_CRL_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct private_key_st {
-int version;
-X509_ALGOR *enc_algor;
-ASN1_OCTET_STRING *enc_pkey; 
-EVP_PKEY *dec_pkey;
-int key_length;
-char *key_data;
-int key_free;               
-EVP_CIPHER_INFO cipher;
+struct stack_st_X509_CRL;
+typedef int (*sk_X509_CRL_compfunc)(const X509_CRL * const *a, const X509_CRL *const *b);
+typedef void (*sk_X509_CRL_freefunc)(X509_CRL *a);
+typedef X509_CRL * (*sk_X509_CRL_copyfunc)(const X509_CRL *a);
+static __inline int sk_X509_CRL_num(const struct stack_st_X509_CRL *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_CRL *sk_X509_CRL_value(const struct stack_st_X509_CRL *sk, int idx)
+{
+    return (X509_CRL *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_CRL *sk_X509_CRL_new(sk_X509_CRL_compfunc compare)
+{
+    return (struct stack_st_X509_CRL *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_CRL *sk_X509_CRL_new_null(void)
+{
+    return (struct stack_st_X509_CRL *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_CRL_free(struct stack_st_X509_CRL *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_CRL_zero(struct stack_st_X509_CRL *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_CRL *sk_X509_CRL_delete(struct stack_st_X509_CRL *sk, int i)
+{
+    return (X509_CRL *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_CRL *sk_X509_CRL_delete_ptr(struct stack_st_X509_CRL *sk, X509_CRL *ptr)
+{
+    return (X509_CRL *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_CRL_push(struct stack_st_X509_CRL *sk, X509_CRL *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_CRL_unshift(struct stack_st_X509_CRL *sk, X509_CRL *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_CRL *sk_X509_CRL_pop(struct stack_st_X509_CRL *sk)
+{
+    return (X509_CRL *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_CRL *sk_X509_CRL_shift(struct stack_st_X509_CRL *sk)
+{
+    return (X509_CRL *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_CRL_pop_free(struct stack_st_X509_CRL *sk, sk_X509_CRL_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_CRL_insert(struct stack_st_X509_CRL *sk, X509_CRL *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_CRL *sk_X509_CRL_set(struct stack_st_X509_CRL *sk, int idx, X509_CRL *ptr)
+{
+    return (X509_CRL *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_CRL_find(struct stack_st_X509_CRL *sk, X509_CRL *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_CRL_find_ex(struct stack_st_X509_CRL *sk, X509_CRL *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_CRL_sort(struct stack_st_X509_CRL *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_CRL_is_sorted(const struct stack_st_X509_CRL *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_CRL * sk_X509_CRL_dup(const struct stack_st_X509_CRL *sk)
+{
+    return (struct stack_st_X509_CRL *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_CRL *sk_X509_CRL_deep_copy(const struct stack_st_X509_CRL *sk, sk_X509_CRL_copyfunc copyfunc, sk_X509_CRL_freefunc freefunc)
+{
+    return (struct stack_st_X509_CRL *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_CRL_compfunc sk_X509_CRL_set_cmp_func(struct stack_st_X509_CRL *sk, sk_X509_CRL_compfunc compare)
+{
+    return (sk_X509_CRL_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct private_key_st
+{
+    int version;
+    X509_ALGOR *enc_algor;
+    ASN1_OCTET_STRING *enc_pkey;
+    EVP_PKEY *dec_pkey;
+    int key_length;
+    char *key_data;
+    int key_free;
+    EVP_CIPHER_INFO cipher;
 } X509_PKEY;
-typedef struct X509_info_st {
-X509 *x509;
-X509_CRL *crl;
-X509_PKEY *x_pkey;
-EVP_CIPHER_INFO enc_cipher;
-int enc_len;
-char *enc_data;
+typedef struct X509_info_st
+{
+    X509 *x509;
+    X509_CRL *crl;
+    X509_PKEY *x_pkey;
+    EVP_CIPHER_INFO enc_cipher;
+    int enc_len;
+    char *enc_data;
 } X509_INFO;
-struct stack_st_X509_INFO; typedef int (*sk_X509_INFO_compfunc)(const X509_INFO * const *a, const X509_INFO *const *b); typedef void (*sk_X509_INFO_freefunc)(X509_INFO *a); typedef X509_INFO * (*sk_X509_INFO_copyfunc)(const X509_INFO *a); static __inline int sk_X509_INFO_num(const struct stack_st_X509_INFO *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_INFO *sk_X509_INFO_value(const struct stack_st_X509_INFO *sk, int idx) { return (X509_INFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_INFO *sk_X509_INFO_new(sk_X509_INFO_compfunc compare) { return (struct stack_st_X509_INFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_INFO *sk_X509_INFO_new_null(void) { return (struct stack_st_X509_INFO *)OPENSSL_sk_new_null(); } static __inline void sk_X509_INFO_free(struct stack_st_X509_INFO *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_INFO_zero(struct stack_st_X509_INFO *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_INFO *sk_X509_INFO_delete(struct stack_st_X509_INFO *sk, int i) { return (X509_INFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_INFO *sk_X509_INFO_delete_ptr(struct stack_st_X509_INFO *sk, X509_INFO *ptr) { return (X509_INFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_INFO_push(struct stack_st_X509_INFO *sk, X509_INFO *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_INFO_unshift(struct stack_st_X509_INFO *sk, X509_INFO *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_INFO *sk_X509_INFO_pop(struct stack_st_X509_INFO *sk) { return (X509_INFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_INFO *sk_X509_INFO_shift(struct stack_st_X509_INFO *sk) { return (X509_INFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_INFO_pop_free(struct stack_st_X509_INFO *sk, sk_X509_INFO_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_INFO_insert(struct stack_st_X509_INFO *sk, X509_INFO *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_INFO *sk_X509_INFO_set(struct stack_st_X509_INFO *sk, int idx, X509_INFO *ptr) { return (X509_INFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_INFO_find(struct stack_st_X509_INFO *sk, X509_INFO *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_INFO_find_ex(struct stack_st_X509_INFO *sk, X509_INFO *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_INFO_sort(struct stack_st_X509_INFO *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_INFO_is_sorted(const struct stack_st_X509_INFO *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_INFO * sk_X509_INFO_dup(const struct stack_st_X509_INFO *sk) { return (struct stack_st_X509_INFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_INFO *sk_X509_INFO_deep_copy(const struct stack_st_X509_INFO *sk, sk_X509_INFO_copyfunc copyfunc, sk_X509_INFO_freefunc freefunc) { return (struct stack_st_X509_INFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_INFO_compfunc sk_X509_INFO_set_cmp_func(struct stack_st_X509_INFO *sk, sk_X509_INFO_compfunc compare) { return (sk_X509_INFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct Netscape_spkac_st {
-X509_PUBKEY *pubkey;
-ASN1_IA5STRING *challenge;  
+struct stack_st_X509_INFO;
+typedef int (*sk_X509_INFO_compfunc)(const X509_INFO * const *a, const X509_INFO *const *b);
+typedef void (*sk_X509_INFO_freefunc)(X509_INFO *a);
+typedef X509_INFO * (*sk_X509_INFO_copyfunc)(const X509_INFO *a);
+static __inline int sk_X509_INFO_num(const struct stack_st_X509_INFO *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_INFO *sk_X509_INFO_value(const struct stack_st_X509_INFO *sk, int idx)
+{
+    return (X509_INFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_INFO *sk_X509_INFO_new(sk_X509_INFO_compfunc compare)
+{
+    return (struct stack_st_X509_INFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_INFO *sk_X509_INFO_new_null(void)
+{
+    return (struct stack_st_X509_INFO *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_INFO_free(struct stack_st_X509_INFO *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_INFO_zero(struct stack_st_X509_INFO *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_INFO *sk_X509_INFO_delete(struct stack_st_X509_INFO *sk, int i)
+{
+    return (X509_INFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_INFO *sk_X509_INFO_delete_ptr(struct stack_st_X509_INFO *sk, X509_INFO *ptr)
+{
+    return (X509_INFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_INFO_push(struct stack_st_X509_INFO *sk, X509_INFO *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_INFO_unshift(struct stack_st_X509_INFO *sk, X509_INFO *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_INFO *sk_X509_INFO_pop(struct stack_st_X509_INFO *sk)
+{
+    return (X509_INFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_INFO *sk_X509_INFO_shift(struct stack_st_X509_INFO *sk)
+{
+    return (X509_INFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_INFO_pop_free(struct stack_st_X509_INFO *sk, sk_X509_INFO_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_INFO_insert(struct stack_st_X509_INFO *sk, X509_INFO *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_INFO *sk_X509_INFO_set(struct stack_st_X509_INFO *sk, int idx, X509_INFO *ptr)
+{
+    return (X509_INFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_INFO_find(struct stack_st_X509_INFO *sk, X509_INFO *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_INFO_find_ex(struct stack_st_X509_INFO *sk, X509_INFO *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_INFO_sort(struct stack_st_X509_INFO *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_INFO_is_sorted(const struct stack_st_X509_INFO *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_INFO * sk_X509_INFO_dup(const struct stack_st_X509_INFO *sk)
+{
+    return (struct stack_st_X509_INFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_INFO *sk_X509_INFO_deep_copy(const struct stack_st_X509_INFO *sk, sk_X509_INFO_copyfunc copyfunc, sk_X509_INFO_freefunc freefunc)
+{
+    return (struct stack_st_X509_INFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_INFO_compfunc sk_X509_INFO_set_cmp_func(struct stack_st_X509_INFO *sk, sk_X509_INFO_compfunc compare)
+{
+    return (sk_X509_INFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct Netscape_spkac_st
+{
+    X509_PUBKEY *pubkey;
+    ASN1_IA5STRING *challenge;
 } NETSCAPE_SPKAC;
-typedef struct Netscape_spki_st {
-NETSCAPE_SPKAC *spkac;      
-X509_ALGOR sig_algor;
-ASN1_BIT_STRING *signature;
+typedef struct Netscape_spki_st
+{
+    NETSCAPE_SPKAC *spkac;
+    X509_ALGOR sig_algor;
+    ASN1_BIT_STRING *signature;
 } NETSCAPE_SPKI;
-typedef struct Netscape_certificate_sequence {
-ASN1_OBJECT *type;
-struct stack_st_X509 *certs;
+typedef struct Netscape_certificate_sequence
+{
+    ASN1_OBJECT *type;
+    struct stack_st_X509 *certs;
 } NETSCAPE_CERT_SEQUENCE;
-typedef struct PBEPARAM_st {
-ASN1_OCTET_STRING *salt;
-ASN1_INTEGER *iter;
+typedef struct PBEPARAM_st
+{
+    ASN1_OCTET_STRING *salt;
+    ASN1_INTEGER *iter;
 } PBEPARAM;
-typedef struct PBE2PARAM_st {
-X509_ALGOR *keyfunc;
-X509_ALGOR *encryption;
+typedef struct PBE2PARAM_st
+{
+    X509_ALGOR *keyfunc;
+    X509_ALGOR *encryption;
 } PBE2PARAM;
-typedef struct PBKDF2PARAM_st {
-ASN1_TYPE *salt;
-ASN1_INTEGER *iter;
-ASN1_INTEGER *keylength;
-X509_ALGOR *prf;
+typedef struct PBKDF2PARAM_st
+{
+    ASN1_TYPE *salt;
+    ASN1_INTEGER *iter;
+    ASN1_INTEGER *keylength;
+    X509_ALGOR *prf;
 } PBKDF2PARAM;
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509_vfy.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/opensslconf.h"
@@ -4685,8 +7051,130 @@ void OPENSSL_LH_node_stats_bio(const OPENSSL_LHASH *lh, BIO *out);
 void OPENSSL_LH_node_usage_stats_bio(const OPENSSL_LHASH *lh, BIO *out);
 #line 112 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/lhash.h"
 #line 116 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/lhash.h"
-struct lhash_st_OPENSSL_STRING { union lh_OPENSSL_STRING_dummy { void* d1; unsigned long d2; int d3; } dummy; }; static __inline struct lhash_st_OPENSSL_STRING * lh_OPENSSL_STRING_new(unsigned long (*hfn)(const OPENSSL_STRING *), int (*cfn)(const OPENSSL_STRING *, const OPENSSL_STRING *)) { return (struct lhash_st_OPENSSL_STRING *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn); } static __inline void lh_OPENSSL_STRING_free(struct lhash_st_OPENSSL_STRING *lh) { OPENSSL_LH_free((OPENSSL_LHASH *)lh); } static __inline OPENSSL_STRING *lh_OPENSSL_STRING_insert(struct lhash_st_OPENSSL_STRING *lh, OPENSSL_STRING *d) { return (OPENSSL_STRING *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d); } static __inline OPENSSL_STRING *lh_OPENSSL_STRING_delete(struct lhash_st_OPENSSL_STRING *lh, const OPENSSL_STRING *d) { return (OPENSSL_STRING *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d); } static __inline OPENSSL_STRING *lh_OPENSSL_STRING_retrieve(struct lhash_st_OPENSSL_STRING *lh, const OPENSSL_STRING *d) { return (OPENSSL_STRING *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d); } static __inline int lh_OPENSSL_STRING_error(struct lhash_st_OPENSSL_STRING *lh) { return OPENSSL_LH_error((OPENSSL_LHASH *)lh); } static __inline unsigned long lh_OPENSSL_STRING_num_items(struct lhash_st_OPENSSL_STRING *lh) { return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh); } static __inline void lh_OPENSSL_STRING_node_stats_bio(const struct lhash_st_OPENSSL_STRING *lh, BIO *out) { OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_OPENSSL_STRING_node_usage_stats_bio(const struct lhash_st_OPENSSL_STRING *lh, BIO *out) { OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_OPENSSL_STRING_stats_bio(const struct lhash_st_OPENSSL_STRING *lh, BIO *out) { OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline unsigned long lh_OPENSSL_STRING_get_down_load(struct lhash_st_OPENSSL_STRING *lh) { return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh); } static __inline void lh_OPENSSL_STRING_set_down_load(struct lhash_st_OPENSSL_STRING *lh, unsigned long dl) { OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl); } static __inline void lh_OPENSSL_STRING_doall(struct lhash_st_OPENSSL_STRING *lh, void (*doall)(OPENSSL_STRING *)) { OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall); } struct lhash_st_OPENSSL_STRING;
-struct lhash_st_OPENSSL_CSTRING { union lh_OPENSSL_CSTRING_dummy { void* d1; unsigned long d2; int d3; } dummy; }; static __inline struct lhash_st_OPENSSL_CSTRING * lh_OPENSSL_CSTRING_new(unsigned long (*hfn)(const OPENSSL_CSTRING *), int (*cfn)(const OPENSSL_CSTRING *, const OPENSSL_CSTRING *)) { return (struct lhash_st_OPENSSL_CSTRING *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn); } static __inline void lh_OPENSSL_CSTRING_free(struct lhash_st_OPENSSL_CSTRING *lh) { OPENSSL_LH_free((OPENSSL_LHASH *)lh); } static __inline OPENSSL_CSTRING *lh_OPENSSL_CSTRING_insert(struct lhash_st_OPENSSL_CSTRING *lh, OPENSSL_CSTRING *d) { return (OPENSSL_CSTRING *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d); } static __inline OPENSSL_CSTRING *lh_OPENSSL_CSTRING_delete(struct lhash_st_OPENSSL_CSTRING *lh, const OPENSSL_CSTRING *d) { return (OPENSSL_CSTRING *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d); } static __inline OPENSSL_CSTRING *lh_OPENSSL_CSTRING_retrieve(struct lhash_st_OPENSSL_CSTRING *lh, const OPENSSL_CSTRING *d) { return (OPENSSL_CSTRING *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d); } static __inline int lh_OPENSSL_CSTRING_error(struct lhash_st_OPENSSL_CSTRING *lh) { return OPENSSL_LH_error((OPENSSL_LHASH *)lh); } static __inline unsigned long lh_OPENSSL_CSTRING_num_items(struct lhash_st_OPENSSL_CSTRING *lh) { return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh); } static __inline void lh_OPENSSL_CSTRING_node_stats_bio(const struct lhash_st_OPENSSL_CSTRING *lh, BIO *out) { OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_OPENSSL_CSTRING_node_usage_stats_bio(const struct lhash_st_OPENSSL_CSTRING *lh, BIO *out) { OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_OPENSSL_CSTRING_stats_bio(const struct lhash_st_OPENSSL_CSTRING *lh, BIO *out) { OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline unsigned long lh_OPENSSL_CSTRING_get_down_load(struct lhash_st_OPENSSL_CSTRING *lh) { return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh); } static __inline void lh_OPENSSL_CSTRING_set_down_load(struct lhash_st_OPENSSL_CSTRING *lh, unsigned long dl) { OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl); } static __inline void lh_OPENSSL_CSTRING_doall(struct lhash_st_OPENSSL_CSTRING *lh, void (*doall)(OPENSSL_CSTRING *)) { OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall); } struct lhash_st_OPENSSL_CSTRING;
+struct lhash_st_OPENSSL_STRING
+{
+    union lh_OPENSSL_STRING_dummy
+    {
+        void* d1;
+        unsigned long d2;
+        int d3;
+    } dummy;
+};
+static __inline struct lhash_st_OPENSSL_STRING * lh_OPENSSL_STRING_new(unsigned long (*hfn)(const OPENSSL_STRING *), int (*cfn)(const OPENSSL_STRING *, const OPENSSL_STRING *))
+{
+    return (struct lhash_st_OPENSSL_STRING *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn);
+}
+static __inline void lh_OPENSSL_STRING_free(struct lhash_st_OPENSSL_STRING *lh)
+{
+    OPENSSL_LH_free((OPENSSL_LHASH *)lh);
+}
+static __inline OPENSSL_STRING *lh_OPENSSL_STRING_insert(struct lhash_st_OPENSSL_STRING *lh, OPENSSL_STRING *d)
+{
+    return (OPENSSL_STRING *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d);
+}
+static __inline OPENSSL_STRING *lh_OPENSSL_STRING_delete(struct lhash_st_OPENSSL_STRING *lh, const OPENSSL_STRING *d)
+{
+    return (OPENSSL_STRING *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d);
+}
+static __inline OPENSSL_STRING *lh_OPENSSL_STRING_retrieve(struct lhash_st_OPENSSL_STRING *lh, const OPENSSL_STRING *d)
+{
+    return (OPENSSL_STRING *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d);
+}
+static __inline int lh_OPENSSL_STRING_error(struct lhash_st_OPENSSL_STRING *lh)
+{
+    return OPENSSL_LH_error((OPENSSL_LHASH *)lh);
+}
+static __inline unsigned long lh_OPENSSL_STRING_num_items(struct lhash_st_OPENSSL_STRING *lh)
+{
+    return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_OPENSSL_STRING_node_stats_bio(const struct lhash_st_OPENSSL_STRING *lh, BIO *out)
+{
+    OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_OPENSSL_STRING_node_usage_stats_bio(const struct lhash_st_OPENSSL_STRING *lh, BIO *out)
+{
+    OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_OPENSSL_STRING_stats_bio(const struct lhash_st_OPENSSL_STRING *lh, BIO *out)
+{
+    OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline unsigned long lh_OPENSSL_STRING_get_down_load(struct lhash_st_OPENSSL_STRING *lh)
+{
+    return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_OPENSSL_STRING_set_down_load(struct lhash_st_OPENSSL_STRING *lh, unsigned long dl)
+{
+    OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl);
+}
+static __inline void lh_OPENSSL_STRING_doall(struct lhash_st_OPENSSL_STRING *lh, void (*doall)(OPENSSL_STRING *))
+{
+    OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall);
+}
+struct lhash_st_OPENSSL_STRING;
+struct lhash_st_OPENSSL_CSTRING
+{
+    union lh_OPENSSL_CSTRING_dummy
+    {
+        void* d1;
+        unsigned long d2;
+        int d3;
+    } dummy;
+};
+static __inline struct lhash_st_OPENSSL_CSTRING * lh_OPENSSL_CSTRING_new(unsigned long (*hfn)(const OPENSSL_CSTRING *), int (*cfn)(const OPENSSL_CSTRING *, const OPENSSL_CSTRING *))
+{
+    return (struct lhash_st_OPENSSL_CSTRING *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn);
+}
+static __inline void lh_OPENSSL_CSTRING_free(struct lhash_st_OPENSSL_CSTRING *lh)
+{
+    OPENSSL_LH_free((OPENSSL_LHASH *)lh);
+}
+static __inline OPENSSL_CSTRING *lh_OPENSSL_CSTRING_insert(struct lhash_st_OPENSSL_CSTRING *lh, OPENSSL_CSTRING *d)
+{
+    return (OPENSSL_CSTRING *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d);
+}
+static __inline OPENSSL_CSTRING *lh_OPENSSL_CSTRING_delete(struct lhash_st_OPENSSL_CSTRING *lh, const OPENSSL_CSTRING *d)
+{
+    return (OPENSSL_CSTRING *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d);
+}
+static __inline OPENSSL_CSTRING *lh_OPENSSL_CSTRING_retrieve(struct lhash_st_OPENSSL_CSTRING *lh, const OPENSSL_CSTRING *d)
+{
+    return (OPENSSL_CSTRING *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d);
+}
+static __inline int lh_OPENSSL_CSTRING_error(struct lhash_st_OPENSSL_CSTRING *lh)
+{
+    return OPENSSL_LH_error((OPENSSL_LHASH *)lh);
+}
+static __inline unsigned long lh_OPENSSL_CSTRING_num_items(struct lhash_st_OPENSSL_CSTRING *lh)
+{
+    return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_OPENSSL_CSTRING_node_stats_bio(const struct lhash_st_OPENSSL_CSTRING *lh, BIO *out)
+{
+    OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_OPENSSL_CSTRING_node_usage_stats_bio(const struct lhash_st_OPENSSL_CSTRING *lh, BIO *out)
+{
+    OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_OPENSSL_CSTRING_stats_bio(const struct lhash_st_OPENSSL_CSTRING *lh, BIO *out)
+{
+    OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline unsigned long lh_OPENSSL_CSTRING_get_down_load(struct lhash_st_OPENSSL_CSTRING *lh)
+{
+    return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_OPENSSL_CSTRING_set_down_load(struct lhash_st_OPENSSL_CSTRING *lh, unsigned long dl)
+{
+    OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl);
+}
+static __inline void lh_OPENSSL_CSTRING_doall(struct lhash_st_OPENSSL_CSTRING *lh, void (*doall)(OPENSSL_CSTRING *))
+{
+    OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall);
+}
+struct lhash_st_OPENSSL_CSTRING;
 #line 205 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/lhash.h"
 #line 22 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509_vfy.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bio.h"
@@ -4695,42 +7183,316 @@ struct lhash_st_OPENSSL_CSTRING { union lh_OPENSSL_CSTRING_dummy { void* d1; uns
 #line 24 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509_vfy.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/symhacks.h"
 #line 25 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509_vfy.h"
-typedef enum {
-X509_LU_NONE = 0,
-X509_LU_X509, X509_LU_CRL
+typedef enum
+{
+    X509_LU_NONE = 0,
+    X509_LU_X509, X509_LU_CRL
 } X509_LOOKUP_TYPE;
 #line 56 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509_vfy.h"
-struct stack_st_X509_LOOKUP; typedef int (*sk_X509_LOOKUP_compfunc)(const X509_LOOKUP * const *a, const X509_LOOKUP *const *b); typedef void (*sk_X509_LOOKUP_freefunc)(X509_LOOKUP *a); typedef X509_LOOKUP * (*sk_X509_LOOKUP_copyfunc)(const X509_LOOKUP *a); static __inline int sk_X509_LOOKUP_num(const struct stack_st_X509_LOOKUP *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_LOOKUP *sk_X509_LOOKUP_value(const struct stack_st_X509_LOOKUP *sk, int idx) { return (X509_LOOKUP *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_LOOKUP *sk_X509_LOOKUP_new(sk_X509_LOOKUP_compfunc compare) { return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_LOOKUP *sk_X509_LOOKUP_new_null(void) { return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_new_null(); } static __inline void sk_X509_LOOKUP_free(struct stack_st_X509_LOOKUP *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_LOOKUP_zero(struct stack_st_X509_LOOKUP *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_LOOKUP *sk_X509_LOOKUP_delete(struct stack_st_X509_LOOKUP *sk, int i) { return (X509_LOOKUP *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_LOOKUP *sk_X509_LOOKUP_delete_ptr(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr) { return (X509_LOOKUP *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_LOOKUP_push(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_LOOKUP_unshift(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_LOOKUP *sk_X509_LOOKUP_pop(struct stack_st_X509_LOOKUP *sk) { return (X509_LOOKUP *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_LOOKUP *sk_X509_LOOKUP_shift(struct stack_st_X509_LOOKUP *sk) { return (X509_LOOKUP *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_LOOKUP_pop_free(struct stack_st_X509_LOOKUP *sk, sk_X509_LOOKUP_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_LOOKUP_insert(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_LOOKUP *sk_X509_LOOKUP_set(struct stack_st_X509_LOOKUP *sk, int idx, X509_LOOKUP *ptr) { return (X509_LOOKUP *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_LOOKUP_find(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_LOOKUP_find_ex(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_LOOKUP_sort(struct stack_st_X509_LOOKUP *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_LOOKUP_is_sorted(const struct stack_st_X509_LOOKUP *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_LOOKUP * sk_X509_LOOKUP_dup(const struct stack_st_X509_LOOKUP *sk) { return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_LOOKUP *sk_X509_LOOKUP_deep_copy(const struct stack_st_X509_LOOKUP *sk, sk_X509_LOOKUP_copyfunc copyfunc, sk_X509_LOOKUP_freefunc freefunc) { return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_LOOKUP_compfunc sk_X509_LOOKUP_set_cmp_func(struct stack_st_X509_LOOKUP *sk, sk_X509_LOOKUP_compfunc compare) { return (sk_X509_LOOKUP_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_X509_OBJECT; typedef int (*sk_X509_OBJECT_compfunc)(const X509_OBJECT * const *a, const X509_OBJECT *const *b); typedef void (*sk_X509_OBJECT_freefunc)(X509_OBJECT *a); typedef X509_OBJECT * (*sk_X509_OBJECT_copyfunc)(const X509_OBJECT *a); static __inline int sk_X509_OBJECT_num(const struct stack_st_X509_OBJECT *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_OBJECT *sk_X509_OBJECT_value(const struct stack_st_X509_OBJECT *sk, int idx) { return (X509_OBJECT *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_OBJECT *sk_X509_OBJECT_new(sk_X509_OBJECT_compfunc compare) { return (struct stack_st_X509_OBJECT *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_OBJECT *sk_X509_OBJECT_new_null(void) { return (struct stack_st_X509_OBJECT *)OPENSSL_sk_new_null(); } static __inline void sk_X509_OBJECT_free(struct stack_st_X509_OBJECT *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_OBJECT_zero(struct stack_st_X509_OBJECT *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_OBJECT *sk_X509_OBJECT_delete(struct stack_st_X509_OBJECT *sk, int i) { return (X509_OBJECT *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_OBJECT *sk_X509_OBJECT_delete_ptr(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr) { return (X509_OBJECT *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_OBJECT_push(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_OBJECT_unshift(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_OBJECT *sk_X509_OBJECT_pop(struct stack_st_X509_OBJECT *sk) { return (X509_OBJECT *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_OBJECT *sk_X509_OBJECT_shift(struct stack_st_X509_OBJECT *sk) { return (X509_OBJECT *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_OBJECT_pop_free(struct stack_st_X509_OBJECT *sk, sk_X509_OBJECT_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_OBJECT_insert(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_OBJECT *sk_X509_OBJECT_set(struct stack_st_X509_OBJECT *sk, int idx, X509_OBJECT *ptr) { return (X509_OBJECT *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_OBJECT_find(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_OBJECT_find_ex(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_OBJECT_sort(struct stack_st_X509_OBJECT *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_OBJECT_is_sorted(const struct stack_st_X509_OBJECT *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_OBJECT * sk_X509_OBJECT_dup(const struct stack_st_X509_OBJECT *sk) { return (struct stack_st_X509_OBJECT *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_OBJECT *sk_X509_OBJECT_deep_copy(const struct stack_st_X509_OBJECT *sk, sk_X509_OBJECT_copyfunc copyfunc, sk_X509_OBJECT_freefunc freefunc) { return (struct stack_st_X509_OBJECT *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_OBJECT_compfunc sk_X509_OBJECT_set_cmp_func(struct stack_st_X509_OBJECT *sk, sk_X509_OBJECT_compfunc compare) { return (sk_X509_OBJECT_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_X509_VERIFY_PARAM; typedef int (*sk_X509_VERIFY_PARAM_compfunc)(const X509_VERIFY_PARAM * const *a, const X509_VERIFY_PARAM *const *b); typedef void (*sk_X509_VERIFY_PARAM_freefunc)(X509_VERIFY_PARAM *a); typedef X509_VERIFY_PARAM * (*sk_X509_VERIFY_PARAM_copyfunc)(const X509_VERIFY_PARAM *a); static __inline int sk_X509_VERIFY_PARAM_num(const struct stack_st_X509_VERIFY_PARAM *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_value(const struct stack_st_X509_VERIFY_PARAM *sk, int idx) { return (X509_VERIFY_PARAM *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_new(sk_X509_VERIFY_PARAM_compfunc compare) { return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_new_null(void) { return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_new_null(); } static __inline void sk_X509_VERIFY_PARAM_free(struct stack_st_X509_VERIFY_PARAM *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_VERIFY_PARAM_zero(struct stack_st_X509_VERIFY_PARAM *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_delete(struct stack_st_X509_VERIFY_PARAM *sk, int i) { return (X509_VERIFY_PARAM *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_delete_ptr(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr) { return (X509_VERIFY_PARAM *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_VERIFY_PARAM_push(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_VERIFY_PARAM_unshift(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_pop(struct stack_st_X509_VERIFY_PARAM *sk) { return (X509_VERIFY_PARAM *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_shift(struct stack_st_X509_VERIFY_PARAM *sk) { return (X509_VERIFY_PARAM *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_VERIFY_PARAM_pop_free(struct stack_st_X509_VERIFY_PARAM *sk, sk_X509_VERIFY_PARAM_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_VERIFY_PARAM_insert(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_set(struct stack_st_X509_VERIFY_PARAM *sk, int idx, X509_VERIFY_PARAM *ptr) { return (X509_VERIFY_PARAM *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_VERIFY_PARAM_find(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_VERIFY_PARAM_find_ex(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_VERIFY_PARAM_sort(struct stack_st_X509_VERIFY_PARAM *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_VERIFY_PARAM_is_sorted(const struct stack_st_X509_VERIFY_PARAM *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_VERIFY_PARAM * sk_X509_VERIFY_PARAM_dup(const struct stack_st_X509_VERIFY_PARAM *sk) { return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_deep_copy(const struct stack_st_X509_VERIFY_PARAM *sk, sk_X509_VERIFY_PARAM_copyfunc copyfunc, sk_X509_VERIFY_PARAM_freefunc freefunc) { return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_VERIFY_PARAM_compfunc sk_X509_VERIFY_PARAM_set_cmp_func(struct stack_st_X509_VERIFY_PARAM *sk, sk_X509_VERIFY_PARAM_compfunc compare) { return (sk_X509_VERIFY_PARAM_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_X509_LOOKUP;
+typedef int (*sk_X509_LOOKUP_compfunc)(const X509_LOOKUP * const *a, const X509_LOOKUP *const *b);
+typedef void (*sk_X509_LOOKUP_freefunc)(X509_LOOKUP *a);
+typedef X509_LOOKUP * (*sk_X509_LOOKUP_copyfunc)(const X509_LOOKUP *a);
+static __inline int sk_X509_LOOKUP_num(const struct stack_st_X509_LOOKUP *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_LOOKUP *sk_X509_LOOKUP_value(const struct stack_st_X509_LOOKUP *sk, int idx)
+{
+    return (X509_LOOKUP *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_LOOKUP *sk_X509_LOOKUP_new(sk_X509_LOOKUP_compfunc compare)
+{
+    return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_LOOKUP *sk_X509_LOOKUP_new_null(void)
+{
+    return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_LOOKUP_free(struct stack_st_X509_LOOKUP *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_LOOKUP_zero(struct stack_st_X509_LOOKUP *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_LOOKUP *sk_X509_LOOKUP_delete(struct stack_st_X509_LOOKUP *sk, int i)
+{
+    return (X509_LOOKUP *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_LOOKUP *sk_X509_LOOKUP_delete_ptr(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr)
+{
+    return (X509_LOOKUP *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_LOOKUP_push(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_LOOKUP_unshift(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_LOOKUP *sk_X509_LOOKUP_pop(struct stack_st_X509_LOOKUP *sk)
+{
+    return (X509_LOOKUP *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_LOOKUP *sk_X509_LOOKUP_shift(struct stack_st_X509_LOOKUP *sk)
+{
+    return (X509_LOOKUP *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_LOOKUP_pop_free(struct stack_st_X509_LOOKUP *sk, sk_X509_LOOKUP_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_LOOKUP_insert(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_LOOKUP *sk_X509_LOOKUP_set(struct stack_st_X509_LOOKUP *sk, int idx, X509_LOOKUP *ptr)
+{
+    return (X509_LOOKUP *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_LOOKUP_find(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_LOOKUP_find_ex(struct stack_st_X509_LOOKUP *sk, X509_LOOKUP *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_LOOKUP_sort(struct stack_st_X509_LOOKUP *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_LOOKUP_is_sorted(const struct stack_st_X509_LOOKUP *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_LOOKUP * sk_X509_LOOKUP_dup(const struct stack_st_X509_LOOKUP *sk)
+{
+    return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_LOOKUP *sk_X509_LOOKUP_deep_copy(const struct stack_st_X509_LOOKUP *sk, sk_X509_LOOKUP_copyfunc copyfunc, sk_X509_LOOKUP_freefunc freefunc)
+{
+    return (struct stack_st_X509_LOOKUP *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_LOOKUP_compfunc sk_X509_LOOKUP_set_cmp_func(struct stack_st_X509_LOOKUP *sk, sk_X509_LOOKUP_compfunc compare)
+{
+    return (sk_X509_LOOKUP_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_X509_OBJECT;
+typedef int (*sk_X509_OBJECT_compfunc)(const X509_OBJECT * const *a, const X509_OBJECT *const *b);
+typedef void (*sk_X509_OBJECT_freefunc)(X509_OBJECT *a);
+typedef X509_OBJECT * (*sk_X509_OBJECT_copyfunc)(const X509_OBJECT *a);
+static __inline int sk_X509_OBJECT_num(const struct stack_st_X509_OBJECT *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_OBJECT *sk_X509_OBJECT_value(const struct stack_st_X509_OBJECT *sk, int idx)
+{
+    return (X509_OBJECT *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_OBJECT *sk_X509_OBJECT_new(sk_X509_OBJECT_compfunc compare)
+{
+    return (struct stack_st_X509_OBJECT *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_OBJECT *sk_X509_OBJECT_new_null(void)
+{
+    return (struct stack_st_X509_OBJECT *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_OBJECT_free(struct stack_st_X509_OBJECT *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_OBJECT_zero(struct stack_st_X509_OBJECT *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_OBJECT *sk_X509_OBJECT_delete(struct stack_st_X509_OBJECT *sk, int i)
+{
+    return (X509_OBJECT *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_OBJECT *sk_X509_OBJECT_delete_ptr(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr)
+{
+    return (X509_OBJECT *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_OBJECT_push(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_OBJECT_unshift(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_OBJECT *sk_X509_OBJECT_pop(struct stack_st_X509_OBJECT *sk)
+{
+    return (X509_OBJECT *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_OBJECT *sk_X509_OBJECT_shift(struct stack_st_X509_OBJECT *sk)
+{
+    return (X509_OBJECT *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_OBJECT_pop_free(struct stack_st_X509_OBJECT *sk, sk_X509_OBJECT_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_OBJECT_insert(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_OBJECT *sk_X509_OBJECT_set(struct stack_st_X509_OBJECT *sk, int idx, X509_OBJECT *ptr)
+{
+    return (X509_OBJECT *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_OBJECT_find(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_OBJECT_find_ex(struct stack_st_X509_OBJECT *sk, X509_OBJECT *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_OBJECT_sort(struct stack_st_X509_OBJECT *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_OBJECT_is_sorted(const struct stack_st_X509_OBJECT *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_OBJECT * sk_X509_OBJECT_dup(const struct stack_st_X509_OBJECT *sk)
+{
+    return (struct stack_st_X509_OBJECT *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_OBJECT *sk_X509_OBJECT_deep_copy(const struct stack_st_X509_OBJECT *sk, sk_X509_OBJECT_copyfunc copyfunc, sk_X509_OBJECT_freefunc freefunc)
+{
+    return (struct stack_st_X509_OBJECT *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_OBJECT_compfunc sk_X509_OBJECT_set_cmp_func(struct stack_st_X509_OBJECT *sk, sk_X509_OBJECT_compfunc compare)
+{
+    return (sk_X509_OBJECT_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_X509_VERIFY_PARAM;
+typedef int (*sk_X509_VERIFY_PARAM_compfunc)(const X509_VERIFY_PARAM * const *a, const X509_VERIFY_PARAM *const *b);
+typedef void (*sk_X509_VERIFY_PARAM_freefunc)(X509_VERIFY_PARAM *a);
+typedef X509_VERIFY_PARAM * (*sk_X509_VERIFY_PARAM_copyfunc)(const X509_VERIFY_PARAM *a);
+static __inline int sk_X509_VERIFY_PARAM_num(const struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_value(const struct stack_st_X509_VERIFY_PARAM *sk, int idx)
+{
+    return (X509_VERIFY_PARAM *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_new(sk_X509_VERIFY_PARAM_compfunc compare)
+{
+    return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_new_null(void)
+{
+    return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_VERIFY_PARAM_free(struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_VERIFY_PARAM_zero(struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_delete(struct stack_st_X509_VERIFY_PARAM *sk, int i)
+{
+    return (X509_VERIFY_PARAM *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_delete_ptr(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr)
+{
+    return (X509_VERIFY_PARAM *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_VERIFY_PARAM_push(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_VERIFY_PARAM_unshift(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_pop(struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    return (X509_VERIFY_PARAM *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_shift(struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    return (X509_VERIFY_PARAM *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_VERIFY_PARAM_pop_free(struct stack_st_X509_VERIFY_PARAM *sk, sk_X509_VERIFY_PARAM_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_VERIFY_PARAM_insert(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_set(struct stack_st_X509_VERIFY_PARAM *sk, int idx, X509_VERIFY_PARAM *ptr)
+{
+    return (X509_VERIFY_PARAM *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_VERIFY_PARAM_find(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_VERIFY_PARAM_find_ex(struct stack_st_X509_VERIFY_PARAM *sk, X509_VERIFY_PARAM *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_VERIFY_PARAM_sort(struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_VERIFY_PARAM_is_sorted(const struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_VERIFY_PARAM * sk_X509_VERIFY_PARAM_dup(const struct stack_st_X509_VERIFY_PARAM *sk)
+{
+    return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_VERIFY_PARAM *sk_X509_VERIFY_PARAM_deep_copy(const struct stack_st_X509_VERIFY_PARAM *sk, sk_X509_VERIFY_PARAM_copyfunc copyfunc, sk_X509_VERIFY_PARAM_freefunc freefunc)
+{
+    return (struct stack_st_X509_VERIFY_PARAM *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_VERIFY_PARAM_compfunc sk_X509_VERIFY_PARAM_set_cmp_func(struct stack_st_X509_VERIFY_PARAM *sk, sk_X509_VERIFY_PARAM_compfunc compare)
+{
+    return (sk_X509_VERIFY_PARAM_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 int X509_STORE_set_depth(X509_STORE *store, int depth);
 typedef int (*X509_STORE_CTX_verify_cb)(int, X509_STORE_CTX *);
 typedef int (*X509_STORE_CTX_verify_fn)(X509_STORE_CTX *);
 typedef int (*X509_STORE_CTX_get_issuer_fn)(X509 **issuer,
-X509_STORE_CTX *ctx, X509 *x);
+        X509_STORE_CTX *ctx, X509 *x);
 typedef int (*X509_STORE_CTX_check_issued_fn)(X509_STORE_CTX *ctx,
-X509 *x, X509 *issuer);
+        X509 *x, X509 *issuer);
 typedef int (*X509_STORE_CTX_check_revocation_fn)(X509_STORE_CTX *ctx);
 typedef int (*X509_STORE_CTX_get_crl_fn)(X509_STORE_CTX *ctx,
-X509_CRL **crl, X509 *x);
+        X509_CRL **crl, X509 *x);
 typedef int (*X509_STORE_CTX_check_crl_fn)(X509_STORE_CTX *ctx, X509_CRL *crl);
 typedef int (*X509_STORE_CTX_cert_crl_fn)(X509_STORE_CTX *ctx,
-X509_CRL *crl, X509 *x);
+        X509_CRL *crl, X509 *x);
 typedef int (*X509_STORE_CTX_check_policy_fn)(X509_STORE_CTX *ctx);
 typedef struct stack_st_X509 *(*X509_STORE_CTX_lookup_certs_fn)(X509_STORE_CTX *ctx,
-X509_NAME *nm);
+        X509_NAME *nm);
 typedef struct stack_st_X509_CRL *(*X509_STORE_CTX_lookup_crls_fn)(X509_STORE_CTX *ctx,
-X509_NAME *nm);
+        X509_NAME *nm);
 typedef int (*X509_STORE_CTX_cleanup_fn)(X509_STORE_CTX *ctx);
 void X509_STORE_CTX_set_depth(X509_STORE_CTX *ctx, int depth);
 #line 189 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509_vfy.h"
 int X509_OBJECT_idx_by_subject(struct stack_st_X509_OBJECT *h, X509_LOOKUP_TYPE type,
-X509_NAME *name);
+                               X509_NAME *name);
 X509_OBJECT *X509_OBJECT_retrieve_by_subject(struct stack_st_X509_OBJECT *h,
-X509_LOOKUP_TYPE type,
-X509_NAME *name);
+        X509_LOOKUP_TYPE type,
+        X509_NAME *name);
 X509_OBJECT *X509_OBJECT_retrieve_match(struct stack_st_X509_OBJECT *h,
-X509_OBJECT *x);
+                                        X509_OBJECT *x);
 int X509_OBJECT_up_ref_count(X509_OBJECT *a);
 X509_OBJECT *X509_OBJECT_new(void);
 void X509_OBJECT_free(X509_OBJECT *a);
@@ -4753,40 +7515,40 @@ X509_VERIFY_PARAM *X509_STORE_get0_param(X509_STORE *ctx);
 int X509_STORE_set_flags(X509_STORE *ctx, unsigned long flags);
 void X509_STORE_set_verify(X509_STORE *ctx, X509_STORE_CTX_verify_fn verify);
 void X509_STORE_CTX_set_verify(X509_STORE_CTX *ctx,
-X509_STORE_CTX_verify_fn verify);
+                               X509_STORE_CTX_verify_fn verify);
 X509_STORE_CTX_verify_fn X509_STORE_get_verify(X509_STORE *ctx);
 void X509_STORE_set_verify_cb(X509_STORE *ctx,
-X509_STORE_CTX_verify_cb verify_cb);
+                              X509_STORE_CTX_verify_cb verify_cb);
 X509_STORE_CTX_verify_cb X509_STORE_get_verify_cb(X509_STORE *ctx);
 void X509_STORE_set_get_issuer(X509_STORE *ctx,
-X509_STORE_CTX_get_issuer_fn get_issuer);
+                               X509_STORE_CTX_get_issuer_fn get_issuer);
 X509_STORE_CTX_get_issuer_fn X509_STORE_get_get_issuer(X509_STORE *ctx);
 void X509_STORE_set_check_issued(X509_STORE *ctx,
-X509_STORE_CTX_check_issued_fn check_issued);
+                                 X509_STORE_CTX_check_issued_fn check_issued);
 X509_STORE_CTX_check_issued_fn X509_STORE_get_check_issued(X509_STORE *ctx);
 void X509_STORE_set_check_revocation(X509_STORE *ctx,
-X509_STORE_CTX_check_revocation_fn check_revocation);
+                                     X509_STORE_CTX_check_revocation_fn check_revocation);
 X509_STORE_CTX_check_revocation_fn X509_STORE_get_check_revocation(X509_STORE *ctx);
 void X509_STORE_set_get_crl(X509_STORE *ctx,
-X509_STORE_CTX_get_crl_fn get_crl);
+                            X509_STORE_CTX_get_crl_fn get_crl);
 X509_STORE_CTX_get_crl_fn X509_STORE_get_get_crl(X509_STORE *ctx);
 void X509_STORE_set_check_crl(X509_STORE *ctx,
-X509_STORE_CTX_check_crl_fn check_crl);
+                              X509_STORE_CTX_check_crl_fn check_crl);
 X509_STORE_CTX_check_crl_fn X509_STORE_get_check_crl(X509_STORE *ctx);
 void X509_STORE_set_cert_crl(X509_STORE *ctx,
-X509_STORE_CTX_cert_crl_fn cert_crl);
+                             X509_STORE_CTX_cert_crl_fn cert_crl);
 X509_STORE_CTX_cert_crl_fn X509_STORE_get_cert_crl(X509_STORE *ctx);
 void X509_STORE_set_check_policy(X509_STORE *ctx,
-X509_STORE_CTX_check_policy_fn check_policy);
+                                 X509_STORE_CTX_check_policy_fn check_policy);
 X509_STORE_CTX_check_policy_fn X509_STORE_get_check_policy(X509_STORE *ctx);
 void X509_STORE_set_lookup_certs(X509_STORE *ctx,
-X509_STORE_CTX_lookup_certs_fn lookup_certs);
+                                 X509_STORE_CTX_lookup_certs_fn lookup_certs);
 X509_STORE_CTX_lookup_certs_fn X509_STORE_get_lookup_certs(X509_STORE *ctx);
 void X509_STORE_set_lookup_crls(X509_STORE *ctx,
-X509_STORE_CTX_lookup_crls_fn lookup_crls);
+                                X509_STORE_CTX_lookup_crls_fn lookup_crls);
 X509_STORE_CTX_lookup_crls_fn X509_STORE_get_lookup_crls(X509_STORE *ctx);
 void X509_STORE_set_cleanup(X509_STORE *ctx,
-X509_STORE_CTX_cleanup_fn cleanup);
+                            X509_STORE_CTX_cleanup_fn cleanup);
 X509_STORE_CTX_cleanup_fn X509_STORE_get_cleanup(X509_STORE *ctx);
 int X509_STORE_set_ex_data(X509_STORE *ctx, int idx, void *data);
 void *X509_STORE_get_ex_data(X509_STORE *ctx, int idx);
@@ -4794,7 +7556,7 @@ X509_STORE_CTX *X509_STORE_CTX_new(void);
 int X509_STORE_CTX_get1_issuer(X509 **issuer, X509_STORE_CTX *ctx, X509 *x);
 void X509_STORE_CTX_free(X509_STORE_CTX *ctx);
 int X509_STORE_CTX_init(X509_STORE_CTX *ctx, X509_STORE *store,
-X509 *x509, struct stack_st_X509 *chain);
+                        X509 *x509, struct stack_st_X509 *chain);
 void X509_STORE_CTX_set0_trusted_stack(X509_STORE_CTX *ctx, struct stack_st_X509 *sk);
 void X509_STORE_CTX_cleanup(X509_STORE_CTX *ctx);
 X509_STORE *X509_STORE_CTX_get0_store(X509_STORE_CTX *ctx);
@@ -4802,7 +7564,7 @@ X509 *X509_STORE_CTX_get0_cert(X509_STORE_CTX *ctx);
 struct stack_st_X509* X509_STORE_CTX_get0_untrusted(X509_STORE_CTX *ctx);
 void X509_STORE_CTX_set0_untrusted(X509_STORE_CTX *ctx, struct stack_st_X509 *sk);
 void X509_STORE_CTX_set_verify_cb(X509_STORE_CTX *ctx,
-X509_STORE_CTX_verify_cb verify);
+                                  X509_STORE_CTX_verify_cb verify);
 X509_STORE_CTX_verify_cb X509_STORE_CTX_get_verify_cb(X509_STORE_CTX *ctx);
 X509_STORE_CTX_verify_fn X509_STORE_CTX_get_verify(X509_STORE_CTX *ctx);
 X509_STORE_CTX_get_issuer_fn X509_STORE_CTX_get_get_issuer(X509_STORE_CTX *ctx);
@@ -4822,12 +7584,12 @@ X509_LOOKUP_METHOD *X509_LOOKUP_file(void);
 int X509_STORE_add_cert(X509_STORE *ctx, X509 *x);
 int X509_STORE_add_crl(X509_STORE *ctx, X509_CRL *x);
 int X509_STORE_CTX_get_by_subject(X509_STORE_CTX *vs, X509_LOOKUP_TYPE type,
-X509_NAME *name, X509_OBJECT *ret);
+                                  X509_NAME *name, X509_OBJECT *ret);
 X509_OBJECT *X509_STORE_CTX_get_obj_by_subject(X509_STORE_CTX *vs,
-X509_LOOKUP_TYPE type,
-X509_NAME *name);
+        X509_LOOKUP_TYPE type,
+        X509_NAME *name);
 int X509_LOOKUP_ctrl(X509_LOOKUP *ctx, int cmd, const char *argc,
-long argl, char **ret);
+                     long argl, char **ret);
 int X509_load_cert_file(X509_LOOKUP *ctx, const char *file, int type);
 int X509_load_crl_file(X509_LOOKUP *ctx, const char *file, int type);
 int X509_load_cert_crl_file(X509_LOOKUP *ctx, const char *file, int type);
@@ -4835,18 +7597,18 @@ X509_LOOKUP *X509_LOOKUP_new(X509_LOOKUP_METHOD *method);
 void X509_LOOKUP_free(X509_LOOKUP *ctx);
 int X509_LOOKUP_init(X509_LOOKUP *ctx);
 int X509_LOOKUP_by_subject(X509_LOOKUP *ctx, X509_LOOKUP_TYPE type,
-X509_NAME *name, X509_OBJECT *ret);
+                           X509_NAME *name, X509_OBJECT *ret);
 int X509_LOOKUP_by_issuer_serial(X509_LOOKUP *ctx, X509_LOOKUP_TYPE type,
-X509_NAME *name, ASN1_INTEGER *serial,
-X509_OBJECT *ret);
+                                 X509_NAME *name, ASN1_INTEGER *serial,
+                                 X509_OBJECT *ret);
 int X509_LOOKUP_by_fingerprint(X509_LOOKUP *ctx, X509_LOOKUP_TYPE type,
-const unsigned char *bytes, int len,
-X509_OBJECT *ret);
+                               const unsigned char *bytes, int len,
+                               X509_OBJECT *ret);
 int X509_LOOKUP_by_alias(X509_LOOKUP *ctx, X509_LOOKUP_TYPE type,
-const char *str, int len, X509_OBJECT *ret);
+                         const char *str, int len, X509_OBJECT *ret);
 int X509_LOOKUP_shutdown(X509_LOOKUP *ctx);
 int X509_STORE_load_locations(X509_STORE *ctx,
-const char *file, const char *dir);
+                              const char *file, const char *dir);
 int X509_STORE_set_default_paths(X509_STORE *ctx);
 int X509_STORE_CTX_set_ex_data(X509_STORE_CTX *ctx, int idx, void *data);
 void *X509_STORE_CTX_get_ex_data(X509_STORE_CTX *ctx, int idx);
@@ -4867,10 +7629,10 @@ void X509_STORE_CTX_set0_crls(X509_STORE_CTX *c, struct stack_st_X509_CRL *sk);
 int X509_STORE_CTX_set_purpose(X509_STORE_CTX *ctx, int purpose);
 int X509_STORE_CTX_set_trust(X509_STORE_CTX *ctx, int trust);
 int X509_STORE_CTX_purpose_inherit(X509_STORE_CTX *ctx, int def_purpose,
-int purpose, int trust);
+                                   int purpose, int trust);
 void X509_STORE_CTX_set_flags(X509_STORE_CTX *ctx, unsigned long flags);
 void X509_STORE_CTX_set_time(X509_STORE_CTX *ctx, unsigned long flags,
-time_t t);
+                             time_t t);
 X509_POLICY_TREE *X509_STORE_CTX_get0_policy_tree(X509_STORE_CTX *ctx);
 int X509_STORE_CTX_get_explicit_policy(X509_STORE_CTX *ctx);
 int X509_STORE_CTX_get_num_untrusted(X509_STORE_CTX *ctx);
@@ -4881,14 +7643,14 @@ void X509_STORE_CTX_set0_dane(X509_STORE_CTX *ctx, SSL_DANE *dane);
 X509_VERIFY_PARAM *X509_VERIFY_PARAM_new(void);
 void X509_VERIFY_PARAM_free(X509_VERIFY_PARAM *param);
 int X509_VERIFY_PARAM_inherit(X509_VERIFY_PARAM *to,
-const X509_VERIFY_PARAM *from);
+                              const X509_VERIFY_PARAM *from);
 int X509_VERIFY_PARAM_set1(X509_VERIFY_PARAM *to,
-const X509_VERIFY_PARAM *from);
+                           const X509_VERIFY_PARAM *from);
 int X509_VERIFY_PARAM_set1_name(X509_VERIFY_PARAM *param, const char *name);
 int X509_VERIFY_PARAM_set_flags(X509_VERIFY_PARAM *param,
-unsigned long flags);
+                                unsigned long flags);
 int X509_VERIFY_PARAM_clear_flags(X509_VERIFY_PARAM *param,
-unsigned long flags);
+                                  unsigned long flags);
 unsigned long X509_VERIFY_PARAM_get_flags(X509_VERIFY_PARAM *param);
 int X509_VERIFY_PARAM_set_purpose(X509_VERIFY_PARAM *param, int purpose);
 int X509_VERIFY_PARAM_set_trust(X509_VERIFY_PARAM *param, int trust);
@@ -4897,26 +7659,26 @@ void X509_VERIFY_PARAM_set_auth_level(X509_VERIFY_PARAM *param, int auth_level);
 time_t X509_VERIFY_PARAM_get_time(const X509_VERIFY_PARAM *param);
 void X509_VERIFY_PARAM_set_time(X509_VERIFY_PARAM *param, time_t t);
 int X509_VERIFY_PARAM_add0_policy(X509_VERIFY_PARAM *param,
-ASN1_OBJECT *policy);
+                                  ASN1_OBJECT *policy);
 int X509_VERIFY_PARAM_set1_policies(X509_VERIFY_PARAM *param,
-struct stack_st_ASN1_OBJECT *policies);
+                                    struct stack_st_ASN1_OBJECT *policies);
 int X509_VERIFY_PARAM_set_inh_flags(X509_VERIFY_PARAM *param,
-uint32_t flags);
+                                    uint32_t flags);
 uint32_t X509_VERIFY_PARAM_get_inh_flags(const X509_VERIFY_PARAM *param);
 int X509_VERIFY_PARAM_set1_host(X509_VERIFY_PARAM *param,
-const char *name, size_t namelen);
+                                const char *name, size_t namelen);
 int X509_VERIFY_PARAM_add1_host(X509_VERIFY_PARAM *param,
-const char *name, size_t namelen);
+                                const char *name, size_t namelen);
 void X509_VERIFY_PARAM_set_hostflags(X509_VERIFY_PARAM *param,
-unsigned int flags);
+                                     unsigned int flags);
 char *X509_VERIFY_PARAM_get0_peername(X509_VERIFY_PARAM *);
 void X509_VERIFY_PARAM_move_peername(X509_VERIFY_PARAM *, X509_VERIFY_PARAM *);
 int X509_VERIFY_PARAM_set1_email(X509_VERIFY_PARAM *param,
-const char *email, size_t emaillen);
+                                 const char *email, size_t emaillen);
 int X509_VERIFY_PARAM_set1_ip(X509_VERIFY_PARAM *param,
-const unsigned char *ip, size_t iplen);
+                              const unsigned char *ip, size_t iplen);
 int X509_VERIFY_PARAM_set1_ip_asc(X509_VERIFY_PARAM *param,
-const char *ipasc);
+                                  const char *ipasc);
 int X509_VERIFY_PARAM_get_depth(const X509_VERIFY_PARAM *param);
 int X509_VERIFY_PARAM_get_auth_level(const X509_VERIFY_PARAM *param);
 const char *X509_VERIFY_PARAM_get0_name(const X509_VERIFY_PARAM *param);
@@ -4926,27 +7688,27 @@ const X509_VERIFY_PARAM *X509_VERIFY_PARAM_get0(int id);
 const X509_VERIFY_PARAM *X509_VERIFY_PARAM_lookup(const char *name);
 void X509_VERIFY_PARAM_table_cleanup(void);
 int X509_policy_check(X509_POLICY_TREE **ptree, int *pexplicit_policy,
-struct stack_st_X509 *certs,
-struct stack_st_ASN1_OBJECT *policy_oids, unsigned int flags);
+                      struct stack_st_X509 *certs,
+                      struct stack_st_ASN1_OBJECT *policy_oids, unsigned int flags);
 void X509_policy_tree_free(X509_POLICY_TREE *tree);
 int X509_policy_tree_level_count(const X509_POLICY_TREE *tree);
 X509_POLICY_LEVEL *X509_policy_tree_get0_level(const X509_POLICY_TREE *tree,
-int i);
+        int i);
 struct stack_st_X509_POLICY_NODE *X509_policy_tree_get0_policies(const
-X509_POLICY_TREE
-*tree);
+        X509_POLICY_TREE
+        *tree);
 struct stack_st_X509_POLICY_NODE *X509_policy_tree_get0_user_policies(const
-X509_POLICY_TREE
-*tree);
+        X509_POLICY_TREE
+        *tree);
 int X509_policy_level_node_count(X509_POLICY_LEVEL *level);
 X509_POLICY_NODE *X509_policy_level_get0_node(X509_POLICY_LEVEL *level,
-int i);
+        int i);
 const ASN1_OBJECT *X509_policy_node_get0_policy(const X509_POLICY_NODE *node);
 struct stack_st_POLICYQUALINFO *X509_policy_node_get0_qualifiers(const
-X509_POLICY_NODE
-*node);
+        X509_POLICY_NODE
+        *node);
 const X509_POLICY_NODE *X509_policy_node_get0_parent(const X509_POLICY_NODE
-*node);
+        *node);
 #line 546 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509_vfy.h"
 #line 325 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pkcs7.h"
@@ -4960,89 +7722,377 @@ const X509_POLICY_NODE *X509_policy_node_get0_parent(const X509_POLICY_NODE
 #line 18 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pkcs7.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ossl_typ.h"
 #line 19 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pkcs7.h"
-typedef struct pkcs7_issuer_and_serial_st {
-X509_NAME *issuer;
-ASN1_INTEGER *serial;
+typedef struct pkcs7_issuer_and_serial_st
+{
+    X509_NAME *issuer;
+    ASN1_INTEGER *serial;
 } PKCS7_ISSUER_AND_SERIAL;
-typedef struct pkcs7_signer_info_st {
-ASN1_INTEGER *version;      
-PKCS7_ISSUER_AND_SERIAL *issuer_and_serial;
-X509_ALGOR *digest_alg;
-struct stack_st_X509_ATTRIBUTE *auth_attr; 
-X509_ALGOR *digest_enc_alg;
-ASN1_OCTET_STRING *enc_digest;
-struct stack_st_X509_ATTRIBUTE *unauth_attr; 
-EVP_PKEY *pkey;
+typedef struct pkcs7_signer_info_st
+{
+    ASN1_INTEGER *version;
+    PKCS7_ISSUER_AND_SERIAL *issuer_and_serial;
+    X509_ALGOR *digest_alg;
+    struct stack_st_X509_ATTRIBUTE *auth_attr;
+    X509_ALGOR *digest_enc_alg;
+    ASN1_OCTET_STRING *enc_digest;
+    struct stack_st_X509_ATTRIBUTE *unauth_attr;
+    EVP_PKEY *pkey;
 } PKCS7_SIGNER_INFO;
-struct stack_st_PKCS7_SIGNER_INFO; typedef int (*sk_PKCS7_SIGNER_INFO_compfunc)(const PKCS7_SIGNER_INFO * const *a, const PKCS7_SIGNER_INFO *const *b); typedef void (*sk_PKCS7_SIGNER_INFO_freefunc)(PKCS7_SIGNER_INFO *a); typedef PKCS7_SIGNER_INFO * (*sk_PKCS7_SIGNER_INFO_copyfunc)(const PKCS7_SIGNER_INFO *a); static __inline int sk_PKCS7_SIGNER_INFO_num(const struct stack_st_PKCS7_SIGNER_INFO *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_value(const struct stack_st_PKCS7_SIGNER_INFO *sk, int idx) { return (PKCS7_SIGNER_INFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_new(sk_PKCS7_SIGNER_INFO_compfunc compare) { return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_new_null(void) { return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_new_null(); } static __inline void sk_PKCS7_SIGNER_INFO_free(struct stack_st_PKCS7_SIGNER_INFO *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_PKCS7_SIGNER_INFO_zero(struct stack_st_PKCS7_SIGNER_INFO *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_delete(struct stack_st_PKCS7_SIGNER_INFO *sk, int i) { return (PKCS7_SIGNER_INFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_delete_ptr(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr) { return (PKCS7_SIGNER_INFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_SIGNER_INFO_push(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_SIGNER_INFO_unshift(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_pop(struct stack_st_PKCS7_SIGNER_INFO *sk) { return (PKCS7_SIGNER_INFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_shift(struct stack_st_PKCS7_SIGNER_INFO *sk) { return (PKCS7_SIGNER_INFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_PKCS7_SIGNER_INFO_pop_free(struct stack_st_PKCS7_SIGNER_INFO *sk, sk_PKCS7_SIGNER_INFO_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_PKCS7_SIGNER_INFO_insert(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_set(struct stack_st_PKCS7_SIGNER_INFO *sk, int idx, PKCS7_SIGNER_INFO *ptr) { return (PKCS7_SIGNER_INFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_PKCS7_SIGNER_INFO_find(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_SIGNER_INFO_find_ex(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_PKCS7_SIGNER_INFO_sort(struct stack_st_PKCS7_SIGNER_INFO *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_PKCS7_SIGNER_INFO_is_sorted(const struct stack_st_PKCS7_SIGNER_INFO *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_PKCS7_SIGNER_INFO * sk_PKCS7_SIGNER_INFO_dup(const struct stack_st_PKCS7_SIGNER_INFO *sk) { return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_deep_copy(const struct stack_st_PKCS7_SIGNER_INFO *sk, sk_PKCS7_SIGNER_INFO_copyfunc copyfunc, sk_PKCS7_SIGNER_INFO_freefunc freefunc) { return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_PKCS7_SIGNER_INFO_compfunc sk_PKCS7_SIGNER_INFO_set_cmp_func(struct stack_st_PKCS7_SIGNER_INFO *sk, sk_PKCS7_SIGNER_INFO_compfunc compare) { return (sk_PKCS7_SIGNER_INFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct pkcs7_recip_info_st {
-ASN1_INTEGER *version;      
-PKCS7_ISSUER_AND_SERIAL *issuer_and_serial;
-X509_ALGOR *key_enc_algor;
-ASN1_OCTET_STRING *enc_key;
-X509 *cert;                 
+struct stack_st_PKCS7_SIGNER_INFO;
+typedef int (*sk_PKCS7_SIGNER_INFO_compfunc)(const PKCS7_SIGNER_INFO * const *a, const PKCS7_SIGNER_INFO *const *b);
+typedef void (*sk_PKCS7_SIGNER_INFO_freefunc)(PKCS7_SIGNER_INFO *a);
+typedef PKCS7_SIGNER_INFO * (*sk_PKCS7_SIGNER_INFO_copyfunc)(const PKCS7_SIGNER_INFO *a);
+static __inline int sk_PKCS7_SIGNER_INFO_num(const struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_value(const struct stack_st_PKCS7_SIGNER_INFO *sk, int idx)
+{
+    return (PKCS7_SIGNER_INFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_new(sk_PKCS7_SIGNER_INFO_compfunc compare)
+{
+    return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_new_null(void)
+{
+    return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_new_null();
+}
+static __inline void sk_PKCS7_SIGNER_INFO_free(struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_PKCS7_SIGNER_INFO_zero(struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_delete(struct stack_st_PKCS7_SIGNER_INFO *sk, int i)
+{
+    return (PKCS7_SIGNER_INFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_delete_ptr(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr)
+{
+    return (PKCS7_SIGNER_INFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_SIGNER_INFO_push(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_SIGNER_INFO_unshift(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_pop(struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    return (PKCS7_SIGNER_INFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_shift(struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    return (PKCS7_SIGNER_INFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_PKCS7_SIGNER_INFO_pop_free(struct stack_st_PKCS7_SIGNER_INFO *sk, sk_PKCS7_SIGNER_INFO_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_PKCS7_SIGNER_INFO_insert(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_set(struct stack_st_PKCS7_SIGNER_INFO *sk, int idx, PKCS7_SIGNER_INFO *ptr)
+{
+    return (PKCS7_SIGNER_INFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_PKCS7_SIGNER_INFO_find(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_SIGNER_INFO_find_ex(struct stack_st_PKCS7_SIGNER_INFO *sk, PKCS7_SIGNER_INFO *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_PKCS7_SIGNER_INFO_sort(struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_PKCS7_SIGNER_INFO_is_sorted(const struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_PKCS7_SIGNER_INFO * sk_PKCS7_SIGNER_INFO_dup(const struct stack_st_PKCS7_SIGNER_INFO *sk)
+{
+    return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_deep_copy(const struct stack_st_PKCS7_SIGNER_INFO *sk, sk_PKCS7_SIGNER_INFO_copyfunc copyfunc, sk_PKCS7_SIGNER_INFO_freefunc freefunc)
+{
+    return (struct stack_st_PKCS7_SIGNER_INFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_PKCS7_SIGNER_INFO_compfunc sk_PKCS7_SIGNER_INFO_set_cmp_func(struct stack_st_PKCS7_SIGNER_INFO *sk, sk_PKCS7_SIGNER_INFO_compfunc compare)
+{
+    return (sk_PKCS7_SIGNER_INFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct pkcs7_recip_info_st
+{
+    ASN1_INTEGER *version;
+    PKCS7_ISSUER_AND_SERIAL *issuer_and_serial;
+    X509_ALGOR *key_enc_algor;
+    ASN1_OCTET_STRING *enc_key;
+    X509 *cert;
 } PKCS7_RECIP_INFO;
-struct stack_st_PKCS7_RECIP_INFO; typedef int (*sk_PKCS7_RECIP_INFO_compfunc)(const PKCS7_RECIP_INFO * const *a, const PKCS7_RECIP_INFO *const *b); typedef void (*sk_PKCS7_RECIP_INFO_freefunc)(PKCS7_RECIP_INFO *a); typedef PKCS7_RECIP_INFO * (*sk_PKCS7_RECIP_INFO_copyfunc)(const PKCS7_RECIP_INFO *a); static __inline int sk_PKCS7_RECIP_INFO_num(const struct stack_st_PKCS7_RECIP_INFO *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_value(const struct stack_st_PKCS7_RECIP_INFO *sk, int idx) { return (PKCS7_RECIP_INFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_new(sk_PKCS7_RECIP_INFO_compfunc compare) { return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_new_null(void) { return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_new_null(); } static __inline void sk_PKCS7_RECIP_INFO_free(struct stack_st_PKCS7_RECIP_INFO *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_PKCS7_RECIP_INFO_zero(struct stack_st_PKCS7_RECIP_INFO *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_delete(struct stack_st_PKCS7_RECIP_INFO *sk, int i) { return (PKCS7_RECIP_INFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_delete_ptr(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr) { return (PKCS7_RECIP_INFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_RECIP_INFO_push(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_RECIP_INFO_unshift(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_pop(struct stack_st_PKCS7_RECIP_INFO *sk) { return (PKCS7_RECIP_INFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_shift(struct stack_st_PKCS7_RECIP_INFO *sk) { return (PKCS7_RECIP_INFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_PKCS7_RECIP_INFO_pop_free(struct stack_st_PKCS7_RECIP_INFO *sk, sk_PKCS7_RECIP_INFO_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_PKCS7_RECIP_INFO_insert(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_set(struct stack_st_PKCS7_RECIP_INFO *sk, int idx, PKCS7_RECIP_INFO *ptr) { return (PKCS7_RECIP_INFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_PKCS7_RECIP_INFO_find(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_RECIP_INFO_find_ex(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_PKCS7_RECIP_INFO_sort(struct stack_st_PKCS7_RECIP_INFO *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_PKCS7_RECIP_INFO_is_sorted(const struct stack_st_PKCS7_RECIP_INFO *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_PKCS7_RECIP_INFO * sk_PKCS7_RECIP_INFO_dup(const struct stack_st_PKCS7_RECIP_INFO *sk) { return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_deep_copy(const struct stack_st_PKCS7_RECIP_INFO *sk, sk_PKCS7_RECIP_INFO_copyfunc copyfunc, sk_PKCS7_RECIP_INFO_freefunc freefunc) { return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_PKCS7_RECIP_INFO_compfunc sk_PKCS7_RECIP_INFO_set_cmp_func(struct stack_st_PKCS7_RECIP_INFO *sk, sk_PKCS7_RECIP_INFO_compfunc compare) { return (sk_PKCS7_RECIP_INFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct pkcs7_signed_st {
-ASN1_INTEGER *version;      
-struct stack_st_X509_ALGOR *md_algs; 
-struct stack_st_X509 *cert;       
-struct stack_st_X509_CRL *crl;    
-struct stack_st_PKCS7_SIGNER_INFO *signer_info;
-struct pkcs7_st *contents;
+struct stack_st_PKCS7_RECIP_INFO;
+typedef int (*sk_PKCS7_RECIP_INFO_compfunc)(const PKCS7_RECIP_INFO * const *a, const PKCS7_RECIP_INFO *const *b);
+typedef void (*sk_PKCS7_RECIP_INFO_freefunc)(PKCS7_RECIP_INFO *a);
+typedef PKCS7_RECIP_INFO * (*sk_PKCS7_RECIP_INFO_copyfunc)(const PKCS7_RECIP_INFO *a);
+static __inline int sk_PKCS7_RECIP_INFO_num(const struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_value(const struct stack_st_PKCS7_RECIP_INFO *sk, int idx)
+{
+    return (PKCS7_RECIP_INFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_new(sk_PKCS7_RECIP_INFO_compfunc compare)
+{
+    return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_new_null(void)
+{
+    return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_new_null();
+}
+static __inline void sk_PKCS7_RECIP_INFO_free(struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_PKCS7_RECIP_INFO_zero(struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_delete(struct stack_st_PKCS7_RECIP_INFO *sk, int i)
+{
+    return (PKCS7_RECIP_INFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_delete_ptr(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr)
+{
+    return (PKCS7_RECIP_INFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_RECIP_INFO_push(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_RECIP_INFO_unshift(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_pop(struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    return (PKCS7_RECIP_INFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_shift(struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    return (PKCS7_RECIP_INFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_PKCS7_RECIP_INFO_pop_free(struct stack_st_PKCS7_RECIP_INFO *sk, sk_PKCS7_RECIP_INFO_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_PKCS7_RECIP_INFO_insert(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_set(struct stack_st_PKCS7_RECIP_INFO *sk, int idx, PKCS7_RECIP_INFO *ptr)
+{
+    return (PKCS7_RECIP_INFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_PKCS7_RECIP_INFO_find(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_RECIP_INFO_find_ex(struct stack_st_PKCS7_RECIP_INFO *sk, PKCS7_RECIP_INFO *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_PKCS7_RECIP_INFO_sort(struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_PKCS7_RECIP_INFO_is_sorted(const struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_PKCS7_RECIP_INFO * sk_PKCS7_RECIP_INFO_dup(const struct stack_st_PKCS7_RECIP_INFO *sk)
+{
+    return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_PKCS7_RECIP_INFO *sk_PKCS7_RECIP_INFO_deep_copy(const struct stack_st_PKCS7_RECIP_INFO *sk, sk_PKCS7_RECIP_INFO_copyfunc copyfunc, sk_PKCS7_RECIP_INFO_freefunc freefunc)
+{
+    return (struct stack_st_PKCS7_RECIP_INFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_PKCS7_RECIP_INFO_compfunc sk_PKCS7_RECIP_INFO_set_cmp_func(struct stack_st_PKCS7_RECIP_INFO *sk, sk_PKCS7_RECIP_INFO_compfunc compare)
+{
+    return (sk_PKCS7_RECIP_INFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct pkcs7_signed_st
+{
+    ASN1_INTEGER *version;
+    struct stack_st_X509_ALGOR *md_algs;
+    struct stack_st_X509 *cert;
+    struct stack_st_X509_CRL *crl;
+    struct stack_st_PKCS7_SIGNER_INFO *signer_info;
+    struct pkcs7_st *contents;
 } PKCS7_SIGNED;
-typedef struct pkcs7_enc_content_st {
-ASN1_OBJECT *content_type;
-X509_ALGOR *algorithm;
-ASN1_OCTET_STRING *enc_data; 
-const EVP_CIPHER *cipher;
+typedef struct pkcs7_enc_content_st
+{
+    ASN1_OBJECT *content_type;
+    X509_ALGOR *algorithm;
+    ASN1_OCTET_STRING *enc_data;
+    const EVP_CIPHER *cipher;
 } PKCS7_ENC_CONTENT;
-typedef struct pkcs7_enveloped_st {
-ASN1_INTEGER *version;      
-struct stack_st_PKCS7_RECIP_INFO *recipientinfo;
-PKCS7_ENC_CONTENT *enc_data;
+typedef struct pkcs7_enveloped_st
+{
+    ASN1_INTEGER *version;
+    struct stack_st_PKCS7_RECIP_INFO *recipientinfo;
+    PKCS7_ENC_CONTENT *enc_data;
 } PKCS7_ENVELOPE;
-typedef struct pkcs7_signedandenveloped_st {
-ASN1_INTEGER *version;      
-struct stack_st_X509_ALGOR *md_algs; 
-struct stack_st_X509 *cert;       
-struct stack_st_X509_CRL *crl;    
-struct stack_st_PKCS7_SIGNER_INFO *signer_info;
-PKCS7_ENC_CONTENT *enc_data;
-struct stack_st_PKCS7_RECIP_INFO *recipientinfo;
+typedef struct pkcs7_signedandenveloped_st
+{
+    ASN1_INTEGER *version;
+    struct stack_st_X509_ALGOR *md_algs;
+    struct stack_st_X509 *cert;
+    struct stack_st_X509_CRL *crl;
+    struct stack_st_PKCS7_SIGNER_INFO *signer_info;
+    PKCS7_ENC_CONTENT *enc_data;
+    struct stack_st_PKCS7_RECIP_INFO *recipientinfo;
 } PKCS7_SIGN_ENVELOPE;
-typedef struct pkcs7_digest_st {
-ASN1_INTEGER *version;      
-X509_ALGOR *md;             
-struct pkcs7_st *contents;
-ASN1_OCTET_STRING *digest;
+typedef struct pkcs7_digest_st
+{
+    ASN1_INTEGER *version;
+    X509_ALGOR *md;
+    struct pkcs7_st *contents;
+    ASN1_OCTET_STRING *digest;
 } PKCS7_DIGEST;
-typedef struct pkcs7_encrypted_st {
-ASN1_INTEGER *version;      
-PKCS7_ENC_CONTENT *enc_data;
+typedef struct pkcs7_encrypted_st
+{
+    ASN1_INTEGER *version;
+    PKCS7_ENC_CONTENT *enc_data;
 } PKCS7_ENCRYPT;
-typedef struct pkcs7_st {
-unsigned char *asn1;
-long length;
-int state;                  
-int detached;
-ASN1_OBJECT *type;
-union {
-char *ptr;
-ASN1_OCTET_STRING *data;
-PKCS7_SIGNED *sign;
-PKCS7_ENVELOPE *enveloped;
-PKCS7_SIGN_ENVELOPE *signed_and_enveloped;
-PKCS7_DIGEST *digest;
-PKCS7_ENCRYPT *encrypted;
-ASN1_TYPE *other;
-} d;
+typedef struct pkcs7_st
+{
+    unsigned char *asn1;
+    long length;
+    int state;
+    int detached;
+    ASN1_OBJECT *type;
+    union
+    {
+        char *ptr;
+        ASN1_OCTET_STRING *data;
+        PKCS7_SIGNED *sign;
+        PKCS7_ENVELOPE *enveloped;
+        PKCS7_SIGN_ENVELOPE *signed_and_enveloped;
+        PKCS7_DIGEST *digest;
+        PKCS7_ENCRYPT *encrypted;
+        ASN1_TYPE *other;
+    } d;
 } PKCS7;
-struct stack_st_PKCS7; typedef int (*sk_PKCS7_compfunc)(const PKCS7 * const *a, const PKCS7 *const *b); typedef void (*sk_PKCS7_freefunc)(PKCS7 *a); typedef PKCS7 * (*sk_PKCS7_copyfunc)(const PKCS7 *a); static __inline int sk_PKCS7_num(const struct stack_st_PKCS7 *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline PKCS7 *sk_PKCS7_value(const struct stack_st_PKCS7 *sk, int idx) { return (PKCS7 *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_PKCS7 *sk_PKCS7_new(sk_PKCS7_compfunc compare) { return (struct stack_st_PKCS7 *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_PKCS7 *sk_PKCS7_new_null(void) { return (struct stack_st_PKCS7 *)OPENSSL_sk_new_null(); } static __inline void sk_PKCS7_free(struct stack_st_PKCS7 *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_PKCS7_zero(struct stack_st_PKCS7 *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline PKCS7 *sk_PKCS7_delete(struct stack_st_PKCS7 *sk, int i) { return (PKCS7 *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline PKCS7 *sk_PKCS7_delete_ptr(struct stack_st_PKCS7 *sk, PKCS7 *ptr) { return (PKCS7 *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_push(struct stack_st_PKCS7 *sk, PKCS7 *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_unshift(struct stack_st_PKCS7 *sk, PKCS7 *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline PKCS7 *sk_PKCS7_pop(struct stack_st_PKCS7 *sk) { return (PKCS7 *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline PKCS7 *sk_PKCS7_shift(struct stack_st_PKCS7 *sk) { return (PKCS7 *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_PKCS7_pop_free(struct stack_st_PKCS7 *sk, sk_PKCS7_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_PKCS7_insert(struct stack_st_PKCS7 *sk, PKCS7 *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline PKCS7 *sk_PKCS7_set(struct stack_st_PKCS7 *sk, int idx, PKCS7 *ptr) { return (PKCS7 *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_PKCS7_find(struct stack_st_PKCS7 *sk, PKCS7 *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_PKCS7_find_ex(struct stack_st_PKCS7 *sk, PKCS7 *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_PKCS7_sort(struct stack_st_PKCS7 *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_PKCS7_is_sorted(const struct stack_st_PKCS7 *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_PKCS7 * sk_PKCS7_dup(const struct stack_st_PKCS7 *sk) { return (struct stack_st_PKCS7 *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_PKCS7 *sk_PKCS7_deep_copy(const struct stack_st_PKCS7 *sk, sk_PKCS7_copyfunc copyfunc, sk_PKCS7_freefunc freefunc) { return (struct stack_st_PKCS7 *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_PKCS7_compfunc sk_PKCS7_set_cmp_func(struct stack_st_PKCS7 *sk, sk_PKCS7_compfunc compare) { return (sk_PKCS7_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-PKCS7_ISSUER_AND_SERIAL *PKCS7_ISSUER_AND_SERIAL_new(void); void PKCS7_ISSUER_AND_SERIAL_free(PKCS7_ISSUER_AND_SERIAL *a); PKCS7_ISSUER_AND_SERIAL *d2i_PKCS7_ISSUER_AND_SERIAL(PKCS7_ISSUER_AND_SERIAL **a, const unsigned char **in, long len); int i2d_PKCS7_ISSUER_AND_SERIAL(PKCS7_ISSUER_AND_SERIAL *a, unsigned char **out); const ASN1_ITEM * PKCS7_ISSUER_AND_SERIAL_it(void);
+struct stack_st_PKCS7;
+typedef int (*sk_PKCS7_compfunc)(const PKCS7 * const *a, const PKCS7 *const *b);
+typedef void (*sk_PKCS7_freefunc)(PKCS7 *a);
+typedef PKCS7 * (*sk_PKCS7_copyfunc)(const PKCS7 *a);
+static __inline int sk_PKCS7_num(const struct stack_st_PKCS7 *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline PKCS7 *sk_PKCS7_value(const struct stack_st_PKCS7 *sk, int idx)
+{
+    return (PKCS7 *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_PKCS7 *sk_PKCS7_new(sk_PKCS7_compfunc compare)
+{
+    return (struct stack_st_PKCS7 *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_PKCS7 *sk_PKCS7_new_null(void)
+{
+    return (struct stack_st_PKCS7 *)OPENSSL_sk_new_null();
+}
+static __inline void sk_PKCS7_free(struct stack_st_PKCS7 *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_PKCS7_zero(struct stack_st_PKCS7 *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline PKCS7 *sk_PKCS7_delete(struct stack_st_PKCS7 *sk, int i)
+{
+    return (PKCS7 *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline PKCS7 *sk_PKCS7_delete_ptr(struct stack_st_PKCS7 *sk, PKCS7 *ptr)
+{
+    return (PKCS7 *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_push(struct stack_st_PKCS7 *sk, PKCS7 *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_unshift(struct stack_st_PKCS7 *sk, PKCS7 *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline PKCS7 *sk_PKCS7_pop(struct stack_st_PKCS7 *sk)
+{
+    return (PKCS7 *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline PKCS7 *sk_PKCS7_shift(struct stack_st_PKCS7 *sk)
+{
+    return (PKCS7 *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_PKCS7_pop_free(struct stack_st_PKCS7 *sk, sk_PKCS7_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_PKCS7_insert(struct stack_st_PKCS7 *sk, PKCS7 *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline PKCS7 *sk_PKCS7_set(struct stack_st_PKCS7 *sk, int idx, PKCS7 *ptr)
+{
+    return (PKCS7 *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_PKCS7_find(struct stack_st_PKCS7 *sk, PKCS7 *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_PKCS7_find_ex(struct stack_st_PKCS7 *sk, PKCS7 *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_PKCS7_sort(struct stack_st_PKCS7 *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_PKCS7_is_sorted(const struct stack_st_PKCS7 *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_PKCS7 * sk_PKCS7_dup(const struct stack_st_PKCS7 *sk)
+{
+    return (struct stack_st_PKCS7 *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_PKCS7 *sk_PKCS7_deep_copy(const struct stack_st_PKCS7 *sk, sk_PKCS7_copyfunc copyfunc, sk_PKCS7_freefunc freefunc)
+{
+    return (struct stack_st_PKCS7 *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_PKCS7_compfunc sk_PKCS7_set_cmp_func(struct stack_st_PKCS7 *sk, sk_PKCS7_compfunc compare)
+{
+    return (sk_PKCS7_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+PKCS7_ISSUER_AND_SERIAL *PKCS7_ISSUER_AND_SERIAL_new(void);
+void PKCS7_ISSUER_AND_SERIAL_free(PKCS7_ISSUER_AND_SERIAL *a);
+PKCS7_ISSUER_AND_SERIAL *d2i_PKCS7_ISSUER_AND_SERIAL(PKCS7_ISSUER_AND_SERIAL **a, const unsigned char **in, long len);
+int i2d_PKCS7_ISSUER_AND_SERIAL(PKCS7_ISSUER_AND_SERIAL *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_ISSUER_AND_SERIAL_it(void);
 int PKCS7_ISSUER_AND_SERIAL_digest(PKCS7_ISSUER_AND_SERIAL *data,
-const EVP_MD *type, unsigned char *md,
-unsigned int *len);
+                                   const EVP_MD *type, unsigned char *md,
+                                   unsigned int *len);
 PKCS7 *d2i_PKCS7_fp(FILE *fp, PKCS7 **p7);
 int i2d_PKCS7_fp(FILE *fp, PKCS7 *p7);
 #line 212 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pkcs7.h"
@@ -5051,15 +8101,51 @@ PKCS7 *d2i_PKCS7_bio(BIO *bp, PKCS7 **p7);
 int i2d_PKCS7_bio(BIO *bp, PKCS7 *p7);
 int i2d_PKCS7_bio_stream(BIO *out, PKCS7 *p7, BIO *in, int flags);
 int PEM_write_bio_PKCS7_stream(BIO *out, PKCS7 *p7, BIO *in, int flags);
-PKCS7_SIGNER_INFO *PKCS7_SIGNER_INFO_new(void); void PKCS7_SIGNER_INFO_free(PKCS7_SIGNER_INFO *a); PKCS7_SIGNER_INFO *d2i_PKCS7_SIGNER_INFO(PKCS7_SIGNER_INFO **a, const unsigned char **in, long len); int i2d_PKCS7_SIGNER_INFO(PKCS7_SIGNER_INFO *a, unsigned char **out); const ASN1_ITEM * PKCS7_SIGNER_INFO_it(void);
-PKCS7_RECIP_INFO *PKCS7_RECIP_INFO_new(void); void PKCS7_RECIP_INFO_free(PKCS7_RECIP_INFO *a); PKCS7_RECIP_INFO *d2i_PKCS7_RECIP_INFO(PKCS7_RECIP_INFO **a, const unsigned char **in, long len); int i2d_PKCS7_RECIP_INFO(PKCS7_RECIP_INFO *a, unsigned char **out); const ASN1_ITEM * PKCS7_RECIP_INFO_it(void);
-PKCS7_SIGNED *PKCS7_SIGNED_new(void); void PKCS7_SIGNED_free(PKCS7_SIGNED *a); PKCS7_SIGNED *d2i_PKCS7_SIGNED(PKCS7_SIGNED **a, const unsigned char **in, long len); int i2d_PKCS7_SIGNED(PKCS7_SIGNED *a, unsigned char **out); const ASN1_ITEM * PKCS7_SIGNED_it(void);
-PKCS7_ENC_CONTENT *PKCS7_ENC_CONTENT_new(void); void PKCS7_ENC_CONTENT_free(PKCS7_ENC_CONTENT *a); PKCS7_ENC_CONTENT *d2i_PKCS7_ENC_CONTENT(PKCS7_ENC_CONTENT **a, const unsigned char **in, long len); int i2d_PKCS7_ENC_CONTENT(PKCS7_ENC_CONTENT *a, unsigned char **out); const ASN1_ITEM * PKCS7_ENC_CONTENT_it(void);
-PKCS7_ENVELOPE *PKCS7_ENVELOPE_new(void); void PKCS7_ENVELOPE_free(PKCS7_ENVELOPE *a); PKCS7_ENVELOPE *d2i_PKCS7_ENVELOPE(PKCS7_ENVELOPE **a, const unsigned char **in, long len); int i2d_PKCS7_ENVELOPE(PKCS7_ENVELOPE *a, unsigned char **out); const ASN1_ITEM * PKCS7_ENVELOPE_it(void);
-PKCS7_SIGN_ENVELOPE *PKCS7_SIGN_ENVELOPE_new(void); void PKCS7_SIGN_ENVELOPE_free(PKCS7_SIGN_ENVELOPE *a); PKCS7_SIGN_ENVELOPE *d2i_PKCS7_SIGN_ENVELOPE(PKCS7_SIGN_ENVELOPE **a, const unsigned char **in, long len); int i2d_PKCS7_SIGN_ENVELOPE(PKCS7_SIGN_ENVELOPE *a, unsigned char **out); const ASN1_ITEM * PKCS7_SIGN_ENVELOPE_it(void);
-PKCS7_DIGEST *PKCS7_DIGEST_new(void); void PKCS7_DIGEST_free(PKCS7_DIGEST *a); PKCS7_DIGEST *d2i_PKCS7_DIGEST(PKCS7_DIGEST **a, const unsigned char **in, long len); int i2d_PKCS7_DIGEST(PKCS7_DIGEST *a, unsigned char **out); const ASN1_ITEM * PKCS7_DIGEST_it(void);
-PKCS7_ENCRYPT *PKCS7_ENCRYPT_new(void); void PKCS7_ENCRYPT_free(PKCS7_ENCRYPT *a); PKCS7_ENCRYPT *d2i_PKCS7_ENCRYPT(PKCS7_ENCRYPT **a, const unsigned char **in, long len); int i2d_PKCS7_ENCRYPT(PKCS7_ENCRYPT *a, unsigned char **out); const ASN1_ITEM * PKCS7_ENCRYPT_it(void);
-PKCS7 *PKCS7_new(void); void PKCS7_free(PKCS7 *a); PKCS7 *d2i_PKCS7(PKCS7 **a, const unsigned char **in, long len); int i2d_PKCS7(PKCS7 *a, unsigned char **out); const ASN1_ITEM * PKCS7_it(void);
+PKCS7_SIGNER_INFO *PKCS7_SIGNER_INFO_new(void);
+void PKCS7_SIGNER_INFO_free(PKCS7_SIGNER_INFO *a);
+PKCS7_SIGNER_INFO *d2i_PKCS7_SIGNER_INFO(PKCS7_SIGNER_INFO **a, const unsigned char **in, long len);
+int i2d_PKCS7_SIGNER_INFO(PKCS7_SIGNER_INFO *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_SIGNER_INFO_it(void);
+PKCS7_RECIP_INFO *PKCS7_RECIP_INFO_new(void);
+void PKCS7_RECIP_INFO_free(PKCS7_RECIP_INFO *a);
+PKCS7_RECIP_INFO *d2i_PKCS7_RECIP_INFO(PKCS7_RECIP_INFO **a, const unsigned char **in, long len);
+int i2d_PKCS7_RECIP_INFO(PKCS7_RECIP_INFO *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_RECIP_INFO_it(void);
+PKCS7_SIGNED *PKCS7_SIGNED_new(void);
+void PKCS7_SIGNED_free(PKCS7_SIGNED *a);
+PKCS7_SIGNED *d2i_PKCS7_SIGNED(PKCS7_SIGNED **a, const unsigned char **in, long len);
+int i2d_PKCS7_SIGNED(PKCS7_SIGNED *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_SIGNED_it(void);
+PKCS7_ENC_CONTENT *PKCS7_ENC_CONTENT_new(void);
+void PKCS7_ENC_CONTENT_free(PKCS7_ENC_CONTENT *a);
+PKCS7_ENC_CONTENT *d2i_PKCS7_ENC_CONTENT(PKCS7_ENC_CONTENT **a, const unsigned char **in, long len);
+int i2d_PKCS7_ENC_CONTENT(PKCS7_ENC_CONTENT *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_ENC_CONTENT_it(void);
+PKCS7_ENVELOPE *PKCS7_ENVELOPE_new(void);
+void PKCS7_ENVELOPE_free(PKCS7_ENVELOPE *a);
+PKCS7_ENVELOPE *d2i_PKCS7_ENVELOPE(PKCS7_ENVELOPE **a, const unsigned char **in, long len);
+int i2d_PKCS7_ENVELOPE(PKCS7_ENVELOPE *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_ENVELOPE_it(void);
+PKCS7_SIGN_ENVELOPE *PKCS7_SIGN_ENVELOPE_new(void);
+void PKCS7_SIGN_ENVELOPE_free(PKCS7_SIGN_ENVELOPE *a);
+PKCS7_SIGN_ENVELOPE *d2i_PKCS7_SIGN_ENVELOPE(PKCS7_SIGN_ENVELOPE **a, const unsigned char **in, long len);
+int i2d_PKCS7_SIGN_ENVELOPE(PKCS7_SIGN_ENVELOPE *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_SIGN_ENVELOPE_it(void);
+PKCS7_DIGEST *PKCS7_DIGEST_new(void);
+void PKCS7_DIGEST_free(PKCS7_DIGEST *a);
+PKCS7_DIGEST *d2i_PKCS7_DIGEST(PKCS7_DIGEST **a, const unsigned char **in, long len);
+int i2d_PKCS7_DIGEST(PKCS7_DIGEST *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_DIGEST_it(void);
+PKCS7_ENCRYPT *PKCS7_ENCRYPT_new(void);
+void PKCS7_ENCRYPT_free(PKCS7_ENCRYPT *a);
+PKCS7_ENCRYPT *d2i_PKCS7_ENCRYPT(PKCS7_ENCRYPT **a, const unsigned char **in, long len);
+int i2d_PKCS7_ENCRYPT(PKCS7_ENCRYPT *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_ENCRYPT_it(void);
+PKCS7 *PKCS7_new(void);
+void PKCS7_free(PKCS7 *a);
+PKCS7 *d2i_PKCS7(PKCS7 **a, const unsigned char **in, long len);
+int i2d_PKCS7(PKCS7 *a, unsigned char **out);
+const ASN1_ITEM * PKCS7_it(void);
 const ASN1_ITEM * PKCS7_ATTR_SIGN_it(void);
 const ASN1_ITEM * PKCS7_ATTR_VERIFY_it(void);
 int i2d_PKCS7_NDEF(PKCS7 *a, unsigned char **out);
@@ -5069,27 +8155,27 @@ int PKCS7_set_type(PKCS7 *p7, int type);
 int PKCS7_set0_type_other(PKCS7 *p7, int type, ASN1_TYPE *other);
 int PKCS7_set_content(PKCS7 *p7, PKCS7 *p7_data);
 int PKCS7_SIGNER_INFO_set(PKCS7_SIGNER_INFO *p7i, X509 *x509, EVP_PKEY *pkey,
-const EVP_MD *dgst);
+                          const EVP_MD *dgst);
 int PKCS7_SIGNER_INFO_sign(PKCS7_SIGNER_INFO *si);
 int PKCS7_add_signer(PKCS7 *p7, PKCS7_SIGNER_INFO *p7i);
 int PKCS7_add_certificate(PKCS7 *p7, X509 *x509);
 int PKCS7_add_crl(PKCS7 *p7, X509_CRL *x509);
 int PKCS7_content_new(PKCS7 *p7, int nid);
 int PKCS7_dataVerify(X509_STORE *cert_store, X509_STORE_CTX *ctx,
-BIO *bio, PKCS7 *p7, PKCS7_SIGNER_INFO *si);
+                     BIO *bio, PKCS7 *p7, PKCS7_SIGNER_INFO *si);
 int PKCS7_signatureVerify(BIO *bio, PKCS7 *p7, PKCS7_SIGNER_INFO *si,
-X509 *x509);
+                          X509 *x509);
 BIO *PKCS7_dataInit(PKCS7 *p7, BIO *bio);
 int PKCS7_dataFinal(PKCS7 *p7, BIO *bio);
 BIO *PKCS7_dataDecode(PKCS7 *p7, EVP_PKEY *pkey, BIO *in_bio, X509 *pcert);
 PKCS7_SIGNER_INFO *PKCS7_add_signature(PKCS7 *p7, X509 *x509,
-EVP_PKEY *pkey, const EVP_MD *dgst);
+                                       EVP_PKEY *pkey, const EVP_MD *dgst);
 X509 *PKCS7_cert_from_signer_info(PKCS7 *p7, PKCS7_SIGNER_INFO *si);
 int PKCS7_set_digest(PKCS7 *p7, const EVP_MD *md);
 struct stack_st_PKCS7_SIGNER_INFO *PKCS7_get_signer_info(PKCS7 *p7);
 PKCS7_RECIP_INFO *PKCS7_add_recipient(PKCS7 *p7, X509 *x509);
 void PKCS7_SIGNER_INFO_get0_algs(PKCS7_SIGNER_INFO *si, EVP_PKEY **pk,
-X509_ALGOR **pdig, X509_ALGOR **psig);
+                                 X509_ALGOR **pdig, X509_ALGOR **psig);
 void PKCS7_RECIP_INFO_get0_alg(PKCS7_RECIP_INFO *ri, X509_ALGOR **penc);
 int PKCS7_add_recipient_info(PKCS7 *p7, PKCS7_RECIP_INFO *ri);
 int PKCS7_RECIP_INFO_set(PKCS7_RECIP_INFO *p7i, X509 *x509);
@@ -5098,37 +8184,37 @@ int PKCS7_stream(unsigned char ***boundary, PKCS7 *p7);
 PKCS7_ISSUER_AND_SERIAL *PKCS7_get_issuer_and_serial(PKCS7 *p7, int idx);
 ASN1_OCTET_STRING *PKCS7_digest_from_attributes(struct stack_st_X509_ATTRIBUTE *sk);
 int PKCS7_add_signed_attribute(PKCS7_SIGNER_INFO *p7si, int nid, int type,
-void *data);
+                               void *data);
 int PKCS7_add_attribute(PKCS7_SIGNER_INFO *p7si, int nid, int atrtype,
-void *value);
+                        void *value);
 ASN1_TYPE *PKCS7_get_attribute(PKCS7_SIGNER_INFO *si, int nid);
 ASN1_TYPE *PKCS7_get_signed_attribute(PKCS7_SIGNER_INFO *si, int nid);
 int PKCS7_set_signed_attributes(PKCS7_SIGNER_INFO *p7si,
-struct stack_st_X509_ATTRIBUTE *sk);
+                                struct stack_st_X509_ATTRIBUTE *sk);
 int PKCS7_set_attributes(PKCS7_SIGNER_INFO *p7si,
-struct stack_st_X509_ATTRIBUTE *sk);
+                         struct stack_st_X509_ATTRIBUTE *sk);
 PKCS7 *PKCS7_sign(X509 *signcert, EVP_PKEY *pkey, struct stack_st_X509 *certs,
-BIO *data, int flags);
+                  BIO *data, int flags);
 PKCS7_SIGNER_INFO *PKCS7_sign_add_signer(PKCS7 *p7,
-X509 *signcert, EVP_PKEY *pkey,
-const EVP_MD *md, int flags);
+        X509 *signcert, EVP_PKEY *pkey,
+        const EVP_MD *md, int flags);
 int PKCS7_final(PKCS7 *p7, BIO *data, int flags);
 int PKCS7_verify(PKCS7 *p7, struct stack_st_X509 *certs, X509_STORE *store,
-BIO *indata, BIO *out, int flags);
+                 BIO *indata, BIO *out, int flags);
 struct stack_st_X509 *PKCS7_get0_signers(PKCS7 *p7, struct stack_st_X509 *certs,
-int flags);
+        int flags);
 PKCS7 *PKCS7_encrypt(struct stack_st_X509 *certs, BIO *in, const EVP_CIPHER *cipher,
-int flags);
+                     int flags);
 int PKCS7_decrypt(PKCS7 *p7, EVP_PKEY *pkey, X509 *cert, BIO *data,
-int flags);
+                  int flags);
 int PKCS7_add_attrib_smimecap(PKCS7_SIGNER_INFO *si,
-struct stack_st_X509_ALGOR *cap);
+                              struct stack_st_X509_ALGOR *cap);
 struct stack_st_X509_ALGOR *PKCS7_get_smimecap(PKCS7_SIGNER_INFO *si);
 int PKCS7_simple_smimecap(struct stack_st_X509_ALGOR *sk, int nid, int arg);
 int PKCS7_add_attrib_content_type(PKCS7_SIGNER_INFO *si, ASN1_OBJECT *coid);
 int PKCS7_add0_attrib_signing_time(PKCS7_SIGNER_INFO *si, ASN1_TIME *t);
 int PKCS7_add1_attrib_digest(PKCS7_SIGNER_INFO *si,
-const unsigned char *md, int mdlen);
+                             const unsigned char *md, int mdlen);
 int SMIME_write_PKCS7(BIO *bio, PKCS7 *p7, BIO *data, int flags);
 PKCS7 *SMIME_read_PKCS7(BIO *bio, BIO **bcont);
 BIO *BIO_new_PKCS7(BIO *out, PKCS7 *p7);
@@ -5137,13 +8223,13 @@ int ERR_load_PKCS7_strings(void);
 #line 326 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
 void X509_CRL_set_default_method(const X509_CRL_METHOD *meth);
 X509_CRL_METHOD *X509_CRL_METHOD_new(int (*crl_init) (X509_CRL *crl),
-int (*crl_free) (X509_CRL *crl),
-int (*crl_lookup) (X509_CRL *crl,
-X509_REVOKED **ret,
-ASN1_INTEGER *ser,
-X509_NAME *issuer),
-int (*crl_verify) (X509_CRL *crl,
-EVP_PKEY *pk));
+                                     int (*crl_free) (X509_CRL *crl),
+                                     int (*crl_lookup) (X509_CRL *crl,
+                                             X509_REVOKED **ret,
+                                             ASN1_INTEGER *ser,
+                                             X509_NAME *issuer),
+                                     int (*crl_verify) (X509_CRL *crl,
+                                             EVP_PKEY *pk));
 void X509_CRL_METHOD_free(X509_CRL_METHOD *m);
 void X509_CRL_set_meth_data(X509_CRL *crl, void *dat);
 void *X509_CRL_get_meth_data(X509_CRL *crl);
@@ -5159,7 +8245,7 @@ int NETSCAPE_SPKI_set_pubkey(NETSCAPE_SPKI *x, EVP_PKEY *pkey);
 int NETSCAPE_SPKI_print(BIO *out, NETSCAPE_SPKI *spki);
 int X509_signature_dump(BIO *bp, const ASN1_STRING *sig, int indent);
 int X509_signature_print(BIO *bp, const X509_ALGOR *alg,
-const ASN1_STRING *sig);
+                         const ASN1_STRING *sig);
 int X509_sign(X509 *x, EVP_PKEY *pkey, const EVP_MD *md);
 int X509_sign_ctx(X509 *x, EVP_MD_CTX *ctx);
 int X509_http_nbio(OCSP_REQ_CTX *rctx, X509 **pcert);
@@ -5172,15 +8258,15 @@ int X509_CRL_http_nbio(OCSP_REQ_CTX *rctx, X509_CRL **pcrl);
 #line 383 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
 int NETSCAPE_SPKI_sign(NETSCAPE_SPKI *x, EVP_PKEY *pkey, const EVP_MD *md);
 int X509_pubkey_digest(const X509 *data, const EVP_MD *type,
-unsigned char *md, unsigned int *len);
+                       unsigned char *md, unsigned int *len);
 int X509_digest(const X509 *data, const EVP_MD *type,
-unsigned char *md, unsigned int *len);
+                unsigned char *md, unsigned int *len);
 int X509_CRL_digest(const X509_CRL *data, const EVP_MD *type,
-unsigned char *md, unsigned int *len);
+                    unsigned char *md, unsigned int *len);
 int X509_REQ_digest(const X509_REQ *data, const EVP_MD *type,
-unsigned char *md, unsigned int *len);
+                    unsigned char *md, unsigned int *len);
 int X509_NAME_digest(const X509_NAME *data, const EVP_MD *type,
-unsigned char *md, unsigned int *len);
+                     unsigned char *md, unsigned int *len);
 X509 *d2i_X509_fp(FILE *fp, X509 **x509);
 int i2d_X509_fp(FILE *fp, X509 *x509);
 X509_CRL *d2i_X509_CRL_fp(FILE *fp, X509_CRL **crl);
@@ -5208,7 +8294,7 @@ int i2d_ECPrivateKey_fp(FILE *fp, EC_KEY *eckey);
 X509_SIG *d2i_PKCS8_fp(FILE *fp, X509_SIG **p8);
 int i2d_PKCS8_fp(FILE *fp, X509_SIG *p8);
 PKCS8_PRIV_KEY_INFO *d2i_PKCS8_PRIV_KEY_INFO_fp(FILE *fp,
-PKCS8_PRIV_KEY_INFO **p8inf);
+        PKCS8_PRIV_KEY_INFO **p8inf);
 int i2d_PKCS8_PRIV_KEY_INFO_fp(FILE *fp, PKCS8_PRIV_KEY_INFO *p8inf);
 int i2d_PKCS8PrivateKeyInfo_fp(FILE *fp, EVP_PKEY *key);
 int i2d_PrivateKey_fp(FILE *fp, EVP_PKEY *pkey);
@@ -5243,7 +8329,7 @@ int i2d_ECPrivateKey_bio(BIO *bp, EC_KEY *eckey);
 X509_SIG *d2i_PKCS8_bio(BIO *bp, X509_SIG **p8);
 int i2d_PKCS8_bio(BIO *bp, X509_SIG *p8);
 PKCS8_PRIV_KEY_INFO *d2i_PKCS8_PRIV_KEY_INFO_bio(BIO *bp,
-PKCS8_PRIV_KEY_INFO **p8inf);
+        PKCS8_PRIV_KEY_INFO **p8inf);
 int i2d_PKCS8_PRIV_KEY_INFO_bio(BIO *bp, PKCS8_PRIV_KEY_INFO *p8inf);
 int i2d_PKCS8PrivateKeyInfo_bio(BIO *bp, EVP_PKEY *key);
 int i2d_PrivateKey_bio(BIO *bp, EVP_PKEY *pkey);
@@ -5258,9 +8344,9 @@ X509_REVOKED *X509_REVOKED_dup(X509_REVOKED *rev);
 X509_REQ *X509_REQ_dup(X509_REQ *req);
 X509_ALGOR *X509_ALGOR_dup(X509_ALGOR *xn);
 int X509_ALGOR_set0(X509_ALGOR *alg, ASN1_OBJECT *aobj, int ptype,
-void *pval);
+                    void *pval);
 void X509_ALGOR_get0(const ASN1_OBJECT **paobj, int *pptype,
-const void **ppval, const X509_ALGOR *algor);
+                     const void **ppval, const X509_ALGOR *algor);
 void X509_ALGOR_set_md(X509_ALGOR *alg, const EVP_MD *md);
 int X509_ALGOR_cmp(const X509_ALGOR *a, const X509_ALGOR *b);
 X509_NAME *X509_NAME_dup(X509_NAME *xn);
@@ -5269,7 +8355,7 @@ int X509_cmp_time(const ASN1_TIME *s, time_t *t);
 int X509_cmp_current_time(const ASN1_TIME *s);
 ASN1_TIME *X509_time_adj(ASN1_TIME *s, long adj, time_t *t);
 ASN1_TIME *X509_time_adj_ex(ASN1_TIME *s,
-int offset_day, long offset_sec, time_t *t);
+                            int offset_day, long offset_sec, time_t *t);
 ASN1_TIME *X509_gmtime_adj(ASN1_TIME *s, long adj);
 const char *X509_get_default_cert_area(void);
 const char *X509_get_default_cert_dir(void);
@@ -5279,10 +8365,24 @@ const char *X509_get_default_cert_file_env(void);
 const char *X509_get_default_private_dir(void);
 X509_REQ *X509_to_X509_REQ(X509 *x, EVP_PKEY *pkey, const EVP_MD *md);
 X509 *X509_REQ_to_X509(X509_REQ *r, int days, EVP_PKEY *pkey);
-X509_ALGOR *X509_ALGOR_new(void); void X509_ALGOR_free(X509_ALGOR *a); X509_ALGOR *d2i_X509_ALGOR(X509_ALGOR **a, const unsigned char **in, long len); int i2d_X509_ALGOR(X509_ALGOR *a, unsigned char **out); const ASN1_ITEM * X509_ALGOR_it(void);
-X509_ALGORS *d2i_X509_ALGORS(X509_ALGORS **a, const unsigned char **in, long len); int i2d_X509_ALGORS(X509_ALGORS *a, unsigned char **out); const ASN1_ITEM * X509_ALGORS_it(void);
-X509_VAL *X509_VAL_new(void); void X509_VAL_free(X509_VAL *a); X509_VAL *d2i_X509_VAL(X509_VAL **a, const unsigned char **in, long len); int i2d_X509_VAL(X509_VAL *a, unsigned char **out); const ASN1_ITEM * X509_VAL_it(void);
-X509_PUBKEY *X509_PUBKEY_new(void); void X509_PUBKEY_free(X509_PUBKEY *a); X509_PUBKEY *d2i_X509_PUBKEY(X509_PUBKEY **a, const unsigned char **in, long len); int i2d_X509_PUBKEY(X509_PUBKEY *a, unsigned char **out); const ASN1_ITEM * X509_PUBKEY_it(void);
+X509_ALGOR *X509_ALGOR_new(void);
+void X509_ALGOR_free(X509_ALGOR *a);
+X509_ALGOR *d2i_X509_ALGOR(X509_ALGOR **a, const unsigned char **in, long len);
+int i2d_X509_ALGOR(X509_ALGOR *a, unsigned char **out);
+const ASN1_ITEM * X509_ALGOR_it(void);
+X509_ALGORS *d2i_X509_ALGORS(X509_ALGORS **a, const unsigned char **in, long len);
+int i2d_X509_ALGORS(X509_ALGORS *a, unsigned char **out);
+const ASN1_ITEM * X509_ALGORS_it(void);
+X509_VAL *X509_VAL_new(void);
+void X509_VAL_free(X509_VAL *a);
+X509_VAL *d2i_X509_VAL(X509_VAL **a, const unsigned char **in, long len);
+int i2d_X509_VAL(X509_VAL *a, unsigned char **out);
+const ASN1_ITEM * X509_VAL_it(void);
+X509_PUBKEY *X509_PUBKEY_new(void);
+void X509_PUBKEY_free(X509_PUBKEY *a);
+X509_PUBKEY *d2i_X509_PUBKEY(X509_PUBKEY **a, const unsigned char **in, long len);
+int i2d_X509_PUBKEY(X509_PUBKEY *a, unsigned char **out);
+const ASN1_ITEM * X509_PUBKEY_it(void);
 int X509_PUBKEY_set(X509_PUBKEY **x, EVP_PKEY *pkey);
 EVP_PKEY *X509_PUBKEY_get0(X509_PUBKEY *key);
 EVP_PKEY *X509_PUBKEY_get(X509_PUBKEY *key);
@@ -5307,30 +8407,72 @@ SM9_MASTER_KEY *d2i_SM9_MASTER_PUBKEY(SM9_MASTER_KEY **a, const unsigned char **
 int i2d_SM9_PUBKEY(SM9_KEY *a, unsigned char **pp);
 SM9_KEY *d2i_SM9_PUBKEY(SM9_KEY **a, const unsigned char **pp, long length);
 #line 561 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
-X509_SIG *X509_SIG_new(void); void X509_SIG_free(X509_SIG *a); X509_SIG *d2i_X509_SIG(X509_SIG **a, const unsigned char **in, long len); int i2d_X509_SIG(X509_SIG *a, unsigned char **out); const ASN1_ITEM * X509_SIG_it(void);
+X509_SIG *X509_SIG_new(void);
+void X509_SIG_free(X509_SIG *a);
+X509_SIG *d2i_X509_SIG(X509_SIG **a, const unsigned char **in, long len);
+int i2d_X509_SIG(X509_SIG *a, unsigned char **out);
+const ASN1_ITEM * X509_SIG_it(void);
 void X509_SIG_get0(const X509_SIG *sig, const X509_ALGOR **palg,
-const ASN1_OCTET_STRING **pdigest);
+                   const ASN1_OCTET_STRING **pdigest);
 void X509_SIG_getm(X509_SIG *sig, X509_ALGOR **palg,
-ASN1_OCTET_STRING **pdigest);
-X509_REQ_INFO *X509_REQ_INFO_new(void); void X509_REQ_INFO_free(X509_REQ_INFO *a); X509_REQ_INFO *d2i_X509_REQ_INFO(X509_REQ_INFO **a, const unsigned char **in, long len); int i2d_X509_REQ_INFO(X509_REQ_INFO *a, unsigned char **out); const ASN1_ITEM * X509_REQ_INFO_it(void);
-X509_REQ *X509_REQ_new(void); void X509_REQ_free(X509_REQ *a); X509_REQ *d2i_X509_REQ(X509_REQ **a, const unsigned char **in, long len); int i2d_X509_REQ(X509_REQ *a, unsigned char **out); const ASN1_ITEM * X509_REQ_it(void);
-X509_ATTRIBUTE *X509_ATTRIBUTE_new(void); void X509_ATTRIBUTE_free(X509_ATTRIBUTE *a); X509_ATTRIBUTE *d2i_X509_ATTRIBUTE(X509_ATTRIBUTE **a, const unsigned char **in, long len); int i2d_X509_ATTRIBUTE(X509_ATTRIBUTE *a, unsigned char **out); const ASN1_ITEM * X509_ATTRIBUTE_it(void);
+                   ASN1_OCTET_STRING **pdigest);
+X509_REQ_INFO *X509_REQ_INFO_new(void);
+void X509_REQ_INFO_free(X509_REQ_INFO *a);
+X509_REQ_INFO *d2i_X509_REQ_INFO(X509_REQ_INFO **a, const unsigned char **in, long len);
+int i2d_X509_REQ_INFO(X509_REQ_INFO *a, unsigned char **out);
+const ASN1_ITEM * X509_REQ_INFO_it(void);
+X509_REQ *X509_REQ_new(void);
+void X509_REQ_free(X509_REQ *a);
+X509_REQ *d2i_X509_REQ(X509_REQ **a, const unsigned char **in, long len);
+int i2d_X509_REQ(X509_REQ *a, unsigned char **out);
+const ASN1_ITEM * X509_REQ_it(void);
+X509_ATTRIBUTE *X509_ATTRIBUTE_new(void);
+void X509_ATTRIBUTE_free(X509_ATTRIBUTE *a);
+X509_ATTRIBUTE *d2i_X509_ATTRIBUTE(X509_ATTRIBUTE **a, const unsigned char **in, long len);
+int i2d_X509_ATTRIBUTE(X509_ATTRIBUTE *a, unsigned char **out);
+const ASN1_ITEM * X509_ATTRIBUTE_it(void);
 X509_ATTRIBUTE *X509_ATTRIBUTE_create(int nid, int atrtype, void *value);
-X509_EXTENSION *X509_EXTENSION_new(void); void X509_EXTENSION_free(X509_EXTENSION *a); X509_EXTENSION *d2i_X509_EXTENSION(X509_EXTENSION **a, const unsigned char **in, long len); int i2d_X509_EXTENSION(X509_EXTENSION *a, unsigned char **out); const ASN1_ITEM * X509_EXTENSION_it(void);
-X509_EXTENSIONS *d2i_X509_EXTENSIONS(X509_EXTENSIONS **a, const unsigned char **in, long len); int i2d_X509_EXTENSIONS(X509_EXTENSIONS *a, unsigned char **out); const ASN1_ITEM * X509_EXTENSIONS_it(void);
-X509_NAME_ENTRY *X509_NAME_ENTRY_new(void); void X509_NAME_ENTRY_free(X509_NAME_ENTRY *a); X509_NAME_ENTRY *d2i_X509_NAME_ENTRY(X509_NAME_ENTRY **a, const unsigned char **in, long len); int i2d_X509_NAME_ENTRY(X509_NAME_ENTRY *a, unsigned char **out); const ASN1_ITEM * X509_NAME_ENTRY_it(void);
-X509_NAME *X509_NAME_new(void); void X509_NAME_free(X509_NAME *a); X509_NAME *d2i_X509_NAME(X509_NAME **a, const unsigned char **in, long len); int i2d_X509_NAME(X509_NAME *a, unsigned char **out); const ASN1_ITEM * X509_NAME_it(void);
+X509_EXTENSION *X509_EXTENSION_new(void);
+void X509_EXTENSION_free(X509_EXTENSION *a);
+X509_EXTENSION *d2i_X509_EXTENSION(X509_EXTENSION **a, const unsigned char **in, long len);
+int i2d_X509_EXTENSION(X509_EXTENSION *a, unsigned char **out);
+const ASN1_ITEM * X509_EXTENSION_it(void);
+X509_EXTENSIONS *d2i_X509_EXTENSIONS(X509_EXTENSIONS **a, const unsigned char **in, long len);
+int i2d_X509_EXTENSIONS(X509_EXTENSIONS *a, unsigned char **out);
+const ASN1_ITEM * X509_EXTENSIONS_it(void);
+X509_NAME_ENTRY *X509_NAME_ENTRY_new(void);
+void X509_NAME_ENTRY_free(X509_NAME_ENTRY *a);
+X509_NAME_ENTRY *d2i_X509_NAME_ENTRY(X509_NAME_ENTRY **a, const unsigned char **in, long len);
+int i2d_X509_NAME_ENTRY(X509_NAME_ENTRY *a, unsigned char **out);
+const ASN1_ITEM * X509_NAME_ENTRY_it(void);
+X509_NAME *X509_NAME_new(void);
+void X509_NAME_free(X509_NAME *a);
+X509_NAME *d2i_X509_NAME(X509_NAME **a, const unsigned char **in, long len);
+int i2d_X509_NAME(X509_NAME *a, unsigned char **out);
+const ASN1_ITEM * X509_NAME_it(void);
 int X509_NAME_set(X509_NAME **xn, X509_NAME *name);
-X509_CINF *X509_CINF_new(void); void X509_CINF_free(X509_CINF *a); X509_CINF *d2i_X509_CINF(X509_CINF **a, const unsigned char **in, long len); int i2d_X509_CINF(X509_CINF *a, unsigned char **out); const ASN1_ITEM * X509_CINF_it(void);
-X509 *X509_new(void); void X509_free(X509 *a); X509 *d2i_X509(X509 **a, const unsigned char **in, long len); int i2d_X509(X509 *a, unsigned char **out); const ASN1_ITEM * X509_it(void);
-X509_CERT_AUX *X509_CERT_AUX_new(void); void X509_CERT_AUX_free(X509_CERT_AUX *a); X509_CERT_AUX *d2i_X509_CERT_AUX(X509_CERT_AUX **a, const unsigned char **in, long len); int i2d_X509_CERT_AUX(X509_CERT_AUX *a, unsigned char **out); const ASN1_ITEM * X509_CERT_AUX_it(void);
+X509_CINF *X509_CINF_new(void);
+void X509_CINF_free(X509_CINF *a);
+X509_CINF *d2i_X509_CINF(X509_CINF **a, const unsigned char **in, long len);
+int i2d_X509_CINF(X509_CINF *a, unsigned char **out);
+const ASN1_ITEM * X509_CINF_it(void);
+X509 *X509_new(void);
+void X509_free(X509 *a);
+X509 *d2i_X509(X509 **a, const unsigned char **in, long len);
+int i2d_X509(X509 *a, unsigned char **out);
+const ASN1_ITEM * X509_it(void);
+X509_CERT_AUX *X509_CERT_AUX_new(void);
+void X509_CERT_AUX_free(X509_CERT_AUX *a);
+X509_CERT_AUX *d2i_X509_CERT_AUX(X509_CERT_AUX **a, const unsigned char **in, long len);
+int i2d_X509_CERT_AUX(X509_CERT_AUX *a, unsigned char **out);
+const ASN1_ITEM * X509_CERT_AUX_it(void);
 int X509_set_ex_data(X509 *r, int idx, void *arg);
 void *X509_get_ex_data(X509 *r, int idx);
 int i2d_X509_AUX(X509 *a, unsigned char **pp);
 X509 *d2i_X509_AUX(X509 **a, const unsigned char **pp, long length);
 int i2d_re_X509_tbs(X509 *x, unsigned char **pp);
 void X509_get0_signature(const ASN1_BIT_STRING **psig,
-const X509_ALGOR **palg, const X509 *x);
+                         const X509_ALGOR **palg, const X509 *x);
 int X509_get_signature_nid(const X509 *x);
 int X509_trusted(const X509 *x);
 int X509_alias_set1(X509 *x, const unsigned char *name, int len);
@@ -5338,7 +8480,7 @@ int X509_keyid_set1(X509 *x, const unsigned char *id, int len);
 unsigned char *X509_alias_get0(X509 *x, int *len);
 unsigned char *X509_keyid_get0(X509 *x, int *len);
 int (*X509_TRUST_set_default(int (*trust) (int, X509 *, int))) (int, X509 *,
-int);
+        int);
 int X509_TRUST_set(int *t, int trust);
 int X509_add1_trust_object(X509 *x, const ASN1_OBJECT *obj);
 int X509_add1_reject_object(X509 *x, const ASN1_OBJECT *obj);
@@ -5346,38 +8488,62 @@ void X509_trust_clear(X509 *x);
 void X509_reject_clear(X509 *x);
 struct stack_st_ASN1_OBJECT *X509_get0_trust_objects(X509 *x);
 struct stack_st_ASN1_OBJECT *X509_get0_reject_objects(X509 *x);
-X509_REVOKED *X509_REVOKED_new(void); void X509_REVOKED_free(X509_REVOKED *a); X509_REVOKED *d2i_X509_REVOKED(X509_REVOKED **a, const unsigned char **in, long len); int i2d_X509_REVOKED(X509_REVOKED *a, unsigned char **out); const ASN1_ITEM * X509_REVOKED_it(void);
-X509_CRL_INFO *X509_CRL_INFO_new(void); void X509_CRL_INFO_free(X509_CRL_INFO *a); X509_CRL_INFO *d2i_X509_CRL_INFO(X509_CRL_INFO **a, const unsigned char **in, long len); int i2d_X509_CRL_INFO(X509_CRL_INFO *a, unsigned char **out); const ASN1_ITEM * X509_CRL_INFO_it(void);
-X509_CRL *X509_CRL_new(void); void X509_CRL_free(X509_CRL *a); X509_CRL *d2i_X509_CRL(X509_CRL **a, const unsigned char **in, long len); int i2d_X509_CRL(X509_CRL *a, unsigned char **out); const ASN1_ITEM * X509_CRL_it(void);
+X509_REVOKED *X509_REVOKED_new(void);
+void X509_REVOKED_free(X509_REVOKED *a);
+X509_REVOKED *d2i_X509_REVOKED(X509_REVOKED **a, const unsigned char **in, long len);
+int i2d_X509_REVOKED(X509_REVOKED *a, unsigned char **out);
+const ASN1_ITEM * X509_REVOKED_it(void);
+X509_CRL_INFO *X509_CRL_INFO_new(void);
+void X509_CRL_INFO_free(X509_CRL_INFO *a);
+X509_CRL_INFO *d2i_X509_CRL_INFO(X509_CRL_INFO **a, const unsigned char **in, long len);
+int i2d_X509_CRL_INFO(X509_CRL_INFO *a, unsigned char **out);
+const ASN1_ITEM * X509_CRL_INFO_it(void);
+X509_CRL *X509_CRL_new(void);
+void X509_CRL_free(X509_CRL *a);
+X509_CRL *d2i_X509_CRL(X509_CRL **a, const unsigned char **in, long len);
+int i2d_X509_CRL(X509_CRL *a, unsigned char **out);
+const ASN1_ITEM * X509_CRL_it(void);
 int X509_CRL_add0_revoked(X509_CRL *crl, X509_REVOKED *rev);
 int X509_CRL_get0_by_serial(X509_CRL *crl,
-X509_REVOKED **ret, ASN1_INTEGER *serial);
+                            X509_REVOKED **ret, ASN1_INTEGER *serial);
 int X509_CRL_get0_by_cert(X509_CRL *crl, X509_REVOKED **ret, X509 *x);
 X509_PKEY *X509_PKEY_new(void);
 void X509_PKEY_free(X509_PKEY *a);
-NETSCAPE_SPKI *NETSCAPE_SPKI_new(void); void NETSCAPE_SPKI_free(NETSCAPE_SPKI *a); NETSCAPE_SPKI *d2i_NETSCAPE_SPKI(NETSCAPE_SPKI **a, const unsigned char **in, long len); int i2d_NETSCAPE_SPKI(NETSCAPE_SPKI *a, unsigned char **out); const ASN1_ITEM * NETSCAPE_SPKI_it(void);
-NETSCAPE_SPKAC *NETSCAPE_SPKAC_new(void); void NETSCAPE_SPKAC_free(NETSCAPE_SPKAC *a); NETSCAPE_SPKAC *d2i_NETSCAPE_SPKAC(NETSCAPE_SPKAC **a, const unsigned char **in, long len); int i2d_NETSCAPE_SPKAC(NETSCAPE_SPKAC *a, unsigned char **out); const ASN1_ITEM * NETSCAPE_SPKAC_it(void);
-NETSCAPE_CERT_SEQUENCE *NETSCAPE_CERT_SEQUENCE_new(void); void NETSCAPE_CERT_SEQUENCE_free(NETSCAPE_CERT_SEQUENCE *a); NETSCAPE_CERT_SEQUENCE *d2i_NETSCAPE_CERT_SEQUENCE(NETSCAPE_CERT_SEQUENCE **a, const unsigned char **in, long len); int i2d_NETSCAPE_CERT_SEQUENCE(NETSCAPE_CERT_SEQUENCE *a, unsigned char **out); const ASN1_ITEM * NETSCAPE_CERT_SEQUENCE_it(void);
+NETSCAPE_SPKI *NETSCAPE_SPKI_new(void);
+void NETSCAPE_SPKI_free(NETSCAPE_SPKI *a);
+NETSCAPE_SPKI *d2i_NETSCAPE_SPKI(NETSCAPE_SPKI **a, const unsigned char **in, long len);
+int i2d_NETSCAPE_SPKI(NETSCAPE_SPKI *a, unsigned char **out);
+const ASN1_ITEM * NETSCAPE_SPKI_it(void);
+NETSCAPE_SPKAC *NETSCAPE_SPKAC_new(void);
+void NETSCAPE_SPKAC_free(NETSCAPE_SPKAC *a);
+NETSCAPE_SPKAC *d2i_NETSCAPE_SPKAC(NETSCAPE_SPKAC **a, const unsigned char **in, long len);
+int i2d_NETSCAPE_SPKAC(NETSCAPE_SPKAC *a, unsigned char **out);
+const ASN1_ITEM * NETSCAPE_SPKAC_it(void);
+NETSCAPE_CERT_SEQUENCE *NETSCAPE_CERT_SEQUENCE_new(void);
+void NETSCAPE_CERT_SEQUENCE_free(NETSCAPE_CERT_SEQUENCE *a);
+NETSCAPE_CERT_SEQUENCE *d2i_NETSCAPE_CERT_SEQUENCE(NETSCAPE_CERT_SEQUENCE **a, const unsigned char **in, long len);
+int i2d_NETSCAPE_CERT_SEQUENCE(NETSCAPE_CERT_SEQUENCE *a, unsigned char **out);
+const ASN1_ITEM * NETSCAPE_CERT_SEQUENCE_it(void);
 X509_INFO *X509_INFO_new(void);
 void X509_INFO_free(X509_INFO *a);
 char *X509_NAME_oneline(const X509_NAME *a, char *buf, int size);
 int ASN1_verify(i2d_of_void *i2d, X509_ALGOR *algor1,
-ASN1_BIT_STRING *signature, char *data, EVP_PKEY *pkey);
+                ASN1_BIT_STRING *signature, char *data, EVP_PKEY *pkey);
 int ASN1_digest(i2d_of_void *i2d, const EVP_MD *type, char *data,
-unsigned char *md, unsigned int *len);
+                unsigned char *md, unsigned int *len);
 int ASN1_sign(i2d_of_void *i2d, X509_ALGOR *algor1,
-X509_ALGOR *algor2, ASN1_BIT_STRING *signature,
-char *data, EVP_PKEY *pkey, const EVP_MD *type);
+              X509_ALGOR *algor2, ASN1_BIT_STRING *signature,
+              char *data, EVP_PKEY *pkey, const EVP_MD *type);
 int ASN1_item_digest(const ASN1_ITEM *it, const EVP_MD *type, void *data,
-unsigned char *md, unsigned int *len);
+                     unsigned char *md, unsigned int *len);
 int ASN1_item_verify(const ASN1_ITEM *it, X509_ALGOR *algor1,
-ASN1_BIT_STRING *signature, void *data, EVP_PKEY *pkey);
+                     ASN1_BIT_STRING *signature, void *data, EVP_PKEY *pkey);
 int ASN1_item_sign(const ASN1_ITEM *it, X509_ALGOR *algor1,
-X509_ALGOR *algor2, ASN1_BIT_STRING *signature, void *data,
-EVP_PKEY *pkey, const EVP_MD *type);
+                   X509_ALGOR *algor2, ASN1_BIT_STRING *signature, void *data,
+                   EVP_PKEY *pkey, const EVP_MD *type);
 int ASN1_item_sign_ctx(const ASN1_ITEM *it, X509_ALGOR *algor1,
-X509_ALGOR *algor2, ASN1_BIT_STRING *signature,
-void *asn, EVP_MD_CTX *ctx);
+                       X509_ALGOR *algor2, ASN1_BIT_STRING *signature,
+                       void *asn, EVP_MD_CTX *ctx);
 long X509_get_version(const X509 *x);
 int X509_set_version(X509 *x, long version);
 int X509_set_serialNumber(X509 *x, ASN1_INTEGER *serial);
@@ -5400,7 +8566,7 @@ int X509_get_signature_type(const X509 *x);
 X509_PUBKEY *X509_get_X509_PUBKEY(const X509 *x);
 const struct stack_st_X509_EXTENSION *X509_get0_extensions(const X509 *x);
 void X509_get0_uids(const X509 *x, const ASN1_BIT_STRING **piuid,
-const ASN1_BIT_STRING **psuid);
+                    const ASN1_BIT_STRING **psuid);
 const X509_ALGOR *X509_get0_tbs_sigalg(const X509 *x);
 EVP_PKEY *X509_get0_pubkey(const X509 *x);
 EVP_PKEY *X509_get_pubkey(X509 *x);
@@ -5411,7 +8577,7 @@ int X509_REQ_set_version(X509_REQ *x, long version);
 X509_NAME *X509_REQ_get_subject_name(const X509_REQ *req);
 int X509_REQ_set_subject_name(X509_REQ *req, X509_NAME *name);
 void X509_REQ_get0_signature(const X509_REQ *req, const ASN1_BIT_STRING **psig,
-const X509_ALGOR **palg);
+                             const X509_ALGOR **palg);
 int X509_REQ_get_signature_nid(const X509_REQ *req);
 int i2d_re_X509_REQ_tbs(X509_REQ *req, unsigned char **pp);
 int X509_REQ_set_pubkey(X509_REQ *x, EVP_PKEY *pkey);
@@ -5423,24 +8589,24 @@ int *X509_REQ_get_extension_nids(void);
 void X509_REQ_set_extension_nids(int *nids);
 struct stack_st_X509_EXTENSION *X509_REQ_get_extensions(X509_REQ *req);
 int X509_REQ_add_extensions_nid(X509_REQ *req, struct stack_st_X509_EXTENSION *exts,
-int nid);
+                                int nid);
 int X509_REQ_add_extensions(X509_REQ *req, struct stack_st_X509_EXTENSION *exts);
 int X509_REQ_get_attr_count(const X509_REQ *req);
 int X509_REQ_get_attr_by_NID(const X509_REQ *req, int nid, int lastpos);
 int X509_REQ_get_attr_by_OBJ(const X509_REQ *req, const ASN1_OBJECT *obj,
-int lastpos);
+                             int lastpos);
 X509_ATTRIBUTE *X509_REQ_get_attr(const X509_REQ *req, int loc);
 X509_ATTRIBUTE *X509_REQ_delete_attr(X509_REQ *req, int loc);
 int X509_REQ_add1_attr(X509_REQ *req, X509_ATTRIBUTE *attr);
 int X509_REQ_add1_attr_by_OBJ(X509_REQ *req,
-const ASN1_OBJECT *obj, int type,
-const unsigned char *bytes, int len);
+                              const ASN1_OBJECT *obj, int type,
+                              const unsigned char *bytes, int len);
 int X509_REQ_add1_attr_by_NID(X509_REQ *req,
-int nid, int type,
-const unsigned char *bytes, int len);
+                              int nid, int type,
+                              const unsigned char *bytes, int len);
 int X509_REQ_add1_attr_by_txt(X509_REQ *req,
-const char *attrname, int type,
-const unsigned char *bytes, int len);
+                              const char *attrname, int type,
+                              const unsigned char *bytes, int len);
 int X509_CRL_set_version(X509_CRL *x, long version);
 int X509_CRL_set_issuer_name(X509_CRL *x, X509_NAME *name);
 int X509_CRL_set1_lastUpdate(X509_CRL *x, const ASN1_TIME *tm);
@@ -5457,7 +8623,7 @@ X509_NAME *X509_CRL_get_issuer(const X509_CRL *crl);
 const struct stack_st_X509_EXTENSION *X509_CRL_get0_extensions(const X509_CRL *crl);
 struct stack_st_X509_REVOKED *X509_CRL_get_REVOKED(X509_CRL *crl);
 void X509_CRL_get0_signature(const X509_CRL *crl, const ASN1_BIT_STRING **psig,
-const X509_ALGOR **palg);
+                             const X509_ALGOR **palg);
 int X509_CRL_get_signature_nid(const X509_CRL *crl);
 int i2d_re_X509_CRL_tbs(X509_CRL *req, unsigned char **pp);
 const ASN1_INTEGER *X509_REVOKED_get0_serialNumber(const X509_REVOKED *x);
@@ -5467,12 +8633,12 @@ int X509_REVOKED_set_revocationDate(X509_REVOKED *r, ASN1_TIME *tm);
 const struct stack_st_X509_EXTENSION *
 X509_REVOKED_get0_extensions(const X509_REVOKED *r);
 X509_CRL *X509_CRL_diff(X509_CRL *base, X509_CRL *newer,
-EVP_PKEY *skey, const EVP_MD *md, unsigned int flags);
+                        EVP_PKEY *skey, const EVP_MD *md, unsigned int flags);
 int X509_REQ_check_private_key(X509_REQ *x509, EVP_PKEY *pkey);
 int X509_check_private_key(const X509 *x509, const EVP_PKEY *pkey);
 int X509_chain_check_suiteb(int *perror_depth,
-X509 *x, struct stack_st_X509 *chain,
-unsigned long flags);
+                            X509 *x, struct stack_st_X509 *chain,
+                            unsigned long flags);
 int X509_CRL_check_suiteb(X509_CRL *crl, EVP_PKEY *pk, unsigned long flags);
 struct stack_st_X509 *X509_chain_up_ref(struct stack_st_X509 *chain);
 int X509_issuer_and_serial_cmp(const X509 *a, const X509 *b);
@@ -5492,75 +8658,75 @@ int X509_CRL_cmp(const X509_CRL *a, const X509_CRL *b);
 int X509_CRL_match(const X509_CRL *a, const X509_CRL *b);
 int X509_aux_print(BIO *out, X509 *x, int indent);
 int X509_print_ex_fp(FILE *bp, X509 *x, unsigned long nmflag,
-unsigned long cflag);
+                     unsigned long cflag);
 int X509_print_fp(FILE *bp, X509 *x);
 int X509_CRL_print_fp(FILE *bp, X509_CRL *x);
 int X509_REQ_print_fp(FILE *bp, X509_REQ *req);
 int X509_NAME_print_ex_fp(FILE *fp, const X509_NAME *nm, int indent,
-unsigned long flags);
+                          unsigned long flags);
 #line 814 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
 int X509_NAME_print(BIO *bp, const X509_NAME *name, int obase);
 int X509_NAME_print_ex(BIO *out, const X509_NAME *nm, int indent,
-unsigned long flags);
+                       unsigned long flags);
 int X509_print_ex(BIO *bp, X509 *x, unsigned long nmflag,
-unsigned long cflag);
+                  unsigned long cflag);
 int X509_print(BIO *bp, X509 *x);
 int X509_ocspid_print(BIO *bp, X509 *x);
 int X509_CRL_print(BIO *bp, X509_CRL *x);
 int X509_REQ_print_ex(BIO *bp, X509_REQ *x, unsigned long nmflag,
-unsigned long cflag);
+                      unsigned long cflag);
 int X509_REQ_print(BIO *bp, X509_REQ *req);
 int X509_NAME_entry_count(const X509_NAME *name);
 int X509_NAME_get_text_by_NID(X509_NAME *name, int nid, char *buf, int len);
 int X509_NAME_get_text_by_OBJ(X509_NAME *name, const ASN1_OBJECT *obj,
-char *buf, int len);
+                              char *buf, int len);
 int X509_NAME_get_index_by_NID(X509_NAME *name, int nid, int lastpos);
 int X509_NAME_get_index_by_OBJ(X509_NAME *name, const ASN1_OBJECT *obj,
-int lastpos);
+                               int lastpos);
 X509_NAME_ENTRY *X509_NAME_get_entry(const X509_NAME *name, int loc);
 X509_NAME_ENTRY *X509_NAME_delete_entry(X509_NAME *name, int loc);
 int X509_NAME_add_entry(X509_NAME *name, const X509_NAME_ENTRY *ne,
-int loc, int set);
+                        int loc, int set);
 int X509_NAME_add_entry_by_OBJ(X509_NAME *name, const ASN1_OBJECT *obj, int type,
-const unsigned char *bytes, int len, int loc,
-int set);
+                               const unsigned char *bytes, int len, int loc,
+                               int set);
 int X509_NAME_add_entry_by_NID(X509_NAME *name, int nid, int type,
-const unsigned char *bytes, int len, int loc,
-int set);
+                               const unsigned char *bytes, int len, int loc,
+                               int set);
 X509_NAME_ENTRY *X509_NAME_ENTRY_create_by_txt(X509_NAME_ENTRY **ne,
-const char *field, int type,
-const unsigned char *bytes,
-int len);
+        const char *field, int type,
+        const unsigned char *bytes,
+        int len);
 X509_NAME_ENTRY *X509_NAME_ENTRY_create_by_NID(X509_NAME_ENTRY **ne, int nid,
-int type, 
-const unsigned char *bytes,
-int len);
+        int type,
+        const unsigned char *bytes,
+        int len);
 int X509_NAME_add_entry_by_txt(X509_NAME *name, const char *field, int type,
-const unsigned char *bytes, int len, int loc,
-int set);
+                               const unsigned char *bytes, int len, int loc,
+                               int set);
 X509_NAME_ENTRY *X509_NAME_ENTRY_create_by_OBJ(X509_NAME_ENTRY **ne,
-const ASN1_OBJECT *obj, int type,
-const unsigned char *bytes,
-int len);
+        const ASN1_OBJECT *obj, int type,
+        const unsigned char *bytes,
+        int len);
 int X509_NAME_ENTRY_set_object(X509_NAME_ENTRY *ne, const ASN1_OBJECT *obj);
 int X509_NAME_ENTRY_set_data(X509_NAME_ENTRY *ne, int type,
-const unsigned char *bytes, int len);
+                             const unsigned char *bytes, int len);
 ASN1_OBJECT *X509_NAME_ENTRY_get_object(const X509_NAME_ENTRY *ne);
 ASN1_STRING * X509_NAME_ENTRY_get_data(const X509_NAME_ENTRY *ne);
 int X509_NAME_ENTRY_set(const X509_NAME_ENTRY *ne);
 int X509_NAME_get0_der(X509_NAME *nm, const unsigned char **pder,
-size_t *pderlen);
+                       size_t *pderlen);
 int X509v3_get_ext_count(const struct stack_st_X509_EXTENSION *x);
 int X509v3_get_ext_by_NID(const struct stack_st_X509_EXTENSION *x,
-int nid, int lastpos);
+                          int nid, int lastpos);
 int X509v3_get_ext_by_OBJ(const struct stack_st_X509_EXTENSION *x,
-const ASN1_OBJECT *obj, int lastpos);
+                          const ASN1_OBJECT *obj, int lastpos);
 int X509v3_get_ext_by_critical(const struct stack_st_X509_EXTENSION *x,
-int crit, int lastpos);
+                               int crit, int lastpos);
 X509_EXTENSION *X509v3_get_ext(const struct stack_st_X509_EXTENSION *x, int loc);
 X509_EXTENSION *X509v3_delete_ext(struct stack_st_X509_EXTENSION *x, int loc);
 struct stack_st_X509_EXTENSION *X509v3_add_ext(struct stack_st_X509_EXTENSION **x,
-X509_EXTENSION *ex, int loc);
+        X509_EXTENSION *ex, int loc);
 int X509_get_ext_count(const X509 *x);
 int X509_get_ext_by_NID(const X509 *x, int nid, int lastpos);
 int X509_get_ext_by_OBJ(const X509 *x, const ASN1_OBJECT *obj, int lastpos);
@@ -5570,37 +8736,37 @@ X509_EXTENSION *X509_delete_ext(X509 *x, int loc);
 int X509_add_ext(X509 *x, X509_EXTENSION *ex, int loc);
 void *X509_get_ext_d2i(const X509 *x, int nid, int *crit, int *idx);
 int X509_add1_ext_i2d(X509 *x, int nid, void *value, int crit,
-unsigned long flags);
+                      unsigned long flags);
 int X509_CRL_get_ext_count(const X509_CRL *x);
 int X509_CRL_get_ext_by_NID(const X509_CRL *x, int nid, int lastpos);
 int X509_CRL_get_ext_by_OBJ(const X509_CRL *x, const ASN1_OBJECT *obj,
-int lastpos);
+                            int lastpos);
 int X509_CRL_get_ext_by_critical(const X509_CRL *x, int crit, int lastpos);
 X509_EXTENSION *X509_CRL_get_ext(const X509_CRL *x, int loc);
 X509_EXTENSION *X509_CRL_delete_ext(X509_CRL *x, int loc);
 int X509_CRL_add_ext(X509_CRL *x, X509_EXTENSION *ex, int loc);
 void *X509_CRL_get_ext_d2i(const X509_CRL *x, int nid, int *crit, int *idx);
 int X509_CRL_add1_ext_i2d(X509_CRL *x, int nid, void *value, int crit,
-unsigned long flags);
+                          unsigned long flags);
 int X509_REVOKED_get_ext_count(const X509_REVOKED *x);
 int X509_REVOKED_get_ext_by_NID(const X509_REVOKED *x, int nid, int lastpos);
 int X509_REVOKED_get_ext_by_OBJ(const X509_REVOKED *x, const ASN1_OBJECT *obj,
-int lastpos);
+                                int lastpos);
 int X509_REVOKED_get_ext_by_critical(const X509_REVOKED *x, int crit,
-int lastpos);
+                                     int lastpos);
 X509_EXTENSION *X509_REVOKED_get_ext(const X509_REVOKED *x, int loc);
 X509_EXTENSION *X509_REVOKED_delete_ext(X509_REVOKED *x, int loc);
 int X509_REVOKED_add_ext(X509_REVOKED *x, X509_EXTENSION *ex, int loc);
 void *X509_REVOKED_get_ext_d2i(const X509_REVOKED *x, int nid, int *crit,
-int *idx);
+                               int *idx);
 int X509_REVOKED_add1_ext_i2d(X509_REVOKED *x, int nid, void *value, int crit,
-unsigned long flags);
+                              unsigned long flags);
 X509_EXTENSION *X509_EXTENSION_create_by_NID(X509_EXTENSION **ex,
-int nid, int crit,
-ASN1_OCTET_STRING *data);
+        int nid, int crit,
+        ASN1_OCTET_STRING *data);
 X509_EXTENSION *X509_EXTENSION_create_by_OBJ(X509_EXTENSION **ex,
-const ASN1_OBJECT *obj, int crit,
-ASN1_OCTET_STRING *data);
+        const ASN1_OBJECT *obj, int crit,
+        ASN1_OCTET_STRING *data);
 int X509_EXTENSION_set_object(X509_EXTENSION *ex, const ASN1_OBJECT *obj);
 int X509_EXTENSION_set_critical(X509_EXTENSION *ex, int crit);
 int X509_EXTENSION_set_data(X509_EXTENSION *ex, ASN1_OCTET_STRING *data);
@@ -5609,112 +8775,128 @@ ASN1_OCTET_STRING *X509_EXTENSION_get_data(X509_EXTENSION *ne);
 int X509_EXTENSION_get_critical(const X509_EXTENSION *ex);
 int X509at_get_attr_count(const struct stack_st_X509_ATTRIBUTE *x);
 int X509at_get_attr_by_NID(const struct stack_st_X509_ATTRIBUTE *x, int nid,
-int lastpos);
+                           int lastpos);
 int X509at_get_attr_by_OBJ(const struct stack_st_X509_ATTRIBUTE *sk,
-const ASN1_OBJECT *obj, int lastpos);
+                           const ASN1_OBJECT *obj, int lastpos);
 X509_ATTRIBUTE *X509at_get_attr(const struct stack_st_X509_ATTRIBUTE *x, int loc);
 X509_ATTRIBUTE *X509at_delete_attr(struct stack_st_X509_ATTRIBUTE *x, int loc);
 struct stack_st_X509_ATTRIBUTE *X509at_add1_attr(struct stack_st_X509_ATTRIBUTE **x,
-X509_ATTRIBUTE *attr);
+        X509_ATTRIBUTE *attr);
 struct stack_st_X509_ATTRIBUTE *X509at_add1_attr_by_OBJ(struct stack_st_X509_ATTRIBUTE
-**x, const ASN1_OBJECT *obj,
-int type,
-const unsigned char *bytes,
-int len);
+        **x, const ASN1_OBJECT *obj,
+        int type,
+        const unsigned char *bytes,
+        int len);
 struct stack_st_X509_ATTRIBUTE *X509at_add1_attr_by_NID(struct stack_st_X509_ATTRIBUTE
-**x, int nid, int type,
-const unsigned char *bytes,
-int len);
+        **x, int nid, int type,
+        const unsigned char *bytes,
+        int len);
 struct stack_st_X509_ATTRIBUTE *X509at_add1_attr_by_txt(struct stack_st_X509_ATTRIBUTE
-**x, const char *attrname,
-int type,
-const unsigned char *bytes,
-int len);
+        **x, const char *attrname,
+        int type,
+        const unsigned char *bytes,
+        int len);
 void *X509at_get0_data_by_OBJ(struct stack_st_X509_ATTRIBUTE *x,
-const ASN1_OBJECT *obj, int lastpos, int type);
+                              const ASN1_OBJECT *obj, int lastpos, int type);
 X509_ATTRIBUTE *X509_ATTRIBUTE_create_by_NID(X509_ATTRIBUTE **attr, int nid,
-int atrtype, const void *data,
-int len);
+        int atrtype, const void *data,
+        int len);
 X509_ATTRIBUTE *X509_ATTRIBUTE_create_by_OBJ(X509_ATTRIBUTE **attr,
-const ASN1_OBJECT *obj,
-int atrtype, const void *data,
-int len);
+        const ASN1_OBJECT *obj,
+        int atrtype, const void *data,
+        int len);
 X509_ATTRIBUTE *X509_ATTRIBUTE_create_by_txt(X509_ATTRIBUTE **attr,
-const char *atrname, int type,
-const unsigned char *bytes,
-int len);
+        const char *atrname, int type,
+        const unsigned char *bytes,
+        int len);
 int X509_ATTRIBUTE_set1_object(X509_ATTRIBUTE *attr, const ASN1_OBJECT *obj);
 int X509_ATTRIBUTE_set1_data(X509_ATTRIBUTE *attr, int attrtype,
-const void *data, int len);
+                             const void *data, int len);
 void *X509_ATTRIBUTE_get0_data(X509_ATTRIBUTE *attr, int idx, int atrtype,
-void *data);
+                               void *data);
 int X509_ATTRIBUTE_count(const X509_ATTRIBUTE *attr);
 ASN1_OBJECT *X509_ATTRIBUTE_get0_object(X509_ATTRIBUTE *attr);
 ASN1_TYPE *X509_ATTRIBUTE_get0_type(X509_ATTRIBUTE *attr, int idx);
 int EVP_PKEY_get_attr_count(const EVP_PKEY *key);
 int EVP_PKEY_get_attr_by_NID(const EVP_PKEY *key, int nid, int lastpos);
 int EVP_PKEY_get_attr_by_OBJ(const EVP_PKEY *key, const ASN1_OBJECT *obj,
-int lastpos);
+                             int lastpos);
 X509_ATTRIBUTE *EVP_PKEY_get_attr(const EVP_PKEY *key, int loc);
 X509_ATTRIBUTE *EVP_PKEY_delete_attr(EVP_PKEY *key, int loc);
 int EVP_PKEY_add1_attr(EVP_PKEY *key, X509_ATTRIBUTE *attr);
 int EVP_PKEY_add1_attr_by_OBJ(EVP_PKEY *key,
-const ASN1_OBJECT *obj, int type,
-const unsigned char *bytes, int len);
+                              const ASN1_OBJECT *obj, int type,
+                              const unsigned char *bytes, int len);
 int EVP_PKEY_add1_attr_by_NID(EVP_PKEY *key,
-int nid, int type,
-const unsigned char *bytes, int len);
+                              int nid, int type,
+                              const unsigned char *bytes, int len);
 int EVP_PKEY_add1_attr_by_txt(EVP_PKEY *key,
-const char *attrname, int type,
-const unsigned char *bytes, int len);
+                              const char *attrname, int type,
+                              const unsigned char *bytes, int len);
 int X509_verify_cert(X509_STORE_CTX *ctx);
 X509 *X509_find_by_issuer_and_serial(struct stack_st_X509 *sk, X509_NAME *name,
-ASN1_INTEGER *serial);
+                                     ASN1_INTEGER *serial);
 X509 *X509_find_by_subject(struct stack_st_X509 *sk, X509_NAME *name);
-PBEPARAM *PBEPARAM_new(void); void PBEPARAM_free(PBEPARAM *a); PBEPARAM *d2i_PBEPARAM(PBEPARAM **a, const unsigned char **in, long len); int i2d_PBEPARAM(PBEPARAM *a, unsigned char **out); const ASN1_ITEM * PBEPARAM_it(void);
-PBE2PARAM *PBE2PARAM_new(void); void PBE2PARAM_free(PBE2PARAM *a); PBE2PARAM *d2i_PBE2PARAM(PBE2PARAM **a, const unsigned char **in, long len); int i2d_PBE2PARAM(PBE2PARAM *a, unsigned char **out); const ASN1_ITEM * PBE2PARAM_it(void);
-PBKDF2PARAM *PBKDF2PARAM_new(void); void PBKDF2PARAM_free(PBKDF2PARAM *a); PBKDF2PARAM *d2i_PBKDF2PARAM(PBKDF2PARAM **a, const unsigned char **in, long len); int i2d_PBKDF2PARAM(PBKDF2PARAM *a, unsigned char **out); const ASN1_ITEM * PBKDF2PARAM_it(void);
+PBEPARAM *PBEPARAM_new(void);
+void PBEPARAM_free(PBEPARAM *a);
+PBEPARAM *d2i_PBEPARAM(PBEPARAM **a, const unsigned char **in, long len);
+int i2d_PBEPARAM(PBEPARAM *a, unsigned char **out);
+const ASN1_ITEM * PBEPARAM_it(void);
+PBE2PARAM *PBE2PARAM_new(void);
+void PBE2PARAM_free(PBE2PARAM *a);
+PBE2PARAM *d2i_PBE2PARAM(PBE2PARAM **a, const unsigned char **in, long len);
+int i2d_PBE2PARAM(PBE2PARAM *a, unsigned char **out);
+const ASN1_ITEM * PBE2PARAM_it(void);
+PBKDF2PARAM *PBKDF2PARAM_new(void);
+void PBKDF2PARAM_free(PBKDF2PARAM *a);
+PBKDF2PARAM *d2i_PBKDF2PARAM(PBKDF2PARAM **a, const unsigned char **in, long len);
+int i2d_PBKDF2PARAM(PBKDF2PARAM *a, unsigned char **out);
+const ASN1_ITEM * PBKDF2PARAM_it(void);
 int PKCS5_pbe_set0_algor(X509_ALGOR *algor, int alg, int iter,
-const unsigned char *salt, int saltlen);
+                         const unsigned char *salt, int saltlen);
 X509_ALGOR *PKCS5_pbe_set(int alg, int iter,
-const unsigned char *salt, int saltlen);
+                          const unsigned char *salt, int saltlen);
 X509_ALGOR *PKCS5_pbe2_set(const EVP_CIPHER *cipher, int iter,
-unsigned char *salt, int saltlen);
+                           unsigned char *salt, int saltlen);
 X509_ALGOR *PKCS5_pbe2_set_iv(const EVP_CIPHER *cipher, int iter,
-unsigned char *salt, int saltlen,
-unsigned char *aiv, int prf_nid);
+                              unsigned char *salt, int saltlen,
+                              unsigned char *aiv, int prf_nid);
 X509_ALGOR *PKCS5_pbe2_set_scrypt(const EVP_CIPHER *cipher,
-const unsigned char *salt, int saltlen,
-unsigned char *aiv, uint64_t N, uint64_t r,
-uint64_t p);
+                                  const unsigned char *salt, int saltlen,
+                                  unsigned char *aiv, uint64_t N, uint64_t r,
+                                  uint64_t p);
 #line 1026 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509.h"
 X509_ALGOR *PKCS5_pbkdf2_set(int iter, unsigned char *salt, int saltlen,
-int prf_nid, int keylen);
-PKCS8_PRIV_KEY_INFO *PKCS8_PRIV_KEY_INFO_new(void); void PKCS8_PRIV_KEY_INFO_free(PKCS8_PRIV_KEY_INFO *a); PKCS8_PRIV_KEY_INFO *d2i_PKCS8_PRIV_KEY_INFO(PKCS8_PRIV_KEY_INFO **a, const unsigned char **in, long len); int i2d_PKCS8_PRIV_KEY_INFO(PKCS8_PRIV_KEY_INFO *a, unsigned char **out); const ASN1_ITEM * PKCS8_PRIV_KEY_INFO_it(void);
+                             int prf_nid, int keylen);
+PKCS8_PRIV_KEY_INFO *PKCS8_PRIV_KEY_INFO_new(void);
+void PKCS8_PRIV_KEY_INFO_free(PKCS8_PRIV_KEY_INFO *a);
+PKCS8_PRIV_KEY_INFO *d2i_PKCS8_PRIV_KEY_INFO(PKCS8_PRIV_KEY_INFO **a, const unsigned char **in, long len);
+int i2d_PKCS8_PRIV_KEY_INFO(PKCS8_PRIV_KEY_INFO *a, unsigned char **out);
+const ASN1_ITEM * PKCS8_PRIV_KEY_INFO_it(void);
 EVP_PKEY *EVP_PKCS82PKEY(const PKCS8_PRIV_KEY_INFO *p8);
 PKCS8_PRIV_KEY_INFO *EVP_PKEY2PKCS8(EVP_PKEY *pkey);
 int PKCS8_pkey_set0(PKCS8_PRIV_KEY_INFO *priv, ASN1_OBJECT *aobj,
-int version, int ptype, void *pval,
-unsigned char *penc, int penclen);
+                    int version, int ptype, void *pval,
+                    unsigned char *penc, int penclen);
 int PKCS8_pkey_get0(const ASN1_OBJECT **ppkalg,
-const unsigned char **pk, int *ppklen,
-const X509_ALGOR **pa, const PKCS8_PRIV_KEY_INFO *p8);
+                    const unsigned char **pk, int *ppklen,
+                    const X509_ALGOR **pa, const PKCS8_PRIV_KEY_INFO *p8);
 const struct stack_st_X509_ATTRIBUTE *
 PKCS8_pkey_get0_attrs(const PKCS8_PRIV_KEY_INFO *p8);
 int PKCS8_pkey_add1_attr_by_NID(PKCS8_PRIV_KEY_INFO *p8, int nid, int type,
-const unsigned char *bytes, int len);
+                                const unsigned char *bytes, int len);
 int X509_PUBKEY_set0_param(X509_PUBKEY *pub, ASN1_OBJECT *aobj,
-int ptype, void *pval,
-unsigned char *penc, int penclen);
+                           int ptype, void *pval,
+                           unsigned char *penc, int penclen);
 int X509_PUBKEY_get0_param(ASN1_OBJECT **ppkalg,
-const unsigned char **pk, int *ppklen,
-X509_ALGOR **pa, X509_PUBKEY *pub);
+                           const unsigned char **pk, int *ppklen,
+                           X509_ALGOR **pa, X509_PUBKEY *pub);
 int X509_check_trust(X509 *x, int id, int flags);
 int X509_TRUST_get_count(void);
 X509_TRUST *X509_TRUST_get0(int idx);
 int X509_TRUST_get_by_id(int id);
 int X509_TRUST_add(int id, int flags, int (*ck) (X509_TRUST *, X509 *, int),
-const char *name, int arg1, void *arg2);
+                   const char *name, int arg1, void *arg2);
 void X509_TRUST_cleanup(void);
 int X509_TRUST_get_flags(const X509_TRUST *xp);
 char *X509_TRUST_get0_name(const X509_TRUST *xp);
@@ -5741,34 +8923,97 @@ int ERR_load_X509_strings(void);
 #line 87 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\errno.h"
 #line 139 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\errno.h"
 #line 35 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/err.h"
-typedef struct err_state_st {
-int err_flags[16];
-unsigned long err_buffer[16];
-char *err_data[16];
-int err_data_flags[16];
-const char *err_file[16];
-int err_line[16];
-int top, bottom;
+typedef struct err_state_st
+{
+    int err_flags[16];
+    unsigned long err_buffer[16];
+    char *err_data[16];
+    int err_data_flags[16];
+    const char *err_file[16];
+    int err_line[16];
+    int top, bottom;
 } ERR_STATE;
-typedef struct ERR_string_data_st {
-unsigned long error;
-const char *string;
+typedef struct ERR_string_data_st
+{
+    unsigned long error;
+    const char *string;
 } ERR_STRING_DATA;
-struct lhash_st_ERR_STRING_DATA { union lh_ERR_STRING_DATA_dummy { void* d1; unsigned long d2; int d3; } dummy; }; static __inline struct lhash_st_ERR_STRING_DATA * lh_ERR_STRING_DATA_new(unsigned long (*hfn)(const ERR_STRING_DATA *), int (*cfn)(const ERR_STRING_DATA *, const ERR_STRING_DATA *)) { return (struct lhash_st_ERR_STRING_DATA *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn); } static __inline void lh_ERR_STRING_DATA_free(struct lhash_st_ERR_STRING_DATA *lh) { OPENSSL_LH_free((OPENSSL_LHASH *)lh); } static __inline ERR_STRING_DATA *lh_ERR_STRING_DATA_insert(struct lhash_st_ERR_STRING_DATA *lh, ERR_STRING_DATA *d) { return (ERR_STRING_DATA *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d); } static __inline ERR_STRING_DATA *lh_ERR_STRING_DATA_delete(struct lhash_st_ERR_STRING_DATA *lh, const ERR_STRING_DATA *d) { return (ERR_STRING_DATA *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d); } static __inline ERR_STRING_DATA *lh_ERR_STRING_DATA_retrieve(struct lhash_st_ERR_STRING_DATA *lh, const ERR_STRING_DATA *d) { return (ERR_STRING_DATA *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d); } static __inline int lh_ERR_STRING_DATA_error(struct lhash_st_ERR_STRING_DATA *lh) { return OPENSSL_LH_error((OPENSSL_LHASH *)lh); } static __inline unsigned long lh_ERR_STRING_DATA_num_items(struct lhash_st_ERR_STRING_DATA *lh) { return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh); } static __inline void lh_ERR_STRING_DATA_node_stats_bio(const struct lhash_st_ERR_STRING_DATA *lh, BIO *out) { OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_ERR_STRING_DATA_node_usage_stats_bio(const struct lhash_st_ERR_STRING_DATA *lh, BIO *out) { OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_ERR_STRING_DATA_stats_bio(const struct lhash_st_ERR_STRING_DATA *lh, BIO *out) { OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline unsigned long lh_ERR_STRING_DATA_get_down_load(struct lhash_st_ERR_STRING_DATA *lh) { return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh); } static __inline void lh_ERR_STRING_DATA_set_down_load(struct lhash_st_ERR_STRING_DATA *lh, unsigned long dl) { OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl); } static __inline void lh_ERR_STRING_DATA_doall(struct lhash_st_ERR_STRING_DATA *lh, void (*doall)(ERR_STRING_DATA *)) { OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall); } struct lhash_st_ERR_STRING_DATA;
+struct lhash_st_ERR_STRING_DATA
+{
+    union lh_ERR_STRING_DATA_dummy
+    {
+        void* d1;
+        unsigned long d2;
+        int d3;
+    } dummy;
+};
+static __inline struct lhash_st_ERR_STRING_DATA * lh_ERR_STRING_DATA_new(unsigned long (*hfn)(const ERR_STRING_DATA *), int (*cfn)(const ERR_STRING_DATA *, const ERR_STRING_DATA *))
+{
+    return (struct lhash_st_ERR_STRING_DATA *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn);
+}
+static __inline void lh_ERR_STRING_DATA_free(struct lhash_st_ERR_STRING_DATA *lh)
+{
+    OPENSSL_LH_free((OPENSSL_LHASH *)lh);
+}
+static __inline ERR_STRING_DATA *lh_ERR_STRING_DATA_insert(struct lhash_st_ERR_STRING_DATA *lh, ERR_STRING_DATA *d)
+{
+    return (ERR_STRING_DATA *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d);
+}
+static __inline ERR_STRING_DATA *lh_ERR_STRING_DATA_delete(struct lhash_st_ERR_STRING_DATA *lh, const ERR_STRING_DATA *d)
+{
+    return (ERR_STRING_DATA *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d);
+}
+static __inline ERR_STRING_DATA *lh_ERR_STRING_DATA_retrieve(struct lhash_st_ERR_STRING_DATA *lh, const ERR_STRING_DATA *d)
+{
+    return (ERR_STRING_DATA *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d);
+}
+static __inline int lh_ERR_STRING_DATA_error(struct lhash_st_ERR_STRING_DATA *lh)
+{
+    return OPENSSL_LH_error((OPENSSL_LHASH *)lh);
+}
+static __inline unsigned long lh_ERR_STRING_DATA_num_items(struct lhash_st_ERR_STRING_DATA *lh)
+{
+    return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_ERR_STRING_DATA_node_stats_bio(const struct lhash_st_ERR_STRING_DATA *lh, BIO *out)
+{
+    OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_ERR_STRING_DATA_node_usage_stats_bio(const struct lhash_st_ERR_STRING_DATA *lh, BIO *out)
+{
+    OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_ERR_STRING_DATA_stats_bio(const struct lhash_st_ERR_STRING_DATA *lh, BIO *out)
+{
+    OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline unsigned long lh_ERR_STRING_DATA_get_down_load(struct lhash_st_ERR_STRING_DATA *lh)
+{
+    return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_ERR_STRING_DATA_set_down_load(struct lhash_st_ERR_STRING_DATA *lh, unsigned long dl)
+{
+    OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl);
+}
+static __inline void lh_ERR_STRING_DATA_doall(struct lhash_st_ERR_STRING_DATA *lh, void (*doall)(ERR_STRING_DATA *))
+{
+    OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall);
+}
+struct lhash_st_ERR_STRING_DATA;
 void ERR_put_error(int lib, int func, int reason, const char *file, int line);
 void ERR_set_error_data(char *data, int flags);
 unsigned long ERR_get_error(void);
 unsigned long ERR_get_error_line(const char **file, int *line);
 unsigned long ERR_get_error_line_data(const char **file, int *line,
-const char **data, int *flags);
+                                      const char **data, int *flags);
 unsigned long ERR_peek_error(void);
 unsigned long ERR_peek_error_line(const char **file, int *line);
 unsigned long ERR_peek_error_line_data(const char **file, int *line,
-const char **data, int *flags);
+                                       const char **data, int *flags);
 unsigned long ERR_peek_last_error(void);
 unsigned long ERR_peek_last_error_line(const char **file, int *line);
 unsigned long ERR_peek_last_error_line_data(const char **file, int *line,
-const char **data, int *flags);
+        const char **data, int *flags);
 void ERR_clear_error(void);
 char *ERR_error_string(unsigned long e, char *buf);
 void ERR_error_string_n(unsigned long e, char *buf, size_t len);
@@ -5776,7 +9021,7 @@ const char *ERR_lib_error_string(unsigned long e);
 const char *ERR_func_error_string(unsigned long e);
 const char *ERR_reason_error_string(unsigned long e);
 void ERR_print_errors_cb(int (*cb) (const char *str, size_t len, void *u),
-void *u);
+                         void *u);
 void ERR_print_errors_fp(FILE *fp);
 #line 259 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/err.h"
 void ERR_print_errors(BIO *bp);
@@ -5807,35 +9052,39 @@ int ERR_pop_to_mark(void);
 #line 18 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem2.h"
 #line 19 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-typedef struct pem_recip_st {
-char *name;
-X509_NAME *dn;
-int cipher;
-int key_enc;
+typedef struct pem_recip_st
+{
+    char *name;
+    X509_NAME *dn;
+    int cipher;
+    int key_enc;
 } PEM_USER;
-typedef struct pem_ctx_st {
-int type;                   
-struct {
-int version;
-int mode;
-} proc_type;
-char *domain;
-struct {
-int cipher;
-} DEK_info;
-PEM_USER *originator;
-int num_recipient;
-PEM_USER **recipient;
-EVP_MD *md;                 
-int md_enc;                 
-int md_len;                 
-char *md_data;              
-EVP_CIPHER *dec;            
-int key_len;                
-unsigned char *key;         
-int data_enc;               
-int data_len;
-unsigned char *data;
+typedef struct pem_ctx_st
+{
+    int type;
+    struct
+    {
+        int version;
+        int mode;
+    } proc_type;
+    char *domain;
+    struct
+    {
+        int cipher;
+    } DEK_info;
+    PEM_USER *originator;
+    int num_recipient;
+    PEM_USER **recipient;
+    EVP_MD *md;
+    int md_enc;
+    int md_len;
+    char *md_data;
+    EVP_CIPHER *dec;
+    int key_len;
+    unsigned char *key;
+    int data_enc;
+    int data_len;
+    unsigned char *data;
 } PEM_CTX;
 #line 164 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
 #line 238 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
@@ -5843,113 +9092,202 @@ unsigned char *data;
 typedef int pem_password_cb (char *buf, int size, int rwflag, void *userdata);
 int PEM_get_EVP_CIPHER_INFO(char *header, EVP_CIPHER_INFO *cipher);
 int PEM_do_header(EVP_CIPHER_INFO *cipher, unsigned char *data, long *len,
-pem_password_cb *callback, void *u);
+                  pem_password_cb *callback, void *u);
 int PEM_read_bio(BIO *bp, char **name, char **header,
-unsigned char **data, long *len);
+                 unsigned char **data, long *len);
 int PEM_write_bio(BIO *bp, const char *name, const char *hdr,
-const unsigned char *data, long len);
+                  const unsigned char *data, long len);
 int PEM_bytes_read_bio(unsigned char **pdata, long *plen, char **pnm,
-const char *name, BIO *bp, pem_password_cb *cb,
-void *u);
+                       const char *name, BIO *bp, pem_password_cb *cb,
+                       void *u);
 void *PEM_ASN1_read_bio(d2i_of_void *d2i, const char *name, BIO *bp, void **x,
-pem_password_cb *cb, void *u);
+                        pem_password_cb *cb, void *u);
 int PEM_ASN1_write_bio(i2d_of_void *i2d, const char *name, BIO *bp, void *x,
-const EVP_CIPHER *enc, unsigned char *kstr, int klen,
-pem_password_cb *cb, void *u);
+                       const EVP_CIPHER *enc, unsigned char *kstr, int klen,
+                       pem_password_cb *cb, void *u);
 struct stack_st_X509_INFO *PEM_X509_INFO_read_bio(BIO *bp, struct stack_st_X509_INFO *sk,
-pem_password_cb *cb, void *u);
+        pem_password_cb *cb, void *u);
 int PEM_X509_INFO_write_bio(BIO *bp, X509_INFO *xi, EVP_CIPHER *enc,
-unsigned char *kstr, int klen,
-pem_password_cb *cd, void *u);
+                            unsigned char *kstr, int klen,
+                            pem_password_cb *cd, void *u);
 int PEM_read(FILE *fp, char **name, char **header,
-unsigned char **data, long *len);
+             unsigned char **data, long *len);
 int PEM_write(FILE *fp, const char *name, const char *hdr,
-const unsigned char *data, long len);
+              const unsigned char *data, long len);
 void *PEM_ASN1_read(d2i_of_void *d2i, const char *name, FILE *fp, void **x,
-pem_password_cb *cb, void *u);
+                    pem_password_cb *cb, void *u);
 int PEM_ASN1_write(i2d_of_void *i2d, const char *name, FILE *fp,
-void *x, const EVP_CIPHER *enc, unsigned char *kstr,
-int klen, pem_password_cb *callback, void *u);
+                   void *x, const EVP_CIPHER *enc, unsigned char *kstr,
+                   int klen, pem_password_cb *callback, void *u);
 struct stack_st_X509_INFO *PEM_X509_INFO_read(FILE *fp, struct stack_st_X509_INFO *sk,
-pem_password_cb *cb, void *u);
+        pem_password_cb *cb, void *u);
 #line 326 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
 int PEM_SignInit(EVP_MD_CTX *ctx, EVP_MD *type);
 int PEM_SignUpdate(EVP_MD_CTX *ctx, unsigned char *d, unsigned int cnt);
 int PEM_SignFinal(EVP_MD_CTX *ctx, unsigned char *sigret,
-unsigned int *siglen, EVP_PKEY *pkey);
+                  unsigned int *siglen, EVP_PKEY *pkey);
 int PEM_def_callback(char *buf, int num, int w, void *key);
 void PEM_proc_type(char *buf, int type);
 void PEM_dek_info(char *buf, const char *type, int len, char *str);
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/symhacks.h"
 #line 337 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-X509 *PEM_read_bio_X509(BIO *bp, X509 **x, pem_password_cb *cb, void *u); X509 *PEM_read_X509(FILE *fp, X509 **x, pem_password_cb *cb, void *u); int PEM_write_bio_X509(BIO *bp, X509 *x); int PEM_write_X509(FILE *fp, X509 *x);
-X509 *PEM_read_bio_X509_AUX(BIO *bp, X509 **x, pem_password_cb *cb, void *u); X509 *PEM_read_X509_AUX(FILE *fp, X509 **x, pem_password_cb *cb, void *u); int PEM_write_bio_X509_AUX(BIO *bp, X509 *x); int PEM_write_X509_AUX(FILE *fp, X509 *x);
-X509_REQ *PEM_read_bio_X509_REQ(BIO *bp, X509_REQ **x, pem_password_cb *cb, void *u); X509_REQ *PEM_read_X509_REQ(FILE *fp, X509_REQ **x, pem_password_cb *cb, void *u); int PEM_write_bio_X509_REQ(BIO *bp, X509_REQ *x); int PEM_write_X509_REQ(FILE *fp, X509_REQ *x);
-int PEM_write_bio_X509_REQ_NEW(BIO *bp, X509_REQ *x); int PEM_write_X509_REQ_NEW(FILE *fp, X509_REQ *x);
-X509_CRL *PEM_read_bio_X509_CRL(BIO *bp, X509_CRL **x, pem_password_cb *cb, void *u); X509_CRL *PEM_read_X509_CRL(FILE *fp, X509_CRL **x, pem_password_cb *cb, void *u); int PEM_write_bio_X509_CRL(BIO *bp, X509_CRL *x); int PEM_write_X509_CRL(FILE *fp, X509_CRL *x);
-PKCS7 *PEM_read_bio_PKCS7(BIO *bp, PKCS7 **x, pem_password_cb *cb, void *u); PKCS7 *PEM_read_PKCS7(FILE *fp, PKCS7 **x, pem_password_cb *cb, void *u); int PEM_write_bio_PKCS7(BIO *bp, PKCS7 *x); int PEM_write_PKCS7(FILE *fp, PKCS7 *x);
-NETSCAPE_CERT_SEQUENCE *PEM_read_bio_NETSCAPE_CERT_SEQUENCE(BIO *bp, NETSCAPE_CERT_SEQUENCE **x, pem_password_cb *cb, void *u); NETSCAPE_CERT_SEQUENCE *PEM_read_NETSCAPE_CERT_SEQUENCE(FILE *fp, NETSCAPE_CERT_SEQUENCE **x, pem_password_cb *cb, void *u); int PEM_write_bio_NETSCAPE_CERT_SEQUENCE(BIO *bp, NETSCAPE_CERT_SEQUENCE *x); int PEM_write_NETSCAPE_CERT_SEQUENCE(FILE *fp, NETSCAPE_CERT_SEQUENCE *x);
-X509_SIG *PEM_read_bio_PKCS8(BIO *bp, X509_SIG **x, pem_password_cb *cb, void *u); X509_SIG *PEM_read_PKCS8(FILE *fp, X509_SIG **x, pem_password_cb *cb, void *u); int PEM_write_bio_PKCS8(BIO *bp, X509_SIG *x); int PEM_write_PKCS8(FILE *fp, X509_SIG *x);
-PKCS8_PRIV_KEY_INFO *PEM_read_bio_PKCS8_PRIV_KEY_INFO(BIO *bp, PKCS8_PRIV_KEY_INFO **x, pem_password_cb *cb, void *u); PKCS8_PRIV_KEY_INFO *PEM_read_PKCS8_PRIV_KEY_INFO(FILE *fp, PKCS8_PRIV_KEY_INFO **x, pem_password_cb *cb, void *u); int PEM_write_bio_PKCS8_PRIV_KEY_INFO(BIO *bp, PKCS8_PRIV_KEY_INFO *x); int PEM_write_PKCS8_PRIV_KEY_INFO(FILE *fp, PKCS8_PRIV_KEY_INFO *x);
-RSA *PEM_read_bio_RSAPrivateKey(BIO *bp, RSA **x, pem_password_cb *cb, void *u); RSA *PEM_read_RSAPrivateKey(FILE *fp, RSA **x, pem_password_cb *cb, void *u); int PEM_write_bio_RSAPrivateKey(BIO *bp, RSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u); int PEM_write_RSAPrivateKey(FILE *fp, RSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
-RSA *PEM_read_bio_RSAPublicKey(BIO *bp, RSA **x, pem_password_cb *cb, void *u); RSA *PEM_read_RSAPublicKey(FILE *fp, RSA **x, pem_password_cb *cb, void *u); int PEM_write_bio_RSAPublicKey(BIO *bp, const RSA *x); int PEM_write_RSAPublicKey(FILE *fp, const RSA *x);
-RSA *PEM_read_bio_RSA_PUBKEY(BIO *bp, RSA **x, pem_password_cb *cb, void *u); RSA *PEM_read_RSA_PUBKEY(FILE *fp, RSA **x, pem_password_cb *cb, void *u); int PEM_write_bio_RSA_PUBKEY(BIO *bp, RSA *x); int PEM_write_RSA_PUBKEY(FILE *fp, RSA *x);
+X509 *PEM_read_bio_X509(BIO *bp, X509 **x, pem_password_cb *cb, void *u);
+X509 *PEM_read_X509(FILE *fp, X509 **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_X509(BIO *bp, X509 *x);
+int PEM_write_X509(FILE *fp, X509 *x);
+X509 *PEM_read_bio_X509_AUX(BIO *bp, X509 **x, pem_password_cb *cb, void *u);
+X509 *PEM_read_X509_AUX(FILE *fp, X509 **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_X509_AUX(BIO *bp, X509 *x);
+int PEM_write_X509_AUX(FILE *fp, X509 *x);
+X509_REQ *PEM_read_bio_X509_REQ(BIO *bp, X509_REQ **x, pem_password_cb *cb, void *u);
+X509_REQ *PEM_read_X509_REQ(FILE *fp, X509_REQ **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_X509_REQ(BIO *bp, X509_REQ *x);
+int PEM_write_X509_REQ(FILE *fp, X509_REQ *x);
+int PEM_write_bio_X509_REQ_NEW(BIO *bp, X509_REQ *x);
+int PEM_write_X509_REQ_NEW(FILE *fp, X509_REQ *x);
+X509_CRL *PEM_read_bio_X509_CRL(BIO *bp, X509_CRL **x, pem_password_cb *cb, void *u);
+X509_CRL *PEM_read_X509_CRL(FILE *fp, X509_CRL **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_X509_CRL(BIO *bp, X509_CRL *x);
+int PEM_write_X509_CRL(FILE *fp, X509_CRL *x);
+PKCS7 *PEM_read_bio_PKCS7(BIO *bp, PKCS7 **x, pem_password_cb *cb, void *u);
+PKCS7 *PEM_read_PKCS7(FILE *fp, PKCS7 **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PKCS7(BIO *bp, PKCS7 *x);
+int PEM_write_PKCS7(FILE *fp, PKCS7 *x);
+NETSCAPE_CERT_SEQUENCE *PEM_read_bio_NETSCAPE_CERT_SEQUENCE(BIO *bp, NETSCAPE_CERT_SEQUENCE **x, pem_password_cb *cb, void *u);
+NETSCAPE_CERT_SEQUENCE *PEM_read_NETSCAPE_CERT_SEQUENCE(FILE *fp, NETSCAPE_CERT_SEQUENCE **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_NETSCAPE_CERT_SEQUENCE(BIO *bp, NETSCAPE_CERT_SEQUENCE *x);
+int PEM_write_NETSCAPE_CERT_SEQUENCE(FILE *fp, NETSCAPE_CERT_SEQUENCE *x);
+X509_SIG *PEM_read_bio_PKCS8(BIO *bp, X509_SIG **x, pem_password_cb *cb, void *u);
+X509_SIG *PEM_read_PKCS8(FILE *fp, X509_SIG **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PKCS8(BIO *bp, X509_SIG *x);
+int PEM_write_PKCS8(FILE *fp, X509_SIG *x);
+PKCS8_PRIV_KEY_INFO *PEM_read_bio_PKCS8_PRIV_KEY_INFO(BIO *bp, PKCS8_PRIV_KEY_INFO **x, pem_password_cb *cb, void *u);
+PKCS8_PRIV_KEY_INFO *PEM_read_PKCS8_PRIV_KEY_INFO(FILE *fp, PKCS8_PRIV_KEY_INFO **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PKCS8_PRIV_KEY_INFO(BIO *bp, PKCS8_PRIV_KEY_INFO *x);
+int PEM_write_PKCS8_PRIV_KEY_INFO(FILE *fp, PKCS8_PRIV_KEY_INFO *x);
+RSA *PEM_read_bio_RSAPrivateKey(BIO *bp, RSA **x, pem_password_cb *cb, void *u);
+RSA *PEM_read_RSAPrivateKey(FILE *fp, RSA **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_RSAPrivateKey(BIO *bp, RSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+int PEM_write_RSAPrivateKey(FILE *fp, RSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+RSA *PEM_read_bio_RSAPublicKey(BIO *bp, RSA **x, pem_password_cb *cb, void *u);
+RSA *PEM_read_RSAPublicKey(FILE *fp, RSA **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_RSAPublicKey(BIO *bp, const RSA *x);
+int PEM_write_RSAPublicKey(FILE *fp, const RSA *x);
+RSA *PEM_read_bio_RSA_PUBKEY(BIO *bp, RSA **x, pem_password_cb *cb, void *u);
+RSA *PEM_read_RSA_PUBKEY(FILE *fp, RSA **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_RSA_PUBKEY(BIO *bp, RSA *x);
+int PEM_write_RSA_PUBKEY(FILE *fp, RSA *x);
 #line 352 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-DSA *PEM_read_bio_DSAPrivateKey(BIO *bp, DSA **x, pem_password_cb *cb, void *u); DSA *PEM_read_DSAPrivateKey(FILE *fp, DSA **x, pem_password_cb *cb, void *u); int PEM_write_bio_DSAPrivateKey(BIO *bp, DSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u); int PEM_write_DSAPrivateKey(FILE *fp, DSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
-DSA *PEM_read_bio_DSA_PUBKEY(BIO *bp, DSA **x, pem_password_cb *cb, void *u); DSA *PEM_read_DSA_PUBKEY(FILE *fp, DSA **x, pem_password_cb *cb, void *u); int PEM_write_bio_DSA_PUBKEY(BIO *bp, DSA *x); int PEM_write_DSA_PUBKEY(FILE *fp, DSA *x);
-DSA *PEM_read_bio_DSAparams(BIO *bp, DSA **x, pem_password_cb *cb, void *u); DSA *PEM_read_DSAparams(FILE *fp, DSA **x, pem_password_cb *cb, void *u); int PEM_write_bio_DSAparams(BIO *bp, const DSA *x); int PEM_write_DSAparams(FILE *fp, const DSA *x);
+DSA *PEM_read_bio_DSAPrivateKey(BIO *bp, DSA **x, pem_password_cb *cb, void *u);
+DSA *PEM_read_DSAPrivateKey(FILE *fp, DSA **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_DSAPrivateKey(BIO *bp, DSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+int PEM_write_DSAPrivateKey(FILE *fp, DSA *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+DSA *PEM_read_bio_DSA_PUBKEY(BIO *bp, DSA **x, pem_password_cb *cb, void *u);
+DSA *PEM_read_DSA_PUBKEY(FILE *fp, DSA **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_DSA_PUBKEY(BIO *bp, DSA *x);
+int PEM_write_DSA_PUBKEY(FILE *fp, DSA *x);
+DSA *PEM_read_bio_DSAparams(BIO *bp, DSA **x, pem_password_cb *cb, void *u);
+DSA *PEM_read_DSAparams(FILE *fp, DSA **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_DSAparams(BIO *bp, const DSA *x);
+int PEM_write_DSAparams(FILE *fp, const DSA *x);
 #line 357 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-EC_GROUP *PEM_read_bio_ECPKParameters(BIO *bp, EC_GROUP **x, pem_password_cb *cb, void *u); EC_GROUP *PEM_read_ECPKParameters(FILE *fp, EC_GROUP **x, pem_password_cb *cb, void *u); int PEM_write_bio_ECPKParameters(BIO *bp, const EC_GROUP *x); int PEM_write_ECPKParameters(FILE *fp, const EC_GROUP *x);
-EC_KEY *PEM_read_bio_ECPrivateKey(BIO *bp, EC_KEY **x, pem_password_cb *cb, void *u); EC_KEY *PEM_read_ECPrivateKey(FILE *fp, EC_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_ECPrivateKey(BIO *bp, EC_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u); int PEM_write_ECPrivateKey(FILE *fp, EC_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
-EC_KEY *PEM_read_bio_EC_PUBKEY(BIO *bp, EC_KEY **x, pem_password_cb *cb, void *u); EC_KEY *PEM_read_EC_PUBKEY(FILE *fp, EC_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_EC_PUBKEY(BIO *bp, EC_KEY *x); int PEM_write_EC_PUBKEY(FILE *fp, EC_KEY *x);
+EC_GROUP *PEM_read_bio_ECPKParameters(BIO *bp, EC_GROUP **x, pem_password_cb *cb, void *u);
+EC_GROUP *PEM_read_ECPKParameters(FILE *fp, EC_GROUP **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_ECPKParameters(BIO *bp, const EC_GROUP *x);
+int PEM_write_ECPKParameters(FILE *fp, const EC_GROUP *x);
+EC_KEY *PEM_read_bio_ECPrivateKey(BIO *bp, EC_KEY **x, pem_password_cb *cb, void *u);
+EC_KEY *PEM_read_ECPrivateKey(FILE *fp, EC_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_ECPrivateKey(BIO *bp, EC_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+int PEM_write_ECPrivateKey(FILE *fp, EC_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+EC_KEY *PEM_read_bio_EC_PUBKEY(BIO *bp, EC_KEY **x, pem_password_cb *cb, void *u);
+EC_KEY *PEM_read_EC_PUBKEY(FILE *fp, EC_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_EC_PUBKEY(BIO *bp, EC_KEY *x);
+int PEM_write_EC_PUBKEY(FILE *fp, EC_KEY *x);
 #line 362 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-DH *PEM_read_bio_DHparams(BIO *bp, DH **x, pem_password_cb *cb, void *u); DH *PEM_read_DHparams(FILE *fp, DH **x, pem_password_cb *cb, void *u); int PEM_write_bio_DHparams(BIO *bp, const DH *x); int PEM_write_DHparams(FILE *fp, const DH *x);
-int PEM_write_bio_DHxparams(BIO *bp, const DH *x); int PEM_write_DHxparams(FILE *fp, const DH *x);
+DH *PEM_read_bio_DHparams(BIO *bp, DH **x, pem_password_cb *cb, void *u);
+DH *PEM_read_DHparams(FILE *fp, DH **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_DHparams(BIO *bp, const DH *x);
+int PEM_write_DHparams(FILE *fp, const DH *x);
+int PEM_write_bio_DHxparams(BIO *bp, const DH *x);
+int PEM_write_DHxparams(FILE *fp, const DH *x);
 #line 366 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-PAILLIER *PEM_read_bio_PaillierPrivateKey(BIO *bp, PAILLIER **x, pem_password_cb *cb, void *u); PAILLIER *PEM_read_PaillierPrivateKey(FILE *fp, PAILLIER **x, pem_password_cb *cb, void *u); int PEM_write_bio_PaillierPrivateKey(BIO *bp, PAILLIER *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u); int PEM_write_PaillierPrivateKey(FILE *fp, PAILLIER *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
-PAILLIER *PEM_read_bio_PaillierPublicKey(BIO *bp, PAILLIER **x, pem_password_cb *cb, void *u); PAILLIER *PEM_read_PaillierPublicKey(FILE *fp, PAILLIER **x, pem_password_cb *cb, void *u); int PEM_write_bio_PaillierPublicKey(BIO *bp, const PAILLIER *x); int PEM_write_PaillierPublicKey(FILE *fp, const PAILLIER *x);
-PAILLIER *PEM_read_bio_PAILLIER_PUBKEY(BIO *bp, PAILLIER **x, pem_password_cb *cb, void *u); PAILLIER *PEM_read_PAILLIER_PUBKEY(FILE *fp, PAILLIER **x, pem_password_cb *cb, void *u); int PEM_write_bio_PAILLIER_PUBKEY(BIO *bp, PAILLIER *x); int PEM_write_PAILLIER_PUBKEY(FILE *fp, PAILLIER *x);
+PAILLIER *PEM_read_bio_PaillierPrivateKey(BIO *bp, PAILLIER **x, pem_password_cb *cb, void *u);
+PAILLIER *PEM_read_PaillierPrivateKey(FILE *fp, PAILLIER **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PaillierPrivateKey(BIO *bp, PAILLIER *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+int PEM_write_PaillierPrivateKey(FILE *fp, PAILLIER *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+PAILLIER *PEM_read_bio_PaillierPublicKey(BIO *bp, PAILLIER **x, pem_password_cb *cb, void *u);
+PAILLIER *PEM_read_PaillierPublicKey(FILE *fp, PAILLIER **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PaillierPublicKey(BIO *bp, const PAILLIER *x);
+int PEM_write_PaillierPublicKey(FILE *fp, const PAILLIER *x);
+PAILLIER *PEM_read_bio_PAILLIER_PUBKEY(BIO *bp, PAILLIER **x, pem_password_cb *cb, void *u);
+PAILLIER *PEM_read_PAILLIER_PUBKEY(FILE *fp, PAILLIER **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PAILLIER_PUBKEY(BIO *bp, PAILLIER *x);
+int PEM_write_PAILLIER_PUBKEY(FILE *fp, PAILLIER *x);
 #line 371 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-SM9_MASTER_KEY *PEM_read_bio_SM9MasterSecret(BIO *bp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u); SM9_MASTER_KEY *PEM_read_SM9MasterSecret(FILE *fp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_SM9MasterSecret(BIO *bp, SM9_MASTER_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u); int PEM_write_SM9MasterSecret(FILE *fp, SM9_MASTER_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
-SM9_MASTER_KEY *PEM_read_bio_SM9PublicParameters(BIO *bp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u); SM9_MASTER_KEY *PEM_read_SM9PublicParameters(FILE *fp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_SM9PublicParameters(BIO *bp, const SM9_MASTER_KEY *x); int PEM_write_SM9PublicParameters(FILE *fp, const SM9_MASTER_KEY *x);
-SM9_MASTER_KEY *PEM_read_bio_SM9_MASTER_PUBKEY(BIO *bp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u); SM9_MASTER_KEY *PEM_read_SM9_MASTER_PUBKEY(FILE *fp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_SM9_MASTER_PUBKEY(BIO *bp, SM9_MASTER_KEY *x); int PEM_write_SM9_MASTER_PUBKEY(FILE *fp, SM9_MASTER_KEY *x);
-SM9_KEY *PEM_read_bio_SM9PrivateKey(BIO *bp, SM9_KEY **x, pem_password_cb *cb, void *u); SM9_KEY *PEM_read_SM9PrivateKey(FILE *fp, SM9_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_SM9PrivateKey(BIO *bp, SM9_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u); int PEM_write_SM9PrivateKey(FILE *fp, SM9_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
-SM9_KEY *PEM_read_bio_SM9PublicKey(BIO *bp, SM9_KEY **x, pem_password_cb *cb, void *u); SM9_KEY *PEM_read_SM9PublicKey(FILE *fp, SM9_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_SM9PublicKey(BIO *bp, const SM9_KEY *x); int PEM_write_SM9PublicKey(FILE *fp, const SM9_KEY *x);
-SM9_KEY *PEM_read_bio_SM9_PUBKEY(BIO *bp, SM9_KEY **x, pem_password_cb *cb, void *u); SM9_KEY *PEM_read_SM9_PUBKEY(FILE *fp, SM9_KEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_SM9_PUBKEY(BIO *bp, SM9_KEY *x); int PEM_write_SM9_PUBKEY(FILE *fp, SM9_KEY *x);
+SM9_MASTER_KEY *PEM_read_bio_SM9MasterSecret(BIO *bp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u);
+SM9_MASTER_KEY *PEM_read_SM9MasterSecret(FILE *fp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_SM9MasterSecret(BIO *bp, SM9_MASTER_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+int PEM_write_SM9MasterSecret(FILE *fp, SM9_MASTER_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+SM9_MASTER_KEY *PEM_read_bio_SM9PublicParameters(BIO *bp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u);
+SM9_MASTER_KEY *PEM_read_SM9PublicParameters(FILE *fp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_SM9PublicParameters(BIO *bp, const SM9_MASTER_KEY *x);
+int PEM_write_SM9PublicParameters(FILE *fp, const SM9_MASTER_KEY *x);
+SM9_MASTER_KEY *PEM_read_bio_SM9_MASTER_PUBKEY(BIO *bp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u);
+SM9_MASTER_KEY *PEM_read_SM9_MASTER_PUBKEY(FILE *fp, SM9_MASTER_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_SM9_MASTER_PUBKEY(BIO *bp, SM9_MASTER_KEY *x);
+int PEM_write_SM9_MASTER_PUBKEY(FILE *fp, SM9_MASTER_KEY *x);
+SM9_KEY *PEM_read_bio_SM9PrivateKey(BIO *bp, SM9_KEY **x, pem_password_cb *cb, void *u);
+SM9_KEY *PEM_read_SM9PrivateKey(FILE *fp, SM9_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_SM9PrivateKey(BIO *bp, SM9_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+int PEM_write_SM9PrivateKey(FILE *fp, SM9_KEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+SM9_KEY *PEM_read_bio_SM9PublicKey(BIO *bp, SM9_KEY **x, pem_password_cb *cb, void *u);
+SM9_KEY *PEM_read_SM9PublicKey(FILE *fp, SM9_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_SM9PublicKey(BIO *bp, const SM9_KEY *x);
+int PEM_write_SM9PublicKey(FILE *fp, const SM9_KEY *x);
+SM9_KEY *PEM_read_bio_SM9_PUBKEY(BIO *bp, SM9_KEY **x, pem_password_cb *cb, void *u);
+SM9_KEY *PEM_read_SM9_PUBKEY(FILE *fp, SM9_KEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_SM9_PUBKEY(BIO *bp, SM9_KEY *x);
+int PEM_write_SM9_PUBKEY(FILE *fp, SM9_KEY *x);
 #line 379 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
-EVP_PKEY *PEM_read_bio_PrivateKey(BIO *bp, EVP_PKEY **x, pem_password_cb *cb, void *u); EVP_PKEY *PEM_read_PrivateKey(FILE *fp, EVP_PKEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_PrivateKey(BIO *bp, EVP_PKEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u); int PEM_write_PrivateKey(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
-EVP_PKEY *PEM_read_bio_PUBKEY(BIO *bp, EVP_PKEY **x, pem_password_cb *cb, void *u); EVP_PKEY *PEM_read_PUBKEY(FILE *fp, EVP_PKEY **x, pem_password_cb *cb, void *u); int PEM_write_bio_PUBKEY(BIO *bp, EVP_PKEY *x); int PEM_write_PUBKEY(FILE *fp, EVP_PKEY *x);
+EVP_PKEY *PEM_read_bio_PrivateKey(BIO *bp, EVP_PKEY **x, pem_password_cb *cb, void *u);
+EVP_PKEY *PEM_read_PrivateKey(FILE *fp, EVP_PKEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PrivateKey(BIO *bp, EVP_PKEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+int PEM_write_PrivateKey(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc, unsigned char *kstr, int klen, pem_password_cb *cb, void *u);
+EVP_PKEY *PEM_read_bio_PUBKEY(BIO *bp, EVP_PKEY **x, pem_password_cb *cb, void *u);
+EVP_PKEY *PEM_read_PUBKEY(FILE *fp, EVP_PKEY **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_PUBKEY(BIO *bp, EVP_PKEY *x);
+int PEM_write_PUBKEY(FILE *fp, EVP_PKEY *x);
 int PEM_write_bio_PrivateKey_traditional(BIO *bp, EVP_PKEY *x,
-const EVP_CIPHER *enc,
-unsigned char *kstr, int klen,
-pem_password_cb *cb, void *u);
+        const EVP_CIPHER *enc,
+        unsigned char *kstr, int klen,
+        pem_password_cb *cb, void *u);
 int PEM_write_bio_PKCS8PrivateKey_nid(BIO *bp, EVP_PKEY *x, int nid,
-char *kstr, int klen,
-pem_password_cb *cb, void *u);
+                                      char *kstr, int klen,
+                                      pem_password_cb *cb, void *u);
 int PEM_write_bio_PKCS8PrivateKey(BIO *, EVP_PKEY *, const EVP_CIPHER *,
-char *, int, pem_password_cb *, void *);
+                                  char *, int, pem_password_cb *, void *);
 int i2d_PKCS8PrivateKey_bio(BIO *bp, EVP_PKEY *x, const EVP_CIPHER *enc,
-char *kstr, int klen,
-pem_password_cb *cb, void *u);
+                            char *kstr, int klen,
+                            pem_password_cb *cb, void *u);
 int i2d_PKCS8PrivateKey_nid_bio(BIO *bp, EVP_PKEY *x, int nid,
-char *kstr, int klen,
-pem_password_cb *cb, void *u);
+                                char *kstr, int klen,
+                                pem_password_cb *cb, void *u);
 EVP_PKEY *d2i_PKCS8PrivateKey_bio(BIO *bp, EVP_PKEY **x, pem_password_cb *cb,
-void *u);
+                                  void *u);
 int i2d_PKCS8PrivateKey_fp(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc,
-char *kstr, int klen,
-pem_password_cb *cb, void *u);
+                           char *kstr, int klen,
+                           pem_password_cb *cb, void *u);
 int i2d_PKCS8PrivateKey_nid_fp(FILE *fp, EVP_PKEY *x, int nid,
-char *kstr, int klen,
-pem_password_cb *cb, void *u);
+                               char *kstr, int klen,
+                               pem_password_cb *cb, void *u);
 int PEM_write_PKCS8PrivateKey_nid(FILE *fp, EVP_PKEY *x, int nid,
-char *kstr, int klen,
-pem_password_cb *cb, void *u);
+                                  char *kstr, int klen,
+                                  pem_password_cb *cb, void *u);
 EVP_PKEY *d2i_PKCS8PrivateKey_fp(FILE *fp, EVP_PKEY **x, pem_password_cb *cb,
-void *u);
+                                 void *u);
 int PEM_write_PKCS8PrivateKey(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc,
-char *kstr, int klen, pem_password_cb *cd,
-void *u);
+                              char *kstr, int klen, pem_password_cb *cd,
+                              void *u);
 #line 419 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
 EVP_PKEY *PEM_read_bio_Parameters(BIO *bp, EVP_PKEY **x);
 int PEM_write_bio_Parameters(BIO *bp, EVP_PKEY *x);
@@ -5961,7 +9299,7 @@ int i2b_PrivateKey_bio(BIO *out, EVP_PKEY *pk);
 int i2b_PublicKey_bio(BIO *out, EVP_PKEY *pk);
 EVP_PKEY *b2i_PVK_bio(BIO *in, pem_password_cb *cb, void *u);
 int i2b_PVK_bio(BIO *out, EVP_PKEY *pk, int enclevel,
-pem_password_cb *cb, void *u);
+                pem_password_cb *cb, void *u);
 #line 434 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
 #line 435 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/pem.h"
 int ERR_load_PEM_strings(void);
@@ -5998,59 +9336,396 @@ int ERR_load_PEM_strings(void);
 #line 18 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/ossl_typ.h"
 #line 20 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
-typedef struct {
-char *section;
-char *name;
-char *value;
+typedef struct
+{
+    char *section;
+    char *name;
+    char *value;
 } CONF_VALUE;
-struct stack_st_CONF_VALUE; typedef int (*sk_CONF_VALUE_compfunc)(const CONF_VALUE * const *a, const CONF_VALUE *const *b); typedef void (*sk_CONF_VALUE_freefunc)(CONF_VALUE *a); typedef CONF_VALUE * (*sk_CONF_VALUE_copyfunc)(const CONF_VALUE *a); static __inline int sk_CONF_VALUE_num(const struct stack_st_CONF_VALUE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CONF_VALUE *sk_CONF_VALUE_value(const struct stack_st_CONF_VALUE *sk, int idx) { return (CONF_VALUE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CONF_VALUE *sk_CONF_VALUE_new(sk_CONF_VALUE_compfunc compare) { return (struct stack_st_CONF_VALUE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CONF_VALUE *sk_CONF_VALUE_new_null(void) { return (struct stack_st_CONF_VALUE *)OPENSSL_sk_new_null(); } static __inline void sk_CONF_VALUE_free(struct stack_st_CONF_VALUE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CONF_VALUE_zero(struct stack_st_CONF_VALUE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CONF_VALUE *sk_CONF_VALUE_delete(struct stack_st_CONF_VALUE *sk, int i) { return (CONF_VALUE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CONF_VALUE *sk_CONF_VALUE_delete_ptr(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr) { return (CONF_VALUE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_VALUE_push(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_VALUE_unshift(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CONF_VALUE *sk_CONF_VALUE_pop(struct stack_st_CONF_VALUE *sk) { return (CONF_VALUE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CONF_VALUE *sk_CONF_VALUE_shift(struct stack_st_CONF_VALUE *sk) { return (CONF_VALUE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CONF_VALUE_pop_free(struct stack_st_CONF_VALUE *sk, sk_CONF_VALUE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CONF_VALUE_insert(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CONF_VALUE *sk_CONF_VALUE_set(struct stack_st_CONF_VALUE *sk, int idx, CONF_VALUE *ptr) { return (CONF_VALUE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CONF_VALUE_find(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_VALUE_find_ex(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CONF_VALUE_sort(struct stack_st_CONF_VALUE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CONF_VALUE_is_sorted(const struct stack_st_CONF_VALUE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CONF_VALUE * sk_CONF_VALUE_dup(const struct stack_st_CONF_VALUE *sk) { return (struct stack_st_CONF_VALUE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CONF_VALUE *sk_CONF_VALUE_deep_copy(const struct stack_st_CONF_VALUE *sk, sk_CONF_VALUE_copyfunc copyfunc, sk_CONF_VALUE_freefunc freefunc) { return (struct stack_st_CONF_VALUE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CONF_VALUE_compfunc sk_CONF_VALUE_set_cmp_func(struct stack_st_CONF_VALUE *sk, sk_CONF_VALUE_compfunc compare) { return (sk_CONF_VALUE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct lhash_st_CONF_VALUE { union lh_CONF_VALUE_dummy { void* d1; unsigned long d2; int d3; } dummy; }; static __inline struct lhash_st_CONF_VALUE * lh_CONF_VALUE_new(unsigned long (*hfn)(const CONF_VALUE *), int (*cfn)(const CONF_VALUE *, const CONF_VALUE *)) { return (struct lhash_st_CONF_VALUE *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn); } static __inline void lh_CONF_VALUE_free(struct lhash_st_CONF_VALUE *lh) { OPENSSL_LH_free((OPENSSL_LHASH *)lh); } static __inline CONF_VALUE *lh_CONF_VALUE_insert(struct lhash_st_CONF_VALUE *lh, CONF_VALUE *d) { return (CONF_VALUE *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d); } static __inline CONF_VALUE *lh_CONF_VALUE_delete(struct lhash_st_CONF_VALUE *lh, const CONF_VALUE *d) { return (CONF_VALUE *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d); } static __inline CONF_VALUE *lh_CONF_VALUE_retrieve(struct lhash_st_CONF_VALUE *lh, const CONF_VALUE *d) { return (CONF_VALUE *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d); } static __inline int lh_CONF_VALUE_error(struct lhash_st_CONF_VALUE *lh) { return OPENSSL_LH_error((OPENSSL_LHASH *)lh); } static __inline unsigned long lh_CONF_VALUE_num_items(struct lhash_st_CONF_VALUE *lh) { return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh); } static __inline void lh_CONF_VALUE_node_stats_bio(const struct lhash_st_CONF_VALUE *lh, BIO *out) { OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_CONF_VALUE_node_usage_stats_bio(const struct lhash_st_CONF_VALUE *lh, BIO *out) { OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline void lh_CONF_VALUE_stats_bio(const struct lhash_st_CONF_VALUE *lh, BIO *out) { OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out); } static __inline unsigned long lh_CONF_VALUE_get_down_load(struct lhash_st_CONF_VALUE *lh) { return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh); } static __inline void lh_CONF_VALUE_set_down_load(struct lhash_st_CONF_VALUE *lh, unsigned long dl) { OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl); } static __inline void lh_CONF_VALUE_doall(struct lhash_st_CONF_VALUE *lh, void (*doall)(CONF_VALUE *)) { OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall); } struct lhash_st_CONF_VALUE;
+struct stack_st_CONF_VALUE;
+typedef int (*sk_CONF_VALUE_compfunc)(const CONF_VALUE * const *a, const CONF_VALUE *const *b);
+typedef void (*sk_CONF_VALUE_freefunc)(CONF_VALUE *a);
+typedef CONF_VALUE * (*sk_CONF_VALUE_copyfunc)(const CONF_VALUE *a);
+static __inline int sk_CONF_VALUE_num(const struct stack_st_CONF_VALUE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CONF_VALUE *sk_CONF_VALUE_value(const struct stack_st_CONF_VALUE *sk, int idx)
+{
+    return (CONF_VALUE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CONF_VALUE *sk_CONF_VALUE_new(sk_CONF_VALUE_compfunc compare)
+{
+    return (struct stack_st_CONF_VALUE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CONF_VALUE *sk_CONF_VALUE_new_null(void)
+{
+    return (struct stack_st_CONF_VALUE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CONF_VALUE_free(struct stack_st_CONF_VALUE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CONF_VALUE_zero(struct stack_st_CONF_VALUE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CONF_VALUE *sk_CONF_VALUE_delete(struct stack_st_CONF_VALUE *sk, int i)
+{
+    return (CONF_VALUE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CONF_VALUE *sk_CONF_VALUE_delete_ptr(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr)
+{
+    return (CONF_VALUE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_VALUE_push(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_VALUE_unshift(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CONF_VALUE *sk_CONF_VALUE_pop(struct stack_st_CONF_VALUE *sk)
+{
+    return (CONF_VALUE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CONF_VALUE *sk_CONF_VALUE_shift(struct stack_st_CONF_VALUE *sk)
+{
+    return (CONF_VALUE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CONF_VALUE_pop_free(struct stack_st_CONF_VALUE *sk, sk_CONF_VALUE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CONF_VALUE_insert(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CONF_VALUE *sk_CONF_VALUE_set(struct stack_st_CONF_VALUE *sk, int idx, CONF_VALUE *ptr)
+{
+    return (CONF_VALUE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CONF_VALUE_find(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_VALUE_find_ex(struct stack_st_CONF_VALUE *sk, CONF_VALUE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CONF_VALUE_sort(struct stack_st_CONF_VALUE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CONF_VALUE_is_sorted(const struct stack_st_CONF_VALUE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CONF_VALUE * sk_CONF_VALUE_dup(const struct stack_st_CONF_VALUE *sk)
+{
+    return (struct stack_st_CONF_VALUE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CONF_VALUE *sk_CONF_VALUE_deep_copy(const struct stack_st_CONF_VALUE *sk, sk_CONF_VALUE_copyfunc copyfunc, sk_CONF_VALUE_freefunc freefunc)
+{
+    return (struct stack_st_CONF_VALUE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CONF_VALUE_compfunc sk_CONF_VALUE_set_cmp_func(struct stack_st_CONF_VALUE *sk, sk_CONF_VALUE_compfunc compare)
+{
+    return (sk_CONF_VALUE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct lhash_st_CONF_VALUE
+{
+    union lh_CONF_VALUE_dummy
+    {
+        void* d1;
+        unsigned long d2;
+        int d3;
+    } dummy;
+};
+static __inline struct lhash_st_CONF_VALUE * lh_CONF_VALUE_new(unsigned long (*hfn)(const CONF_VALUE *), int (*cfn)(const CONF_VALUE *, const CONF_VALUE *))
+{
+    return (struct lhash_st_CONF_VALUE *) OPENSSL_LH_new((OPENSSL_LH_HASHFUNC)hfn, (OPENSSL_LH_COMPFUNC)cfn);
+}
+static __inline void lh_CONF_VALUE_free(struct lhash_st_CONF_VALUE *lh)
+{
+    OPENSSL_LH_free((OPENSSL_LHASH *)lh);
+}
+static __inline CONF_VALUE *lh_CONF_VALUE_insert(struct lhash_st_CONF_VALUE *lh, CONF_VALUE *d)
+{
+    return (CONF_VALUE *)OPENSSL_LH_insert((OPENSSL_LHASH *)lh, d);
+}
+static __inline CONF_VALUE *lh_CONF_VALUE_delete(struct lhash_st_CONF_VALUE *lh, const CONF_VALUE *d)
+{
+    return (CONF_VALUE *)OPENSSL_LH_delete((OPENSSL_LHASH *)lh, d);
+}
+static __inline CONF_VALUE *lh_CONF_VALUE_retrieve(struct lhash_st_CONF_VALUE *lh, const CONF_VALUE *d)
+{
+    return (CONF_VALUE *)OPENSSL_LH_retrieve((OPENSSL_LHASH *)lh, d);
+}
+static __inline int lh_CONF_VALUE_error(struct lhash_st_CONF_VALUE *lh)
+{
+    return OPENSSL_LH_error((OPENSSL_LHASH *)lh);
+}
+static __inline unsigned long lh_CONF_VALUE_num_items(struct lhash_st_CONF_VALUE *lh)
+{
+    return OPENSSL_LH_num_items((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_CONF_VALUE_node_stats_bio(const struct lhash_st_CONF_VALUE *lh, BIO *out)
+{
+    OPENSSL_LH_node_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_CONF_VALUE_node_usage_stats_bio(const struct lhash_st_CONF_VALUE *lh, BIO *out)
+{
+    OPENSSL_LH_node_usage_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline void lh_CONF_VALUE_stats_bio(const struct lhash_st_CONF_VALUE *lh, BIO *out)
+{
+    OPENSSL_LH_stats_bio((const OPENSSL_LHASH *)lh, out);
+}
+static __inline unsigned long lh_CONF_VALUE_get_down_load(struct lhash_st_CONF_VALUE *lh)
+{
+    return OPENSSL_LH_get_down_load((OPENSSL_LHASH *)lh);
+}
+static __inline void lh_CONF_VALUE_set_down_load(struct lhash_st_CONF_VALUE *lh, unsigned long dl)
+{
+    OPENSSL_LH_set_down_load((OPENSSL_LHASH *)lh, dl);
+}
+static __inline void lh_CONF_VALUE_doall(struct lhash_st_CONF_VALUE *lh, void (*doall)(CONF_VALUE *))
+{
+    OPENSSL_LH_doall((OPENSSL_LHASH *)lh, (OPENSSL_LH_DOALL_FUNC)doall);
+}
+struct lhash_st_CONF_VALUE;
 struct conf_st;
 struct conf_method_st;
 typedef struct conf_method_st CONF_METHOD;
-struct conf_method_st {
-const char *name;
-CONF *(*create) (CONF_METHOD *meth);
-int (*init) (CONF *conf);
-int (*destroy) (CONF *conf);
-int (*destroy_data) (CONF *conf);
-int (*load_bio) (CONF *conf, BIO *bp, long *eline);
-int (*dump) (const CONF *conf, BIO *bp);
-int (*is_number) (const CONF *conf, char c);
-int (*to_int) (const CONF *conf, char c);
-int (*load) (CONF *conf, const char *name, long *eline);
+struct conf_method_st
+{
+    const char *name;
+    CONF *(*create) (CONF_METHOD *meth);
+    int (*init) (CONF *conf);
+    int (*destroy) (CONF *conf);
+    int (*destroy_data) (CONF *conf);
+    int (*load_bio) (CONF *conf, BIO *bp, long *eline);
+    int (*dump) (const CONF *conf, BIO *bp);
+    int (*is_number) (const CONF *conf, char c);
+    int (*to_int) (const CONF *conf, char c);
+    int (*load) (CONF *conf, const char *name, long *eline);
 };
 typedef struct conf_imodule_st CONF_IMODULE;
 typedef struct conf_module_st CONF_MODULE;
-struct stack_st_CONF_MODULE; typedef int (*sk_CONF_MODULE_compfunc)(const CONF_MODULE * const *a, const CONF_MODULE *const *b); typedef void (*sk_CONF_MODULE_freefunc)(CONF_MODULE *a); typedef CONF_MODULE * (*sk_CONF_MODULE_copyfunc)(const CONF_MODULE *a); static __inline int sk_CONF_MODULE_num(const struct stack_st_CONF_MODULE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CONF_MODULE *sk_CONF_MODULE_value(const struct stack_st_CONF_MODULE *sk, int idx) { return (CONF_MODULE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CONF_MODULE *sk_CONF_MODULE_new(sk_CONF_MODULE_compfunc compare) { return (struct stack_st_CONF_MODULE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CONF_MODULE *sk_CONF_MODULE_new_null(void) { return (struct stack_st_CONF_MODULE *)OPENSSL_sk_new_null(); } static __inline void sk_CONF_MODULE_free(struct stack_st_CONF_MODULE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CONF_MODULE_zero(struct stack_st_CONF_MODULE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CONF_MODULE *sk_CONF_MODULE_delete(struct stack_st_CONF_MODULE *sk, int i) { return (CONF_MODULE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CONF_MODULE *sk_CONF_MODULE_delete_ptr(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr) { return (CONF_MODULE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_MODULE_push(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_MODULE_unshift(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CONF_MODULE *sk_CONF_MODULE_pop(struct stack_st_CONF_MODULE *sk) { return (CONF_MODULE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CONF_MODULE *sk_CONF_MODULE_shift(struct stack_st_CONF_MODULE *sk) { return (CONF_MODULE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CONF_MODULE_pop_free(struct stack_st_CONF_MODULE *sk, sk_CONF_MODULE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CONF_MODULE_insert(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CONF_MODULE *sk_CONF_MODULE_set(struct stack_st_CONF_MODULE *sk, int idx, CONF_MODULE *ptr) { return (CONF_MODULE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CONF_MODULE_find(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_MODULE_find_ex(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CONF_MODULE_sort(struct stack_st_CONF_MODULE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CONF_MODULE_is_sorted(const struct stack_st_CONF_MODULE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CONF_MODULE * sk_CONF_MODULE_dup(const struct stack_st_CONF_MODULE *sk) { return (struct stack_st_CONF_MODULE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CONF_MODULE *sk_CONF_MODULE_deep_copy(const struct stack_st_CONF_MODULE *sk, sk_CONF_MODULE_copyfunc copyfunc, sk_CONF_MODULE_freefunc freefunc) { return (struct stack_st_CONF_MODULE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CONF_MODULE_compfunc sk_CONF_MODULE_set_cmp_func(struct stack_st_CONF_MODULE *sk, sk_CONF_MODULE_compfunc compare) { return (sk_CONF_MODULE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_CONF_IMODULE; typedef int (*sk_CONF_IMODULE_compfunc)(const CONF_IMODULE * const *a, const CONF_IMODULE *const *b); typedef void (*sk_CONF_IMODULE_freefunc)(CONF_IMODULE *a); typedef CONF_IMODULE * (*sk_CONF_IMODULE_copyfunc)(const CONF_IMODULE *a); static __inline int sk_CONF_IMODULE_num(const struct stack_st_CONF_IMODULE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CONF_IMODULE *sk_CONF_IMODULE_value(const struct stack_st_CONF_IMODULE *sk, int idx) { return (CONF_IMODULE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CONF_IMODULE *sk_CONF_IMODULE_new(sk_CONF_IMODULE_compfunc compare) { return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CONF_IMODULE *sk_CONF_IMODULE_new_null(void) { return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_new_null(); } static __inline void sk_CONF_IMODULE_free(struct stack_st_CONF_IMODULE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CONF_IMODULE_zero(struct stack_st_CONF_IMODULE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CONF_IMODULE *sk_CONF_IMODULE_delete(struct stack_st_CONF_IMODULE *sk, int i) { return (CONF_IMODULE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CONF_IMODULE *sk_CONF_IMODULE_delete_ptr(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr) { return (CONF_IMODULE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_IMODULE_push(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_IMODULE_unshift(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CONF_IMODULE *sk_CONF_IMODULE_pop(struct stack_st_CONF_IMODULE *sk) { return (CONF_IMODULE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CONF_IMODULE *sk_CONF_IMODULE_shift(struct stack_st_CONF_IMODULE *sk) { return (CONF_IMODULE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CONF_IMODULE_pop_free(struct stack_st_CONF_IMODULE *sk, sk_CONF_IMODULE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CONF_IMODULE_insert(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CONF_IMODULE *sk_CONF_IMODULE_set(struct stack_st_CONF_IMODULE *sk, int idx, CONF_IMODULE *ptr) { return (CONF_IMODULE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CONF_IMODULE_find(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CONF_IMODULE_find_ex(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CONF_IMODULE_sort(struct stack_st_CONF_IMODULE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CONF_IMODULE_is_sorted(const struct stack_st_CONF_IMODULE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CONF_IMODULE * sk_CONF_IMODULE_dup(const struct stack_st_CONF_IMODULE *sk) { return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CONF_IMODULE *sk_CONF_IMODULE_deep_copy(const struct stack_st_CONF_IMODULE *sk, sk_CONF_IMODULE_copyfunc copyfunc, sk_CONF_IMODULE_freefunc freefunc) { return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CONF_IMODULE_compfunc sk_CONF_IMODULE_set_cmp_func(struct stack_st_CONF_IMODULE *sk, sk_CONF_IMODULE_compfunc compare) { return (sk_CONF_IMODULE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_CONF_MODULE;
+typedef int (*sk_CONF_MODULE_compfunc)(const CONF_MODULE * const *a, const CONF_MODULE *const *b);
+typedef void (*sk_CONF_MODULE_freefunc)(CONF_MODULE *a);
+typedef CONF_MODULE * (*sk_CONF_MODULE_copyfunc)(const CONF_MODULE *a);
+static __inline int sk_CONF_MODULE_num(const struct stack_st_CONF_MODULE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CONF_MODULE *sk_CONF_MODULE_value(const struct stack_st_CONF_MODULE *sk, int idx)
+{
+    return (CONF_MODULE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CONF_MODULE *sk_CONF_MODULE_new(sk_CONF_MODULE_compfunc compare)
+{
+    return (struct stack_st_CONF_MODULE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CONF_MODULE *sk_CONF_MODULE_new_null(void)
+{
+    return (struct stack_st_CONF_MODULE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CONF_MODULE_free(struct stack_st_CONF_MODULE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CONF_MODULE_zero(struct stack_st_CONF_MODULE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CONF_MODULE *sk_CONF_MODULE_delete(struct stack_st_CONF_MODULE *sk, int i)
+{
+    return (CONF_MODULE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CONF_MODULE *sk_CONF_MODULE_delete_ptr(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr)
+{
+    return (CONF_MODULE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_MODULE_push(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_MODULE_unshift(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CONF_MODULE *sk_CONF_MODULE_pop(struct stack_st_CONF_MODULE *sk)
+{
+    return (CONF_MODULE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CONF_MODULE *sk_CONF_MODULE_shift(struct stack_st_CONF_MODULE *sk)
+{
+    return (CONF_MODULE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CONF_MODULE_pop_free(struct stack_st_CONF_MODULE *sk, sk_CONF_MODULE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CONF_MODULE_insert(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CONF_MODULE *sk_CONF_MODULE_set(struct stack_st_CONF_MODULE *sk, int idx, CONF_MODULE *ptr)
+{
+    return (CONF_MODULE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CONF_MODULE_find(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_MODULE_find_ex(struct stack_st_CONF_MODULE *sk, CONF_MODULE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CONF_MODULE_sort(struct stack_st_CONF_MODULE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CONF_MODULE_is_sorted(const struct stack_st_CONF_MODULE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CONF_MODULE * sk_CONF_MODULE_dup(const struct stack_st_CONF_MODULE *sk)
+{
+    return (struct stack_st_CONF_MODULE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CONF_MODULE *sk_CONF_MODULE_deep_copy(const struct stack_st_CONF_MODULE *sk, sk_CONF_MODULE_copyfunc copyfunc, sk_CONF_MODULE_freefunc freefunc)
+{
+    return (struct stack_st_CONF_MODULE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CONF_MODULE_compfunc sk_CONF_MODULE_set_cmp_func(struct stack_st_CONF_MODULE *sk, sk_CONF_MODULE_compfunc compare)
+{
+    return (sk_CONF_MODULE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_CONF_IMODULE;
+typedef int (*sk_CONF_IMODULE_compfunc)(const CONF_IMODULE * const *a, const CONF_IMODULE *const *b);
+typedef void (*sk_CONF_IMODULE_freefunc)(CONF_IMODULE *a);
+typedef CONF_IMODULE * (*sk_CONF_IMODULE_copyfunc)(const CONF_IMODULE *a);
+static __inline int sk_CONF_IMODULE_num(const struct stack_st_CONF_IMODULE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CONF_IMODULE *sk_CONF_IMODULE_value(const struct stack_st_CONF_IMODULE *sk, int idx)
+{
+    return (CONF_IMODULE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CONF_IMODULE *sk_CONF_IMODULE_new(sk_CONF_IMODULE_compfunc compare)
+{
+    return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CONF_IMODULE *sk_CONF_IMODULE_new_null(void)
+{
+    return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CONF_IMODULE_free(struct stack_st_CONF_IMODULE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CONF_IMODULE_zero(struct stack_st_CONF_IMODULE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CONF_IMODULE *sk_CONF_IMODULE_delete(struct stack_st_CONF_IMODULE *sk, int i)
+{
+    return (CONF_IMODULE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CONF_IMODULE *sk_CONF_IMODULE_delete_ptr(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr)
+{
+    return (CONF_IMODULE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_IMODULE_push(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_IMODULE_unshift(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CONF_IMODULE *sk_CONF_IMODULE_pop(struct stack_st_CONF_IMODULE *sk)
+{
+    return (CONF_IMODULE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CONF_IMODULE *sk_CONF_IMODULE_shift(struct stack_st_CONF_IMODULE *sk)
+{
+    return (CONF_IMODULE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CONF_IMODULE_pop_free(struct stack_st_CONF_IMODULE *sk, sk_CONF_IMODULE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CONF_IMODULE_insert(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CONF_IMODULE *sk_CONF_IMODULE_set(struct stack_st_CONF_IMODULE *sk, int idx, CONF_IMODULE *ptr)
+{
+    return (CONF_IMODULE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CONF_IMODULE_find(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CONF_IMODULE_find_ex(struct stack_st_CONF_IMODULE *sk, CONF_IMODULE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CONF_IMODULE_sort(struct stack_st_CONF_IMODULE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CONF_IMODULE_is_sorted(const struct stack_st_CONF_IMODULE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CONF_IMODULE * sk_CONF_IMODULE_dup(const struct stack_st_CONF_IMODULE *sk)
+{
+    return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CONF_IMODULE *sk_CONF_IMODULE_deep_copy(const struct stack_st_CONF_IMODULE *sk, sk_CONF_IMODULE_copyfunc copyfunc, sk_CONF_IMODULE_freefunc freefunc)
+{
+    return (struct stack_st_CONF_IMODULE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CONF_IMODULE_compfunc sk_CONF_IMODULE_set_cmp_func(struct stack_st_CONF_IMODULE *sk, sk_CONF_IMODULE_compfunc compare)
+{
+    return (sk_CONF_IMODULE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef int conf_init_func (CONF_IMODULE *md, const CONF *cnf);
 typedef void conf_finish_func (CONF_IMODULE *md);
 int CONF_set_default_method(CONF_METHOD *meth);
 void CONF_set_nconf(CONF *conf, struct lhash_st_CONF_VALUE *hash);
 struct lhash_st_CONF_VALUE *CONF_load(struct lhash_st_CONF_VALUE *conf, const char *file,
-long *eline);
+                                      long *eline);
 struct lhash_st_CONF_VALUE *CONF_load_fp(struct lhash_st_CONF_VALUE *conf, FILE *fp,
-long *eline);
+        long *eline);
 #line 78 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
 struct lhash_st_CONF_VALUE *CONF_load_bio(struct lhash_st_CONF_VALUE *conf, BIO *bp,
-long *eline);
+        long *eline);
 struct stack_st_CONF_VALUE *CONF_get_section(struct lhash_st_CONF_VALUE *conf,
-const char *section);
+        const char *section);
 char *CONF_get_string(struct lhash_st_CONF_VALUE *conf, const char *group,
-const char *name);
+                      const char *name);
 long CONF_get_number(struct lhash_st_CONF_VALUE *conf, const char *group,
-const char *name);
+                     const char *name);
 void CONF_free(struct lhash_st_CONF_VALUE *conf);
 int CONF_dump_fp(struct lhash_st_CONF_VALUE *conf, FILE *out);
 #line 90 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
 int CONF_dump_bio(struct lhash_st_CONF_VALUE *conf, BIO *out);
 void OPENSSL_config(const char *config_name);
 #line 98 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
-struct conf_st {
-CONF_METHOD *meth;
-void *meth_data;
-struct lhash_st_CONF_VALUE *data;
+struct conf_st
+{
+    CONF_METHOD *meth;
+    void *meth_data;
+    struct lhash_st_CONF_VALUE *data;
 };
 CONF *NCONF_new(CONF_METHOD *meth);
 CONF_METHOD *NCONF_default(void);
@@ -6062,22 +9737,22 @@ int NCONF_load_fp(CONF *conf, FILE *fp, long *eline);
 #line 120 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
 int NCONF_load_bio(CONF *conf, BIO *bp, long *eline);
 struct stack_st_CONF_VALUE *NCONF_get_section(const CONF *conf,
-const char *section);
+        const char *section);
 char *NCONF_get_string(const CONF *conf, const char *group, const char *name);
 int NCONF_get_number_e(const CONF *conf, const char *group, const char *name,
-long *result);
+                       long *result);
 int NCONF_dump_fp(const CONF *conf, FILE *out);
 #line 129 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
 int NCONF_dump_bio(const CONF *conf, BIO *out);
 int CONF_modules_load(const CONF *cnf, const char *appname,
-unsigned long flags);
+                      unsigned long flags);
 int CONF_modules_load_file(const char *filename, const char *appname,
-unsigned long flags);
+                           unsigned long flags);
 void CONF_modules_unload(int all);
 void CONF_modules_finish(void);
 #line 144 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
 int CONF_module_add(const char *name, conf_init_func *ifunc,
-conf_finish_func *ffunc);
+                    conf_finish_func *ffunc);
 const char *CONF_imodule_get_name(const CONF_IMODULE *md);
 const char *CONF_imodule_get_value(const CONF_IMODULE *md);
 void *CONF_imodule_get_usr_data(const CONF_IMODULE *md);
@@ -6089,8 +9764,8 @@ void *CONF_module_get_usr_data(CONF_MODULE *pmod);
 void CONF_module_set_usr_data(CONF_MODULE *pmod, void *usr_data);
 char *CONF_get1_default_config_file(void);
 int CONF_parse_list(const char *list, int sep, int nospc,
-int (*list_cb) (const char *elem, int len, void *usr),
-void *arg);
+                    int (*list_cb) (const char *elem, int len, void *usr),
+                    void *arg);
 void OPENSSL_load_builtin_modules(void);
 int ERR_load_CONF_strings(void);
 #line 217 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/conf.h"
@@ -6103,310 +9778,1437 @@ typedef void *(*X509V3_EXT_D2I)(void *, const unsigned char **, long);
 typedef int (*X509V3_EXT_I2D) (void *, unsigned char **);
 typedef struct stack_st_CONF_VALUE *
 (*X509V3_EXT_I2V) (const struct v3_ext_method *method, void *ext,
-struct stack_st_CONF_VALUE *extlist);
+                   struct stack_st_CONF_VALUE *extlist);
 typedef void *(*X509V3_EXT_V2I)(const struct v3_ext_method *method,
-struct v3_ext_ctx *ctx,
-struct stack_st_CONF_VALUE *values);
+                                struct v3_ext_ctx *ctx,
+                                struct stack_st_CONF_VALUE *values);
 typedef char *(*X509V3_EXT_I2S)(const struct v3_ext_method *method,
-void *ext);
+                                void *ext);
 typedef void *(*X509V3_EXT_S2I)(const struct v3_ext_method *method,
-struct v3_ext_ctx *ctx, const char *str);
+                                struct v3_ext_ctx *ctx, const char *str);
 typedef int (*X509V3_EXT_I2R) (const struct v3_ext_method *method, void *ext,
-BIO *out, int indent);
+                               BIO *out, int indent);
 typedef void *(*X509V3_EXT_R2I)(const struct v3_ext_method *method,
-struct v3_ext_ctx *ctx, const char *str);
-struct v3_ext_method {
-int ext_nid;
-int ext_flags;
-ASN1_ITEM_EXP *it;
-X509V3_EXT_NEW ext_new;
-X509V3_EXT_FREE ext_free;
-X509V3_EXT_D2I d2i;
-X509V3_EXT_I2D i2d;
-X509V3_EXT_I2S i2s;
-X509V3_EXT_S2I s2i;
-X509V3_EXT_I2V i2v;
-X509V3_EXT_V2I v2i;
-X509V3_EXT_I2R i2r;
-X509V3_EXT_R2I r2i;
-void *usr_data;             
+                                struct v3_ext_ctx *ctx, const char *str);
+struct v3_ext_method
+{
+    int ext_nid;
+    int ext_flags;
+    ASN1_ITEM_EXP *it;
+    X509V3_EXT_NEW ext_new;
+    X509V3_EXT_FREE ext_free;
+    X509V3_EXT_D2I d2i;
+    X509V3_EXT_I2D i2d;
+    X509V3_EXT_I2S i2s;
+    X509V3_EXT_S2I s2i;
+    X509V3_EXT_I2V i2v;
+    X509V3_EXT_V2I v2i;
+    X509V3_EXT_I2R i2r;
+    X509V3_EXT_R2I r2i;
+    void *usr_data;
 };
-typedef struct X509V3_CONF_METHOD_st {
-char *(*get_string) (void *db, const char *section, const char *value);
-struct stack_st_CONF_VALUE *(*get_section) (void *db, const char *section);
-void (*free_string) (void *db, char *string);
-void (*free_section) (void *db, struct stack_st_CONF_VALUE *section);
+typedef struct X509V3_CONF_METHOD_st
+{
+    char *(*get_string) (void *db, const char *section, const char *value);
+    struct stack_st_CONF_VALUE *(*get_section) (void *db, const char *section);
+    void (*free_string) (void *db, char *string);
+    void (*free_section) (void *db, struct stack_st_CONF_VALUE *section);
 } X509V3_CONF_METHOD;
-struct v3_ext_ctx {
-int flags;
-X509 *issuer_cert;
-X509 *subject_cert;
-X509_REQ *subject_req;
-X509_CRL *crl;
-X509V3_CONF_METHOD *db_meth;
-void *db;
+struct v3_ext_ctx
+{
+    int flags;
+    X509 *issuer_cert;
+    X509 *subject_cert;
+    X509_REQ *subject_req;
+    X509_CRL *crl;
+    X509V3_CONF_METHOD *db_meth;
+    void *db;
 };
 typedef struct v3_ext_method X509V3_EXT_METHOD;
-struct stack_st_X509V3_EXT_METHOD; typedef int (*sk_X509V3_EXT_METHOD_compfunc)(const X509V3_EXT_METHOD * const *a, const X509V3_EXT_METHOD *const *b); typedef void (*sk_X509V3_EXT_METHOD_freefunc)(X509V3_EXT_METHOD *a); typedef X509V3_EXT_METHOD * (*sk_X509V3_EXT_METHOD_copyfunc)(const X509V3_EXT_METHOD *a); static __inline int sk_X509V3_EXT_METHOD_num(const struct stack_st_X509V3_EXT_METHOD *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_value(const struct stack_st_X509V3_EXT_METHOD *sk, int idx) { return (X509V3_EXT_METHOD *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_new(sk_X509V3_EXT_METHOD_compfunc compare) { return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_new_null(void) { return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_new_null(); } static __inline void sk_X509V3_EXT_METHOD_free(struct stack_st_X509V3_EXT_METHOD *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509V3_EXT_METHOD_zero(struct stack_st_X509V3_EXT_METHOD *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_delete(struct stack_st_X509V3_EXT_METHOD *sk, int i) { return (X509V3_EXT_METHOD *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_delete_ptr(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr) { return (X509V3_EXT_METHOD *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509V3_EXT_METHOD_push(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509V3_EXT_METHOD_unshift(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_pop(struct stack_st_X509V3_EXT_METHOD *sk) { return (X509V3_EXT_METHOD *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_shift(struct stack_st_X509V3_EXT_METHOD *sk) { return (X509V3_EXT_METHOD *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509V3_EXT_METHOD_pop_free(struct stack_st_X509V3_EXT_METHOD *sk, sk_X509V3_EXT_METHOD_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509V3_EXT_METHOD_insert(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_set(struct stack_st_X509V3_EXT_METHOD *sk, int idx, X509V3_EXT_METHOD *ptr) { return (X509V3_EXT_METHOD *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509V3_EXT_METHOD_find(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509V3_EXT_METHOD_find_ex(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509V3_EXT_METHOD_sort(struct stack_st_X509V3_EXT_METHOD *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509V3_EXT_METHOD_is_sorted(const struct stack_st_X509V3_EXT_METHOD *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509V3_EXT_METHOD * sk_X509V3_EXT_METHOD_dup(const struct stack_st_X509V3_EXT_METHOD *sk) { return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_deep_copy(const struct stack_st_X509V3_EXT_METHOD *sk, sk_X509V3_EXT_METHOD_copyfunc copyfunc, sk_X509V3_EXT_METHOD_freefunc freefunc) { return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509V3_EXT_METHOD_compfunc sk_X509V3_EXT_METHOD_set_cmp_func(struct stack_st_X509V3_EXT_METHOD *sk, sk_X509V3_EXT_METHOD_compfunc compare) { return (sk_X509V3_EXT_METHOD_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_X509V3_EXT_METHOD;
+typedef int (*sk_X509V3_EXT_METHOD_compfunc)(const X509V3_EXT_METHOD * const *a, const X509V3_EXT_METHOD *const *b);
+typedef void (*sk_X509V3_EXT_METHOD_freefunc)(X509V3_EXT_METHOD *a);
+typedef X509V3_EXT_METHOD * (*sk_X509V3_EXT_METHOD_copyfunc)(const X509V3_EXT_METHOD *a);
+static __inline int sk_X509V3_EXT_METHOD_num(const struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_value(const struct stack_st_X509V3_EXT_METHOD *sk, int idx)
+{
+    return (X509V3_EXT_METHOD *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_new(sk_X509V3_EXT_METHOD_compfunc compare)
+{
+    return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_new_null(void)
+{
+    return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509V3_EXT_METHOD_free(struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509V3_EXT_METHOD_zero(struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_delete(struct stack_st_X509V3_EXT_METHOD *sk, int i)
+{
+    return (X509V3_EXT_METHOD *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_delete_ptr(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr)
+{
+    return (X509V3_EXT_METHOD *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509V3_EXT_METHOD_push(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509V3_EXT_METHOD_unshift(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_pop(struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    return (X509V3_EXT_METHOD *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_shift(struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    return (X509V3_EXT_METHOD *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509V3_EXT_METHOD_pop_free(struct stack_st_X509V3_EXT_METHOD *sk, sk_X509V3_EXT_METHOD_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509V3_EXT_METHOD_insert(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_set(struct stack_st_X509V3_EXT_METHOD *sk, int idx, X509V3_EXT_METHOD *ptr)
+{
+    return (X509V3_EXT_METHOD *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509V3_EXT_METHOD_find(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509V3_EXT_METHOD_find_ex(struct stack_st_X509V3_EXT_METHOD *sk, X509V3_EXT_METHOD *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509V3_EXT_METHOD_sort(struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509V3_EXT_METHOD_is_sorted(const struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509V3_EXT_METHOD * sk_X509V3_EXT_METHOD_dup(const struct stack_st_X509V3_EXT_METHOD *sk)
+{
+    return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509V3_EXT_METHOD *sk_X509V3_EXT_METHOD_deep_copy(const struct stack_st_X509V3_EXT_METHOD *sk, sk_X509V3_EXT_METHOD_copyfunc copyfunc, sk_X509V3_EXT_METHOD_freefunc freefunc)
+{
+    return (struct stack_st_X509V3_EXT_METHOD *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509V3_EXT_METHOD_compfunc sk_X509V3_EXT_METHOD_set_cmp_func(struct stack_st_X509V3_EXT_METHOD *sk, sk_X509V3_EXT_METHOD_compfunc compare)
+{
+    return (sk_X509V3_EXT_METHOD_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef BIT_STRING_BITNAME ENUMERATED_NAMES;
-typedef struct BASIC_CONSTRAINTS_st {
-int ca;
-ASN1_INTEGER *pathlen;
+typedef struct BASIC_CONSTRAINTS_st
+{
+    int ca;
+    ASN1_INTEGER *pathlen;
 } BASIC_CONSTRAINTS;
-typedef struct PKEY_USAGE_PERIOD_st {
-ASN1_GENERALIZEDTIME *notBefore;
-ASN1_GENERALIZEDTIME *notAfter;
+typedef struct PKEY_USAGE_PERIOD_st
+{
+    ASN1_GENERALIZEDTIME *notBefore;
+    ASN1_GENERALIZEDTIME *notAfter;
 } PKEY_USAGE_PERIOD;
-typedef struct otherName_st {
-ASN1_OBJECT *type_id;
-ASN1_TYPE *value;
+typedef struct otherName_st
+{
+    ASN1_OBJECT *type_id;
+    ASN1_TYPE *value;
 } OTHERNAME;
-typedef struct EDIPartyName_st {
-ASN1_STRING *nameAssigner;
-ASN1_STRING *partyName;
+typedef struct EDIPartyName_st
+{
+    ASN1_STRING *nameAssigner;
+    ASN1_STRING *partyName;
 } EDIPARTYNAME;
-typedef struct GENERAL_NAME_st {
-int type;
-union {
-char *ptr;
-OTHERNAME *otherName;   
-ASN1_IA5STRING *rfc822Name;
-ASN1_IA5STRING *dNSName;
-ASN1_TYPE *x400Address;
-X509_NAME *directoryName;
-EDIPARTYNAME *ediPartyName;
-ASN1_IA5STRING *uniformResourceIdentifier;
-ASN1_OCTET_STRING *iPAddress;
-ASN1_OBJECT *registeredID;
-ASN1_OCTET_STRING *ip;  
-X509_NAME *dirn;        
-ASN1_IA5STRING *ia5;    
-ASN1_OBJECT *rid;       
-ASN1_TYPE *other;       
-} d;
+typedef struct GENERAL_NAME_st
+{
+    int type;
+    union
+    {
+        char *ptr;
+        OTHERNAME *otherName;
+        ASN1_IA5STRING *rfc822Name;
+        ASN1_IA5STRING *dNSName;
+        ASN1_TYPE *x400Address;
+        X509_NAME *directoryName;
+        EDIPARTYNAME *ediPartyName;
+        ASN1_IA5STRING *uniformResourceIdentifier;
+        ASN1_OCTET_STRING *iPAddress;
+        ASN1_OBJECT *registeredID;
+        ASN1_OCTET_STRING *ip;
+        X509_NAME *dirn;
+        ASN1_IA5STRING *ia5;
+        ASN1_OBJECT *rid;
+        ASN1_TYPE *other;
+    } d;
 } GENERAL_NAME;
-typedef struct ACCESS_DESCRIPTION_st {
-ASN1_OBJECT *method;
-GENERAL_NAME *location;
+typedef struct ACCESS_DESCRIPTION_st
+{
+    ASN1_OBJECT *method;
+    GENERAL_NAME *location;
 } ACCESS_DESCRIPTION;
 typedef struct stack_st_ACCESS_DESCRIPTION AUTHORITY_INFO_ACCESS;
 typedef struct stack_st_ASN1_OBJECT EXTENDED_KEY_USAGE;
 typedef struct stack_st_ASN1_INTEGER TLS_FEATURE;
-struct stack_st_GENERAL_NAME; typedef int (*sk_GENERAL_NAME_compfunc)(const GENERAL_NAME * const *a, const GENERAL_NAME *const *b); typedef void (*sk_GENERAL_NAME_freefunc)(GENERAL_NAME *a); typedef GENERAL_NAME * (*sk_GENERAL_NAME_copyfunc)(const GENERAL_NAME *a); static __inline int sk_GENERAL_NAME_num(const struct stack_st_GENERAL_NAME *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline GENERAL_NAME *sk_GENERAL_NAME_value(const struct stack_st_GENERAL_NAME *sk, int idx) { return (GENERAL_NAME *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_GENERAL_NAME *sk_GENERAL_NAME_new(sk_GENERAL_NAME_compfunc compare) { return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_GENERAL_NAME *sk_GENERAL_NAME_new_null(void) { return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_new_null(); } static __inline void sk_GENERAL_NAME_free(struct stack_st_GENERAL_NAME *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_GENERAL_NAME_zero(struct stack_st_GENERAL_NAME *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline GENERAL_NAME *sk_GENERAL_NAME_delete(struct stack_st_GENERAL_NAME *sk, int i) { return (GENERAL_NAME *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline GENERAL_NAME *sk_GENERAL_NAME_delete_ptr(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr) { return (GENERAL_NAME *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_NAME_push(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_NAME_unshift(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline GENERAL_NAME *sk_GENERAL_NAME_pop(struct stack_st_GENERAL_NAME *sk) { return (GENERAL_NAME *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline GENERAL_NAME *sk_GENERAL_NAME_shift(struct stack_st_GENERAL_NAME *sk) { return (GENERAL_NAME *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_GENERAL_NAME_pop_free(struct stack_st_GENERAL_NAME *sk, sk_GENERAL_NAME_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_GENERAL_NAME_insert(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline GENERAL_NAME *sk_GENERAL_NAME_set(struct stack_st_GENERAL_NAME *sk, int idx, GENERAL_NAME *ptr) { return (GENERAL_NAME *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_GENERAL_NAME_find(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_NAME_find_ex(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_GENERAL_NAME_sort(struct stack_st_GENERAL_NAME *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_GENERAL_NAME_is_sorted(const struct stack_st_GENERAL_NAME *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_GENERAL_NAME * sk_GENERAL_NAME_dup(const struct stack_st_GENERAL_NAME *sk) { return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_GENERAL_NAME *sk_GENERAL_NAME_deep_copy(const struct stack_st_GENERAL_NAME *sk, sk_GENERAL_NAME_copyfunc copyfunc, sk_GENERAL_NAME_freefunc freefunc) { return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_GENERAL_NAME_compfunc sk_GENERAL_NAME_set_cmp_func(struct stack_st_GENERAL_NAME *sk, sk_GENERAL_NAME_compfunc compare) { return (sk_GENERAL_NAME_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_GENERAL_NAME;
+typedef int (*sk_GENERAL_NAME_compfunc)(const GENERAL_NAME * const *a, const GENERAL_NAME *const *b);
+typedef void (*sk_GENERAL_NAME_freefunc)(GENERAL_NAME *a);
+typedef GENERAL_NAME * (*sk_GENERAL_NAME_copyfunc)(const GENERAL_NAME *a);
+static __inline int sk_GENERAL_NAME_num(const struct stack_st_GENERAL_NAME *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_NAME *sk_GENERAL_NAME_value(const struct stack_st_GENERAL_NAME *sk, int idx)
+{
+    return (GENERAL_NAME *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_GENERAL_NAME *sk_GENERAL_NAME_new(sk_GENERAL_NAME_compfunc compare)
+{
+    return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_GENERAL_NAME *sk_GENERAL_NAME_new_null(void)
+{
+    return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_new_null();
+}
+static __inline void sk_GENERAL_NAME_free(struct stack_st_GENERAL_NAME *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_GENERAL_NAME_zero(struct stack_st_GENERAL_NAME *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_NAME *sk_GENERAL_NAME_delete(struct stack_st_GENERAL_NAME *sk, int i)
+{
+    return (GENERAL_NAME *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline GENERAL_NAME *sk_GENERAL_NAME_delete_ptr(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr)
+{
+    return (GENERAL_NAME *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAME_push(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAME_unshift(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline GENERAL_NAME *sk_GENERAL_NAME_pop(struct stack_st_GENERAL_NAME *sk)
+{
+    return (GENERAL_NAME *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_NAME *sk_GENERAL_NAME_shift(struct stack_st_GENERAL_NAME *sk)
+{
+    return (GENERAL_NAME *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_GENERAL_NAME_pop_free(struct stack_st_GENERAL_NAME *sk, sk_GENERAL_NAME_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_GENERAL_NAME_insert(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline GENERAL_NAME *sk_GENERAL_NAME_set(struct stack_st_GENERAL_NAME *sk, int idx, GENERAL_NAME *ptr)
+{
+    return (GENERAL_NAME *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAME_find(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAME_find_ex(struct stack_st_GENERAL_NAME *sk, GENERAL_NAME *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_GENERAL_NAME_sort(struct stack_st_GENERAL_NAME *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_GENERAL_NAME_is_sorted(const struct stack_st_GENERAL_NAME *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_GENERAL_NAME * sk_GENERAL_NAME_dup(const struct stack_st_GENERAL_NAME *sk)
+{
+    return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_GENERAL_NAME *sk_GENERAL_NAME_deep_copy(const struct stack_st_GENERAL_NAME *sk, sk_GENERAL_NAME_copyfunc copyfunc, sk_GENERAL_NAME_freefunc freefunc)
+{
+    return (struct stack_st_GENERAL_NAME *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_GENERAL_NAME_compfunc sk_GENERAL_NAME_set_cmp_func(struct stack_st_GENERAL_NAME *sk, sk_GENERAL_NAME_compfunc compare)
+{
+    return (sk_GENERAL_NAME_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct stack_st_GENERAL_NAME GENERAL_NAMES;
-struct stack_st_GENERAL_NAMES; typedef int (*sk_GENERAL_NAMES_compfunc)(const GENERAL_NAMES * const *a, const GENERAL_NAMES *const *b); typedef void (*sk_GENERAL_NAMES_freefunc)(GENERAL_NAMES *a); typedef GENERAL_NAMES * (*sk_GENERAL_NAMES_copyfunc)(const GENERAL_NAMES *a); static __inline int sk_GENERAL_NAMES_num(const struct stack_st_GENERAL_NAMES *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline GENERAL_NAMES *sk_GENERAL_NAMES_value(const struct stack_st_GENERAL_NAMES *sk, int idx) { return (GENERAL_NAMES *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_GENERAL_NAMES *sk_GENERAL_NAMES_new(sk_GENERAL_NAMES_compfunc compare) { return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_GENERAL_NAMES *sk_GENERAL_NAMES_new_null(void) { return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_new_null(); } static __inline void sk_GENERAL_NAMES_free(struct stack_st_GENERAL_NAMES *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_GENERAL_NAMES_zero(struct stack_st_GENERAL_NAMES *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline GENERAL_NAMES *sk_GENERAL_NAMES_delete(struct stack_st_GENERAL_NAMES *sk, int i) { return (GENERAL_NAMES *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline GENERAL_NAMES *sk_GENERAL_NAMES_delete_ptr(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr) { return (GENERAL_NAMES *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_NAMES_push(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_NAMES_unshift(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline GENERAL_NAMES *sk_GENERAL_NAMES_pop(struct stack_st_GENERAL_NAMES *sk) { return (GENERAL_NAMES *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline GENERAL_NAMES *sk_GENERAL_NAMES_shift(struct stack_st_GENERAL_NAMES *sk) { return (GENERAL_NAMES *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_GENERAL_NAMES_pop_free(struct stack_st_GENERAL_NAMES *sk, sk_GENERAL_NAMES_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_GENERAL_NAMES_insert(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline GENERAL_NAMES *sk_GENERAL_NAMES_set(struct stack_st_GENERAL_NAMES *sk, int idx, GENERAL_NAMES *ptr) { return (GENERAL_NAMES *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_GENERAL_NAMES_find(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_NAMES_find_ex(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_GENERAL_NAMES_sort(struct stack_st_GENERAL_NAMES *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_GENERAL_NAMES_is_sorted(const struct stack_st_GENERAL_NAMES *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_GENERAL_NAMES * sk_GENERAL_NAMES_dup(const struct stack_st_GENERAL_NAMES *sk) { return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_GENERAL_NAMES *sk_GENERAL_NAMES_deep_copy(const struct stack_st_GENERAL_NAMES *sk, sk_GENERAL_NAMES_copyfunc copyfunc, sk_GENERAL_NAMES_freefunc freefunc) { return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_GENERAL_NAMES_compfunc sk_GENERAL_NAMES_set_cmp_func(struct stack_st_GENERAL_NAMES *sk, sk_GENERAL_NAMES_compfunc compare) { return (sk_GENERAL_NAMES_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_ACCESS_DESCRIPTION; typedef int (*sk_ACCESS_DESCRIPTION_compfunc)(const ACCESS_DESCRIPTION * const *a, const ACCESS_DESCRIPTION *const *b); typedef void (*sk_ACCESS_DESCRIPTION_freefunc)(ACCESS_DESCRIPTION *a); typedef ACCESS_DESCRIPTION * (*sk_ACCESS_DESCRIPTION_copyfunc)(const ACCESS_DESCRIPTION *a); static __inline int sk_ACCESS_DESCRIPTION_num(const struct stack_st_ACCESS_DESCRIPTION *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_value(const struct stack_st_ACCESS_DESCRIPTION *sk, int idx) { return (ACCESS_DESCRIPTION *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_new(sk_ACCESS_DESCRIPTION_compfunc compare) { return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_new_null(void) { return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_new_null(); } static __inline void sk_ACCESS_DESCRIPTION_free(struct stack_st_ACCESS_DESCRIPTION *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ACCESS_DESCRIPTION_zero(struct stack_st_ACCESS_DESCRIPTION *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_delete(struct stack_st_ACCESS_DESCRIPTION *sk, int i) { return (ACCESS_DESCRIPTION *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_delete_ptr(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr) { return (ACCESS_DESCRIPTION *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ACCESS_DESCRIPTION_push(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ACCESS_DESCRIPTION_unshift(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_pop(struct stack_st_ACCESS_DESCRIPTION *sk) { return (ACCESS_DESCRIPTION *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_shift(struct stack_st_ACCESS_DESCRIPTION *sk) { return (ACCESS_DESCRIPTION *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ACCESS_DESCRIPTION_pop_free(struct stack_st_ACCESS_DESCRIPTION *sk, sk_ACCESS_DESCRIPTION_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ACCESS_DESCRIPTION_insert(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_set(struct stack_st_ACCESS_DESCRIPTION *sk, int idx, ACCESS_DESCRIPTION *ptr) { return (ACCESS_DESCRIPTION *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ACCESS_DESCRIPTION_find(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ACCESS_DESCRIPTION_find_ex(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ACCESS_DESCRIPTION_sort(struct stack_st_ACCESS_DESCRIPTION *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ACCESS_DESCRIPTION_is_sorted(const struct stack_st_ACCESS_DESCRIPTION *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ACCESS_DESCRIPTION * sk_ACCESS_DESCRIPTION_dup(const struct stack_st_ACCESS_DESCRIPTION *sk) { return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_deep_copy(const struct stack_st_ACCESS_DESCRIPTION *sk, sk_ACCESS_DESCRIPTION_copyfunc copyfunc, sk_ACCESS_DESCRIPTION_freefunc freefunc) { return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ACCESS_DESCRIPTION_compfunc sk_ACCESS_DESCRIPTION_set_cmp_func(struct stack_st_ACCESS_DESCRIPTION *sk, sk_ACCESS_DESCRIPTION_compfunc compare) { return (sk_ACCESS_DESCRIPTION_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct DIST_POINT_NAME_st {
-int type;
-union {
-GENERAL_NAMES *fullname;
-struct stack_st_X509_NAME_ENTRY *relativename;
-} name;
-X509_NAME *dpname;
+struct stack_st_GENERAL_NAMES;
+typedef int (*sk_GENERAL_NAMES_compfunc)(const GENERAL_NAMES * const *a, const GENERAL_NAMES *const *b);
+typedef void (*sk_GENERAL_NAMES_freefunc)(GENERAL_NAMES *a);
+typedef GENERAL_NAMES * (*sk_GENERAL_NAMES_copyfunc)(const GENERAL_NAMES *a);
+static __inline int sk_GENERAL_NAMES_num(const struct stack_st_GENERAL_NAMES *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_NAMES *sk_GENERAL_NAMES_value(const struct stack_st_GENERAL_NAMES *sk, int idx)
+{
+    return (GENERAL_NAMES *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_GENERAL_NAMES *sk_GENERAL_NAMES_new(sk_GENERAL_NAMES_compfunc compare)
+{
+    return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_GENERAL_NAMES *sk_GENERAL_NAMES_new_null(void)
+{
+    return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_new_null();
+}
+static __inline void sk_GENERAL_NAMES_free(struct stack_st_GENERAL_NAMES *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_GENERAL_NAMES_zero(struct stack_st_GENERAL_NAMES *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_NAMES *sk_GENERAL_NAMES_delete(struct stack_st_GENERAL_NAMES *sk, int i)
+{
+    return (GENERAL_NAMES *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline GENERAL_NAMES *sk_GENERAL_NAMES_delete_ptr(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr)
+{
+    return (GENERAL_NAMES *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAMES_push(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAMES_unshift(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline GENERAL_NAMES *sk_GENERAL_NAMES_pop(struct stack_st_GENERAL_NAMES *sk)
+{
+    return (GENERAL_NAMES *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_NAMES *sk_GENERAL_NAMES_shift(struct stack_st_GENERAL_NAMES *sk)
+{
+    return (GENERAL_NAMES *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_GENERAL_NAMES_pop_free(struct stack_st_GENERAL_NAMES *sk, sk_GENERAL_NAMES_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_GENERAL_NAMES_insert(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline GENERAL_NAMES *sk_GENERAL_NAMES_set(struct stack_st_GENERAL_NAMES *sk, int idx, GENERAL_NAMES *ptr)
+{
+    return (GENERAL_NAMES *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAMES_find(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_NAMES_find_ex(struct stack_st_GENERAL_NAMES *sk, GENERAL_NAMES *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_GENERAL_NAMES_sort(struct stack_st_GENERAL_NAMES *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_GENERAL_NAMES_is_sorted(const struct stack_st_GENERAL_NAMES *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_GENERAL_NAMES * sk_GENERAL_NAMES_dup(const struct stack_st_GENERAL_NAMES *sk)
+{
+    return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_GENERAL_NAMES *sk_GENERAL_NAMES_deep_copy(const struct stack_st_GENERAL_NAMES *sk, sk_GENERAL_NAMES_copyfunc copyfunc, sk_GENERAL_NAMES_freefunc freefunc)
+{
+    return (struct stack_st_GENERAL_NAMES *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_GENERAL_NAMES_compfunc sk_GENERAL_NAMES_set_cmp_func(struct stack_st_GENERAL_NAMES *sk, sk_GENERAL_NAMES_compfunc compare)
+{
+    return (sk_GENERAL_NAMES_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_ACCESS_DESCRIPTION;
+typedef int (*sk_ACCESS_DESCRIPTION_compfunc)(const ACCESS_DESCRIPTION * const *a, const ACCESS_DESCRIPTION *const *b);
+typedef void (*sk_ACCESS_DESCRIPTION_freefunc)(ACCESS_DESCRIPTION *a);
+typedef ACCESS_DESCRIPTION * (*sk_ACCESS_DESCRIPTION_copyfunc)(const ACCESS_DESCRIPTION *a);
+static __inline int sk_ACCESS_DESCRIPTION_num(const struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_value(const struct stack_st_ACCESS_DESCRIPTION *sk, int idx)
+{
+    return (ACCESS_DESCRIPTION *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_new(sk_ACCESS_DESCRIPTION_compfunc compare)
+{
+    return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_new_null(void)
+{
+    return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ACCESS_DESCRIPTION_free(struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ACCESS_DESCRIPTION_zero(struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_delete(struct stack_st_ACCESS_DESCRIPTION *sk, int i)
+{
+    return (ACCESS_DESCRIPTION *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_delete_ptr(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr)
+{
+    return (ACCESS_DESCRIPTION *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ACCESS_DESCRIPTION_push(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ACCESS_DESCRIPTION_unshift(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_pop(struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    return (ACCESS_DESCRIPTION *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_shift(struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    return (ACCESS_DESCRIPTION *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ACCESS_DESCRIPTION_pop_free(struct stack_st_ACCESS_DESCRIPTION *sk, sk_ACCESS_DESCRIPTION_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ACCESS_DESCRIPTION_insert(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_set(struct stack_st_ACCESS_DESCRIPTION *sk, int idx, ACCESS_DESCRIPTION *ptr)
+{
+    return (ACCESS_DESCRIPTION *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ACCESS_DESCRIPTION_find(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ACCESS_DESCRIPTION_find_ex(struct stack_st_ACCESS_DESCRIPTION *sk, ACCESS_DESCRIPTION *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ACCESS_DESCRIPTION_sort(struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ACCESS_DESCRIPTION_is_sorted(const struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ACCESS_DESCRIPTION * sk_ACCESS_DESCRIPTION_dup(const struct stack_st_ACCESS_DESCRIPTION *sk)
+{
+    return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ACCESS_DESCRIPTION *sk_ACCESS_DESCRIPTION_deep_copy(const struct stack_st_ACCESS_DESCRIPTION *sk, sk_ACCESS_DESCRIPTION_copyfunc copyfunc, sk_ACCESS_DESCRIPTION_freefunc freefunc)
+{
+    return (struct stack_st_ACCESS_DESCRIPTION *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ACCESS_DESCRIPTION_compfunc sk_ACCESS_DESCRIPTION_set_cmp_func(struct stack_st_ACCESS_DESCRIPTION *sk, sk_ACCESS_DESCRIPTION_compfunc compare)
+{
+    return (sk_ACCESS_DESCRIPTION_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct DIST_POINT_NAME_st
+{
+    int type;
+    union
+    {
+        GENERAL_NAMES *fullname;
+        struct stack_st_X509_NAME_ENTRY *relativename;
+    } name;
+    X509_NAME *dpname;
 } DIST_POINT_NAME;
-struct DIST_POINT_st {
-DIST_POINT_NAME *distpoint;
-ASN1_BIT_STRING *reasons;
-GENERAL_NAMES *CRLissuer;
-int dp_reasons;
+struct DIST_POINT_st
+{
+    DIST_POINT_NAME *distpoint;
+    ASN1_BIT_STRING *reasons;
+    GENERAL_NAMES *CRLissuer;
+    int dp_reasons;
 };
 typedef struct stack_st_DIST_POINT CRL_DIST_POINTS;
-struct stack_st_DIST_POINT; typedef int (*sk_DIST_POINT_compfunc)(const DIST_POINT * const *a, const DIST_POINT *const *b); typedef void (*sk_DIST_POINT_freefunc)(DIST_POINT *a); typedef DIST_POINT * (*sk_DIST_POINT_copyfunc)(const DIST_POINT *a); static __inline int sk_DIST_POINT_num(const struct stack_st_DIST_POINT *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline DIST_POINT *sk_DIST_POINT_value(const struct stack_st_DIST_POINT *sk, int idx) { return (DIST_POINT *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_DIST_POINT *sk_DIST_POINT_new(sk_DIST_POINT_compfunc compare) { return (struct stack_st_DIST_POINT *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_DIST_POINT *sk_DIST_POINT_new_null(void) { return (struct stack_st_DIST_POINT *)OPENSSL_sk_new_null(); } static __inline void sk_DIST_POINT_free(struct stack_st_DIST_POINT *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_DIST_POINT_zero(struct stack_st_DIST_POINT *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline DIST_POINT *sk_DIST_POINT_delete(struct stack_st_DIST_POINT *sk, int i) { return (DIST_POINT *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline DIST_POINT *sk_DIST_POINT_delete_ptr(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr) { return (DIST_POINT *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_DIST_POINT_push(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_DIST_POINT_unshift(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline DIST_POINT *sk_DIST_POINT_pop(struct stack_st_DIST_POINT *sk) { return (DIST_POINT *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline DIST_POINT *sk_DIST_POINT_shift(struct stack_st_DIST_POINT *sk) { return (DIST_POINT *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_DIST_POINT_pop_free(struct stack_st_DIST_POINT *sk, sk_DIST_POINT_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_DIST_POINT_insert(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline DIST_POINT *sk_DIST_POINT_set(struct stack_st_DIST_POINT *sk, int idx, DIST_POINT *ptr) { return (DIST_POINT *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_DIST_POINT_find(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_DIST_POINT_find_ex(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_DIST_POINT_sort(struct stack_st_DIST_POINT *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_DIST_POINT_is_sorted(const struct stack_st_DIST_POINT *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_DIST_POINT * sk_DIST_POINT_dup(const struct stack_st_DIST_POINT *sk) { return (struct stack_st_DIST_POINT *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_DIST_POINT *sk_DIST_POINT_deep_copy(const struct stack_st_DIST_POINT *sk, sk_DIST_POINT_copyfunc copyfunc, sk_DIST_POINT_freefunc freefunc) { return (struct stack_st_DIST_POINT *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_DIST_POINT_compfunc sk_DIST_POINT_set_cmp_func(struct stack_st_DIST_POINT *sk, sk_DIST_POINT_compfunc compare) { return (sk_DIST_POINT_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct AUTHORITY_KEYID_st {
-ASN1_OCTET_STRING *keyid;
-GENERAL_NAMES *issuer;
-ASN1_INTEGER *serial;
+struct stack_st_DIST_POINT;
+typedef int (*sk_DIST_POINT_compfunc)(const DIST_POINT * const *a, const DIST_POINT *const *b);
+typedef void (*sk_DIST_POINT_freefunc)(DIST_POINT *a);
+typedef DIST_POINT * (*sk_DIST_POINT_copyfunc)(const DIST_POINT *a);
+static __inline int sk_DIST_POINT_num(const struct stack_st_DIST_POINT *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline DIST_POINT *sk_DIST_POINT_value(const struct stack_st_DIST_POINT *sk, int idx)
+{
+    return (DIST_POINT *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_DIST_POINT *sk_DIST_POINT_new(sk_DIST_POINT_compfunc compare)
+{
+    return (struct stack_st_DIST_POINT *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_DIST_POINT *sk_DIST_POINT_new_null(void)
+{
+    return (struct stack_st_DIST_POINT *)OPENSSL_sk_new_null();
+}
+static __inline void sk_DIST_POINT_free(struct stack_st_DIST_POINT *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_DIST_POINT_zero(struct stack_st_DIST_POINT *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline DIST_POINT *sk_DIST_POINT_delete(struct stack_st_DIST_POINT *sk, int i)
+{
+    return (DIST_POINT *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline DIST_POINT *sk_DIST_POINT_delete_ptr(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr)
+{
+    return (DIST_POINT *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_DIST_POINT_push(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_DIST_POINT_unshift(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline DIST_POINT *sk_DIST_POINT_pop(struct stack_st_DIST_POINT *sk)
+{
+    return (DIST_POINT *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline DIST_POINT *sk_DIST_POINT_shift(struct stack_st_DIST_POINT *sk)
+{
+    return (DIST_POINT *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_DIST_POINT_pop_free(struct stack_st_DIST_POINT *sk, sk_DIST_POINT_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_DIST_POINT_insert(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline DIST_POINT *sk_DIST_POINT_set(struct stack_st_DIST_POINT *sk, int idx, DIST_POINT *ptr)
+{
+    return (DIST_POINT *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_DIST_POINT_find(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_DIST_POINT_find_ex(struct stack_st_DIST_POINT *sk, DIST_POINT *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_DIST_POINT_sort(struct stack_st_DIST_POINT *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_DIST_POINT_is_sorted(const struct stack_st_DIST_POINT *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_DIST_POINT * sk_DIST_POINT_dup(const struct stack_st_DIST_POINT *sk)
+{
+    return (struct stack_st_DIST_POINT *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_DIST_POINT *sk_DIST_POINT_deep_copy(const struct stack_st_DIST_POINT *sk, sk_DIST_POINT_copyfunc copyfunc, sk_DIST_POINT_freefunc freefunc)
+{
+    return (struct stack_st_DIST_POINT *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_DIST_POINT_compfunc sk_DIST_POINT_set_cmp_func(struct stack_st_DIST_POINT *sk, sk_DIST_POINT_compfunc compare)
+{
+    return (sk_DIST_POINT_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct AUTHORITY_KEYID_st
+{
+    ASN1_OCTET_STRING *keyid;
+    GENERAL_NAMES *issuer;
+    ASN1_INTEGER *serial;
 };
-typedef struct SXNET_ID_st {
-ASN1_INTEGER *zone;
-ASN1_OCTET_STRING *user;
+typedef struct SXNET_ID_st
+{
+    ASN1_INTEGER *zone;
+    ASN1_OCTET_STRING *user;
 } SXNETID;
-struct stack_st_SXNETID; typedef int (*sk_SXNETID_compfunc)(const SXNETID * const *a, const SXNETID *const *b); typedef void (*sk_SXNETID_freefunc)(SXNETID *a); typedef SXNETID * (*sk_SXNETID_copyfunc)(const SXNETID *a); static __inline int sk_SXNETID_num(const struct stack_st_SXNETID *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline SXNETID *sk_SXNETID_value(const struct stack_st_SXNETID *sk, int idx) { return (SXNETID *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_SXNETID *sk_SXNETID_new(sk_SXNETID_compfunc compare) { return (struct stack_st_SXNETID *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_SXNETID *sk_SXNETID_new_null(void) { return (struct stack_st_SXNETID *)OPENSSL_sk_new_null(); } static __inline void sk_SXNETID_free(struct stack_st_SXNETID *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_SXNETID_zero(struct stack_st_SXNETID *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline SXNETID *sk_SXNETID_delete(struct stack_st_SXNETID *sk, int i) { return (SXNETID *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline SXNETID *sk_SXNETID_delete_ptr(struct stack_st_SXNETID *sk, SXNETID *ptr) { return (SXNETID *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_SXNETID_push(struct stack_st_SXNETID *sk, SXNETID *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_SXNETID_unshift(struct stack_st_SXNETID *sk, SXNETID *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline SXNETID *sk_SXNETID_pop(struct stack_st_SXNETID *sk) { return (SXNETID *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline SXNETID *sk_SXNETID_shift(struct stack_st_SXNETID *sk) { return (SXNETID *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_SXNETID_pop_free(struct stack_st_SXNETID *sk, sk_SXNETID_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_SXNETID_insert(struct stack_st_SXNETID *sk, SXNETID *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline SXNETID *sk_SXNETID_set(struct stack_st_SXNETID *sk, int idx, SXNETID *ptr) { return (SXNETID *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_SXNETID_find(struct stack_st_SXNETID *sk, SXNETID *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_SXNETID_find_ex(struct stack_st_SXNETID *sk, SXNETID *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_SXNETID_sort(struct stack_st_SXNETID *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_SXNETID_is_sorted(const struct stack_st_SXNETID *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_SXNETID * sk_SXNETID_dup(const struct stack_st_SXNETID *sk) { return (struct stack_st_SXNETID *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_SXNETID *sk_SXNETID_deep_copy(const struct stack_st_SXNETID *sk, sk_SXNETID_copyfunc copyfunc, sk_SXNETID_freefunc freefunc) { return (struct stack_st_SXNETID *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_SXNETID_compfunc sk_SXNETID_set_cmp_func(struct stack_st_SXNETID *sk, sk_SXNETID_compfunc compare) { return (sk_SXNETID_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct SXNET_st {
-ASN1_INTEGER *version;
-struct stack_st_SXNETID *ids;
+struct stack_st_SXNETID;
+typedef int (*sk_SXNETID_compfunc)(const SXNETID * const *a, const SXNETID *const *b);
+typedef void (*sk_SXNETID_freefunc)(SXNETID *a);
+typedef SXNETID * (*sk_SXNETID_copyfunc)(const SXNETID *a);
+static __inline int sk_SXNETID_num(const struct stack_st_SXNETID *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline SXNETID *sk_SXNETID_value(const struct stack_st_SXNETID *sk, int idx)
+{
+    return (SXNETID *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_SXNETID *sk_SXNETID_new(sk_SXNETID_compfunc compare)
+{
+    return (struct stack_st_SXNETID *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_SXNETID *sk_SXNETID_new_null(void)
+{
+    return (struct stack_st_SXNETID *)OPENSSL_sk_new_null();
+}
+static __inline void sk_SXNETID_free(struct stack_st_SXNETID *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_SXNETID_zero(struct stack_st_SXNETID *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline SXNETID *sk_SXNETID_delete(struct stack_st_SXNETID *sk, int i)
+{
+    return (SXNETID *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline SXNETID *sk_SXNETID_delete_ptr(struct stack_st_SXNETID *sk, SXNETID *ptr)
+{
+    return (SXNETID *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_SXNETID_push(struct stack_st_SXNETID *sk, SXNETID *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_SXNETID_unshift(struct stack_st_SXNETID *sk, SXNETID *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline SXNETID *sk_SXNETID_pop(struct stack_st_SXNETID *sk)
+{
+    return (SXNETID *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline SXNETID *sk_SXNETID_shift(struct stack_st_SXNETID *sk)
+{
+    return (SXNETID *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_SXNETID_pop_free(struct stack_st_SXNETID *sk, sk_SXNETID_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_SXNETID_insert(struct stack_st_SXNETID *sk, SXNETID *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline SXNETID *sk_SXNETID_set(struct stack_st_SXNETID *sk, int idx, SXNETID *ptr)
+{
+    return (SXNETID *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_SXNETID_find(struct stack_st_SXNETID *sk, SXNETID *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_SXNETID_find_ex(struct stack_st_SXNETID *sk, SXNETID *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_SXNETID_sort(struct stack_st_SXNETID *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_SXNETID_is_sorted(const struct stack_st_SXNETID *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_SXNETID * sk_SXNETID_dup(const struct stack_st_SXNETID *sk)
+{
+    return (struct stack_st_SXNETID *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_SXNETID *sk_SXNETID_deep_copy(const struct stack_st_SXNETID *sk, sk_SXNETID_copyfunc copyfunc, sk_SXNETID_freefunc freefunc)
+{
+    return (struct stack_st_SXNETID *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_SXNETID_compfunc sk_SXNETID_set_cmp_func(struct stack_st_SXNETID *sk, sk_SXNETID_compfunc compare)
+{
+    return (sk_SXNETID_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct SXNET_st
+{
+    ASN1_INTEGER *version;
+    struct stack_st_SXNETID *ids;
 } SXNET;
-typedef struct NOTICEREF_st {
-ASN1_STRING *organization;
-struct stack_st_ASN1_INTEGER *noticenos;
+typedef struct NOTICEREF_st
+{
+    ASN1_STRING *organization;
+    struct stack_st_ASN1_INTEGER *noticenos;
 } NOTICEREF;
-typedef struct USERNOTICE_st {
-NOTICEREF *noticeref;
-ASN1_STRING *exptext;
+typedef struct USERNOTICE_st
+{
+    NOTICEREF *noticeref;
+    ASN1_STRING *exptext;
 } USERNOTICE;
-typedef struct POLICYQUALINFO_st {
-ASN1_OBJECT *pqualid;
-union {
-ASN1_IA5STRING *cpsuri;
-USERNOTICE *usernotice;
-ASN1_TYPE *other;
-} d;
+typedef struct POLICYQUALINFO_st
+{
+    ASN1_OBJECT *pqualid;
+    union
+    {
+        ASN1_IA5STRING *cpsuri;
+        USERNOTICE *usernotice;
+        ASN1_TYPE *other;
+    } d;
 } POLICYQUALINFO;
-struct stack_st_POLICYQUALINFO; typedef int (*sk_POLICYQUALINFO_compfunc)(const POLICYQUALINFO * const *a, const POLICYQUALINFO *const *b); typedef void (*sk_POLICYQUALINFO_freefunc)(POLICYQUALINFO *a); typedef POLICYQUALINFO * (*sk_POLICYQUALINFO_copyfunc)(const POLICYQUALINFO *a); static __inline int sk_POLICYQUALINFO_num(const struct stack_st_POLICYQUALINFO *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline POLICYQUALINFO *sk_POLICYQUALINFO_value(const struct stack_st_POLICYQUALINFO *sk, int idx) { return (POLICYQUALINFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_POLICYQUALINFO *sk_POLICYQUALINFO_new(sk_POLICYQUALINFO_compfunc compare) { return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_POLICYQUALINFO *sk_POLICYQUALINFO_new_null(void) { return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_new_null(); } static __inline void sk_POLICYQUALINFO_free(struct stack_st_POLICYQUALINFO *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_POLICYQUALINFO_zero(struct stack_st_POLICYQUALINFO *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline POLICYQUALINFO *sk_POLICYQUALINFO_delete(struct stack_st_POLICYQUALINFO *sk, int i) { return (POLICYQUALINFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline POLICYQUALINFO *sk_POLICYQUALINFO_delete_ptr(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr) { return (POLICYQUALINFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICYQUALINFO_push(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICYQUALINFO_unshift(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline POLICYQUALINFO *sk_POLICYQUALINFO_pop(struct stack_st_POLICYQUALINFO *sk) { return (POLICYQUALINFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline POLICYQUALINFO *sk_POLICYQUALINFO_shift(struct stack_st_POLICYQUALINFO *sk) { return (POLICYQUALINFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_POLICYQUALINFO_pop_free(struct stack_st_POLICYQUALINFO *sk, sk_POLICYQUALINFO_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_POLICYQUALINFO_insert(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline POLICYQUALINFO *sk_POLICYQUALINFO_set(struct stack_st_POLICYQUALINFO *sk, int idx, POLICYQUALINFO *ptr) { return (POLICYQUALINFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_POLICYQUALINFO_find(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICYQUALINFO_find_ex(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_POLICYQUALINFO_sort(struct stack_st_POLICYQUALINFO *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_POLICYQUALINFO_is_sorted(const struct stack_st_POLICYQUALINFO *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_POLICYQUALINFO * sk_POLICYQUALINFO_dup(const struct stack_st_POLICYQUALINFO *sk) { return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_POLICYQUALINFO *sk_POLICYQUALINFO_deep_copy(const struct stack_st_POLICYQUALINFO *sk, sk_POLICYQUALINFO_copyfunc copyfunc, sk_POLICYQUALINFO_freefunc freefunc) { return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_POLICYQUALINFO_compfunc sk_POLICYQUALINFO_set_cmp_func(struct stack_st_POLICYQUALINFO *sk, sk_POLICYQUALINFO_compfunc compare) { return (sk_POLICYQUALINFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct POLICYINFO_st {
-ASN1_OBJECT *policyid;
-struct stack_st_POLICYQUALINFO *qualifiers;
+struct stack_st_POLICYQUALINFO;
+typedef int (*sk_POLICYQUALINFO_compfunc)(const POLICYQUALINFO * const *a, const POLICYQUALINFO *const *b);
+typedef void (*sk_POLICYQUALINFO_freefunc)(POLICYQUALINFO *a);
+typedef POLICYQUALINFO * (*sk_POLICYQUALINFO_copyfunc)(const POLICYQUALINFO *a);
+static __inline int sk_POLICYQUALINFO_num(const struct stack_st_POLICYQUALINFO *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline POLICYQUALINFO *sk_POLICYQUALINFO_value(const struct stack_st_POLICYQUALINFO *sk, int idx)
+{
+    return (POLICYQUALINFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_POLICYQUALINFO *sk_POLICYQUALINFO_new(sk_POLICYQUALINFO_compfunc compare)
+{
+    return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_POLICYQUALINFO *sk_POLICYQUALINFO_new_null(void)
+{
+    return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_new_null();
+}
+static __inline void sk_POLICYQUALINFO_free(struct stack_st_POLICYQUALINFO *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_POLICYQUALINFO_zero(struct stack_st_POLICYQUALINFO *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline POLICYQUALINFO *sk_POLICYQUALINFO_delete(struct stack_st_POLICYQUALINFO *sk, int i)
+{
+    return (POLICYQUALINFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline POLICYQUALINFO *sk_POLICYQUALINFO_delete_ptr(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr)
+{
+    return (POLICYQUALINFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICYQUALINFO_push(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICYQUALINFO_unshift(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline POLICYQUALINFO *sk_POLICYQUALINFO_pop(struct stack_st_POLICYQUALINFO *sk)
+{
+    return (POLICYQUALINFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline POLICYQUALINFO *sk_POLICYQUALINFO_shift(struct stack_st_POLICYQUALINFO *sk)
+{
+    return (POLICYQUALINFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_POLICYQUALINFO_pop_free(struct stack_st_POLICYQUALINFO *sk, sk_POLICYQUALINFO_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_POLICYQUALINFO_insert(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline POLICYQUALINFO *sk_POLICYQUALINFO_set(struct stack_st_POLICYQUALINFO *sk, int idx, POLICYQUALINFO *ptr)
+{
+    return (POLICYQUALINFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_POLICYQUALINFO_find(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICYQUALINFO_find_ex(struct stack_st_POLICYQUALINFO *sk, POLICYQUALINFO *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_POLICYQUALINFO_sort(struct stack_st_POLICYQUALINFO *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_POLICYQUALINFO_is_sorted(const struct stack_st_POLICYQUALINFO *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_POLICYQUALINFO * sk_POLICYQUALINFO_dup(const struct stack_st_POLICYQUALINFO *sk)
+{
+    return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_POLICYQUALINFO *sk_POLICYQUALINFO_deep_copy(const struct stack_st_POLICYQUALINFO *sk, sk_POLICYQUALINFO_copyfunc copyfunc, sk_POLICYQUALINFO_freefunc freefunc)
+{
+    return (struct stack_st_POLICYQUALINFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_POLICYQUALINFO_compfunc sk_POLICYQUALINFO_set_cmp_func(struct stack_st_POLICYQUALINFO *sk, sk_POLICYQUALINFO_compfunc compare)
+{
+    return (sk_POLICYQUALINFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct POLICYINFO_st
+{
+    ASN1_OBJECT *policyid;
+    struct stack_st_POLICYQUALINFO *qualifiers;
 } POLICYINFO;
 typedef struct stack_st_POLICYINFO CERTIFICATEPOLICIES;
-struct stack_st_POLICYINFO; typedef int (*sk_POLICYINFO_compfunc)(const POLICYINFO * const *a, const POLICYINFO *const *b); typedef void (*sk_POLICYINFO_freefunc)(POLICYINFO *a); typedef POLICYINFO * (*sk_POLICYINFO_copyfunc)(const POLICYINFO *a); static __inline int sk_POLICYINFO_num(const struct stack_st_POLICYINFO *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline POLICYINFO *sk_POLICYINFO_value(const struct stack_st_POLICYINFO *sk, int idx) { return (POLICYINFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_POLICYINFO *sk_POLICYINFO_new(sk_POLICYINFO_compfunc compare) { return (struct stack_st_POLICYINFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_POLICYINFO *sk_POLICYINFO_new_null(void) { return (struct stack_st_POLICYINFO *)OPENSSL_sk_new_null(); } static __inline void sk_POLICYINFO_free(struct stack_st_POLICYINFO *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_POLICYINFO_zero(struct stack_st_POLICYINFO *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline POLICYINFO *sk_POLICYINFO_delete(struct stack_st_POLICYINFO *sk, int i) { return (POLICYINFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline POLICYINFO *sk_POLICYINFO_delete_ptr(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr) { return (POLICYINFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICYINFO_push(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICYINFO_unshift(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline POLICYINFO *sk_POLICYINFO_pop(struct stack_st_POLICYINFO *sk) { return (POLICYINFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline POLICYINFO *sk_POLICYINFO_shift(struct stack_st_POLICYINFO *sk) { return (POLICYINFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_POLICYINFO_pop_free(struct stack_st_POLICYINFO *sk, sk_POLICYINFO_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_POLICYINFO_insert(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline POLICYINFO *sk_POLICYINFO_set(struct stack_st_POLICYINFO *sk, int idx, POLICYINFO *ptr) { return (POLICYINFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_POLICYINFO_find(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICYINFO_find_ex(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_POLICYINFO_sort(struct stack_st_POLICYINFO *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_POLICYINFO_is_sorted(const struct stack_st_POLICYINFO *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_POLICYINFO * sk_POLICYINFO_dup(const struct stack_st_POLICYINFO *sk) { return (struct stack_st_POLICYINFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_POLICYINFO *sk_POLICYINFO_deep_copy(const struct stack_st_POLICYINFO *sk, sk_POLICYINFO_copyfunc copyfunc, sk_POLICYINFO_freefunc freefunc) { return (struct stack_st_POLICYINFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_POLICYINFO_compfunc sk_POLICYINFO_set_cmp_func(struct stack_st_POLICYINFO *sk, sk_POLICYINFO_compfunc compare) { return (sk_POLICYINFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct POLICY_MAPPING_st {
-ASN1_OBJECT *issuerDomainPolicy;
-ASN1_OBJECT *subjectDomainPolicy;
+struct stack_st_POLICYINFO;
+typedef int (*sk_POLICYINFO_compfunc)(const POLICYINFO * const *a, const POLICYINFO *const *b);
+typedef void (*sk_POLICYINFO_freefunc)(POLICYINFO *a);
+typedef POLICYINFO * (*sk_POLICYINFO_copyfunc)(const POLICYINFO *a);
+static __inline int sk_POLICYINFO_num(const struct stack_st_POLICYINFO *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline POLICYINFO *sk_POLICYINFO_value(const struct stack_st_POLICYINFO *sk, int idx)
+{
+    return (POLICYINFO *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_POLICYINFO *sk_POLICYINFO_new(sk_POLICYINFO_compfunc compare)
+{
+    return (struct stack_st_POLICYINFO *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_POLICYINFO *sk_POLICYINFO_new_null(void)
+{
+    return (struct stack_st_POLICYINFO *)OPENSSL_sk_new_null();
+}
+static __inline void sk_POLICYINFO_free(struct stack_st_POLICYINFO *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_POLICYINFO_zero(struct stack_st_POLICYINFO *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline POLICYINFO *sk_POLICYINFO_delete(struct stack_st_POLICYINFO *sk, int i)
+{
+    return (POLICYINFO *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline POLICYINFO *sk_POLICYINFO_delete_ptr(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr)
+{
+    return (POLICYINFO *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICYINFO_push(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICYINFO_unshift(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline POLICYINFO *sk_POLICYINFO_pop(struct stack_st_POLICYINFO *sk)
+{
+    return (POLICYINFO *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline POLICYINFO *sk_POLICYINFO_shift(struct stack_st_POLICYINFO *sk)
+{
+    return (POLICYINFO *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_POLICYINFO_pop_free(struct stack_st_POLICYINFO *sk, sk_POLICYINFO_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_POLICYINFO_insert(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline POLICYINFO *sk_POLICYINFO_set(struct stack_st_POLICYINFO *sk, int idx, POLICYINFO *ptr)
+{
+    return (POLICYINFO *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_POLICYINFO_find(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICYINFO_find_ex(struct stack_st_POLICYINFO *sk, POLICYINFO *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_POLICYINFO_sort(struct stack_st_POLICYINFO *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_POLICYINFO_is_sorted(const struct stack_st_POLICYINFO *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_POLICYINFO * sk_POLICYINFO_dup(const struct stack_st_POLICYINFO *sk)
+{
+    return (struct stack_st_POLICYINFO *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_POLICYINFO *sk_POLICYINFO_deep_copy(const struct stack_st_POLICYINFO *sk, sk_POLICYINFO_copyfunc copyfunc, sk_POLICYINFO_freefunc freefunc)
+{
+    return (struct stack_st_POLICYINFO *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_POLICYINFO_compfunc sk_POLICYINFO_set_cmp_func(struct stack_st_POLICYINFO *sk, sk_POLICYINFO_compfunc compare)
+{
+    return (sk_POLICYINFO_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct POLICY_MAPPING_st
+{
+    ASN1_OBJECT *issuerDomainPolicy;
+    ASN1_OBJECT *subjectDomainPolicy;
 } POLICY_MAPPING;
-struct stack_st_POLICY_MAPPING; typedef int (*sk_POLICY_MAPPING_compfunc)(const POLICY_MAPPING * const *a, const POLICY_MAPPING *const *b); typedef void (*sk_POLICY_MAPPING_freefunc)(POLICY_MAPPING *a); typedef POLICY_MAPPING * (*sk_POLICY_MAPPING_copyfunc)(const POLICY_MAPPING *a); static __inline int sk_POLICY_MAPPING_num(const struct stack_st_POLICY_MAPPING *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline POLICY_MAPPING *sk_POLICY_MAPPING_value(const struct stack_st_POLICY_MAPPING *sk, int idx) { return (POLICY_MAPPING *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_POLICY_MAPPING *sk_POLICY_MAPPING_new(sk_POLICY_MAPPING_compfunc compare) { return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_POLICY_MAPPING *sk_POLICY_MAPPING_new_null(void) { return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_new_null(); } static __inline void sk_POLICY_MAPPING_free(struct stack_st_POLICY_MAPPING *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_POLICY_MAPPING_zero(struct stack_st_POLICY_MAPPING *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline POLICY_MAPPING *sk_POLICY_MAPPING_delete(struct stack_st_POLICY_MAPPING *sk, int i) { return (POLICY_MAPPING *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline POLICY_MAPPING *sk_POLICY_MAPPING_delete_ptr(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr) { return (POLICY_MAPPING *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICY_MAPPING_push(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICY_MAPPING_unshift(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline POLICY_MAPPING *sk_POLICY_MAPPING_pop(struct stack_st_POLICY_MAPPING *sk) { return (POLICY_MAPPING *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline POLICY_MAPPING *sk_POLICY_MAPPING_shift(struct stack_st_POLICY_MAPPING *sk) { return (POLICY_MAPPING *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_POLICY_MAPPING_pop_free(struct stack_st_POLICY_MAPPING *sk, sk_POLICY_MAPPING_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_POLICY_MAPPING_insert(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline POLICY_MAPPING *sk_POLICY_MAPPING_set(struct stack_st_POLICY_MAPPING *sk, int idx, POLICY_MAPPING *ptr) { return (POLICY_MAPPING *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_POLICY_MAPPING_find(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_POLICY_MAPPING_find_ex(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_POLICY_MAPPING_sort(struct stack_st_POLICY_MAPPING *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_POLICY_MAPPING_is_sorted(const struct stack_st_POLICY_MAPPING *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_POLICY_MAPPING * sk_POLICY_MAPPING_dup(const struct stack_st_POLICY_MAPPING *sk) { return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_POLICY_MAPPING *sk_POLICY_MAPPING_deep_copy(const struct stack_st_POLICY_MAPPING *sk, sk_POLICY_MAPPING_copyfunc copyfunc, sk_POLICY_MAPPING_freefunc freefunc) { return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_POLICY_MAPPING_compfunc sk_POLICY_MAPPING_set_cmp_func(struct stack_st_POLICY_MAPPING *sk, sk_POLICY_MAPPING_compfunc compare) { return (sk_POLICY_MAPPING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_POLICY_MAPPING;
+typedef int (*sk_POLICY_MAPPING_compfunc)(const POLICY_MAPPING * const *a, const POLICY_MAPPING *const *b);
+typedef void (*sk_POLICY_MAPPING_freefunc)(POLICY_MAPPING *a);
+typedef POLICY_MAPPING * (*sk_POLICY_MAPPING_copyfunc)(const POLICY_MAPPING *a);
+static __inline int sk_POLICY_MAPPING_num(const struct stack_st_POLICY_MAPPING *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline POLICY_MAPPING *sk_POLICY_MAPPING_value(const struct stack_st_POLICY_MAPPING *sk, int idx)
+{
+    return (POLICY_MAPPING *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_POLICY_MAPPING *sk_POLICY_MAPPING_new(sk_POLICY_MAPPING_compfunc compare)
+{
+    return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_POLICY_MAPPING *sk_POLICY_MAPPING_new_null(void)
+{
+    return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_new_null();
+}
+static __inline void sk_POLICY_MAPPING_free(struct stack_st_POLICY_MAPPING *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_POLICY_MAPPING_zero(struct stack_st_POLICY_MAPPING *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline POLICY_MAPPING *sk_POLICY_MAPPING_delete(struct stack_st_POLICY_MAPPING *sk, int i)
+{
+    return (POLICY_MAPPING *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline POLICY_MAPPING *sk_POLICY_MAPPING_delete_ptr(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr)
+{
+    return (POLICY_MAPPING *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICY_MAPPING_push(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICY_MAPPING_unshift(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline POLICY_MAPPING *sk_POLICY_MAPPING_pop(struct stack_st_POLICY_MAPPING *sk)
+{
+    return (POLICY_MAPPING *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline POLICY_MAPPING *sk_POLICY_MAPPING_shift(struct stack_st_POLICY_MAPPING *sk)
+{
+    return (POLICY_MAPPING *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_POLICY_MAPPING_pop_free(struct stack_st_POLICY_MAPPING *sk, sk_POLICY_MAPPING_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_POLICY_MAPPING_insert(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline POLICY_MAPPING *sk_POLICY_MAPPING_set(struct stack_st_POLICY_MAPPING *sk, int idx, POLICY_MAPPING *ptr)
+{
+    return (POLICY_MAPPING *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_POLICY_MAPPING_find(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_POLICY_MAPPING_find_ex(struct stack_st_POLICY_MAPPING *sk, POLICY_MAPPING *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_POLICY_MAPPING_sort(struct stack_st_POLICY_MAPPING *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_POLICY_MAPPING_is_sorted(const struct stack_st_POLICY_MAPPING *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_POLICY_MAPPING * sk_POLICY_MAPPING_dup(const struct stack_st_POLICY_MAPPING *sk)
+{
+    return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_POLICY_MAPPING *sk_POLICY_MAPPING_deep_copy(const struct stack_st_POLICY_MAPPING *sk, sk_POLICY_MAPPING_copyfunc copyfunc, sk_POLICY_MAPPING_freefunc freefunc)
+{
+    return (struct stack_st_POLICY_MAPPING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_POLICY_MAPPING_compfunc sk_POLICY_MAPPING_set_cmp_func(struct stack_st_POLICY_MAPPING *sk, sk_POLICY_MAPPING_compfunc compare)
+{
+    return (sk_POLICY_MAPPING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef struct stack_st_POLICY_MAPPING POLICY_MAPPINGS;
-typedef struct GENERAL_SUBTREE_st {
-GENERAL_NAME *base;
-ASN1_INTEGER *minimum;
-ASN1_INTEGER *maximum;
+typedef struct GENERAL_SUBTREE_st
+{
+    GENERAL_NAME *base;
+    ASN1_INTEGER *minimum;
+    ASN1_INTEGER *maximum;
 } GENERAL_SUBTREE;
-struct stack_st_GENERAL_SUBTREE; typedef int (*sk_GENERAL_SUBTREE_compfunc)(const GENERAL_SUBTREE * const *a, const GENERAL_SUBTREE *const *b); typedef void (*sk_GENERAL_SUBTREE_freefunc)(GENERAL_SUBTREE *a); typedef GENERAL_SUBTREE * (*sk_GENERAL_SUBTREE_copyfunc)(const GENERAL_SUBTREE *a); static __inline int sk_GENERAL_SUBTREE_num(const struct stack_st_GENERAL_SUBTREE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_value(const struct stack_st_GENERAL_SUBTREE *sk, int idx) { return (GENERAL_SUBTREE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_GENERAL_SUBTREE *sk_GENERAL_SUBTREE_new(sk_GENERAL_SUBTREE_compfunc compare) { return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_GENERAL_SUBTREE *sk_GENERAL_SUBTREE_new_null(void) { return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_new_null(); } static __inline void sk_GENERAL_SUBTREE_free(struct stack_st_GENERAL_SUBTREE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_GENERAL_SUBTREE_zero(struct stack_st_GENERAL_SUBTREE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_delete(struct stack_st_GENERAL_SUBTREE *sk, int i) { return (GENERAL_SUBTREE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_delete_ptr(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr) { return (GENERAL_SUBTREE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_SUBTREE_push(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_SUBTREE_unshift(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_pop(struct stack_st_GENERAL_SUBTREE *sk) { return (GENERAL_SUBTREE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_shift(struct stack_st_GENERAL_SUBTREE *sk) { return (GENERAL_SUBTREE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_GENERAL_SUBTREE_pop_free(struct stack_st_GENERAL_SUBTREE *sk, sk_GENERAL_SUBTREE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_GENERAL_SUBTREE_insert(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_set(struct stack_st_GENERAL_SUBTREE *sk, int idx, GENERAL_SUBTREE *ptr) { return (GENERAL_SUBTREE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_GENERAL_SUBTREE_find(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_GENERAL_SUBTREE_find_ex(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_GENERAL_SUBTREE_sort(struct stack_st_GENERAL_SUBTREE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_GENERAL_SUBTREE_is_sorted(const struct stack_st_GENERAL_SUBTREE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_GENERAL_SUBTREE * sk_GENERAL_SUBTREE_dup(const struct stack_st_GENERAL_SUBTREE *sk) { return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_GENERAL_SUBTREE *sk_GENERAL_SUBTREE_deep_copy(const struct stack_st_GENERAL_SUBTREE *sk, sk_GENERAL_SUBTREE_copyfunc copyfunc, sk_GENERAL_SUBTREE_freefunc freefunc) { return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_GENERAL_SUBTREE_compfunc sk_GENERAL_SUBTREE_set_cmp_func(struct stack_st_GENERAL_SUBTREE *sk, sk_GENERAL_SUBTREE_compfunc compare) { return (sk_GENERAL_SUBTREE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct NAME_CONSTRAINTS_st {
-struct stack_st_GENERAL_SUBTREE *permittedSubtrees;
-struct stack_st_GENERAL_SUBTREE *excludedSubtrees;
+struct stack_st_GENERAL_SUBTREE;
+typedef int (*sk_GENERAL_SUBTREE_compfunc)(const GENERAL_SUBTREE * const *a, const GENERAL_SUBTREE *const *b);
+typedef void (*sk_GENERAL_SUBTREE_freefunc)(GENERAL_SUBTREE *a);
+typedef GENERAL_SUBTREE * (*sk_GENERAL_SUBTREE_copyfunc)(const GENERAL_SUBTREE *a);
+static __inline int sk_GENERAL_SUBTREE_num(const struct stack_st_GENERAL_SUBTREE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_value(const struct stack_st_GENERAL_SUBTREE *sk, int idx)
+{
+    return (GENERAL_SUBTREE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_GENERAL_SUBTREE *sk_GENERAL_SUBTREE_new(sk_GENERAL_SUBTREE_compfunc compare)
+{
+    return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_GENERAL_SUBTREE *sk_GENERAL_SUBTREE_new_null(void)
+{
+    return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_GENERAL_SUBTREE_free(struct stack_st_GENERAL_SUBTREE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_GENERAL_SUBTREE_zero(struct stack_st_GENERAL_SUBTREE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_delete(struct stack_st_GENERAL_SUBTREE *sk, int i)
+{
+    return (GENERAL_SUBTREE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_delete_ptr(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr)
+{
+    return (GENERAL_SUBTREE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_SUBTREE_push(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_SUBTREE_unshift(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_pop(struct stack_st_GENERAL_SUBTREE *sk)
+{
+    return (GENERAL_SUBTREE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_shift(struct stack_st_GENERAL_SUBTREE *sk)
+{
+    return (GENERAL_SUBTREE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_GENERAL_SUBTREE_pop_free(struct stack_st_GENERAL_SUBTREE *sk, sk_GENERAL_SUBTREE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_GENERAL_SUBTREE_insert(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline GENERAL_SUBTREE *sk_GENERAL_SUBTREE_set(struct stack_st_GENERAL_SUBTREE *sk, int idx, GENERAL_SUBTREE *ptr)
+{
+    return (GENERAL_SUBTREE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_GENERAL_SUBTREE_find(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_GENERAL_SUBTREE_find_ex(struct stack_st_GENERAL_SUBTREE *sk, GENERAL_SUBTREE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_GENERAL_SUBTREE_sort(struct stack_st_GENERAL_SUBTREE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_GENERAL_SUBTREE_is_sorted(const struct stack_st_GENERAL_SUBTREE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_GENERAL_SUBTREE * sk_GENERAL_SUBTREE_dup(const struct stack_st_GENERAL_SUBTREE *sk)
+{
+    return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_GENERAL_SUBTREE *sk_GENERAL_SUBTREE_deep_copy(const struct stack_st_GENERAL_SUBTREE *sk, sk_GENERAL_SUBTREE_copyfunc copyfunc, sk_GENERAL_SUBTREE_freefunc freefunc)
+{
+    return (struct stack_st_GENERAL_SUBTREE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_GENERAL_SUBTREE_compfunc sk_GENERAL_SUBTREE_set_cmp_func(struct stack_st_GENERAL_SUBTREE *sk, sk_GENERAL_SUBTREE_compfunc compare)
+{
+    return (sk_GENERAL_SUBTREE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct NAME_CONSTRAINTS_st
+{
+    struct stack_st_GENERAL_SUBTREE *permittedSubtrees;
+    struct stack_st_GENERAL_SUBTREE *excludedSubtrees;
 };
-typedef struct POLICY_CONSTRAINTS_st {
-ASN1_INTEGER *requireExplicitPolicy;
-ASN1_INTEGER *inhibitPolicyMapping;
+typedef struct POLICY_CONSTRAINTS_st
+{
+    ASN1_INTEGER *requireExplicitPolicy;
+    ASN1_INTEGER *inhibitPolicyMapping;
 } POLICY_CONSTRAINTS;
-typedef struct PROXY_POLICY_st {
-ASN1_OBJECT *policyLanguage;
-ASN1_OCTET_STRING *policy;
+typedef struct PROXY_POLICY_st
+{
+    ASN1_OBJECT *policyLanguage;
+    ASN1_OCTET_STRING *policy;
 } PROXY_POLICY;
-typedef struct PROXY_CERT_INFO_EXTENSION_st {
-ASN1_INTEGER *pcPathLengthConstraint;
-PROXY_POLICY *proxyPolicy;
+typedef struct PROXY_CERT_INFO_EXTENSION_st
+{
+    ASN1_INTEGER *pcPathLengthConstraint;
+    PROXY_POLICY *proxyPolicy;
 } PROXY_CERT_INFO_EXTENSION;
-PROXY_POLICY *PROXY_POLICY_new(void); void PROXY_POLICY_free(PROXY_POLICY *a); PROXY_POLICY *d2i_PROXY_POLICY(PROXY_POLICY **a, const unsigned char **in, long len); int i2d_PROXY_POLICY(PROXY_POLICY *a, unsigned char **out); const ASN1_ITEM * PROXY_POLICY_it(void);
-PROXY_CERT_INFO_EXTENSION *PROXY_CERT_INFO_EXTENSION_new(void); void PROXY_CERT_INFO_EXTENSION_free(PROXY_CERT_INFO_EXTENSION *a); PROXY_CERT_INFO_EXTENSION *d2i_PROXY_CERT_INFO_EXTENSION(PROXY_CERT_INFO_EXTENSION **a, const unsigned char **in, long len); int i2d_PROXY_CERT_INFO_EXTENSION(PROXY_CERT_INFO_EXTENSION *a, unsigned char **out); const ASN1_ITEM * PROXY_CERT_INFO_EXTENSION_it(void);
-struct ISSUING_DIST_POINT_st {
-DIST_POINT_NAME *distpoint;
-int onlyuser;
-int onlyCA;
-ASN1_BIT_STRING *onlysomereasons;
-int indirectCRL;
-int onlyattr;
+PROXY_POLICY *PROXY_POLICY_new(void);
+void PROXY_POLICY_free(PROXY_POLICY *a);
+PROXY_POLICY *d2i_PROXY_POLICY(PROXY_POLICY **a, const unsigned char **in, long len);
+int i2d_PROXY_POLICY(PROXY_POLICY *a, unsigned char **out);
+const ASN1_ITEM * PROXY_POLICY_it(void);
+PROXY_CERT_INFO_EXTENSION *PROXY_CERT_INFO_EXTENSION_new(void);
+void PROXY_CERT_INFO_EXTENSION_free(PROXY_CERT_INFO_EXTENSION *a);
+PROXY_CERT_INFO_EXTENSION *d2i_PROXY_CERT_INFO_EXTENSION(PROXY_CERT_INFO_EXTENSION **a, const unsigned char **in, long len);
+int i2d_PROXY_CERT_INFO_EXTENSION(PROXY_CERT_INFO_EXTENSION *a, unsigned char **out);
+const ASN1_ITEM * PROXY_CERT_INFO_EXTENSION_it(void);
+struct ISSUING_DIST_POINT_st
+{
+    DIST_POINT_NAME *distpoint;
+    int onlyuser;
+    int onlyCA;
+    ASN1_BIT_STRING *onlysomereasons;
+    int indirectCRL;
+    int onlyattr;
 };
-typedef struct x509_purpose_st {
-int purpose;
-int trust;                  
-int flags;
-int (*check_purpose) (const struct x509_purpose_st *, const X509 *, int);
-char *name;
-char *sname;
-void *usr_data;
+typedef struct x509_purpose_st
+{
+    int purpose;
+    int trust;
+    int flags;
+    int (*check_purpose) (const struct x509_purpose_st *, const X509 *, int);
+    char *name;
+    char *sname;
+    void *usr_data;
 } X509_PURPOSE;
-struct stack_st_X509_PURPOSE; typedef int (*sk_X509_PURPOSE_compfunc)(const X509_PURPOSE * const *a, const X509_PURPOSE *const *b); typedef void (*sk_X509_PURPOSE_freefunc)(X509_PURPOSE *a); typedef X509_PURPOSE * (*sk_X509_PURPOSE_copyfunc)(const X509_PURPOSE *a); static __inline int sk_X509_PURPOSE_num(const struct stack_st_X509_PURPOSE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_PURPOSE *sk_X509_PURPOSE_value(const struct stack_st_X509_PURPOSE *sk, int idx) { return (X509_PURPOSE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_PURPOSE *sk_X509_PURPOSE_new(sk_X509_PURPOSE_compfunc compare) { return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_PURPOSE *sk_X509_PURPOSE_new_null(void) { return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_new_null(); } static __inline void sk_X509_PURPOSE_free(struct stack_st_X509_PURPOSE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_PURPOSE_zero(struct stack_st_X509_PURPOSE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_PURPOSE *sk_X509_PURPOSE_delete(struct stack_st_X509_PURPOSE *sk, int i) { return (X509_PURPOSE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_PURPOSE *sk_X509_PURPOSE_delete_ptr(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr) { return (X509_PURPOSE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_PURPOSE_push(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_PURPOSE_unshift(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_PURPOSE *sk_X509_PURPOSE_pop(struct stack_st_X509_PURPOSE *sk) { return (X509_PURPOSE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_PURPOSE *sk_X509_PURPOSE_shift(struct stack_st_X509_PURPOSE *sk) { return (X509_PURPOSE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_PURPOSE_pop_free(struct stack_st_X509_PURPOSE *sk, sk_X509_PURPOSE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_PURPOSE_insert(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_PURPOSE *sk_X509_PURPOSE_set(struct stack_st_X509_PURPOSE *sk, int idx, X509_PURPOSE *ptr) { return (X509_PURPOSE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_PURPOSE_find(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_PURPOSE_find_ex(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_PURPOSE_sort(struct stack_st_X509_PURPOSE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_PURPOSE_is_sorted(const struct stack_st_X509_PURPOSE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_PURPOSE * sk_X509_PURPOSE_dup(const struct stack_st_X509_PURPOSE *sk) { return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_PURPOSE *sk_X509_PURPOSE_deep_copy(const struct stack_st_X509_PURPOSE *sk, sk_X509_PURPOSE_copyfunc copyfunc, sk_X509_PURPOSE_freefunc freefunc) { return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_PURPOSE_compfunc sk_X509_PURPOSE_set_cmp_func(struct stack_st_X509_PURPOSE *sk, sk_X509_PURPOSE_compfunc compare) { return (sk_X509_PURPOSE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-BASIC_CONSTRAINTS *BASIC_CONSTRAINTS_new(void); void BASIC_CONSTRAINTS_free(BASIC_CONSTRAINTS *a); BASIC_CONSTRAINTS *d2i_BASIC_CONSTRAINTS(BASIC_CONSTRAINTS **a, const unsigned char **in, long len); int i2d_BASIC_CONSTRAINTS(BASIC_CONSTRAINTS *a, unsigned char **out); const ASN1_ITEM * BASIC_CONSTRAINTS_it(void);
-SXNET *SXNET_new(void); void SXNET_free(SXNET *a); SXNET *d2i_SXNET(SXNET **a, const unsigned char **in, long len); int i2d_SXNET(SXNET *a, unsigned char **out); const ASN1_ITEM * SXNET_it(void);
-SXNETID *SXNETID_new(void); void SXNETID_free(SXNETID *a); SXNETID *d2i_SXNETID(SXNETID **a, const unsigned char **in, long len); int i2d_SXNETID(SXNETID *a, unsigned char **out); const ASN1_ITEM * SXNETID_it(void);
+struct stack_st_X509_PURPOSE;
+typedef int (*sk_X509_PURPOSE_compfunc)(const X509_PURPOSE * const *a, const X509_PURPOSE *const *b);
+typedef void (*sk_X509_PURPOSE_freefunc)(X509_PURPOSE *a);
+typedef X509_PURPOSE * (*sk_X509_PURPOSE_copyfunc)(const X509_PURPOSE *a);
+static __inline int sk_X509_PURPOSE_num(const struct stack_st_X509_PURPOSE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_PURPOSE *sk_X509_PURPOSE_value(const struct stack_st_X509_PURPOSE *sk, int idx)
+{
+    return (X509_PURPOSE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_PURPOSE *sk_X509_PURPOSE_new(sk_X509_PURPOSE_compfunc compare)
+{
+    return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_PURPOSE *sk_X509_PURPOSE_new_null(void)
+{
+    return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_PURPOSE_free(struct stack_st_X509_PURPOSE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_PURPOSE_zero(struct stack_st_X509_PURPOSE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_PURPOSE *sk_X509_PURPOSE_delete(struct stack_st_X509_PURPOSE *sk, int i)
+{
+    return (X509_PURPOSE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_PURPOSE *sk_X509_PURPOSE_delete_ptr(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr)
+{
+    return (X509_PURPOSE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_PURPOSE_push(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_PURPOSE_unshift(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_PURPOSE *sk_X509_PURPOSE_pop(struct stack_st_X509_PURPOSE *sk)
+{
+    return (X509_PURPOSE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_PURPOSE *sk_X509_PURPOSE_shift(struct stack_st_X509_PURPOSE *sk)
+{
+    return (X509_PURPOSE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_PURPOSE_pop_free(struct stack_st_X509_PURPOSE *sk, sk_X509_PURPOSE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_PURPOSE_insert(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_PURPOSE *sk_X509_PURPOSE_set(struct stack_st_X509_PURPOSE *sk, int idx, X509_PURPOSE *ptr)
+{
+    return (X509_PURPOSE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_PURPOSE_find(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_PURPOSE_find_ex(struct stack_st_X509_PURPOSE *sk, X509_PURPOSE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_PURPOSE_sort(struct stack_st_X509_PURPOSE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_PURPOSE_is_sorted(const struct stack_st_X509_PURPOSE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_PURPOSE * sk_X509_PURPOSE_dup(const struct stack_st_X509_PURPOSE *sk)
+{
+    return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_PURPOSE *sk_X509_PURPOSE_deep_copy(const struct stack_st_X509_PURPOSE *sk, sk_X509_PURPOSE_copyfunc copyfunc, sk_X509_PURPOSE_freefunc freefunc)
+{
+    return (struct stack_st_X509_PURPOSE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_PURPOSE_compfunc sk_X509_PURPOSE_set_cmp_func(struct stack_st_X509_PURPOSE *sk, sk_X509_PURPOSE_compfunc compare)
+{
+    return (sk_X509_PURPOSE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+BASIC_CONSTRAINTS *BASIC_CONSTRAINTS_new(void);
+void BASIC_CONSTRAINTS_free(BASIC_CONSTRAINTS *a);
+BASIC_CONSTRAINTS *d2i_BASIC_CONSTRAINTS(BASIC_CONSTRAINTS **a, const unsigned char **in, long len);
+int i2d_BASIC_CONSTRAINTS(BASIC_CONSTRAINTS *a, unsigned char **out);
+const ASN1_ITEM * BASIC_CONSTRAINTS_it(void);
+SXNET *SXNET_new(void);
+void SXNET_free(SXNET *a);
+SXNET *d2i_SXNET(SXNET **a, const unsigned char **in, long len);
+int i2d_SXNET(SXNET *a, unsigned char **out);
+const ASN1_ITEM * SXNET_it(void);
+SXNETID *SXNETID_new(void);
+void SXNETID_free(SXNETID *a);
+SXNETID *d2i_SXNETID(SXNETID **a, const unsigned char **in, long len);
+int i2d_SXNETID(SXNETID *a, unsigned char **out);
+const ASN1_ITEM * SXNETID_it(void);
 int SXNET_add_id_asc(SXNET **psx, const char *zone, const char *user, int userlen);
 int SXNET_add_id_ulong(SXNET **psx, unsigned long lzone, const char *user,
-int userlen);
+                       int userlen);
 int SXNET_add_id_INTEGER(SXNET **psx, ASN1_INTEGER *izone, const char *user,
-int userlen);
+                         int userlen);
 ASN1_OCTET_STRING *SXNET_get_id_asc(SXNET *sx, const char *zone);
 ASN1_OCTET_STRING *SXNET_get_id_ulong(SXNET *sx, unsigned long lzone);
 ASN1_OCTET_STRING *SXNET_get_id_INTEGER(SXNET *sx, ASN1_INTEGER *zone);
-AUTHORITY_KEYID *AUTHORITY_KEYID_new(void); void AUTHORITY_KEYID_free(AUTHORITY_KEYID *a); AUTHORITY_KEYID *d2i_AUTHORITY_KEYID(AUTHORITY_KEYID **a, const unsigned char **in, long len); int i2d_AUTHORITY_KEYID(AUTHORITY_KEYID *a, unsigned char **out); const ASN1_ITEM * AUTHORITY_KEYID_it(void);
-PKEY_USAGE_PERIOD *PKEY_USAGE_PERIOD_new(void); void PKEY_USAGE_PERIOD_free(PKEY_USAGE_PERIOD *a); PKEY_USAGE_PERIOD *d2i_PKEY_USAGE_PERIOD(PKEY_USAGE_PERIOD **a, const unsigned char **in, long len); int i2d_PKEY_USAGE_PERIOD(PKEY_USAGE_PERIOD *a, unsigned char **out); const ASN1_ITEM * PKEY_USAGE_PERIOD_it(void);
-GENERAL_NAME *GENERAL_NAME_new(void); void GENERAL_NAME_free(GENERAL_NAME *a); GENERAL_NAME *d2i_GENERAL_NAME(GENERAL_NAME **a, const unsigned char **in, long len); int i2d_GENERAL_NAME(GENERAL_NAME *a, unsigned char **out); const ASN1_ITEM * GENERAL_NAME_it(void);
+AUTHORITY_KEYID *AUTHORITY_KEYID_new(void);
+void AUTHORITY_KEYID_free(AUTHORITY_KEYID *a);
+AUTHORITY_KEYID *d2i_AUTHORITY_KEYID(AUTHORITY_KEYID **a, const unsigned char **in, long len);
+int i2d_AUTHORITY_KEYID(AUTHORITY_KEYID *a, unsigned char **out);
+const ASN1_ITEM * AUTHORITY_KEYID_it(void);
+PKEY_USAGE_PERIOD *PKEY_USAGE_PERIOD_new(void);
+void PKEY_USAGE_PERIOD_free(PKEY_USAGE_PERIOD *a);
+PKEY_USAGE_PERIOD *d2i_PKEY_USAGE_PERIOD(PKEY_USAGE_PERIOD **a, const unsigned char **in, long len);
+int i2d_PKEY_USAGE_PERIOD(PKEY_USAGE_PERIOD *a, unsigned char **out);
+const ASN1_ITEM * PKEY_USAGE_PERIOD_it(void);
+GENERAL_NAME *GENERAL_NAME_new(void);
+void GENERAL_NAME_free(GENERAL_NAME *a);
+GENERAL_NAME *d2i_GENERAL_NAME(GENERAL_NAME **a, const unsigned char **in, long len);
+int i2d_GENERAL_NAME(GENERAL_NAME *a, unsigned char **out);
+const ASN1_ITEM * GENERAL_NAME_it(void);
 GENERAL_NAME *GENERAL_NAME_dup(GENERAL_NAME *a);
 int GENERAL_NAME_cmp(GENERAL_NAME *a, GENERAL_NAME *b);
 ASN1_BIT_STRING *v2i_ASN1_BIT_STRING(X509V3_EXT_METHOD *method,
-X509V3_CTX *ctx,
-struct stack_st_CONF_VALUE *nval);
+                                     X509V3_CTX *ctx,
+                                     struct stack_st_CONF_VALUE *nval);
 struct stack_st_CONF_VALUE *i2v_ASN1_BIT_STRING(X509V3_EXT_METHOD *method,
-ASN1_BIT_STRING *bits,
-struct stack_st_CONF_VALUE *extlist);
+        ASN1_BIT_STRING *bits,
+        struct stack_st_CONF_VALUE *extlist);
 char *i2s_ASN1_IA5STRING(X509V3_EXT_METHOD *method, ASN1_IA5STRING *ia5);
 ASN1_IA5STRING *s2i_ASN1_IA5STRING(X509V3_EXT_METHOD *method,
-X509V3_CTX *ctx, const char *str);
+                                   X509V3_CTX *ctx, const char *str);
 struct stack_st_CONF_VALUE *i2v_GENERAL_NAME(X509V3_EXT_METHOD *method,
-GENERAL_NAME *gen,
-struct stack_st_CONF_VALUE *ret);
+        GENERAL_NAME *gen,
+        struct stack_st_CONF_VALUE *ret);
 int GENERAL_NAME_print(BIO *out, GENERAL_NAME *gen);
-GENERAL_NAMES *GENERAL_NAMES_new(void); void GENERAL_NAMES_free(GENERAL_NAMES *a); GENERAL_NAMES *d2i_GENERAL_NAMES(GENERAL_NAMES **a, const unsigned char **in, long len); int i2d_GENERAL_NAMES(GENERAL_NAMES *a, unsigned char **out); const ASN1_ITEM * GENERAL_NAMES_it(void);
+GENERAL_NAMES *GENERAL_NAMES_new(void);
+void GENERAL_NAMES_free(GENERAL_NAMES *a);
+GENERAL_NAMES *d2i_GENERAL_NAMES(GENERAL_NAMES **a, const unsigned char **in, long len);
+int i2d_GENERAL_NAMES(GENERAL_NAMES *a, unsigned char **out);
+const ASN1_ITEM * GENERAL_NAMES_it(void);
 struct stack_st_CONF_VALUE *i2v_GENERAL_NAMES(X509V3_EXT_METHOD *method,
-GENERAL_NAMES *gen,
-struct stack_st_CONF_VALUE *extlist);
+        GENERAL_NAMES *gen,
+        struct stack_st_CONF_VALUE *extlist);
 GENERAL_NAMES *v2i_GENERAL_NAMES(const X509V3_EXT_METHOD *method,
-X509V3_CTX *ctx, struct stack_st_CONF_VALUE *nval);
-OTHERNAME *OTHERNAME_new(void); void OTHERNAME_free(OTHERNAME *a); OTHERNAME *d2i_OTHERNAME(OTHERNAME **a, const unsigned char **in, long len); int i2d_OTHERNAME(OTHERNAME *a, unsigned char **out); const ASN1_ITEM * OTHERNAME_it(void);
-EDIPARTYNAME *EDIPARTYNAME_new(void); void EDIPARTYNAME_free(EDIPARTYNAME *a); EDIPARTYNAME *d2i_EDIPARTYNAME(EDIPARTYNAME **a, const unsigned char **in, long len); int i2d_EDIPARTYNAME(EDIPARTYNAME *a, unsigned char **out); const ASN1_ITEM * EDIPARTYNAME_it(void);
+                                 X509V3_CTX *ctx, struct stack_st_CONF_VALUE *nval);
+OTHERNAME *OTHERNAME_new(void);
+void OTHERNAME_free(OTHERNAME *a);
+OTHERNAME *d2i_OTHERNAME(OTHERNAME **a, const unsigned char **in, long len);
+int i2d_OTHERNAME(OTHERNAME *a, unsigned char **out);
+const ASN1_ITEM * OTHERNAME_it(void);
+EDIPARTYNAME *EDIPARTYNAME_new(void);
+void EDIPARTYNAME_free(EDIPARTYNAME *a);
+EDIPARTYNAME *d2i_EDIPARTYNAME(EDIPARTYNAME **a, const unsigned char **in, long len);
+int i2d_EDIPARTYNAME(EDIPARTYNAME *a, unsigned char **out);
+const ASN1_ITEM * EDIPARTYNAME_it(void);
 int OTHERNAME_cmp(OTHERNAME *a, OTHERNAME *b);
 void GENERAL_NAME_set0_value(GENERAL_NAME *a, int type, void *value);
 void *GENERAL_NAME_get0_value(GENERAL_NAME *a, int *ptype);
 int GENERAL_NAME_set0_othername(GENERAL_NAME *gen,
-ASN1_OBJECT *oid, ASN1_TYPE *value);
+                                ASN1_OBJECT *oid, ASN1_TYPE *value);
 int GENERAL_NAME_get0_otherName(GENERAL_NAME *gen,
-ASN1_OBJECT **poid, ASN1_TYPE **pvalue);
+                                ASN1_OBJECT **poid, ASN1_TYPE **pvalue);
 char *i2s_ASN1_OCTET_STRING(X509V3_EXT_METHOD *method,
-const ASN1_OCTET_STRING *ia5);
+                            const ASN1_OCTET_STRING *ia5);
 ASN1_OCTET_STRING *s2i_ASN1_OCTET_STRING(X509V3_EXT_METHOD *method,
-X509V3_CTX *ctx, const char *str);
-EXTENDED_KEY_USAGE *EXTENDED_KEY_USAGE_new(void); void EXTENDED_KEY_USAGE_free(EXTENDED_KEY_USAGE *a); EXTENDED_KEY_USAGE *d2i_EXTENDED_KEY_USAGE(EXTENDED_KEY_USAGE **a, const unsigned char **in, long len); int i2d_EXTENDED_KEY_USAGE(EXTENDED_KEY_USAGE *a, unsigned char **out); const ASN1_ITEM * EXTENDED_KEY_USAGE_it(void);
+        X509V3_CTX *ctx, const char *str);
+EXTENDED_KEY_USAGE *EXTENDED_KEY_USAGE_new(void);
+void EXTENDED_KEY_USAGE_free(EXTENDED_KEY_USAGE *a);
+EXTENDED_KEY_USAGE *d2i_EXTENDED_KEY_USAGE(EXTENDED_KEY_USAGE **a, const unsigned char **in, long len);
+int i2d_EXTENDED_KEY_USAGE(EXTENDED_KEY_USAGE *a, unsigned char **out);
+const ASN1_ITEM * EXTENDED_KEY_USAGE_it(void);
 int i2a_ACCESS_DESCRIPTION(BIO *bp, const ACCESS_DESCRIPTION *a);
-TLS_FEATURE *TLS_FEATURE_new(void); void TLS_FEATURE_free(TLS_FEATURE *a);
-CERTIFICATEPOLICIES *CERTIFICATEPOLICIES_new(void); void CERTIFICATEPOLICIES_free(CERTIFICATEPOLICIES *a); CERTIFICATEPOLICIES *d2i_CERTIFICATEPOLICIES(CERTIFICATEPOLICIES **a, const unsigned char **in, long len); int i2d_CERTIFICATEPOLICIES(CERTIFICATEPOLICIES *a, unsigned char **out); const ASN1_ITEM * CERTIFICATEPOLICIES_it(void);
-POLICYINFO *POLICYINFO_new(void); void POLICYINFO_free(POLICYINFO *a); POLICYINFO *d2i_POLICYINFO(POLICYINFO **a, const unsigned char **in, long len); int i2d_POLICYINFO(POLICYINFO *a, unsigned char **out); const ASN1_ITEM * POLICYINFO_it(void);
-POLICYQUALINFO *POLICYQUALINFO_new(void); void POLICYQUALINFO_free(POLICYQUALINFO *a); POLICYQUALINFO *d2i_POLICYQUALINFO(POLICYQUALINFO **a, const unsigned char **in, long len); int i2d_POLICYQUALINFO(POLICYQUALINFO *a, unsigned char **out); const ASN1_ITEM * POLICYQUALINFO_it(void);
-USERNOTICE *USERNOTICE_new(void); void USERNOTICE_free(USERNOTICE *a); USERNOTICE *d2i_USERNOTICE(USERNOTICE **a, const unsigned char **in, long len); int i2d_USERNOTICE(USERNOTICE *a, unsigned char **out); const ASN1_ITEM * USERNOTICE_it(void);
-NOTICEREF *NOTICEREF_new(void); void NOTICEREF_free(NOTICEREF *a); NOTICEREF *d2i_NOTICEREF(NOTICEREF **a, const unsigned char **in, long len); int i2d_NOTICEREF(NOTICEREF *a, unsigned char **out); const ASN1_ITEM * NOTICEREF_it(void);
-CRL_DIST_POINTS *CRL_DIST_POINTS_new(void); void CRL_DIST_POINTS_free(CRL_DIST_POINTS *a); CRL_DIST_POINTS *d2i_CRL_DIST_POINTS(CRL_DIST_POINTS **a, const unsigned char **in, long len); int i2d_CRL_DIST_POINTS(CRL_DIST_POINTS *a, unsigned char **out); const ASN1_ITEM * CRL_DIST_POINTS_it(void);
-DIST_POINT *DIST_POINT_new(void); void DIST_POINT_free(DIST_POINT *a); DIST_POINT *d2i_DIST_POINT(DIST_POINT **a, const unsigned char **in, long len); int i2d_DIST_POINT(DIST_POINT *a, unsigned char **out); const ASN1_ITEM * DIST_POINT_it(void);
-DIST_POINT_NAME *DIST_POINT_NAME_new(void); void DIST_POINT_NAME_free(DIST_POINT_NAME *a); DIST_POINT_NAME *d2i_DIST_POINT_NAME(DIST_POINT_NAME **a, const unsigned char **in, long len); int i2d_DIST_POINT_NAME(DIST_POINT_NAME *a, unsigned char **out); const ASN1_ITEM * DIST_POINT_NAME_it(void);
-ISSUING_DIST_POINT *ISSUING_DIST_POINT_new(void); void ISSUING_DIST_POINT_free(ISSUING_DIST_POINT *a); ISSUING_DIST_POINT *d2i_ISSUING_DIST_POINT(ISSUING_DIST_POINT **a, const unsigned char **in, long len); int i2d_ISSUING_DIST_POINT(ISSUING_DIST_POINT *a, unsigned char **out); const ASN1_ITEM * ISSUING_DIST_POINT_it(void);
+TLS_FEATURE *TLS_FEATURE_new(void);
+void TLS_FEATURE_free(TLS_FEATURE *a);
+CERTIFICATEPOLICIES *CERTIFICATEPOLICIES_new(void);
+void CERTIFICATEPOLICIES_free(CERTIFICATEPOLICIES *a);
+CERTIFICATEPOLICIES *d2i_CERTIFICATEPOLICIES(CERTIFICATEPOLICIES **a, const unsigned char **in, long len);
+int i2d_CERTIFICATEPOLICIES(CERTIFICATEPOLICIES *a, unsigned char **out);
+const ASN1_ITEM * CERTIFICATEPOLICIES_it(void);
+POLICYINFO *POLICYINFO_new(void);
+void POLICYINFO_free(POLICYINFO *a);
+POLICYINFO *d2i_POLICYINFO(POLICYINFO **a, const unsigned char **in, long len);
+int i2d_POLICYINFO(POLICYINFO *a, unsigned char **out);
+const ASN1_ITEM * POLICYINFO_it(void);
+POLICYQUALINFO *POLICYQUALINFO_new(void);
+void POLICYQUALINFO_free(POLICYQUALINFO *a);
+POLICYQUALINFO *d2i_POLICYQUALINFO(POLICYQUALINFO **a, const unsigned char **in, long len);
+int i2d_POLICYQUALINFO(POLICYQUALINFO *a, unsigned char **out);
+const ASN1_ITEM * POLICYQUALINFO_it(void);
+USERNOTICE *USERNOTICE_new(void);
+void USERNOTICE_free(USERNOTICE *a);
+USERNOTICE *d2i_USERNOTICE(USERNOTICE **a, const unsigned char **in, long len);
+int i2d_USERNOTICE(USERNOTICE *a, unsigned char **out);
+const ASN1_ITEM * USERNOTICE_it(void);
+NOTICEREF *NOTICEREF_new(void);
+void NOTICEREF_free(NOTICEREF *a);
+NOTICEREF *d2i_NOTICEREF(NOTICEREF **a, const unsigned char **in, long len);
+int i2d_NOTICEREF(NOTICEREF *a, unsigned char **out);
+const ASN1_ITEM * NOTICEREF_it(void);
+CRL_DIST_POINTS *CRL_DIST_POINTS_new(void);
+void CRL_DIST_POINTS_free(CRL_DIST_POINTS *a);
+CRL_DIST_POINTS *d2i_CRL_DIST_POINTS(CRL_DIST_POINTS **a, const unsigned char **in, long len);
+int i2d_CRL_DIST_POINTS(CRL_DIST_POINTS *a, unsigned char **out);
+const ASN1_ITEM * CRL_DIST_POINTS_it(void);
+DIST_POINT *DIST_POINT_new(void);
+void DIST_POINT_free(DIST_POINT *a);
+DIST_POINT *d2i_DIST_POINT(DIST_POINT **a, const unsigned char **in, long len);
+int i2d_DIST_POINT(DIST_POINT *a, unsigned char **out);
+const ASN1_ITEM * DIST_POINT_it(void);
+DIST_POINT_NAME *DIST_POINT_NAME_new(void);
+void DIST_POINT_NAME_free(DIST_POINT_NAME *a);
+DIST_POINT_NAME *d2i_DIST_POINT_NAME(DIST_POINT_NAME **a, const unsigned char **in, long len);
+int i2d_DIST_POINT_NAME(DIST_POINT_NAME *a, unsigned char **out);
+const ASN1_ITEM * DIST_POINT_NAME_it(void);
+ISSUING_DIST_POINT *ISSUING_DIST_POINT_new(void);
+void ISSUING_DIST_POINT_free(ISSUING_DIST_POINT *a);
+ISSUING_DIST_POINT *d2i_ISSUING_DIST_POINT(ISSUING_DIST_POINT **a, const unsigned char **in, long len);
+int i2d_ISSUING_DIST_POINT(ISSUING_DIST_POINT *a, unsigned char **out);
+const ASN1_ITEM * ISSUING_DIST_POINT_it(void);
 int DIST_POINT_set_dpname(DIST_POINT_NAME *dpn, X509_NAME *iname);
 int NAME_CONSTRAINTS_check(X509 *x, NAME_CONSTRAINTS *nc);
 int NAME_CONSTRAINTS_check_CN(X509 *x, NAME_CONSTRAINTS *nc);
-ACCESS_DESCRIPTION *ACCESS_DESCRIPTION_new(void); void ACCESS_DESCRIPTION_free(ACCESS_DESCRIPTION *a); ACCESS_DESCRIPTION *d2i_ACCESS_DESCRIPTION(ACCESS_DESCRIPTION **a, const unsigned char **in, long len); int i2d_ACCESS_DESCRIPTION(ACCESS_DESCRIPTION *a, unsigned char **out); const ASN1_ITEM * ACCESS_DESCRIPTION_it(void);
-AUTHORITY_INFO_ACCESS *AUTHORITY_INFO_ACCESS_new(void); void AUTHORITY_INFO_ACCESS_free(AUTHORITY_INFO_ACCESS *a); AUTHORITY_INFO_ACCESS *d2i_AUTHORITY_INFO_ACCESS(AUTHORITY_INFO_ACCESS **a, const unsigned char **in, long len); int i2d_AUTHORITY_INFO_ACCESS(AUTHORITY_INFO_ACCESS *a, unsigned char **out); const ASN1_ITEM * AUTHORITY_INFO_ACCESS_it(void);
+ACCESS_DESCRIPTION *ACCESS_DESCRIPTION_new(void);
+void ACCESS_DESCRIPTION_free(ACCESS_DESCRIPTION *a);
+ACCESS_DESCRIPTION *d2i_ACCESS_DESCRIPTION(ACCESS_DESCRIPTION **a, const unsigned char **in, long len);
+int i2d_ACCESS_DESCRIPTION(ACCESS_DESCRIPTION *a, unsigned char **out);
+const ASN1_ITEM * ACCESS_DESCRIPTION_it(void);
+AUTHORITY_INFO_ACCESS *AUTHORITY_INFO_ACCESS_new(void);
+void AUTHORITY_INFO_ACCESS_free(AUTHORITY_INFO_ACCESS *a);
+AUTHORITY_INFO_ACCESS *d2i_AUTHORITY_INFO_ACCESS(AUTHORITY_INFO_ACCESS **a, const unsigned char **in, long len);
+int i2d_AUTHORITY_INFO_ACCESS(AUTHORITY_INFO_ACCESS *a, unsigned char **out);
+const ASN1_ITEM * AUTHORITY_INFO_ACCESS_it(void);
 const ASN1_ITEM * POLICY_MAPPING_it(void);
-POLICY_MAPPING *POLICY_MAPPING_new(void); void POLICY_MAPPING_free(POLICY_MAPPING *a);
+POLICY_MAPPING *POLICY_MAPPING_new(void);
+void POLICY_MAPPING_free(POLICY_MAPPING *a);
 const ASN1_ITEM * POLICY_MAPPINGS_it(void);
 const ASN1_ITEM * GENERAL_SUBTREE_it(void);
-GENERAL_SUBTREE *GENERAL_SUBTREE_new(void); void GENERAL_SUBTREE_free(GENERAL_SUBTREE *a);
+GENERAL_SUBTREE *GENERAL_SUBTREE_new(void);
+void GENERAL_SUBTREE_free(GENERAL_SUBTREE *a);
 const ASN1_ITEM * NAME_CONSTRAINTS_it(void);
-NAME_CONSTRAINTS *NAME_CONSTRAINTS_new(void); void NAME_CONSTRAINTS_free(NAME_CONSTRAINTS *a);
-POLICY_CONSTRAINTS *POLICY_CONSTRAINTS_new(void); void POLICY_CONSTRAINTS_free(POLICY_CONSTRAINTS *a);
+NAME_CONSTRAINTS *NAME_CONSTRAINTS_new(void);
+void NAME_CONSTRAINTS_free(NAME_CONSTRAINTS *a);
+POLICY_CONSTRAINTS *POLICY_CONSTRAINTS_new(void);
+void POLICY_CONSTRAINTS_free(POLICY_CONSTRAINTS *a);
 const ASN1_ITEM * POLICY_CONSTRAINTS_it(void);
 GENERAL_NAME *a2i_GENERAL_NAME(GENERAL_NAME *out,
-const X509V3_EXT_METHOD *method,
-X509V3_CTX *ctx, int gen_type,
-const char *value, int is_nc);
+                               const X509V3_EXT_METHOD *method,
+                               X509V3_CTX *ctx, int gen_type,
+                               const char *value, int is_nc);
 GENERAL_NAME *v2i_GENERAL_NAME(const X509V3_EXT_METHOD *method,
-X509V3_CTX *ctx, CONF_VALUE *cnf);
+                               X509V3_CTX *ctx, CONF_VALUE *cnf);
 GENERAL_NAME *v2i_GENERAL_NAME_ex(GENERAL_NAME *out,
-const X509V3_EXT_METHOD *method,
-X509V3_CTX *ctx, CONF_VALUE *cnf,
-int is_nc);
+                                  const X509V3_EXT_METHOD *method,
+                                  X509V3_CTX *ctx, CONF_VALUE *cnf,
+                                  int is_nc);
 void X509V3_conf_free(CONF_VALUE *val);
 X509_EXTENSION *X509V3_EXT_nconf_nid(CONF *conf, X509V3_CTX *ctx, int ext_nid,
-const char *value);
+                                     const char *value);
 X509_EXTENSION *X509V3_EXT_nconf(CONF *conf, X509V3_CTX *ctx, const char *name,
-const char *value);
+                                 const char *value);
 int X509V3_EXT_add_nconf_sk(CONF *conf, X509V3_CTX *ctx, const char *section,
-struct stack_st_X509_EXTENSION **sk);
+                            struct stack_st_X509_EXTENSION **sk);
 int X509V3_EXT_add_nconf(CONF *conf, X509V3_CTX *ctx, const char *section,
-X509 *cert);
+                         X509 *cert);
 int X509V3_EXT_REQ_add_nconf(CONF *conf, X509V3_CTX *ctx, const char *section,
-X509_REQ *req);
+                             X509_REQ *req);
 int X509V3_EXT_CRL_add_nconf(CONF *conf, X509V3_CTX *ctx, const char *section,
-X509_CRL *crl);
+                             X509_CRL *crl);
 X509_EXTENSION *X509V3_EXT_conf_nid(struct lhash_st_CONF_VALUE *conf,
-X509V3_CTX *ctx, int ext_nid,
-const char *value);
+                                    X509V3_CTX *ctx, int ext_nid,
+                                    const char *value);
 X509_EXTENSION *X509V3_EXT_conf(struct lhash_st_CONF_VALUE *conf, X509V3_CTX *ctx,
-const char *name, const char *value);
+                                const char *name, const char *value);
 int X509V3_EXT_add_conf(struct lhash_st_CONF_VALUE *conf, X509V3_CTX *ctx,
-const char *section, X509 *cert);
+                        const char *section, X509 *cert);
 int X509V3_EXT_REQ_add_conf(struct lhash_st_CONF_VALUE *conf, X509V3_CTX *ctx,
-const char *section, X509_REQ *req);
+                            const char *section, X509_REQ *req);
 int X509V3_EXT_CRL_add_conf(struct lhash_st_CONF_VALUE *conf, X509V3_CTX *ctx,
-const char *section, X509_CRL *crl);
+                            const char *section, X509_CRL *crl);
 int X509V3_add_value_bool_nf(const char *name, int asn1_bool,
-struct stack_st_CONF_VALUE **extlist);
+                             struct stack_st_CONF_VALUE **extlist);
 int X509V3_get_value_bool(const CONF_VALUE *value, int *asn1_bool);
 int X509V3_get_value_int(const CONF_VALUE *value, ASN1_INTEGER **aint);
 void X509V3_set_nconf(X509V3_CTX *ctx, CONF *conf);
@@ -6417,20 +11219,20 @@ struct stack_st_CONF_VALUE *X509V3_get_section(X509V3_CTX *ctx, const char *sect
 void X509V3_string_free(X509V3_CTX *ctx, char *str);
 void X509V3_section_free(X509V3_CTX *ctx, struct stack_st_CONF_VALUE *section);
 void X509V3_set_ctx(X509V3_CTX *ctx, X509 *issuer, X509 *subject,
-X509_REQ *req, X509_CRL *crl, int flags);
+                    X509_REQ *req, X509_CRL *crl, int flags);
 int X509V3_add_value(const char *name, const char *value,
-struct stack_st_CONF_VALUE **extlist);
+                     struct stack_st_CONF_VALUE **extlist);
 int X509V3_add_value_uchar(const char *name, const unsigned char *value,
-struct stack_st_CONF_VALUE **extlist);
+                           struct stack_st_CONF_VALUE **extlist);
 int X509V3_add_value_bool(const char *name, int asn1_bool,
-struct stack_st_CONF_VALUE **extlist);
+                          struct stack_st_CONF_VALUE **extlist);
 int X509V3_add_value_int(const char *name, const ASN1_INTEGER *aint,
-struct stack_st_CONF_VALUE **extlist);
+                         struct stack_st_CONF_VALUE **extlist);
 char *i2s_ASN1_INTEGER(X509V3_EXT_METHOD *meth, const ASN1_INTEGER *aint);
 ASN1_INTEGER *s2i_ASN1_INTEGER(X509V3_EXT_METHOD *meth, const char *value);
 char *i2s_ASN1_ENUMERATED(X509V3_EXT_METHOD *meth, const ASN1_ENUMERATED *aint);
 char *i2s_ASN1_ENUMERATED_TABLE(X509V3_EXT_METHOD *meth,
-const ASN1_ENUMERATED *aint);
+                                const ASN1_ENUMERATED *aint);
 int X509V3_EXT_add(X509V3_EXT_METHOD *ext);
 int X509V3_EXT_add_list(X509V3_EXT_METHOD *extlist);
 int X509V3_EXT_add_alias(int nid_to, int nid_from);
@@ -6441,20 +11243,20 @@ int X509V3_add_standard_extensions(void);
 struct stack_st_CONF_VALUE *X509V3_parse_list(const char *line);
 void *X509V3_EXT_d2i(X509_EXTENSION *ext);
 void *X509V3_get_d2i(const struct stack_st_X509_EXTENSION *x, int nid, int *crit,
-int *idx);
+                     int *idx);
 X509_EXTENSION *X509V3_EXT_i2d(int ext_nid, int crit, void *ext_struc);
 int X509V3_add1_i2d(struct stack_st_X509_EXTENSION **x, int nid, void *value,
-int crit, unsigned long flags);
+                    int crit, unsigned long flags);
 #line 634 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509v3.h"
 void X509V3_EXT_val_prn(BIO *out, struct stack_st_CONF_VALUE *val, int indent,
-int ml);
+                        int ml);
 int X509V3_EXT_print(BIO *out, X509_EXTENSION *ext, unsigned long flag,
-int indent);
+                     int indent);
 int X509V3_EXT_print_fp(FILE *out, X509_EXTENSION *ext, int flag, int indent);
 #line 642 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509v3.h"
 int X509V3_extensions_print(BIO *out, const char *title,
-const struct stack_st_X509_EXTENSION *exts,
-unsigned long flag, int indent);
+                            const struct stack_st_X509_EXTENSION *exts,
+                            unsigned long flag, int indent);
 int X509_check_ca(X509 *x);
 int X509_check_purpose(X509 *x, int id, int ca);
 int X509_supported_extension(X509_EXTENSION *ex);
@@ -6473,8 +11275,8 @@ X509_PURPOSE *X509_PURPOSE_get0(int idx);
 int X509_PURPOSE_get_by_sname(const char *sname);
 int X509_PURPOSE_get_by_id(int id);
 int X509_PURPOSE_add(int id, int trust, int flags,
-int (*ck) (const X509_PURPOSE *, const X509 *, int),
-const char *name, const char *sname, void *arg);
+                     int (*ck) (const X509_PURPOSE *, const X509 *, int),
+                     const char *name, const char *sname, void *arg);
 char *X509_PURPOSE_get0_name(const X509_PURPOSE *xp);
 char *X509_PURPOSE_get0_sname(const X509_PURPOSE *xp);
 int X509_PURPOSE_get_trust(const X509_PURPOSE *xp);
@@ -6485,88 +11287,496 @@ struct stack_st_OPENSSL_STRING *X509_REQ_get1_email(X509_REQ *x);
 void X509_email_free(struct stack_st_OPENSSL_STRING *sk);
 struct stack_st_OPENSSL_STRING *X509_get1_ocsp(X509 *x);
 int X509_check_host(X509 *x, const char *chk, size_t chklen,
-unsigned int flags, char **peername);
+                    unsigned int flags, char **peername);
 int X509_check_email(X509 *x, const char *chk, size_t chklen,
-unsigned int flags);
+                     unsigned int flags);
 int X509_check_ip(X509 *x, const unsigned char *chk, size_t chklen,
-unsigned int flags);
+                  unsigned int flags);
 int X509_check_ip_asc(X509 *x, const char *ipasc, unsigned int flags);
 ASN1_OCTET_STRING *a2i_IPADDRESS(const char *ipasc);
 ASN1_OCTET_STRING *a2i_IPADDRESS_NC(const char *ipasc);
 int X509V3_NAME_from_section(X509_NAME *nm, struct stack_st_CONF_VALUE *dn_sk,
-unsigned long chtype);
+                             unsigned long chtype);
 void X509_POLICY_NODE_print(BIO *out, X509_POLICY_NODE *node, int indent);
-struct stack_st_X509_POLICY_NODE; typedef int (*sk_X509_POLICY_NODE_compfunc)(const X509_POLICY_NODE * const *a, const X509_POLICY_NODE *const *b); typedef void (*sk_X509_POLICY_NODE_freefunc)(X509_POLICY_NODE *a); typedef X509_POLICY_NODE * (*sk_X509_POLICY_NODE_copyfunc)(const X509_POLICY_NODE *a); static __inline int sk_X509_POLICY_NODE_num(const struct stack_st_X509_POLICY_NODE *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_value(const struct stack_st_X509_POLICY_NODE *sk, int idx) { return (X509_POLICY_NODE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_X509_POLICY_NODE *sk_X509_POLICY_NODE_new(sk_X509_POLICY_NODE_compfunc compare) { return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_X509_POLICY_NODE *sk_X509_POLICY_NODE_new_null(void) { return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_new_null(); } static __inline void sk_X509_POLICY_NODE_free(struct stack_st_X509_POLICY_NODE *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_X509_POLICY_NODE_zero(struct stack_st_X509_POLICY_NODE *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_delete(struct stack_st_X509_POLICY_NODE *sk, int i) { return (X509_POLICY_NODE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_delete_ptr(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr) { return (X509_POLICY_NODE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_POLICY_NODE_push(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_POLICY_NODE_unshift(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_pop(struct stack_st_X509_POLICY_NODE *sk) { return (X509_POLICY_NODE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_shift(struct stack_st_X509_POLICY_NODE *sk) { return (X509_POLICY_NODE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_X509_POLICY_NODE_pop_free(struct stack_st_X509_POLICY_NODE *sk, sk_X509_POLICY_NODE_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_X509_POLICY_NODE_insert(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_set(struct stack_st_X509_POLICY_NODE *sk, int idx, X509_POLICY_NODE *ptr) { return (X509_POLICY_NODE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_X509_POLICY_NODE_find(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_X509_POLICY_NODE_find_ex(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_X509_POLICY_NODE_sort(struct stack_st_X509_POLICY_NODE *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_X509_POLICY_NODE_is_sorted(const struct stack_st_X509_POLICY_NODE *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_POLICY_NODE * sk_X509_POLICY_NODE_dup(const struct stack_st_X509_POLICY_NODE *sk) { return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_X509_POLICY_NODE *sk_X509_POLICY_NODE_deep_copy(const struct stack_st_X509_POLICY_NODE *sk, sk_X509_POLICY_NODE_copyfunc copyfunc, sk_X509_POLICY_NODE_freefunc freefunc) { return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_X509_POLICY_NODE_compfunc sk_X509_POLICY_NODE_set_cmp_func(struct stack_st_X509_POLICY_NODE *sk, sk_X509_POLICY_NODE_compfunc compare) { return (sk_X509_POLICY_NODE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct ASRange_st {
-ASN1_INTEGER *min, *max;
+struct stack_st_X509_POLICY_NODE;
+typedef int (*sk_X509_POLICY_NODE_compfunc)(const X509_POLICY_NODE * const *a, const X509_POLICY_NODE *const *b);
+typedef void (*sk_X509_POLICY_NODE_freefunc)(X509_POLICY_NODE *a);
+typedef X509_POLICY_NODE * (*sk_X509_POLICY_NODE_copyfunc)(const X509_POLICY_NODE *a);
+static __inline int sk_X509_POLICY_NODE_num(const struct stack_st_X509_POLICY_NODE *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_value(const struct stack_st_X509_POLICY_NODE *sk, int idx)
+{
+    return (X509_POLICY_NODE *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_X509_POLICY_NODE *sk_X509_POLICY_NODE_new(sk_X509_POLICY_NODE_compfunc compare)
+{
+    return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_X509_POLICY_NODE *sk_X509_POLICY_NODE_new_null(void)
+{
+    return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_new_null();
+}
+static __inline void sk_X509_POLICY_NODE_free(struct stack_st_X509_POLICY_NODE *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_POLICY_NODE_zero(struct stack_st_X509_POLICY_NODE *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_delete(struct stack_st_X509_POLICY_NODE *sk, int i)
+{
+    return (X509_POLICY_NODE *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_delete_ptr(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr)
+{
+    return (X509_POLICY_NODE *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_POLICY_NODE_push(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_POLICY_NODE_unshift(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_pop(struct stack_st_X509_POLICY_NODE *sk)
+{
+    return (X509_POLICY_NODE *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_shift(struct stack_st_X509_POLICY_NODE *sk)
+{
+    return (X509_POLICY_NODE *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_X509_POLICY_NODE_pop_free(struct stack_st_X509_POLICY_NODE *sk, sk_X509_POLICY_NODE_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_X509_POLICY_NODE_insert(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline X509_POLICY_NODE *sk_X509_POLICY_NODE_set(struct stack_st_X509_POLICY_NODE *sk, int idx, X509_POLICY_NODE *ptr)
+{
+    return (X509_POLICY_NODE *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_X509_POLICY_NODE_find(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_X509_POLICY_NODE_find_ex(struct stack_st_X509_POLICY_NODE *sk, X509_POLICY_NODE *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_X509_POLICY_NODE_sort(struct stack_st_X509_POLICY_NODE *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_X509_POLICY_NODE_is_sorted(const struct stack_st_X509_POLICY_NODE *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_POLICY_NODE * sk_X509_POLICY_NODE_dup(const struct stack_st_X509_POLICY_NODE *sk)
+{
+    return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_X509_POLICY_NODE *sk_X509_POLICY_NODE_deep_copy(const struct stack_st_X509_POLICY_NODE *sk, sk_X509_POLICY_NODE_copyfunc copyfunc, sk_X509_POLICY_NODE_freefunc freefunc)
+{
+    return (struct stack_st_X509_POLICY_NODE *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_X509_POLICY_NODE_compfunc sk_X509_POLICY_NODE_set_cmp_func(struct stack_st_X509_POLICY_NODE *sk, sk_X509_POLICY_NODE_compfunc compare)
+{
+    return (sk_X509_POLICY_NODE_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct ASRange_st
+{
+    ASN1_INTEGER *min, *max;
 } ASRange;
-typedef struct ASIdOrRange_st {
-int type;
-union {
-ASN1_INTEGER *id;
-ASRange *range;
-} u;
+typedef struct ASIdOrRange_st
+{
+    int type;
+    union
+    {
+        ASN1_INTEGER *id;
+        ASRange *range;
+    } u;
 } ASIdOrRange;
 typedef struct stack_st_ASIdOrRange ASIdOrRanges;
-struct stack_st_ASIdOrRange; typedef int (*sk_ASIdOrRange_compfunc)(const ASIdOrRange * const *a, const ASIdOrRange *const *b); typedef void (*sk_ASIdOrRange_freefunc)(ASIdOrRange *a); typedef ASIdOrRange * (*sk_ASIdOrRange_copyfunc)(const ASIdOrRange *a); static __inline int sk_ASIdOrRange_num(const struct stack_st_ASIdOrRange *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline ASIdOrRange *sk_ASIdOrRange_value(const struct stack_st_ASIdOrRange *sk, int idx) { return (ASIdOrRange *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_ASIdOrRange *sk_ASIdOrRange_new(sk_ASIdOrRange_compfunc compare) { return (struct stack_st_ASIdOrRange *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_ASIdOrRange *sk_ASIdOrRange_new_null(void) { return (struct stack_st_ASIdOrRange *)OPENSSL_sk_new_null(); } static __inline void sk_ASIdOrRange_free(struct stack_st_ASIdOrRange *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_ASIdOrRange_zero(struct stack_st_ASIdOrRange *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline ASIdOrRange *sk_ASIdOrRange_delete(struct stack_st_ASIdOrRange *sk, int i) { return (ASIdOrRange *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline ASIdOrRange *sk_ASIdOrRange_delete_ptr(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr) { return (ASIdOrRange *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASIdOrRange_push(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASIdOrRange_unshift(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline ASIdOrRange *sk_ASIdOrRange_pop(struct stack_st_ASIdOrRange *sk) { return (ASIdOrRange *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline ASIdOrRange *sk_ASIdOrRange_shift(struct stack_st_ASIdOrRange *sk) { return (ASIdOrRange *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_ASIdOrRange_pop_free(struct stack_st_ASIdOrRange *sk, sk_ASIdOrRange_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_ASIdOrRange_insert(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline ASIdOrRange *sk_ASIdOrRange_set(struct stack_st_ASIdOrRange *sk, int idx, ASIdOrRange *ptr) { return (ASIdOrRange *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_ASIdOrRange_find(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_ASIdOrRange_find_ex(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_ASIdOrRange_sort(struct stack_st_ASIdOrRange *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_ASIdOrRange_is_sorted(const struct stack_st_ASIdOrRange *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASIdOrRange * sk_ASIdOrRange_dup(const struct stack_st_ASIdOrRange *sk) { return (struct stack_st_ASIdOrRange *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_ASIdOrRange *sk_ASIdOrRange_deep_copy(const struct stack_st_ASIdOrRange *sk, sk_ASIdOrRange_copyfunc copyfunc, sk_ASIdOrRange_freefunc freefunc) { return (struct stack_st_ASIdOrRange *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_ASIdOrRange_compfunc sk_ASIdOrRange_set_cmp_func(struct stack_st_ASIdOrRange *sk, sk_ASIdOrRange_compfunc compare) { return (sk_ASIdOrRange_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct ASIdentifierChoice_st {
-int type;
-union {
-ASN1_NULL *inherit;
-ASIdOrRanges *asIdsOrRanges;
-} u;
+struct stack_st_ASIdOrRange;
+typedef int (*sk_ASIdOrRange_compfunc)(const ASIdOrRange * const *a, const ASIdOrRange *const *b);
+typedef void (*sk_ASIdOrRange_freefunc)(ASIdOrRange *a);
+typedef ASIdOrRange * (*sk_ASIdOrRange_copyfunc)(const ASIdOrRange *a);
+static __inline int sk_ASIdOrRange_num(const struct stack_st_ASIdOrRange *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline ASIdOrRange *sk_ASIdOrRange_value(const struct stack_st_ASIdOrRange *sk, int idx)
+{
+    return (ASIdOrRange *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_ASIdOrRange *sk_ASIdOrRange_new(sk_ASIdOrRange_compfunc compare)
+{
+    return (struct stack_st_ASIdOrRange *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_ASIdOrRange *sk_ASIdOrRange_new_null(void)
+{
+    return (struct stack_st_ASIdOrRange *)OPENSSL_sk_new_null();
+}
+static __inline void sk_ASIdOrRange_free(struct stack_st_ASIdOrRange *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASIdOrRange_zero(struct stack_st_ASIdOrRange *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline ASIdOrRange *sk_ASIdOrRange_delete(struct stack_st_ASIdOrRange *sk, int i)
+{
+    return (ASIdOrRange *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline ASIdOrRange *sk_ASIdOrRange_delete_ptr(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr)
+{
+    return (ASIdOrRange *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASIdOrRange_push(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASIdOrRange_unshift(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline ASIdOrRange *sk_ASIdOrRange_pop(struct stack_st_ASIdOrRange *sk)
+{
+    return (ASIdOrRange *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline ASIdOrRange *sk_ASIdOrRange_shift(struct stack_st_ASIdOrRange *sk)
+{
+    return (ASIdOrRange *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_ASIdOrRange_pop_free(struct stack_st_ASIdOrRange *sk, sk_ASIdOrRange_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_ASIdOrRange_insert(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline ASIdOrRange *sk_ASIdOrRange_set(struct stack_st_ASIdOrRange *sk, int idx, ASIdOrRange *ptr)
+{
+    return (ASIdOrRange *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_ASIdOrRange_find(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_ASIdOrRange_find_ex(struct stack_st_ASIdOrRange *sk, ASIdOrRange *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_ASIdOrRange_sort(struct stack_st_ASIdOrRange *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_ASIdOrRange_is_sorted(const struct stack_st_ASIdOrRange *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASIdOrRange * sk_ASIdOrRange_dup(const struct stack_st_ASIdOrRange *sk)
+{
+    return (struct stack_st_ASIdOrRange *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_ASIdOrRange *sk_ASIdOrRange_deep_copy(const struct stack_st_ASIdOrRange *sk, sk_ASIdOrRange_copyfunc copyfunc, sk_ASIdOrRange_freefunc freefunc)
+{
+    return (struct stack_st_ASIdOrRange *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_ASIdOrRange_compfunc sk_ASIdOrRange_set_cmp_func(struct stack_st_ASIdOrRange *sk, sk_ASIdOrRange_compfunc compare)
+{
+    return (sk_ASIdOrRange_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct ASIdentifierChoice_st
+{
+    int type;
+    union
+    {
+        ASN1_NULL *inherit;
+        ASIdOrRanges *asIdsOrRanges;
+    } u;
 } ASIdentifierChoice;
-typedef struct ASIdentifiers_st {
-ASIdentifierChoice *asnum, *rdi;
+typedef struct ASIdentifiers_st
+{
+    ASIdentifierChoice *asnum, *rdi;
 } ASIdentifiers;
-ASRange *ASRange_new(void); void ASRange_free(ASRange *a); ASRange *d2i_ASRange(ASRange **a, const unsigned char **in, long len); int i2d_ASRange(ASRange *a, unsigned char **out); const ASN1_ITEM * ASRange_it(void);
-ASIdOrRange *ASIdOrRange_new(void); void ASIdOrRange_free(ASIdOrRange *a); ASIdOrRange *d2i_ASIdOrRange(ASIdOrRange **a, const unsigned char **in, long len); int i2d_ASIdOrRange(ASIdOrRange *a, unsigned char **out); const ASN1_ITEM * ASIdOrRange_it(void);
-ASIdentifierChoice *ASIdentifierChoice_new(void); void ASIdentifierChoice_free(ASIdentifierChoice *a); ASIdentifierChoice *d2i_ASIdentifierChoice(ASIdentifierChoice **a, const unsigned char **in, long len); int i2d_ASIdentifierChoice(ASIdentifierChoice *a, unsigned char **out); const ASN1_ITEM * ASIdentifierChoice_it(void);
-ASIdentifiers *ASIdentifiers_new(void); void ASIdentifiers_free(ASIdentifiers *a); ASIdentifiers *d2i_ASIdentifiers(ASIdentifiers **a, const unsigned char **in, long len); int i2d_ASIdentifiers(ASIdentifiers *a, unsigned char **out); const ASN1_ITEM * ASIdentifiers_it(void);
-typedef struct IPAddressRange_st {
-ASN1_BIT_STRING *min, *max;
+ASRange *ASRange_new(void);
+void ASRange_free(ASRange *a);
+ASRange *d2i_ASRange(ASRange **a, const unsigned char **in, long len);
+int i2d_ASRange(ASRange *a, unsigned char **out);
+const ASN1_ITEM * ASRange_it(void);
+ASIdOrRange *ASIdOrRange_new(void);
+void ASIdOrRange_free(ASIdOrRange *a);
+ASIdOrRange *d2i_ASIdOrRange(ASIdOrRange **a, const unsigned char **in, long len);
+int i2d_ASIdOrRange(ASIdOrRange *a, unsigned char **out);
+const ASN1_ITEM * ASIdOrRange_it(void);
+ASIdentifierChoice *ASIdentifierChoice_new(void);
+void ASIdentifierChoice_free(ASIdentifierChoice *a);
+ASIdentifierChoice *d2i_ASIdentifierChoice(ASIdentifierChoice **a, const unsigned char **in, long len);
+int i2d_ASIdentifierChoice(ASIdentifierChoice *a, unsigned char **out);
+const ASN1_ITEM * ASIdentifierChoice_it(void);
+ASIdentifiers *ASIdentifiers_new(void);
+void ASIdentifiers_free(ASIdentifiers *a);
+ASIdentifiers *d2i_ASIdentifiers(ASIdentifiers **a, const unsigned char **in, long len);
+int i2d_ASIdentifiers(ASIdentifiers *a, unsigned char **out);
+const ASN1_ITEM * ASIdentifiers_it(void);
+typedef struct IPAddressRange_st
+{
+    ASN1_BIT_STRING *min, *max;
 } IPAddressRange;
-typedef struct IPAddressOrRange_st {
-int type;
-union {
-ASN1_BIT_STRING *addressPrefix;
-IPAddressRange *addressRange;
-} u;
+typedef struct IPAddressOrRange_st
+{
+    int type;
+    union
+    {
+        ASN1_BIT_STRING *addressPrefix;
+        IPAddressRange *addressRange;
+    } u;
 } IPAddressOrRange;
 typedef struct stack_st_IPAddressOrRange IPAddressOrRanges;
-struct stack_st_IPAddressOrRange; typedef int (*sk_IPAddressOrRange_compfunc)(const IPAddressOrRange * const *a, const IPAddressOrRange *const *b); typedef void (*sk_IPAddressOrRange_freefunc)(IPAddressOrRange *a); typedef IPAddressOrRange * (*sk_IPAddressOrRange_copyfunc)(const IPAddressOrRange *a); static __inline int sk_IPAddressOrRange_num(const struct stack_st_IPAddressOrRange *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline IPAddressOrRange *sk_IPAddressOrRange_value(const struct stack_st_IPAddressOrRange *sk, int idx) { return (IPAddressOrRange *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_IPAddressOrRange *sk_IPAddressOrRange_new(sk_IPAddressOrRange_compfunc compare) { return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_IPAddressOrRange *sk_IPAddressOrRange_new_null(void) { return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_new_null(); } static __inline void sk_IPAddressOrRange_free(struct stack_st_IPAddressOrRange *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_IPAddressOrRange_zero(struct stack_st_IPAddressOrRange *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline IPAddressOrRange *sk_IPAddressOrRange_delete(struct stack_st_IPAddressOrRange *sk, int i) { return (IPAddressOrRange *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline IPAddressOrRange *sk_IPAddressOrRange_delete_ptr(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr) { return (IPAddressOrRange *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_IPAddressOrRange_push(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_IPAddressOrRange_unshift(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline IPAddressOrRange *sk_IPAddressOrRange_pop(struct stack_st_IPAddressOrRange *sk) { return (IPAddressOrRange *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline IPAddressOrRange *sk_IPAddressOrRange_shift(struct stack_st_IPAddressOrRange *sk) { return (IPAddressOrRange *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_IPAddressOrRange_pop_free(struct stack_st_IPAddressOrRange *sk, sk_IPAddressOrRange_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_IPAddressOrRange_insert(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline IPAddressOrRange *sk_IPAddressOrRange_set(struct stack_st_IPAddressOrRange *sk, int idx, IPAddressOrRange *ptr) { return (IPAddressOrRange *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_IPAddressOrRange_find(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_IPAddressOrRange_find_ex(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_IPAddressOrRange_sort(struct stack_st_IPAddressOrRange *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_IPAddressOrRange_is_sorted(const struct stack_st_IPAddressOrRange *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_IPAddressOrRange * sk_IPAddressOrRange_dup(const struct stack_st_IPAddressOrRange *sk) { return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_IPAddressOrRange *sk_IPAddressOrRange_deep_copy(const struct stack_st_IPAddressOrRange *sk, sk_IPAddressOrRange_copyfunc copyfunc, sk_IPAddressOrRange_freefunc freefunc) { return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_IPAddressOrRange_compfunc sk_IPAddressOrRange_set_cmp_func(struct stack_st_IPAddressOrRange *sk, sk_IPAddressOrRange_compfunc compare) { return (sk_IPAddressOrRange_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-typedef struct IPAddressChoice_st {
-int type;
-union {
-ASN1_NULL *inherit;
-IPAddressOrRanges *addressesOrRanges;
-} u;
+struct stack_st_IPAddressOrRange;
+typedef int (*sk_IPAddressOrRange_compfunc)(const IPAddressOrRange * const *a, const IPAddressOrRange *const *b);
+typedef void (*sk_IPAddressOrRange_freefunc)(IPAddressOrRange *a);
+typedef IPAddressOrRange * (*sk_IPAddressOrRange_copyfunc)(const IPAddressOrRange *a);
+static __inline int sk_IPAddressOrRange_num(const struct stack_st_IPAddressOrRange *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline IPAddressOrRange *sk_IPAddressOrRange_value(const struct stack_st_IPAddressOrRange *sk, int idx)
+{
+    return (IPAddressOrRange *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_IPAddressOrRange *sk_IPAddressOrRange_new(sk_IPAddressOrRange_compfunc compare)
+{
+    return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_IPAddressOrRange *sk_IPAddressOrRange_new_null(void)
+{
+    return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_new_null();
+}
+static __inline void sk_IPAddressOrRange_free(struct stack_st_IPAddressOrRange *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_IPAddressOrRange_zero(struct stack_st_IPAddressOrRange *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline IPAddressOrRange *sk_IPAddressOrRange_delete(struct stack_st_IPAddressOrRange *sk, int i)
+{
+    return (IPAddressOrRange *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline IPAddressOrRange *sk_IPAddressOrRange_delete_ptr(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr)
+{
+    return (IPAddressOrRange *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_IPAddressOrRange_push(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_IPAddressOrRange_unshift(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline IPAddressOrRange *sk_IPAddressOrRange_pop(struct stack_st_IPAddressOrRange *sk)
+{
+    return (IPAddressOrRange *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline IPAddressOrRange *sk_IPAddressOrRange_shift(struct stack_st_IPAddressOrRange *sk)
+{
+    return (IPAddressOrRange *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_IPAddressOrRange_pop_free(struct stack_st_IPAddressOrRange *sk, sk_IPAddressOrRange_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_IPAddressOrRange_insert(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline IPAddressOrRange *sk_IPAddressOrRange_set(struct stack_st_IPAddressOrRange *sk, int idx, IPAddressOrRange *ptr)
+{
+    return (IPAddressOrRange *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_IPAddressOrRange_find(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_IPAddressOrRange_find_ex(struct stack_st_IPAddressOrRange *sk, IPAddressOrRange *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_IPAddressOrRange_sort(struct stack_st_IPAddressOrRange *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_IPAddressOrRange_is_sorted(const struct stack_st_IPAddressOrRange *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_IPAddressOrRange * sk_IPAddressOrRange_dup(const struct stack_st_IPAddressOrRange *sk)
+{
+    return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_IPAddressOrRange *sk_IPAddressOrRange_deep_copy(const struct stack_st_IPAddressOrRange *sk, sk_IPAddressOrRange_copyfunc copyfunc, sk_IPAddressOrRange_freefunc freefunc)
+{
+    return (struct stack_st_IPAddressOrRange *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_IPAddressOrRange_compfunc sk_IPAddressOrRange_set_cmp_func(struct stack_st_IPAddressOrRange *sk, sk_IPAddressOrRange_compfunc compare)
+{
+    return (sk_IPAddressOrRange_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+typedef struct IPAddressChoice_st
+{
+    int type;
+    union
+    {
+        ASN1_NULL *inherit;
+        IPAddressOrRanges *addressesOrRanges;
+    } u;
 } IPAddressChoice;
-typedef struct IPAddressFamily_st {
-ASN1_OCTET_STRING *addressFamily;
-IPAddressChoice *ipAddressChoice;
+typedef struct IPAddressFamily_st
+{
+    ASN1_OCTET_STRING *addressFamily;
+    IPAddressChoice *ipAddressChoice;
 } IPAddressFamily;
 typedef struct stack_st_IPAddressFamily IPAddrBlocks;
-struct stack_st_IPAddressFamily; typedef int (*sk_IPAddressFamily_compfunc)(const IPAddressFamily * const *a, const IPAddressFamily *const *b); typedef void (*sk_IPAddressFamily_freefunc)(IPAddressFamily *a); typedef IPAddressFamily * (*sk_IPAddressFamily_copyfunc)(const IPAddressFamily *a); static __inline int sk_IPAddressFamily_num(const struct stack_st_IPAddressFamily *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline IPAddressFamily *sk_IPAddressFamily_value(const struct stack_st_IPAddressFamily *sk, int idx) { return (IPAddressFamily *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_IPAddressFamily *sk_IPAddressFamily_new(sk_IPAddressFamily_compfunc compare) { return (struct stack_st_IPAddressFamily *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_IPAddressFamily *sk_IPAddressFamily_new_null(void) { return (struct stack_st_IPAddressFamily *)OPENSSL_sk_new_null(); } static __inline void sk_IPAddressFamily_free(struct stack_st_IPAddressFamily *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_IPAddressFamily_zero(struct stack_st_IPAddressFamily *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline IPAddressFamily *sk_IPAddressFamily_delete(struct stack_st_IPAddressFamily *sk, int i) { return (IPAddressFamily *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline IPAddressFamily *sk_IPAddressFamily_delete_ptr(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr) { return (IPAddressFamily *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_IPAddressFamily_push(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_IPAddressFamily_unshift(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline IPAddressFamily *sk_IPAddressFamily_pop(struct stack_st_IPAddressFamily *sk) { return (IPAddressFamily *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline IPAddressFamily *sk_IPAddressFamily_shift(struct stack_st_IPAddressFamily *sk) { return (IPAddressFamily *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_IPAddressFamily_pop_free(struct stack_st_IPAddressFamily *sk, sk_IPAddressFamily_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_IPAddressFamily_insert(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline IPAddressFamily *sk_IPAddressFamily_set(struct stack_st_IPAddressFamily *sk, int idx, IPAddressFamily *ptr) { return (IPAddressFamily *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_IPAddressFamily_find(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_IPAddressFamily_find_ex(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_IPAddressFamily_sort(struct stack_st_IPAddressFamily *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_IPAddressFamily_is_sorted(const struct stack_st_IPAddressFamily *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_IPAddressFamily * sk_IPAddressFamily_dup(const struct stack_st_IPAddressFamily *sk) { return (struct stack_st_IPAddressFamily *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_IPAddressFamily *sk_IPAddressFamily_deep_copy(const struct stack_st_IPAddressFamily *sk, sk_IPAddressFamily_copyfunc copyfunc, sk_IPAddressFamily_freefunc freefunc) { return (struct stack_st_IPAddressFamily *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_IPAddressFamily_compfunc sk_IPAddressFamily_set_cmp_func(struct stack_st_IPAddressFamily *sk, sk_IPAddressFamily_compfunc compare) { return (sk_IPAddressFamily_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-IPAddressRange *IPAddressRange_new(void); void IPAddressRange_free(IPAddressRange *a); IPAddressRange *d2i_IPAddressRange(IPAddressRange **a, const unsigned char **in, long len); int i2d_IPAddressRange(IPAddressRange *a, unsigned char **out); const ASN1_ITEM * IPAddressRange_it(void);
-IPAddressOrRange *IPAddressOrRange_new(void); void IPAddressOrRange_free(IPAddressOrRange *a); IPAddressOrRange *d2i_IPAddressOrRange(IPAddressOrRange **a, const unsigned char **in, long len); int i2d_IPAddressOrRange(IPAddressOrRange *a, unsigned char **out); const ASN1_ITEM * IPAddressOrRange_it(void);
-IPAddressChoice *IPAddressChoice_new(void); void IPAddressChoice_free(IPAddressChoice *a); IPAddressChoice *d2i_IPAddressChoice(IPAddressChoice **a, const unsigned char **in, long len); int i2d_IPAddressChoice(IPAddressChoice *a, unsigned char **out); const ASN1_ITEM * IPAddressChoice_it(void);
-IPAddressFamily *IPAddressFamily_new(void); void IPAddressFamily_free(IPAddressFamily *a); IPAddressFamily *d2i_IPAddressFamily(IPAddressFamily **a, const unsigned char **in, long len); int i2d_IPAddressFamily(IPAddressFamily *a, unsigned char **out); const ASN1_ITEM * IPAddressFamily_it(void);
+struct stack_st_IPAddressFamily;
+typedef int (*sk_IPAddressFamily_compfunc)(const IPAddressFamily * const *a, const IPAddressFamily *const *b);
+typedef void (*sk_IPAddressFamily_freefunc)(IPAddressFamily *a);
+typedef IPAddressFamily * (*sk_IPAddressFamily_copyfunc)(const IPAddressFamily *a);
+static __inline int sk_IPAddressFamily_num(const struct stack_st_IPAddressFamily *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline IPAddressFamily *sk_IPAddressFamily_value(const struct stack_st_IPAddressFamily *sk, int idx)
+{
+    return (IPAddressFamily *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_IPAddressFamily *sk_IPAddressFamily_new(sk_IPAddressFamily_compfunc compare)
+{
+    return (struct stack_st_IPAddressFamily *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_IPAddressFamily *sk_IPAddressFamily_new_null(void)
+{
+    return (struct stack_st_IPAddressFamily *)OPENSSL_sk_new_null();
+}
+static __inline void sk_IPAddressFamily_free(struct stack_st_IPAddressFamily *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_IPAddressFamily_zero(struct stack_st_IPAddressFamily *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline IPAddressFamily *sk_IPAddressFamily_delete(struct stack_st_IPAddressFamily *sk, int i)
+{
+    return (IPAddressFamily *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline IPAddressFamily *sk_IPAddressFamily_delete_ptr(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr)
+{
+    return (IPAddressFamily *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_IPAddressFamily_push(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_IPAddressFamily_unshift(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline IPAddressFamily *sk_IPAddressFamily_pop(struct stack_st_IPAddressFamily *sk)
+{
+    return (IPAddressFamily *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline IPAddressFamily *sk_IPAddressFamily_shift(struct stack_st_IPAddressFamily *sk)
+{
+    return (IPAddressFamily *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_IPAddressFamily_pop_free(struct stack_st_IPAddressFamily *sk, sk_IPAddressFamily_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_IPAddressFamily_insert(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline IPAddressFamily *sk_IPAddressFamily_set(struct stack_st_IPAddressFamily *sk, int idx, IPAddressFamily *ptr)
+{
+    return (IPAddressFamily *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_IPAddressFamily_find(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_IPAddressFamily_find_ex(struct stack_st_IPAddressFamily *sk, IPAddressFamily *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_IPAddressFamily_sort(struct stack_st_IPAddressFamily *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_IPAddressFamily_is_sorted(const struct stack_st_IPAddressFamily *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_IPAddressFamily * sk_IPAddressFamily_dup(const struct stack_st_IPAddressFamily *sk)
+{
+    return (struct stack_st_IPAddressFamily *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_IPAddressFamily *sk_IPAddressFamily_deep_copy(const struct stack_st_IPAddressFamily *sk, sk_IPAddressFamily_copyfunc copyfunc, sk_IPAddressFamily_freefunc freefunc)
+{
+    return (struct stack_st_IPAddressFamily *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_IPAddressFamily_compfunc sk_IPAddressFamily_set_cmp_func(struct stack_st_IPAddressFamily *sk, sk_IPAddressFamily_compfunc compare)
+{
+    return (sk_IPAddressFamily_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+IPAddressRange *IPAddressRange_new(void);
+void IPAddressRange_free(IPAddressRange *a);
+IPAddressRange *d2i_IPAddressRange(IPAddressRange **a, const unsigned char **in, long len);
+int i2d_IPAddressRange(IPAddressRange *a, unsigned char **out);
+const ASN1_ITEM * IPAddressRange_it(void);
+IPAddressOrRange *IPAddressOrRange_new(void);
+void IPAddressOrRange_free(IPAddressOrRange *a);
+IPAddressOrRange *d2i_IPAddressOrRange(IPAddressOrRange **a, const unsigned char **in, long len);
+int i2d_IPAddressOrRange(IPAddressOrRange *a, unsigned char **out);
+const ASN1_ITEM * IPAddressOrRange_it(void);
+IPAddressChoice *IPAddressChoice_new(void);
+void IPAddressChoice_free(IPAddressChoice *a);
+IPAddressChoice *d2i_IPAddressChoice(IPAddressChoice **a, const unsigned char **in, long len);
+int i2d_IPAddressChoice(IPAddressChoice *a, unsigned char **out);
+const ASN1_ITEM * IPAddressChoice_it(void);
+IPAddressFamily *IPAddressFamily_new(void);
+void IPAddressFamily_free(IPAddressFamily *a);
+IPAddressFamily *d2i_IPAddressFamily(IPAddressFamily **a, const unsigned char **in, long len);
+int i2d_IPAddressFamily(IPAddressFamily *a, unsigned char **out);
+const ASN1_ITEM * IPAddressFamily_it(void);
 int X509v3_asid_add_inherit(ASIdentifiers *asid, int which);
 int X509v3_asid_add_id_or_range(ASIdentifiers *asid, int which,
-ASN1_INTEGER *min, ASN1_INTEGER *max);
+                                ASN1_INTEGER *min, ASN1_INTEGER *max);
 int X509v3_addr_add_inherit(IPAddrBlocks *addr,
-const unsigned afi, const unsigned *safi);
+                            const unsigned afi, const unsigned *safi);
 int X509v3_addr_add_prefix(IPAddrBlocks *addr,
-const unsigned afi, const unsigned *safi,
-unsigned char *a, const int prefixlen);
+                           const unsigned afi, const unsigned *safi,
+                           unsigned char *a, const int prefixlen);
 int X509v3_addr_add_range(IPAddrBlocks *addr,
-const unsigned afi, const unsigned *safi,
-unsigned char *min, unsigned char *max);
+                          const unsigned afi, const unsigned *safi,
+                          unsigned char *min, unsigned char *max);
 unsigned X509v3_addr_get_afi(const IPAddressFamily *f);
 int X509v3_addr_get_range(IPAddressOrRange *aor, const unsigned afi,
-unsigned char *min, unsigned char *max,
-const int length);
+                          unsigned char *min, unsigned char *max,
+                          const int length);
 int X509v3_asid_is_canonical(ASIdentifiers *asid);
 int X509v3_addr_is_canonical(IPAddrBlocks *addr);
 int X509v3_asid_canonize(ASIdentifiers *asid);
@@ -6578,10 +11788,10 @@ int X509v3_addr_subset(IPAddrBlocks *a, IPAddrBlocks *b);
 int X509v3_asid_validate_path(X509_STORE_CTX *);
 int X509v3_addr_validate_path(X509_STORE_CTX *);
 int X509v3_asid_validate_resource_set(struct stack_st_X509 *chain,
-ASIdentifiers *ext,
-int allow_inheritance);
+                                      ASIdentifiers *ext,
+                                      int allow_inheritance);
 int X509v3_addr_validate_resource_set(struct stack_st_X509 *chain,
-IPAddrBlocks *ext, int allow_inheritance);
+                                      IPAddrBlocks *ext, int allow_inheritance);
 #line 862 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509v3.h"
 int ERR_load_X509V3_strings(void);
 #line 1006 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/x509v3.h"
@@ -6595,12 +11805,384 @@ typedef struct CMS_ReceiptRequest_st CMS_ReceiptRequest;
 typedef struct CMS_Receipt_st CMS_Receipt;
 typedef struct CMS_RecipientEncryptedKey_st CMS_RecipientEncryptedKey;
 typedef struct CMS_OtherKeyAttribute_st CMS_OtherKeyAttribute;
-struct stack_st_CMS_SignerInfo; typedef int (*sk_CMS_SignerInfo_compfunc)(const CMS_SignerInfo * const *a, const CMS_SignerInfo *const *b); typedef void (*sk_CMS_SignerInfo_freefunc)(CMS_SignerInfo *a); typedef CMS_SignerInfo * (*sk_CMS_SignerInfo_copyfunc)(const CMS_SignerInfo *a); static __inline int sk_CMS_SignerInfo_num(const struct stack_st_CMS_SignerInfo *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CMS_SignerInfo *sk_CMS_SignerInfo_value(const struct stack_st_CMS_SignerInfo *sk, int idx) { return (CMS_SignerInfo *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CMS_SignerInfo *sk_CMS_SignerInfo_new(sk_CMS_SignerInfo_compfunc compare) { return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CMS_SignerInfo *sk_CMS_SignerInfo_new_null(void) { return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_new_null(); } static __inline void sk_CMS_SignerInfo_free(struct stack_st_CMS_SignerInfo *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CMS_SignerInfo_zero(struct stack_st_CMS_SignerInfo *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CMS_SignerInfo *sk_CMS_SignerInfo_delete(struct stack_st_CMS_SignerInfo *sk, int i) { return (CMS_SignerInfo *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CMS_SignerInfo *sk_CMS_SignerInfo_delete_ptr(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr) { return (CMS_SignerInfo *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_SignerInfo_push(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_SignerInfo_unshift(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CMS_SignerInfo *sk_CMS_SignerInfo_pop(struct stack_st_CMS_SignerInfo *sk) { return (CMS_SignerInfo *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CMS_SignerInfo *sk_CMS_SignerInfo_shift(struct stack_st_CMS_SignerInfo *sk) { return (CMS_SignerInfo *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CMS_SignerInfo_pop_free(struct stack_st_CMS_SignerInfo *sk, sk_CMS_SignerInfo_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CMS_SignerInfo_insert(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CMS_SignerInfo *sk_CMS_SignerInfo_set(struct stack_st_CMS_SignerInfo *sk, int idx, CMS_SignerInfo *ptr) { return (CMS_SignerInfo *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CMS_SignerInfo_find(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_SignerInfo_find_ex(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CMS_SignerInfo_sort(struct stack_st_CMS_SignerInfo *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CMS_SignerInfo_is_sorted(const struct stack_st_CMS_SignerInfo *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_SignerInfo * sk_CMS_SignerInfo_dup(const struct stack_st_CMS_SignerInfo *sk) { return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_SignerInfo *sk_CMS_SignerInfo_deep_copy(const struct stack_st_CMS_SignerInfo *sk, sk_CMS_SignerInfo_copyfunc copyfunc, sk_CMS_SignerInfo_freefunc freefunc) { return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CMS_SignerInfo_compfunc sk_CMS_SignerInfo_set_cmp_func(struct stack_st_CMS_SignerInfo *sk, sk_CMS_SignerInfo_compfunc compare) { return (sk_CMS_SignerInfo_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_CMS_RecipientEncryptedKey; typedef int (*sk_CMS_RecipientEncryptedKey_compfunc)(const CMS_RecipientEncryptedKey * const *a, const CMS_RecipientEncryptedKey *const *b); typedef void (*sk_CMS_RecipientEncryptedKey_freefunc)(CMS_RecipientEncryptedKey *a); typedef CMS_RecipientEncryptedKey * (*sk_CMS_RecipientEncryptedKey_copyfunc)(const CMS_RecipientEncryptedKey *a); static __inline int sk_CMS_RecipientEncryptedKey_num(const struct stack_st_CMS_RecipientEncryptedKey *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_value(const struct stack_st_CMS_RecipientEncryptedKey *sk, int idx) { return (CMS_RecipientEncryptedKey *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_new(sk_CMS_RecipientEncryptedKey_compfunc compare) { return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_new_null(void) { return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_new_null(); } static __inline void sk_CMS_RecipientEncryptedKey_free(struct stack_st_CMS_RecipientEncryptedKey *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CMS_RecipientEncryptedKey_zero(struct stack_st_CMS_RecipientEncryptedKey *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_delete(struct stack_st_CMS_RecipientEncryptedKey *sk, int i) { return (CMS_RecipientEncryptedKey *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_delete_ptr(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr) { return (CMS_RecipientEncryptedKey *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RecipientEncryptedKey_push(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RecipientEncryptedKey_unshift(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_pop(struct stack_st_CMS_RecipientEncryptedKey *sk) { return (CMS_RecipientEncryptedKey *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_shift(struct stack_st_CMS_RecipientEncryptedKey *sk) { return (CMS_RecipientEncryptedKey *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CMS_RecipientEncryptedKey_pop_free(struct stack_st_CMS_RecipientEncryptedKey *sk, sk_CMS_RecipientEncryptedKey_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CMS_RecipientEncryptedKey_insert(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_set(struct stack_st_CMS_RecipientEncryptedKey *sk, int idx, CMS_RecipientEncryptedKey *ptr) { return (CMS_RecipientEncryptedKey *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CMS_RecipientEncryptedKey_find(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RecipientEncryptedKey_find_ex(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CMS_RecipientEncryptedKey_sort(struct stack_st_CMS_RecipientEncryptedKey *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CMS_RecipientEncryptedKey_is_sorted(const struct stack_st_CMS_RecipientEncryptedKey *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_RecipientEncryptedKey * sk_CMS_RecipientEncryptedKey_dup(const struct stack_st_CMS_RecipientEncryptedKey *sk) { return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_deep_copy(const struct stack_st_CMS_RecipientEncryptedKey *sk, sk_CMS_RecipientEncryptedKey_copyfunc copyfunc, sk_CMS_RecipientEncryptedKey_freefunc freefunc) { return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CMS_RecipientEncryptedKey_compfunc sk_CMS_RecipientEncryptedKey_set_cmp_func(struct stack_st_CMS_RecipientEncryptedKey *sk, sk_CMS_RecipientEncryptedKey_compfunc compare) { return (sk_CMS_RecipientEncryptedKey_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_CMS_RecipientInfo; typedef int (*sk_CMS_RecipientInfo_compfunc)(const CMS_RecipientInfo * const *a, const CMS_RecipientInfo *const *b); typedef void (*sk_CMS_RecipientInfo_freefunc)(CMS_RecipientInfo *a); typedef CMS_RecipientInfo * (*sk_CMS_RecipientInfo_copyfunc)(const CMS_RecipientInfo *a); static __inline int sk_CMS_RecipientInfo_num(const struct stack_st_CMS_RecipientInfo *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_value(const struct stack_st_CMS_RecipientInfo *sk, int idx) { return (CMS_RecipientInfo *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CMS_RecipientInfo *sk_CMS_RecipientInfo_new(sk_CMS_RecipientInfo_compfunc compare) { return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CMS_RecipientInfo *sk_CMS_RecipientInfo_new_null(void) { return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_new_null(); } static __inline void sk_CMS_RecipientInfo_free(struct stack_st_CMS_RecipientInfo *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CMS_RecipientInfo_zero(struct stack_st_CMS_RecipientInfo *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_delete(struct stack_st_CMS_RecipientInfo *sk, int i) { return (CMS_RecipientInfo *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_delete_ptr(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr) { return (CMS_RecipientInfo *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RecipientInfo_push(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RecipientInfo_unshift(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_pop(struct stack_st_CMS_RecipientInfo *sk) { return (CMS_RecipientInfo *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_shift(struct stack_st_CMS_RecipientInfo *sk) { return (CMS_RecipientInfo *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CMS_RecipientInfo_pop_free(struct stack_st_CMS_RecipientInfo *sk, sk_CMS_RecipientInfo_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CMS_RecipientInfo_insert(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_set(struct stack_st_CMS_RecipientInfo *sk, int idx, CMS_RecipientInfo *ptr) { return (CMS_RecipientInfo *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CMS_RecipientInfo_find(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RecipientInfo_find_ex(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CMS_RecipientInfo_sort(struct stack_st_CMS_RecipientInfo *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CMS_RecipientInfo_is_sorted(const struct stack_st_CMS_RecipientInfo *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_RecipientInfo * sk_CMS_RecipientInfo_dup(const struct stack_st_CMS_RecipientInfo *sk) { return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_RecipientInfo *sk_CMS_RecipientInfo_deep_copy(const struct stack_st_CMS_RecipientInfo *sk, sk_CMS_RecipientInfo_copyfunc copyfunc, sk_CMS_RecipientInfo_freefunc freefunc) { return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CMS_RecipientInfo_compfunc sk_CMS_RecipientInfo_set_cmp_func(struct stack_st_CMS_RecipientInfo *sk, sk_CMS_RecipientInfo_compfunc compare) { return (sk_CMS_RecipientInfo_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_CMS_RevocationInfoChoice; typedef int (*sk_CMS_RevocationInfoChoice_compfunc)(const CMS_RevocationInfoChoice * const *a, const CMS_RevocationInfoChoice *const *b); typedef void (*sk_CMS_RevocationInfoChoice_freefunc)(CMS_RevocationInfoChoice *a); typedef CMS_RevocationInfoChoice * (*sk_CMS_RevocationInfoChoice_copyfunc)(const CMS_RevocationInfoChoice *a); static __inline int sk_CMS_RevocationInfoChoice_num(const struct stack_st_CMS_RevocationInfoChoice *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_value(const struct stack_st_CMS_RevocationInfoChoice *sk, int idx) { return (CMS_RevocationInfoChoice *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_new(sk_CMS_RevocationInfoChoice_compfunc compare) { return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_new_null(void) { return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_new_null(); } static __inline void sk_CMS_RevocationInfoChoice_free(struct stack_st_CMS_RevocationInfoChoice *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CMS_RevocationInfoChoice_zero(struct stack_st_CMS_RevocationInfoChoice *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_delete(struct stack_st_CMS_RevocationInfoChoice *sk, int i) { return (CMS_RevocationInfoChoice *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_delete_ptr(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr) { return (CMS_RevocationInfoChoice *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RevocationInfoChoice_push(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RevocationInfoChoice_unshift(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_pop(struct stack_st_CMS_RevocationInfoChoice *sk) { return (CMS_RevocationInfoChoice *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_shift(struct stack_st_CMS_RevocationInfoChoice *sk) { return (CMS_RevocationInfoChoice *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CMS_RevocationInfoChoice_pop_free(struct stack_st_CMS_RevocationInfoChoice *sk, sk_CMS_RevocationInfoChoice_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CMS_RevocationInfoChoice_insert(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_set(struct stack_st_CMS_RevocationInfoChoice *sk, int idx, CMS_RevocationInfoChoice *ptr) { return (CMS_RevocationInfoChoice *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CMS_RevocationInfoChoice_find(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_RevocationInfoChoice_find_ex(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CMS_RevocationInfoChoice_sort(struct stack_st_CMS_RevocationInfoChoice *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CMS_RevocationInfoChoice_is_sorted(const struct stack_st_CMS_RevocationInfoChoice *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_RevocationInfoChoice * sk_CMS_RevocationInfoChoice_dup(const struct stack_st_CMS_RevocationInfoChoice *sk) { return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_deep_copy(const struct stack_st_CMS_RevocationInfoChoice *sk, sk_CMS_RevocationInfoChoice_copyfunc copyfunc, sk_CMS_RevocationInfoChoice_freefunc freefunc) { return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CMS_RevocationInfoChoice_compfunc sk_CMS_RevocationInfoChoice_set_cmp_func(struct stack_st_CMS_RevocationInfoChoice *sk, sk_CMS_RevocationInfoChoice_compfunc compare) { return (sk_CMS_RevocationInfoChoice_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-CMS_ContentInfo *CMS_ContentInfo_new(void); void CMS_ContentInfo_free(CMS_ContentInfo *a); CMS_ContentInfo *d2i_CMS_ContentInfo(CMS_ContentInfo **a, const unsigned char **in, long len); int i2d_CMS_ContentInfo(CMS_ContentInfo *a, unsigned char **out); const ASN1_ITEM * CMS_ContentInfo_it(void);
-CMS_ReceiptRequest *CMS_ReceiptRequest_new(void); void CMS_ReceiptRequest_free(CMS_ReceiptRequest *a); CMS_ReceiptRequest *d2i_CMS_ReceiptRequest(CMS_ReceiptRequest **a, const unsigned char **in, long len); int i2d_CMS_ReceiptRequest(CMS_ReceiptRequest *a, unsigned char **out); const ASN1_ITEM * CMS_ReceiptRequest_it(void);
+struct stack_st_CMS_SignerInfo;
+typedef int (*sk_CMS_SignerInfo_compfunc)(const CMS_SignerInfo * const *a, const CMS_SignerInfo *const *b);
+typedef void (*sk_CMS_SignerInfo_freefunc)(CMS_SignerInfo *a);
+typedef CMS_SignerInfo * (*sk_CMS_SignerInfo_copyfunc)(const CMS_SignerInfo *a);
+static __inline int sk_CMS_SignerInfo_num(const struct stack_st_CMS_SignerInfo *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CMS_SignerInfo *sk_CMS_SignerInfo_value(const struct stack_st_CMS_SignerInfo *sk, int idx)
+{
+    return (CMS_SignerInfo *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CMS_SignerInfo *sk_CMS_SignerInfo_new(sk_CMS_SignerInfo_compfunc compare)
+{
+    return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CMS_SignerInfo *sk_CMS_SignerInfo_new_null(void)
+{
+    return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CMS_SignerInfo_free(struct stack_st_CMS_SignerInfo *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_SignerInfo_zero(struct stack_st_CMS_SignerInfo *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CMS_SignerInfo *sk_CMS_SignerInfo_delete(struct stack_st_CMS_SignerInfo *sk, int i)
+{
+    return (CMS_SignerInfo *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CMS_SignerInfo *sk_CMS_SignerInfo_delete_ptr(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr)
+{
+    return (CMS_SignerInfo *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_SignerInfo_push(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_SignerInfo_unshift(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CMS_SignerInfo *sk_CMS_SignerInfo_pop(struct stack_st_CMS_SignerInfo *sk)
+{
+    return (CMS_SignerInfo *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CMS_SignerInfo *sk_CMS_SignerInfo_shift(struct stack_st_CMS_SignerInfo *sk)
+{
+    return (CMS_SignerInfo *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_SignerInfo_pop_free(struct stack_st_CMS_SignerInfo *sk, sk_CMS_SignerInfo_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CMS_SignerInfo_insert(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CMS_SignerInfo *sk_CMS_SignerInfo_set(struct stack_st_CMS_SignerInfo *sk, int idx, CMS_SignerInfo *ptr)
+{
+    return (CMS_SignerInfo *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CMS_SignerInfo_find(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_SignerInfo_find_ex(struct stack_st_CMS_SignerInfo *sk, CMS_SignerInfo *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CMS_SignerInfo_sort(struct stack_st_CMS_SignerInfo *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CMS_SignerInfo_is_sorted(const struct stack_st_CMS_SignerInfo *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_SignerInfo * sk_CMS_SignerInfo_dup(const struct stack_st_CMS_SignerInfo *sk)
+{
+    return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_SignerInfo *sk_CMS_SignerInfo_deep_copy(const struct stack_st_CMS_SignerInfo *sk, sk_CMS_SignerInfo_copyfunc copyfunc, sk_CMS_SignerInfo_freefunc freefunc)
+{
+    return (struct stack_st_CMS_SignerInfo *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CMS_SignerInfo_compfunc sk_CMS_SignerInfo_set_cmp_func(struct stack_st_CMS_SignerInfo *sk, sk_CMS_SignerInfo_compfunc compare)
+{
+    return (sk_CMS_SignerInfo_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_CMS_RecipientEncryptedKey;
+typedef int (*sk_CMS_RecipientEncryptedKey_compfunc)(const CMS_RecipientEncryptedKey * const *a, const CMS_RecipientEncryptedKey *const *b);
+typedef void (*sk_CMS_RecipientEncryptedKey_freefunc)(CMS_RecipientEncryptedKey *a);
+typedef CMS_RecipientEncryptedKey * (*sk_CMS_RecipientEncryptedKey_copyfunc)(const CMS_RecipientEncryptedKey *a);
+static __inline int sk_CMS_RecipientEncryptedKey_num(const struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_value(const struct stack_st_CMS_RecipientEncryptedKey *sk, int idx)
+{
+    return (CMS_RecipientEncryptedKey *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_new(sk_CMS_RecipientEncryptedKey_compfunc compare)
+{
+    return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_new_null(void)
+{
+    return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CMS_RecipientEncryptedKey_free(struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_RecipientEncryptedKey_zero(struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_delete(struct stack_st_CMS_RecipientEncryptedKey *sk, int i)
+{
+    return (CMS_RecipientEncryptedKey *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_delete_ptr(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr)
+{
+    return (CMS_RecipientEncryptedKey *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientEncryptedKey_push(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientEncryptedKey_unshift(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_pop(struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    return (CMS_RecipientEncryptedKey *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_shift(struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    return (CMS_RecipientEncryptedKey *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_RecipientEncryptedKey_pop_free(struct stack_st_CMS_RecipientEncryptedKey *sk, sk_CMS_RecipientEncryptedKey_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CMS_RecipientEncryptedKey_insert(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_set(struct stack_st_CMS_RecipientEncryptedKey *sk, int idx, CMS_RecipientEncryptedKey *ptr)
+{
+    return (CMS_RecipientEncryptedKey *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientEncryptedKey_find(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientEncryptedKey_find_ex(struct stack_st_CMS_RecipientEncryptedKey *sk, CMS_RecipientEncryptedKey *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CMS_RecipientEncryptedKey_sort(struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CMS_RecipientEncryptedKey_is_sorted(const struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_RecipientEncryptedKey * sk_CMS_RecipientEncryptedKey_dup(const struct stack_st_CMS_RecipientEncryptedKey *sk)
+{
+    return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_RecipientEncryptedKey *sk_CMS_RecipientEncryptedKey_deep_copy(const struct stack_st_CMS_RecipientEncryptedKey *sk, sk_CMS_RecipientEncryptedKey_copyfunc copyfunc, sk_CMS_RecipientEncryptedKey_freefunc freefunc)
+{
+    return (struct stack_st_CMS_RecipientEncryptedKey *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CMS_RecipientEncryptedKey_compfunc sk_CMS_RecipientEncryptedKey_set_cmp_func(struct stack_st_CMS_RecipientEncryptedKey *sk, sk_CMS_RecipientEncryptedKey_compfunc compare)
+{
+    return (sk_CMS_RecipientEncryptedKey_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_CMS_RecipientInfo;
+typedef int (*sk_CMS_RecipientInfo_compfunc)(const CMS_RecipientInfo * const *a, const CMS_RecipientInfo *const *b);
+typedef void (*sk_CMS_RecipientInfo_freefunc)(CMS_RecipientInfo *a);
+typedef CMS_RecipientInfo * (*sk_CMS_RecipientInfo_copyfunc)(const CMS_RecipientInfo *a);
+static __inline int sk_CMS_RecipientInfo_num(const struct stack_st_CMS_RecipientInfo *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_value(const struct stack_st_CMS_RecipientInfo *sk, int idx)
+{
+    return (CMS_RecipientInfo *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CMS_RecipientInfo *sk_CMS_RecipientInfo_new(sk_CMS_RecipientInfo_compfunc compare)
+{
+    return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CMS_RecipientInfo *sk_CMS_RecipientInfo_new_null(void)
+{
+    return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CMS_RecipientInfo_free(struct stack_st_CMS_RecipientInfo *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_RecipientInfo_zero(struct stack_st_CMS_RecipientInfo *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_delete(struct stack_st_CMS_RecipientInfo *sk, int i)
+{
+    return (CMS_RecipientInfo *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_delete_ptr(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr)
+{
+    return (CMS_RecipientInfo *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientInfo_push(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientInfo_unshift(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_pop(struct stack_st_CMS_RecipientInfo *sk)
+{
+    return (CMS_RecipientInfo *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_shift(struct stack_st_CMS_RecipientInfo *sk)
+{
+    return (CMS_RecipientInfo *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_RecipientInfo_pop_free(struct stack_st_CMS_RecipientInfo *sk, sk_CMS_RecipientInfo_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CMS_RecipientInfo_insert(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CMS_RecipientInfo *sk_CMS_RecipientInfo_set(struct stack_st_CMS_RecipientInfo *sk, int idx, CMS_RecipientInfo *ptr)
+{
+    return (CMS_RecipientInfo *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientInfo_find(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RecipientInfo_find_ex(struct stack_st_CMS_RecipientInfo *sk, CMS_RecipientInfo *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CMS_RecipientInfo_sort(struct stack_st_CMS_RecipientInfo *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CMS_RecipientInfo_is_sorted(const struct stack_st_CMS_RecipientInfo *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_RecipientInfo * sk_CMS_RecipientInfo_dup(const struct stack_st_CMS_RecipientInfo *sk)
+{
+    return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_RecipientInfo *sk_CMS_RecipientInfo_deep_copy(const struct stack_st_CMS_RecipientInfo *sk, sk_CMS_RecipientInfo_copyfunc copyfunc, sk_CMS_RecipientInfo_freefunc freefunc)
+{
+    return (struct stack_st_CMS_RecipientInfo *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CMS_RecipientInfo_compfunc sk_CMS_RecipientInfo_set_cmp_func(struct stack_st_CMS_RecipientInfo *sk, sk_CMS_RecipientInfo_compfunc compare)
+{
+    return (sk_CMS_RecipientInfo_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_CMS_RevocationInfoChoice;
+typedef int (*sk_CMS_RevocationInfoChoice_compfunc)(const CMS_RevocationInfoChoice * const *a, const CMS_RevocationInfoChoice *const *b);
+typedef void (*sk_CMS_RevocationInfoChoice_freefunc)(CMS_RevocationInfoChoice *a);
+typedef CMS_RevocationInfoChoice * (*sk_CMS_RevocationInfoChoice_copyfunc)(const CMS_RevocationInfoChoice *a);
+static __inline int sk_CMS_RevocationInfoChoice_num(const struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_value(const struct stack_st_CMS_RevocationInfoChoice *sk, int idx)
+{
+    return (CMS_RevocationInfoChoice *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_new(sk_CMS_RevocationInfoChoice_compfunc compare)
+{
+    return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_new_null(void)
+{
+    return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CMS_RevocationInfoChoice_free(struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_RevocationInfoChoice_zero(struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_delete(struct stack_st_CMS_RevocationInfoChoice *sk, int i)
+{
+    return (CMS_RevocationInfoChoice *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_delete_ptr(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr)
+{
+    return (CMS_RevocationInfoChoice *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RevocationInfoChoice_push(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RevocationInfoChoice_unshift(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_pop(struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    return (CMS_RevocationInfoChoice *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_shift(struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    return (CMS_RevocationInfoChoice *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_RevocationInfoChoice_pop_free(struct stack_st_CMS_RevocationInfoChoice *sk, sk_CMS_RevocationInfoChoice_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CMS_RevocationInfoChoice_insert(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_set(struct stack_st_CMS_RevocationInfoChoice *sk, int idx, CMS_RevocationInfoChoice *ptr)
+{
+    return (CMS_RevocationInfoChoice *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CMS_RevocationInfoChoice_find(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_RevocationInfoChoice_find_ex(struct stack_st_CMS_RevocationInfoChoice *sk, CMS_RevocationInfoChoice *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CMS_RevocationInfoChoice_sort(struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CMS_RevocationInfoChoice_is_sorted(const struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_RevocationInfoChoice * sk_CMS_RevocationInfoChoice_dup(const struct stack_st_CMS_RevocationInfoChoice *sk)
+{
+    return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_RevocationInfoChoice *sk_CMS_RevocationInfoChoice_deep_copy(const struct stack_st_CMS_RevocationInfoChoice *sk, sk_CMS_RevocationInfoChoice_copyfunc copyfunc, sk_CMS_RevocationInfoChoice_freefunc freefunc)
+{
+    return (struct stack_st_CMS_RevocationInfoChoice *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CMS_RevocationInfoChoice_compfunc sk_CMS_RevocationInfoChoice_set_cmp_func(struct stack_st_CMS_RevocationInfoChoice *sk, sk_CMS_RevocationInfoChoice_compfunc compare)
+{
+    return (sk_CMS_RevocationInfoChoice_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+CMS_ContentInfo *CMS_ContentInfo_new(void);
+void CMS_ContentInfo_free(CMS_ContentInfo *a);
+CMS_ContentInfo *d2i_CMS_ContentInfo(CMS_ContentInfo **a, const unsigned char **in, long len);
+int i2d_CMS_ContentInfo(CMS_ContentInfo *a, unsigned char **out);
+const ASN1_ITEM * CMS_ContentInfo_it(void);
+CMS_ReceiptRequest *CMS_ReceiptRequest_new(void);
+void CMS_ReceiptRequest_free(CMS_ReceiptRequest *a);
+CMS_ReceiptRequest *d2i_CMS_ReceiptRequest(CMS_ReceiptRequest **a, const unsigned char **in, long len);
+int i2d_CMS_ReceiptRequest(CMS_ReceiptRequest *a, unsigned char **out);
+const ASN1_ITEM * CMS_ReceiptRequest_it(void);
 int CMS_ContentInfo_print_ctx(BIO *out, CMS_ContentInfo *x, int indent, const ASN1_PCTX *pctx);
 const ASN1_OBJECT *CMS_get0_type(const CMS_ContentInfo *cms);
 BIO *CMS_dataInit(CMS_ContentInfo *cms, BIO *icont);
@@ -6608,7 +12190,10 @@ int CMS_dataFinal(CMS_ContentInfo *cms, BIO *bio);
 ASN1_OCTET_STRING **CMS_get0_content(CMS_ContentInfo *cms);
 int CMS_is_detached(CMS_ContentInfo *cms);
 int CMS_set_detached(CMS_ContentInfo *cms, int detached);
-CMS_ContentInfo *PEM_read_bio_CMS(BIO *bp, CMS_ContentInfo **x, pem_password_cb *cb, void *u); CMS_ContentInfo *PEM_read_CMS(FILE *fp, CMS_ContentInfo **x, pem_password_cb *cb, void *u); int PEM_write_bio_CMS(BIO *bp, const CMS_ContentInfo *x); int PEM_write_CMS(FILE *fp, const CMS_ContentInfo *x);
+CMS_ContentInfo *PEM_read_bio_CMS(BIO *bp, CMS_ContentInfo **x, pem_password_cb *cb, void *u);
+CMS_ContentInfo *PEM_read_CMS(FILE *fp, CMS_ContentInfo **x, pem_password_cb *cb, void *u);
+int PEM_write_bio_CMS(BIO *bp, const CMS_ContentInfo *x);
+int PEM_write_CMS(FILE *fp, const CMS_ContentInfo *x);
 #line 88 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/cms.h"
 int CMS_stream(unsigned char ***boundary, CMS_ContentInfo *cms);
 CMS_ContentInfo *d2i_CMS_bio(BIO *bp, CMS_ContentInfo **cms);
@@ -6616,91 +12201,91 @@ int i2d_CMS_bio(BIO *bp, CMS_ContentInfo *cms);
 BIO *BIO_new_CMS(BIO *out, CMS_ContentInfo *cms);
 int i2d_CMS_bio_stream(BIO *out, CMS_ContentInfo *cms, BIO *in, int flags);
 int PEM_write_bio_CMS_stream(BIO *out, CMS_ContentInfo *cms, BIO *in,
-int flags);
+                             int flags);
 CMS_ContentInfo *SMIME_read_CMS(BIO *bio, BIO **bcont);
 int SMIME_write_CMS(BIO *bio, CMS_ContentInfo *cms, BIO *data, int flags);
 int CMS_final(CMS_ContentInfo *cms, BIO *data, BIO *dcont,
-unsigned int flags);
+              unsigned int flags);
 CMS_ContentInfo *CMS_sign(X509 *signcert, EVP_PKEY *pkey,
-struct stack_st_X509 *certs, BIO *data,
-unsigned int flags);
+                          struct stack_st_X509 *certs, BIO *data,
+                          unsigned int flags);
 CMS_ContentInfo *CMS_sign_receipt(CMS_SignerInfo *si,
-X509 *signcert, EVP_PKEY *pkey,
-struct stack_st_X509 *certs, unsigned int flags);
+                                  X509 *signcert, EVP_PKEY *pkey,
+                                  struct stack_st_X509 *certs, unsigned int flags);
 int CMS_data(CMS_ContentInfo *cms, BIO *out, unsigned int flags);
 CMS_ContentInfo *CMS_data_create(BIO *in, unsigned int flags);
 int CMS_digest_verify(CMS_ContentInfo *cms, BIO *dcont, BIO *out,
-unsigned int flags);
+                      unsigned int flags);
 CMS_ContentInfo *CMS_digest_create(BIO *in, const EVP_MD *md,
-unsigned int flags);
+                                   unsigned int flags);
 int CMS_EncryptedData_decrypt(CMS_ContentInfo *cms,
-const unsigned char *key, size_t keylen,
-BIO *dcont, BIO *out, unsigned int flags);
+                              const unsigned char *key, size_t keylen,
+                              BIO *dcont, BIO *out, unsigned int flags);
 CMS_ContentInfo *CMS_EncryptedData_encrypt(BIO *in, const EVP_CIPHER *cipher,
-const unsigned char *key,
-size_t keylen, unsigned int flags);
+        const unsigned char *key,
+        size_t keylen, unsigned int flags);
 int CMS_EncryptedData_set1_key(CMS_ContentInfo *cms, const EVP_CIPHER *ciph,
-const unsigned char *key, size_t keylen);
+                               const unsigned char *key, size_t keylen);
 int CMS_verify(CMS_ContentInfo *cms, struct stack_st_X509 *certs,
-X509_STORE *store, BIO *dcont, BIO *out, unsigned int flags);
+               X509_STORE *store, BIO *dcont, BIO *out, unsigned int flags);
 int CMS_verify_receipt(CMS_ContentInfo *rcms, CMS_ContentInfo *ocms,
-struct stack_st_X509 *certs,
-X509_STORE *store, unsigned int flags);
+                       struct stack_st_X509 *certs,
+                       X509_STORE *store, unsigned int flags);
 struct stack_st_X509 *CMS_get0_signers(CMS_ContentInfo *cms);
 CMS_ContentInfo *CMS_encrypt(struct stack_st_X509 *certs, BIO *in,
-const EVP_CIPHER *cipher, unsigned int flags);
+                             const EVP_CIPHER *cipher, unsigned int flags);
 int CMS_decrypt(CMS_ContentInfo *cms, EVP_PKEY *pkey, X509 *cert,
-BIO *dcont, BIO *out, unsigned int flags);
+                BIO *dcont, BIO *out, unsigned int flags);
 int CMS_decrypt_set1_pkey(CMS_ContentInfo *cms, EVP_PKEY *pk, X509 *cert);
 int CMS_decrypt_set1_key(CMS_ContentInfo *cms,
-unsigned char *key, size_t keylen,
-const unsigned char *id, size_t idlen);
+                         unsigned char *key, size_t keylen,
+                         const unsigned char *id, size_t idlen);
 int CMS_decrypt_set1_password(CMS_ContentInfo *cms,
-unsigned char *pass, int passlen);
+                              unsigned char *pass, int passlen);
 struct stack_st_CMS_RecipientInfo *CMS_get0_RecipientInfos(CMS_ContentInfo *cms);
 int CMS_RecipientInfo_type(CMS_RecipientInfo *ri);
 EVP_PKEY_CTX *CMS_RecipientInfo_get0_pkey_ctx(CMS_RecipientInfo *ri);
 CMS_ContentInfo *CMS_EnvelopedData_create(const EVP_CIPHER *cipher);
 CMS_RecipientInfo *CMS_add1_recipient_cert(CMS_ContentInfo *cms,
-X509 *recip, unsigned int flags);
+        X509 *recip, unsigned int flags);
 int CMS_RecipientInfo_set0_pkey(CMS_RecipientInfo *ri, EVP_PKEY *pkey);
 int CMS_RecipientInfo_ktri_cert_cmp(CMS_RecipientInfo *ri, X509 *cert);
 int CMS_RecipientInfo_ktri_get0_algs(CMS_RecipientInfo *ri,
-EVP_PKEY **pk, X509 **recip,
-X509_ALGOR **palg);
+                                     EVP_PKEY **pk, X509 **recip,
+                                     X509_ALGOR **palg);
 int CMS_RecipientInfo_ktri_get0_signer_id(CMS_RecipientInfo *ri,
-ASN1_OCTET_STRING **keyid,
-X509_NAME **issuer,
-ASN1_INTEGER **sno);
+        ASN1_OCTET_STRING **keyid,
+        X509_NAME **issuer,
+        ASN1_INTEGER **sno);
 CMS_RecipientInfo *CMS_add0_recipient_key(CMS_ContentInfo *cms, int nid,
-unsigned char *key, size_t keylen,
-unsigned char *id, size_t idlen,
-ASN1_GENERALIZEDTIME *date,
-ASN1_OBJECT *otherTypeId,
-ASN1_TYPE *otherType);
+        unsigned char *key, size_t keylen,
+        unsigned char *id, size_t idlen,
+        ASN1_GENERALIZEDTIME *date,
+        ASN1_OBJECT *otherTypeId,
+        ASN1_TYPE *otherType);
 int CMS_RecipientInfo_kekri_get0_id(CMS_RecipientInfo *ri,
-X509_ALGOR **palg,
-ASN1_OCTET_STRING **pid,
-ASN1_GENERALIZEDTIME **pdate,
-ASN1_OBJECT **potherid,
-ASN1_TYPE **pothertype);
+                                    X509_ALGOR **palg,
+                                    ASN1_OCTET_STRING **pid,
+                                    ASN1_GENERALIZEDTIME **pdate,
+                                    ASN1_OBJECT **potherid,
+                                    ASN1_TYPE **pothertype);
 int CMS_RecipientInfo_set0_key(CMS_RecipientInfo *ri,
-unsigned char *key, size_t keylen);
+                               unsigned char *key, size_t keylen);
 int CMS_RecipientInfo_kekri_id_cmp(CMS_RecipientInfo *ri,
-const unsigned char *id, size_t idlen);
+                                   const unsigned char *id, size_t idlen);
 int CMS_RecipientInfo_set0_password(CMS_RecipientInfo *ri,
-unsigned char *pass,
-int passlen);
+                                    unsigned char *pass,
+                                    int passlen);
 CMS_RecipientInfo *CMS_add0_recipient_password(CMS_ContentInfo *cms,
-int iter, int wrap_nid,
-int pbe_nid,
-unsigned char *pass,
-int passlen,
-const EVP_CIPHER *kekciph);
+        int iter, int wrap_nid,
+        int pbe_nid,
+        unsigned char *pass,
+        int passlen,
+        const EVP_CIPHER *kekciph);
 int CMS_RecipientInfo_decrypt(CMS_ContentInfo *cms, CMS_RecipientInfo *ri);
 int CMS_RecipientInfo_encrypt(CMS_ContentInfo *cms, CMS_RecipientInfo *ri);
 int CMS_uncompress(CMS_ContentInfo *cms, BIO *dcont, BIO *out,
-unsigned int flags);
+                   unsigned int flags);
 CMS_ContentInfo *CMS_compress(BIO *in, int comp_nid, unsigned int flags);
 int CMS_set1_eContentType(CMS_ContentInfo *cms, const ASN1_OBJECT *oid);
 const ASN1_OBJECT *CMS_get0_eContentType(CMS_ContentInfo *cms);
@@ -6714,106 +12299,106 @@ int CMS_add1_crl(CMS_ContentInfo *cms, X509_CRL *crl);
 struct stack_st_X509_CRL *CMS_get1_crls(CMS_ContentInfo *cms);
 int CMS_SignedData_init(CMS_ContentInfo *cms);
 CMS_SignerInfo *CMS_add1_signer(CMS_ContentInfo *cms,
-X509 *signer, EVP_PKEY *pk, const EVP_MD *md,
-unsigned int flags);
+                                X509 *signer, EVP_PKEY *pk, const EVP_MD *md,
+                                unsigned int flags);
 EVP_PKEY_CTX *CMS_SignerInfo_get0_pkey_ctx(CMS_SignerInfo *si);
 EVP_MD_CTX *CMS_SignerInfo_get0_md_ctx(CMS_SignerInfo *si);
 struct stack_st_CMS_SignerInfo *CMS_get0_SignerInfos(CMS_ContentInfo *cms);
 void CMS_SignerInfo_set1_signer_cert(CMS_SignerInfo *si, X509 *signer);
 int CMS_SignerInfo_get0_signer_id(CMS_SignerInfo *si,
-ASN1_OCTET_STRING **keyid,
-X509_NAME **issuer, ASN1_INTEGER **sno);
+                                  ASN1_OCTET_STRING **keyid,
+                                  X509_NAME **issuer, ASN1_INTEGER **sno);
 int CMS_SignerInfo_cert_cmp(CMS_SignerInfo *si, X509 *cert);
 int CMS_set1_signers_certs(CMS_ContentInfo *cms, struct stack_st_X509 *certs,
-unsigned int flags);
+                           unsigned int flags);
 void CMS_SignerInfo_get0_algs(CMS_SignerInfo *si, EVP_PKEY **pk,
-X509 **signer, X509_ALGOR **pdig,
-X509_ALGOR **psig);
+                              X509 **signer, X509_ALGOR **pdig,
+                              X509_ALGOR **psig);
 ASN1_OCTET_STRING *CMS_SignerInfo_get0_signature(CMS_SignerInfo *si);
 int CMS_SignerInfo_sign(CMS_SignerInfo *si);
 int CMS_SignerInfo_verify(CMS_SignerInfo *si);
 int CMS_SignerInfo_verify_content(CMS_SignerInfo *si, BIO *chain);
 int CMS_add_smimecap(CMS_SignerInfo *si, struct stack_st_X509_ALGOR *algs);
 int CMS_add_simple_smimecap(struct stack_st_X509_ALGOR **algs,
-int algnid, int keysize);
+                            int algnid, int keysize);
 int CMS_add_standard_smimecap(struct stack_st_X509_ALGOR **smcap);
 int CMS_signed_get_attr_count(const CMS_SignerInfo *si);
 int CMS_signed_get_attr_by_NID(const CMS_SignerInfo *si, int nid,
-int lastpos);
+                               int lastpos);
 int CMS_signed_get_attr_by_OBJ(const CMS_SignerInfo *si, const ASN1_OBJECT *obj,
-int lastpos);
+                               int lastpos);
 X509_ATTRIBUTE *CMS_signed_get_attr(const CMS_SignerInfo *si, int loc);
 X509_ATTRIBUTE *CMS_signed_delete_attr(CMS_SignerInfo *si, int loc);
 int CMS_signed_add1_attr(CMS_SignerInfo *si, X509_ATTRIBUTE *attr);
 int CMS_signed_add1_attr_by_OBJ(CMS_SignerInfo *si,
-const ASN1_OBJECT *obj, int type,
-const void *bytes, int len);
+                                const ASN1_OBJECT *obj, int type,
+                                const void *bytes, int len);
 int CMS_signed_add1_attr_by_NID(CMS_SignerInfo *si,
-int nid, int type,
-const void *bytes, int len);
+                                int nid, int type,
+                                const void *bytes, int len);
 int CMS_signed_add1_attr_by_txt(CMS_SignerInfo *si,
-const char *attrname, int type,
-const void *bytes, int len);
+                                const char *attrname, int type,
+                                const void *bytes, int len);
 void *CMS_signed_get0_data_by_OBJ(CMS_SignerInfo *si, const ASN1_OBJECT *oid,
-int lastpos, int type);
+                                  int lastpos, int type);
 int CMS_unsigned_get_attr_count(const CMS_SignerInfo *si);
 int CMS_unsigned_get_attr_by_NID(const CMS_SignerInfo *si, int nid,
-int lastpos);
+                                 int lastpos);
 int CMS_unsigned_get_attr_by_OBJ(const CMS_SignerInfo *si,
-const ASN1_OBJECT *obj, int lastpos);
+                                 const ASN1_OBJECT *obj, int lastpos);
 X509_ATTRIBUTE *CMS_unsigned_get_attr(const CMS_SignerInfo *si, int loc);
 X509_ATTRIBUTE *CMS_unsigned_delete_attr(CMS_SignerInfo *si, int loc);
 int CMS_unsigned_add1_attr(CMS_SignerInfo *si, X509_ATTRIBUTE *attr);
 int CMS_unsigned_add1_attr_by_OBJ(CMS_SignerInfo *si,
-const ASN1_OBJECT *obj, int type,
-const void *bytes, int len);
+                                  const ASN1_OBJECT *obj, int type,
+                                  const void *bytes, int len);
 int CMS_unsigned_add1_attr_by_NID(CMS_SignerInfo *si,
-int nid, int type,
-const void *bytes, int len);
+                                  int nid, int type,
+                                  const void *bytes, int len);
 int CMS_unsigned_add1_attr_by_txt(CMS_SignerInfo *si,
-const char *attrname, int type,
-const void *bytes, int len);
+                                  const char *attrname, int type,
+                                  const void *bytes, int len);
 void *CMS_unsigned_get0_data_by_OBJ(CMS_SignerInfo *si, ASN1_OBJECT *oid,
-int lastpos, int type);
+                                    int lastpos, int type);
 int CMS_get1_ReceiptRequest(CMS_SignerInfo *si, CMS_ReceiptRequest **prr);
 CMS_ReceiptRequest *CMS_ReceiptRequest_create0(unsigned char *id, int idlen,
-int allorfirst,
-struct stack_st_GENERAL_NAMES
-*receiptList, struct stack_st_GENERAL_NAMES
-*receiptsTo);
+        int allorfirst,
+        struct stack_st_GENERAL_NAMES
+        *receiptList, struct stack_st_GENERAL_NAMES
+        *receiptsTo);
 int CMS_add1_ReceiptRequest(CMS_SignerInfo *si, CMS_ReceiptRequest *rr);
 void CMS_ReceiptRequest_get0_values(CMS_ReceiptRequest *rr,
-ASN1_STRING **pcid,
-int *pallorfirst,
-struct stack_st_GENERAL_NAMES **plist,
-struct stack_st_GENERAL_NAMES **prto);
+                                    ASN1_STRING **pcid,
+                                    int *pallorfirst,
+                                    struct stack_st_GENERAL_NAMES **plist,
+                                    struct stack_st_GENERAL_NAMES **prto);
 #line 301 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/cms.h"
 int CMS_RecipientInfo_kari_get0_alg(CMS_RecipientInfo *ri,
-X509_ALGOR **palg,
-ASN1_OCTET_STRING **pukm);
+                                    X509_ALGOR **palg,
+                                    ASN1_OCTET_STRING **pukm);
 struct stack_st_CMS_RecipientEncryptedKey
 *CMS_RecipientInfo_kari_get0_reks(CMS_RecipientInfo *ri);
 int CMS_RecipientInfo_kari_get0_orig_id(CMS_RecipientInfo *ri,
-X509_ALGOR **pubalg,
-ASN1_BIT_STRING **pubkey,
-ASN1_OCTET_STRING **keyid,
-X509_NAME **issuer,
-ASN1_INTEGER **sno);
+                                        X509_ALGOR **pubalg,
+                                        ASN1_BIT_STRING **pubkey,
+                                        ASN1_OCTET_STRING **keyid,
+                                        X509_NAME **issuer,
+                                        ASN1_INTEGER **sno);
 int CMS_RecipientInfo_kari_orig_id_cmp(CMS_RecipientInfo *ri, X509 *cert);
 int CMS_RecipientEncryptedKey_get0_id(CMS_RecipientEncryptedKey *rek,
-ASN1_OCTET_STRING **keyid,
-ASN1_GENERALIZEDTIME **tm,
-CMS_OtherKeyAttribute **other,
-X509_NAME **issuer, ASN1_INTEGER **sno);
+                                      ASN1_OCTET_STRING **keyid,
+                                      ASN1_GENERALIZEDTIME **tm,
+                                      CMS_OtherKeyAttribute **other,
+                                      X509_NAME **issuer, ASN1_INTEGER **sno);
 int CMS_RecipientEncryptedKey_cert_cmp(CMS_RecipientEncryptedKey *rek,
-X509 *cert);
+                                       X509 *cert);
 int CMS_RecipientInfo_kari_set0_pkey(CMS_RecipientInfo *ri, EVP_PKEY *pk);
 EVP_CIPHER_CTX *CMS_RecipientInfo_kari_get0_ctx(CMS_RecipientInfo *ri);
 int CMS_RecipientInfo_kari_decrypt(CMS_ContentInfo *cms,
-CMS_RecipientInfo *ri,
-CMS_RecipientEncryptedKey *rek);
+                                   CMS_RecipientInfo *ri,
+                                   CMS_RecipientEncryptedKey *rek);
 int CMS_SharedInfo_encode(unsigned char **pder, X509_ALGOR *kekalg,
-ASN1_OCTET_STRING *ukm, int keylen);
+                          ASN1_OCTET_STRING *ukm, int keylen);
 int ERR_load_CMS_strings(void);
 #line 513 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/cms.h"
 #line 514 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/cms.h"
@@ -6840,251 +12425,388 @@ typedef struct CMS_OriginatorIdentifierOrKey_st CMS_OriginatorIdentifierOrKey;
 typedef struct CMS_KeyAgreeRecipientInfo_st CMS_KeyAgreeRecipientInfo;
 typedef struct CMS_RecipientKeyIdentifier_st CMS_RecipientKeyIdentifier;
 typedef struct CMS_KeyAgreeRecipientIdentifier_st
-CMS_KeyAgreeRecipientIdentifier;
+    CMS_KeyAgreeRecipientIdentifier;
 typedef struct CMS_KEKIdentifier_st CMS_KEKIdentifier;
 typedef struct CMS_KEKRecipientInfo_st CMS_KEKRecipientInfo;
 typedef struct CMS_PasswordRecipientInfo_st CMS_PasswordRecipientInfo;
 typedef struct CMS_OtherRecipientInfo_st CMS_OtherRecipientInfo;
 typedef struct CMS_ReceiptsFrom_st CMS_ReceiptsFrom;
-struct CMS_ContentInfo_st {
-ASN1_OBJECT *contentType;
-union {
-ASN1_OCTET_STRING *data;
-CMS_SignedData *signedData;
-CMS_EnvelopedData *envelopedData;
-CMS_DigestedData *digestedData;
-CMS_EncryptedData *encryptedData;
-CMS_AuthenticatedData *authenticatedData;
-CMS_CompressedData *compressedData;
-ASN1_TYPE *other;
-void *otherData;
-} d;
+struct CMS_ContentInfo_st
+{
+    ASN1_OBJECT *contentType;
+    union
+    {
+        ASN1_OCTET_STRING *data;
+        CMS_SignedData *signedData;
+        CMS_EnvelopedData *envelopedData;
+        CMS_DigestedData *digestedData;
+        CMS_EncryptedData *encryptedData;
+        CMS_AuthenticatedData *authenticatedData;
+        CMS_CompressedData *compressedData;
+        ASN1_TYPE *other;
+        void *otherData;
+    } d;
 };
-struct stack_st_CMS_CertificateChoices; typedef int (*sk_CMS_CertificateChoices_compfunc)(const CMS_CertificateChoices * const *a, const CMS_CertificateChoices *const *b); typedef void (*sk_CMS_CertificateChoices_freefunc)(CMS_CertificateChoices *a); typedef CMS_CertificateChoices * (*sk_CMS_CertificateChoices_copyfunc)(const CMS_CertificateChoices *a); static __inline int sk_CMS_CertificateChoices_num(const struct stack_st_CMS_CertificateChoices *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_value(const struct stack_st_CMS_CertificateChoices *sk, int idx) { return (CMS_CertificateChoices *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_CMS_CertificateChoices *sk_CMS_CertificateChoices_new(sk_CMS_CertificateChoices_compfunc compare) { return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_CMS_CertificateChoices *sk_CMS_CertificateChoices_new_null(void) { return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_new_null(); } static __inline void sk_CMS_CertificateChoices_free(struct stack_st_CMS_CertificateChoices *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_CMS_CertificateChoices_zero(struct stack_st_CMS_CertificateChoices *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_delete(struct stack_st_CMS_CertificateChoices *sk, int i) { return (CMS_CertificateChoices *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_delete_ptr(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr) { return (CMS_CertificateChoices *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_CertificateChoices_push(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_CertificateChoices_unshift(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_pop(struct stack_st_CMS_CertificateChoices *sk) { return (CMS_CertificateChoices *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_shift(struct stack_st_CMS_CertificateChoices *sk) { return (CMS_CertificateChoices *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_CMS_CertificateChoices_pop_free(struct stack_st_CMS_CertificateChoices *sk, sk_CMS_CertificateChoices_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_CMS_CertificateChoices_insert(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_set(struct stack_st_CMS_CertificateChoices *sk, int idx, CMS_CertificateChoices *ptr) { return (CMS_CertificateChoices *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_CMS_CertificateChoices_find(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_CMS_CertificateChoices_find_ex(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_CMS_CertificateChoices_sort(struct stack_st_CMS_CertificateChoices *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_CMS_CertificateChoices_is_sorted(const struct stack_st_CMS_CertificateChoices *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_CertificateChoices * sk_CMS_CertificateChoices_dup(const struct stack_st_CMS_CertificateChoices *sk) { return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_CMS_CertificateChoices *sk_CMS_CertificateChoices_deep_copy(const struct stack_st_CMS_CertificateChoices *sk, sk_CMS_CertificateChoices_copyfunc copyfunc, sk_CMS_CertificateChoices_freefunc freefunc) { return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_CMS_CertificateChoices_compfunc sk_CMS_CertificateChoices_set_cmp_func(struct stack_st_CMS_CertificateChoices *sk, sk_CMS_CertificateChoices_compfunc compare) { return (sk_CMS_CertificateChoices_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct CMS_SignedData_st {
-long version;
-struct stack_st_X509_ALGOR *digestAlgorithms;
-CMS_EncapsulatedContentInfo *encapContentInfo;
-struct stack_st_CMS_CertificateChoices *certificates;
-struct stack_st_CMS_RevocationInfoChoice *crls;
-struct stack_st_CMS_SignerInfo *signerInfos;
+struct stack_st_CMS_CertificateChoices;
+typedef int (*sk_CMS_CertificateChoices_compfunc)(const CMS_CertificateChoices * const *a, const CMS_CertificateChoices *const *b);
+typedef void (*sk_CMS_CertificateChoices_freefunc)(CMS_CertificateChoices *a);
+typedef CMS_CertificateChoices * (*sk_CMS_CertificateChoices_copyfunc)(const CMS_CertificateChoices *a);
+static __inline int sk_CMS_CertificateChoices_num(const struct stack_st_CMS_CertificateChoices *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_value(const struct stack_st_CMS_CertificateChoices *sk, int idx)
+{
+    return (CMS_CertificateChoices *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_CMS_CertificateChoices *sk_CMS_CertificateChoices_new(sk_CMS_CertificateChoices_compfunc compare)
+{
+    return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_CMS_CertificateChoices *sk_CMS_CertificateChoices_new_null(void)
+{
+    return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_new_null();
+}
+static __inline void sk_CMS_CertificateChoices_free(struct stack_st_CMS_CertificateChoices *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_CertificateChoices_zero(struct stack_st_CMS_CertificateChoices *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_delete(struct stack_st_CMS_CertificateChoices *sk, int i)
+{
+    return (CMS_CertificateChoices *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_delete_ptr(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr)
+{
+    return (CMS_CertificateChoices *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_CertificateChoices_push(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_CertificateChoices_unshift(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_pop(struct stack_st_CMS_CertificateChoices *sk)
+{
+    return (CMS_CertificateChoices *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_shift(struct stack_st_CMS_CertificateChoices *sk)
+{
+    return (CMS_CertificateChoices *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_CMS_CertificateChoices_pop_free(struct stack_st_CMS_CertificateChoices *sk, sk_CMS_CertificateChoices_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_CMS_CertificateChoices_insert(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline CMS_CertificateChoices *sk_CMS_CertificateChoices_set(struct stack_st_CMS_CertificateChoices *sk, int idx, CMS_CertificateChoices *ptr)
+{
+    return (CMS_CertificateChoices *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_CMS_CertificateChoices_find(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_CMS_CertificateChoices_find_ex(struct stack_st_CMS_CertificateChoices *sk, CMS_CertificateChoices *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_CMS_CertificateChoices_sort(struct stack_st_CMS_CertificateChoices *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_CMS_CertificateChoices_is_sorted(const struct stack_st_CMS_CertificateChoices *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_CertificateChoices * sk_CMS_CertificateChoices_dup(const struct stack_st_CMS_CertificateChoices *sk)
+{
+    return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_CMS_CertificateChoices *sk_CMS_CertificateChoices_deep_copy(const struct stack_st_CMS_CertificateChoices *sk, sk_CMS_CertificateChoices_copyfunc copyfunc, sk_CMS_CertificateChoices_freefunc freefunc)
+{
+    return (struct stack_st_CMS_CertificateChoices *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_CMS_CertificateChoices_compfunc sk_CMS_CertificateChoices_set_cmp_func(struct stack_st_CMS_CertificateChoices *sk, sk_CMS_CertificateChoices_compfunc compare)
+{
+    return (sk_CMS_CertificateChoices_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct CMS_SignedData_st
+{
+    long version;
+    struct stack_st_X509_ALGOR *digestAlgorithms;
+    CMS_EncapsulatedContentInfo *encapContentInfo;
+    struct stack_st_CMS_CertificateChoices *certificates;
+    struct stack_st_CMS_RevocationInfoChoice *crls;
+    struct stack_st_CMS_SignerInfo *signerInfos;
 };
-struct CMS_EncapsulatedContentInfo_st {
-ASN1_OBJECT *eContentType;
-ASN1_OCTET_STRING *eContent;
-int partial;
+struct CMS_EncapsulatedContentInfo_st
+{
+    ASN1_OBJECT *eContentType;
+    ASN1_OCTET_STRING *eContent;
+    int partial;
 };
-struct CMS_SignerInfo_st {
-long version;
-CMS_SignerIdentifier *sid;
-X509_ALGOR *digestAlgorithm;
-struct stack_st_X509_ATTRIBUTE *signedAttrs;
-X509_ALGOR *signatureAlgorithm;
-ASN1_OCTET_STRING *signature;
-struct stack_st_X509_ATTRIBUTE *unsignedAttrs;
-X509 *signer;
-EVP_PKEY *pkey;
-EVP_MD_CTX *mctx;
-EVP_PKEY_CTX *pctx;
+struct CMS_SignerInfo_st
+{
+    long version;
+    CMS_SignerIdentifier *sid;
+    X509_ALGOR *digestAlgorithm;
+    struct stack_st_X509_ATTRIBUTE *signedAttrs;
+    X509_ALGOR *signatureAlgorithm;
+    ASN1_OCTET_STRING *signature;
+    struct stack_st_X509_ATTRIBUTE *unsignedAttrs;
+    X509 *signer;
+    EVP_PKEY *pkey;
+    EVP_MD_CTX *mctx;
+    EVP_PKEY_CTX *pctx;
 };
-struct CMS_SignerIdentifier_st {
-int type;
-union {
-CMS_IssuerAndSerialNumber *issuerAndSerialNumber;
-ASN1_OCTET_STRING *subjectKeyIdentifier;
-} d;
+struct CMS_SignerIdentifier_st
+{
+    int type;
+    union
+    {
+        CMS_IssuerAndSerialNumber *issuerAndSerialNumber;
+        ASN1_OCTET_STRING *subjectKeyIdentifier;
+    } d;
 };
-struct CMS_EnvelopedData_st {
-long version;
-CMS_OriginatorInfo *originatorInfo;
-struct stack_st_CMS_RecipientInfo *recipientInfos;
-CMS_EncryptedContentInfo *encryptedContentInfo;
-struct stack_st_X509_ATTRIBUTE *unprotectedAttrs;
+struct CMS_EnvelopedData_st
+{
+    long version;
+    CMS_OriginatorInfo *originatorInfo;
+    struct stack_st_CMS_RecipientInfo *recipientInfos;
+    CMS_EncryptedContentInfo *encryptedContentInfo;
+    struct stack_st_X509_ATTRIBUTE *unprotectedAttrs;
 };
-struct CMS_OriginatorInfo_st {
-struct stack_st_CMS_CertificateChoices *certificates;
-struct stack_st_CMS_RevocationInfoChoice *crls;
+struct CMS_OriginatorInfo_st
+{
+    struct stack_st_CMS_CertificateChoices *certificates;
+    struct stack_st_CMS_RevocationInfoChoice *crls;
 };
-struct CMS_EncryptedContentInfo_st {
-ASN1_OBJECT *contentType;
-X509_ALGOR *contentEncryptionAlgorithm;
-ASN1_OCTET_STRING *encryptedContent;
-const EVP_CIPHER *cipher;
-unsigned char *key;
-size_t keylen;
-int debug;
+struct CMS_EncryptedContentInfo_st
+{
+    ASN1_OBJECT *contentType;
+    X509_ALGOR *contentEncryptionAlgorithm;
+    ASN1_OCTET_STRING *encryptedContent;
+    const EVP_CIPHER *cipher;
+    unsigned char *key;
+    size_t keylen;
+    int debug;
 };
-struct CMS_RecipientInfo_st {
-int type;
-union {
-CMS_KeyTransRecipientInfo *ktri;
-CMS_KeyAgreeRecipientInfo *kari;
-CMS_KEKRecipientInfo *kekri;
-CMS_PasswordRecipientInfo *pwri;
-CMS_OtherRecipientInfo *ori;
-} d;
+struct CMS_RecipientInfo_st
+{
+    int type;
+    union
+    {
+        CMS_KeyTransRecipientInfo *ktri;
+        CMS_KeyAgreeRecipientInfo *kari;
+        CMS_KEKRecipientInfo *kekri;
+        CMS_PasswordRecipientInfo *pwri;
+        CMS_OtherRecipientInfo *ori;
+    } d;
 };
 typedef CMS_SignerIdentifier CMS_RecipientIdentifier;
-struct CMS_KeyTransRecipientInfo_st {
-long version;
-CMS_RecipientIdentifier *rid;
-X509_ALGOR *keyEncryptionAlgorithm;
-ASN1_OCTET_STRING *encryptedKey;
-X509 *recip;
-EVP_PKEY *pkey;
-EVP_PKEY_CTX *pctx;
+struct CMS_KeyTransRecipientInfo_st
+{
+    long version;
+    CMS_RecipientIdentifier *rid;
+    X509_ALGOR *keyEncryptionAlgorithm;
+    ASN1_OCTET_STRING *encryptedKey;
+    X509 *recip;
+    EVP_PKEY *pkey;
+    EVP_PKEY_CTX *pctx;
 };
-struct CMS_KeyAgreeRecipientInfo_st {
-long version;
-CMS_OriginatorIdentifierOrKey *originator;
-ASN1_OCTET_STRING *ukm;
-X509_ALGOR *keyEncryptionAlgorithm;
-struct stack_st_CMS_RecipientEncryptedKey *recipientEncryptedKeys;
-EVP_PKEY_CTX *pctx;
-EVP_CIPHER_CTX *ctx;
+struct CMS_KeyAgreeRecipientInfo_st
+{
+    long version;
+    CMS_OriginatorIdentifierOrKey *originator;
+    ASN1_OCTET_STRING *ukm;
+    X509_ALGOR *keyEncryptionAlgorithm;
+    struct stack_st_CMS_RecipientEncryptedKey *recipientEncryptedKeys;
+    EVP_PKEY_CTX *pctx;
+    EVP_CIPHER_CTX *ctx;
 };
-struct CMS_OriginatorIdentifierOrKey_st {
-int type;
-union {
-CMS_IssuerAndSerialNumber *issuerAndSerialNumber;
-ASN1_OCTET_STRING *subjectKeyIdentifier;
-CMS_OriginatorPublicKey *originatorKey;
-} d;
+struct CMS_OriginatorIdentifierOrKey_st
+{
+    int type;
+    union
+    {
+        CMS_IssuerAndSerialNumber *issuerAndSerialNumber;
+        ASN1_OCTET_STRING *subjectKeyIdentifier;
+        CMS_OriginatorPublicKey *originatorKey;
+    } d;
 };
-struct CMS_OriginatorPublicKey_st {
-X509_ALGOR *algorithm;
-ASN1_BIT_STRING *publicKey;
+struct CMS_OriginatorPublicKey_st
+{
+    X509_ALGOR *algorithm;
+    ASN1_BIT_STRING *publicKey;
 };
-struct CMS_RecipientEncryptedKey_st {
-CMS_KeyAgreeRecipientIdentifier *rid;
-ASN1_OCTET_STRING *encryptedKey;
-EVP_PKEY *pkey;
+struct CMS_RecipientEncryptedKey_st
+{
+    CMS_KeyAgreeRecipientIdentifier *rid;
+    ASN1_OCTET_STRING *encryptedKey;
+    EVP_PKEY *pkey;
 };
-struct CMS_KeyAgreeRecipientIdentifier_st {
-int type;
-union {
-CMS_IssuerAndSerialNumber *issuerAndSerialNumber;
-CMS_RecipientKeyIdentifier *rKeyId;
-} d;
+struct CMS_KeyAgreeRecipientIdentifier_st
+{
+    int type;
+    union
+    {
+        CMS_IssuerAndSerialNumber *issuerAndSerialNumber;
+        CMS_RecipientKeyIdentifier *rKeyId;
+    } d;
 };
-struct CMS_RecipientKeyIdentifier_st {
-ASN1_OCTET_STRING *subjectKeyIdentifier;
-ASN1_GENERALIZEDTIME *date;
-CMS_OtherKeyAttribute *other;
+struct CMS_RecipientKeyIdentifier_st
+{
+    ASN1_OCTET_STRING *subjectKeyIdentifier;
+    ASN1_GENERALIZEDTIME *date;
+    CMS_OtherKeyAttribute *other;
 };
-struct CMS_KEKRecipientInfo_st {
-long version;
-CMS_KEKIdentifier *kekid;
-X509_ALGOR *keyEncryptionAlgorithm;
-ASN1_OCTET_STRING *encryptedKey;
-unsigned char *key;
-size_t keylen;
+struct CMS_KEKRecipientInfo_st
+{
+    long version;
+    CMS_KEKIdentifier *kekid;
+    X509_ALGOR *keyEncryptionAlgorithm;
+    ASN1_OCTET_STRING *encryptedKey;
+    unsigned char *key;
+    size_t keylen;
 };
-struct CMS_KEKIdentifier_st {
-ASN1_OCTET_STRING *keyIdentifier;
-ASN1_GENERALIZEDTIME *date;
-CMS_OtherKeyAttribute *other;
+struct CMS_KEKIdentifier_st
+{
+    ASN1_OCTET_STRING *keyIdentifier;
+    ASN1_GENERALIZEDTIME *date;
+    CMS_OtherKeyAttribute *other;
 };
-struct CMS_PasswordRecipientInfo_st {
-long version;
-X509_ALGOR *keyDerivationAlgorithm;
-X509_ALGOR *keyEncryptionAlgorithm;
-ASN1_OCTET_STRING *encryptedKey;
-unsigned char *pass;
-size_t passlen;
+struct CMS_PasswordRecipientInfo_st
+{
+    long version;
+    X509_ALGOR *keyDerivationAlgorithm;
+    X509_ALGOR *keyEncryptionAlgorithm;
+    ASN1_OCTET_STRING *encryptedKey;
+    unsigned char *pass;
+    size_t passlen;
 };
-struct CMS_OtherRecipientInfo_st {
-ASN1_OBJECT *oriType;
-ASN1_TYPE *oriValue;
+struct CMS_OtherRecipientInfo_st
+{
+    ASN1_OBJECT *oriType;
+    ASN1_TYPE *oriValue;
 };
-struct CMS_DigestedData_st {
-long version;
-X509_ALGOR *digestAlgorithm;
-CMS_EncapsulatedContentInfo *encapContentInfo;
-ASN1_OCTET_STRING *digest;
+struct CMS_DigestedData_st
+{
+    long version;
+    X509_ALGOR *digestAlgorithm;
+    CMS_EncapsulatedContentInfo *encapContentInfo;
+    ASN1_OCTET_STRING *digest;
 };
-struct CMS_EncryptedData_st {
-long version;
-CMS_EncryptedContentInfo *encryptedContentInfo;
-struct stack_st_X509_ATTRIBUTE *unprotectedAttrs;
+struct CMS_EncryptedData_st
+{
+    long version;
+    CMS_EncryptedContentInfo *encryptedContentInfo;
+    struct stack_st_X509_ATTRIBUTE *unprotectedAttrs;
 };
-struct CMS_AuthenticatedData_st {
-long version;
-CMS_OriginatorInfo *originatorInfo;
-struct stack_st_CMS_RecipientInfo *recipientInfos;
-X509_ALGOR *macAlgorithm;
-X509_ALGOR *digestAlgorithm;
-CMS_EncapsulatedContentInfo *encapContentInfo;
-struct stack_st_X509_ATTRIBUTE *authAttrs;
-ASN1_OCTET_STRING *mac;
-struct stack_st_X509_ATTRIBUTE *unauthAttrs;
+struct CMS_AuthenticatedData_st
+{
+    long version;
+    CMS_OriginatorInfo *originatorInfo;
+    struct stack_st_CMS_RecipientInfo *recipientInfos;
+    X509_ALGOR *macAlgorithm;
+    X509_ALGOR *digestAlgorithm;
+    CMS_EncapsulatedContentInfo *encapContentInfo;
+    struct stack_st_X509_ATTRIBUTE *authAttrs;
+    ASN1_OCTET_STRING *mac;
+    struct stack_st_X509_ATTRIBUTE *unauthAttrs;
 };
-struct CMS_CompressedData_st {
-long version;
-X509_ALGOR *compressionAlgorithm;
-struct stack_st_CMS_RecipientInfo *recipientInfos;
-CMS_EncapsulatedContentInfo *encapContentInfo;
+struct CMS_CompressedData_st
+{
+    long version;
+    X509_ALGOR *compressionAlgorithm;
+    struct stack_st_CMS_RecipientInfo *recipientInfos;
+    CMS_EncapsulatedContentInfo *encapContentInfo;
 };
-struct CMS_RevocationInfoChoice_st {
-int type;
-union {
-X509_CRL *crl;
-CMS_OtherRevocationInfoFormat *other;
-} d;
+struct CMS_RevocationInfoChoice_st
+{
+    int type;
+    union
+    {
+        X509_CRL *crl;
+        CMS_OtherRevocationInfoFormat *other;
+    } d;
 };
-struct CMS_OtherRevocationInfoFormat_st {
-ASN1_OBJECT *otherRevInfoFormat;
-ASN1_TYPE *otherRevInfo;
+struct CMS_OtherRevocationInfoFormat_st
+{
+    ASN1_OBJECT *otherRevInfoFormat;
+    ASN1_TYPE *otherRevInfo;
 };
-struct CMS_CertificateChoices {
-int type;
-union {
-X509 *certificate;
-ASN1_STRING *extendedCertificate; 
-ASN1_STRING *v1AttrCert; 
-ASN1_STRING *v2AttrCert; 
-CMS_OtherCertificateFormat *other;
-} d;
+struct CMS_CertificateChoices
+{
+    int type;
+    union
+    {
+        X509 *certificate;
+        ASN1_STRING *extendedCertificate;
+        ASN1_STRING *v1AttrCert;
+        ASN1_STRING *v2AttrCert;
+        CMS_OtherCertificateFormat *other;
+    } d;
 };
-struct CMS_OtherCertificateFormat_st {
-ASN1_OBJECT *otherCertFormat;
-ASN1_TYPE *otherCert;
+struct CMS_OtherCertificateFormat_st
+{
+    ASN1_OBJECT *otherCertFormat;
+    ASN1_TYPE *otherCert;
 };
-struct CMS_IssuerAndSerialNumber_st {
-X509_NAME *issuer;
-ASN1_INTEGER *serialNumber;
+struct CMS_IssuerAndSerialNumber_st
+{
+    X509_NAME *issuer;
+    ASN1_INTEGER *serialNumber;
 };
-struct CMS_OtherKeyAttribute_st {
-ASN1_OBJECT *keyAttrId;
-ASN1_TYPE *keyAttr;
+struct CMS_OtherKeyAttribute_st
+{
+    ASN1_OBJECT *keyAttrId;
+    ASN1_TYPE *keyAttr;
 };
-struct CMS_ReceiptRequest_st {
-ASN1_OCTET_STRING *signedContentIdentifier;
-CMS_ReceiptsFrom *receiptsFrom;
-struct stack_st_GENERAL_NAMES *receiptsTo;
+struct CMS_ReceiptRequest_st
+{
+    ASN1_OCTET_STRING *signedContentIdentifier;
+    CMS_ReceiptsFrom *receiptsFrom;
+    struct stack_st_GENERAL_NAMES *receiptsTo;
 };
-struct CMS_ReceiptsFrom_st {
-int type;
-union {
-long allOrFirstTier;
-struct stack_st_GENERAL_NAMES *receiptList;
-} d;
+struct CMS_ReceiptsFrom_st
+{
+    int type;
+    union
+    {
+        long allOrFirstTier;
+        struct stack_st_GENERAL_NAMES *receiptList;
+    } d;
 };
 #line 340 "d:\\07.opensrc\\gmssl\\crypto\\cms\\cms_lcl.h"
-struct CMS_Receipt_st {
-long version;
-ASN1_OBJECT *contentType;
-ASN1_OCTET_STRING *signedContentIdentifier;
-ASN1_OCTET_STRING *originatorSignatureValue;
+struct CMS_Receipt_st
+{
+    long version;
+    ASN1_OBJECT *contentType;
+    ASN1_OCTET_STRING *signedContentIdentifier;
+    ASN1_OCTET_STRING *originatorSignatureValue;
 };
-CMS_ContentInfo *CMS_ContentInfo_new(void); void CMS_ContentInfo_free(CMS_ContentInfo *a); CMS_ContentInfo *d2i_CMS_ContentInfo(CMS_ContentInfo **a, const unsigned char **in, long len); int i2d_CMS_ContentInfo(CMS_ContentInfo *a, unsigned char **out); const ASN1_ITEM * CMS_ContentInfo_it(void);
+CMS_ContentInfo *CMS_ContentInfo_new(void);
+void CMS_ContentInfo_free(CMS_ContentInfo *a);
+CMS_ContentInfo *d2i_CMS_ContentInfo(CMS_ContentInfo **a, const unsigned char **in, long len);
+int i2d_CMS_ContentInfo(CMS_ContentInfo *a, unsigned char **out);
+const ASN1_ITEM * CMS_ContentInfo_it(void);
 const ASN1_ITEM * CMS_SignerInfo_it(void);
 const ASN1_ITEM * CMS_IssuerAndSerialNumber_it(void);
 const ASN1_ITEM * CMS_Attributes_Sign_it(void);
 const ASN1_ITEM * CMS_Attributes_Verify_it(void);
 const ASN1_ITEM * CMS_RecipientInfo_it(void);
 const ASN1_ITEM * CMS_PasswordRecipientInfo_it(void);
-CMS_IssuerAndSerialNumber *CMS_IssuerAndSerialNumber_new(void); void CMS_IssuerAndSerialNumber_free(CMS_IssuerAndSerialNumber *a);
+CMS_IssuerAndSerialNumber *CMS_IssuerAndSerialNumber_new(void);
+void CMS_IssuerAndSerialNumber_free(CMS_IssuerAndSerialNumber *a);
 BIO *cms_content_bio(CMS_ContentInfo *cms);
 CMS_ContentInfo *cms_Data_create(void);
 CMS_ContentInfo *cms_DigestedData_create(const EVP_MD *md);
@@ -7093,17 +12815,17 @@ int cms_DigestedData_do_final(CMS_ContentInfo *cms, BIO *chain, int verify);
 BIO *cms_SignedData_init_bio(CMS_ContentInfo *cms);
 int cms_SignedData_final(CMS_ContentInfo *cms, BIO *chain);
 int cms_set1_SignerIdentifier(CMS_SignerIdentifier *sid, X509 *cert,
-int type);
+                              int type);
 int cms_SignerIdentifier_get0_signer_id(CMS_SignerIdentifier *sid,
-ASN1_OCTET_STRING **keyid,
-X509_NAME **issuer,
-ASN1_INTEGER **sno);
+                                        ASN1_OCTET_STRING **keyid,
+                                        X509_NAME **issuer,
+                                        ASN1_INTEGER **sno);
 int cms_SignerIdentifier_cert_cmp(CMS_SignerIdentifier *sid, X509 *cert);
 CMS_ContentInfo *cms_CompressedData_create(int comp_nid);
 BIO *cms_CompressedData_init_bio(CMS_ContentInfo *cms);
 BIO *cms_DigestAlgorithm_init_bio(X509_ALGOR *digestAlgorithm);
 int cms_DigestAlgorithm_find_ctx(EVP_MD_CTX *mctx, BIO *chain,
-X509_ALGOR *mdalg);
+                                 X509_ALGOR *mdalg);
 int cms_ias_cert_cmp(CMS_IssuerAndSerialNumber *ias, X509 *cert);
 int cms_keyid_cert_cmp(ASN1_OCTET_STRING *keyid, X509 *cert);
 int cms_set1_ias(CMS_IssuerAndSerialNumber **pias, X509 *cert);
@@ -7111,8 +12833,8 @@ int cms_set1_keyid(ASN1_OCTET_STRING **pkeyid, X509 *cert);
 BIO *cms_EncryptedContent_init_bio(CMS_EncryptedContentInfo *ec);
 BIO *cms_EncryptedData_init_bio(CMS_ContentInfo *cms);
 int cms_EncryptedContent_init(CMS_EncryptedContentInfo *ec,
-const EVP_CIPHER *cipher,
-const unsigned char *key, size_t keylen);
+                              const EVP_CIPHER *cipher,
+                              const unsigned char *key, size_t keylen);
 int cms_Receipt_verify(CMS_ContentInfo *cms, CMS_ContentInfo *req_cms);
 int cms_msgSigDigest_add1(CMS_SignerInfo *dest, CMS_SignerInfo *src);
 ASN1_OCTET_STRING *cms_encode_Receipt(CMS_SignerInfo *si);
@@ -7121,11 +12843,11 @@ CMS_EnvelopedData *cms_get0_enveloped(CMS_ContentInfo *cms);
 int cms_env_asn1_ctrl(CMS_RecipientInfo *ri, int cmd);
 int cms_pkey_get_ri_type(EVP_PKEY *pk);
 int cms_RecipientInfo_kari_init(CMS_RecipientInfo *ri, X509 *recip,
-EVP_PKEY *pk, unsigned int flags);
+                                EVP_PKEY *pk, unsigned int flags);
 int cms_RecipientInfo_kari_encrypt(CMS_ContentInfo *cms,
-CMS_RecipientInfo *ri);
+                                   CMS_RecipientInfo *ri);
 int cms_RecipientInfo_pwri_crypt(CMS_ContentInfo *cms, CMS_RecipientInfo *ri,
-int en_de);
+                                 int en_de);
 const ASN1_ITEM * CMS_CertificateChoices_it(void);
 const ASN1_ITEM * CMS_DigestedData_it(void);
 const ASN1_ITEM * CMS_EncryptedData_it(void);
@@ -7146,62 +12868,78 @@ const ASN1_ITEM * CMS_CompressedData_it(void);
 #line 16 "crypto\\cms\\cms_io.c"
 int CMS_stream(unsigned char ***boundary, CMS_ContentInfo *cms)
 {
-ASN1_OCTET_STRING **pos;
-pos = CMS_get0_content(cms);
-if (pos == ((void *)0))
-return 0;
-if (*pos == ((void *)0))
-*pos = ASN1_OCTET_STRING_new();
-if (*pos != ((void *)0)) {
-(*pos)->flags |= 0x010;
-(*pos)->flags &= ~0x020;
-*boundary = &(*pos)->data;
-return 1;
-}
-ERR_put_error(46,(155),((1|64)),"crypto\\cms\\cms_io.c",31);
-return 0;
+    ASN1_OCTET_STRING **pos;
+    pos = CMS_get0_content(cms);
+    if (pos == ((void *)0))
+        return 0;
+    if (*pos == ((void *)0))
+        *pos = ASN1_OCTET_STRING_new();
+    if (*pos != ((void *)0))
+    {
+        (*pos)->flags |= 0x010;
+        (*pos)->flags &= ~0x020;
+        *boundary = &(*pos)->data;
+        return 1;
+    }
+    ERR_put_error(46,(155),((1|64)),"crypto\\cms\\cms_io.c",31);
+    return 0;
 }
 CMS_ContentInfo *d2i_CMS_bio(BIO *bp, CMS_ContentInfo **cms)
 {
-return ASN1_item_d2i_bio((CMS_ContentInfo_it()), bp, cms);
+    return ASN1_item_d2i_bio((CMS_ContentInfo_it()), bp, cms);
 }
 int i2d_CMS_bio(BIO *bp, CMS_ContentInfo *cms)
 {
-return ASN1_item_i2d_bio((CMS_ContentInfo_it()), bp, cms);
+    return ASN1_item_i2d_bio((CMS_ContentInfo_it()), bp, cms);
 }
-CMS_ContentInfo *PEM_read_bio_CMS(BIO *bp, CMS_ContentInfo **x, pem_password_cb *cb, void *u){ return PEM_ASN1_read_bio((d2i_of_void *)d2i_CMS_ContentInfo, "CMS",bp,(void **)x,cb,u); } CMS_ContentInfo *PEM_read_CMS(FILE *fp, CMS_ContentInfo **x, pem_password_cb *cb, void *u){ return PEM_ASN1_read((d2i_of_void *)d2i_CMS_ContentInfo, "CMS",fp,(void **)x,cb,u); } int PEM_write_bio_CMS(BIO *bp, const CMS_ContentInfo *x) { return PEM_ASN1_write_bio((i2d_of_void *)i2d_CMS_ContentInfo,"CMS",bp,(void *)x,((void *)0),((void *)0),0,((void *)0),((void *)0)); } int PEM_write_CMS(FILE *fp, const CMS_ContentInfo *x) { return PEM_ASN1_write((i2d_of_void *)i2d_CMS_ContentInfo,"CMS",fp,(void *)x,((void *)0),((void *)0),0,((void *)0),((void *)0)); }
+CMS_ContentInfo *PEM_read_bio_CMS(BIO *bp, CMS_ContentInfo **x, pem_password_cb *cb, void *u)
+{
+    return PEM_ASN1_read_bio((d2i_of_void *)d2i_CMS_ContentInfo, "CMS",bp,(void **)x,cb,u);
+}
+CMS_ContentInfo *PEM_read_CMS(FILE *fp, CMS_ContentInfo **x, pem_password_cb *cb, void *u)
+{
+    return PEM_ASN1_read((d2i_of_void *)d2i_CMS_ContentInfo, "CMS",fp,(void **)x,cb,u);
+}
+int PEM_write_bio_CMS(BIO *bp, const CMS_ContentInfo *x)
+{
+    return PEM_ASN1_write_bio((i2d_of_void *)i2d_CMS_ContentInfo,"CMS",bp,(void *)x,((void *)0),((void *)0),0,((void *)0),((void *)0));
+}
+int PEM_write_CMS(FILE *fp, const CMS_ContentInfo *x)
+{
+    return PEM_ASN1_write((i2d_of_void *)i2d_CMS_ContentInfo,"CMS",fp,(void *)x,((void *)0),((void *)0),0,((void *)0),((void *)0));
+}
 BIO *BIO_new_CMS(BIO *out, CMS_ContentInfo *cms)
 {
-return BIO_new_NDEF(out, (ASN1_VALUE *)cms,
-(CMS_ContentInfo_it()));
+    return BIO_new_NDEF(out, (ASN1_VALUE *)cms,
+                        (CMS_ContentInfo_it()));
 }
 int i2d_CMS_bio_stream(BIO *out, CMS_ContentInfo *cms, BIO *in, int flags)
 {
-return i2d_ASN1_bio_stream(out, (ASN1_VALUE *)cms, in, flags,
-(CMS_ContentInfo_it()));
+    return i2d_ASN1_bio_stream(out, (ASN1_VALUE *)cms, in, flags,
+                               (CMS_ContentInfo_it()));
 }
 int PEM_write_bio_CMS_stream(BIO *out, CMS_ContentInfo *cms, BIO *in,
-int flags)
+                             int flags)
 {
-return PEM_write_bio_ASN1_stream(out, (ASN1_VALUE *)cms, in, flags,
-"CMS", (CMS_ContentInfo_it()));
+    return PEM_write_bio_ASN1_stream(out, (ASN1_VALUE *)cms, in, flags,
+                                     "CMS", (CMS_ContentInfo_it()));
 }
 int SMIME_write_CMS(BIO *bio, CMS_ContentInfo *cms, BIO *data, int flags)
 {
-struct stack_st_X509_ALGOR *mdalgs;
-int ctype_nid = OBJ_obj2nid(cms->contentType);
-int econt_nid = OBJ_obj2nid(CMS_get0_eContentType(cms));
-if (ctype_nid == 22)
-mdalgs = cms->d.signedData->digestAlgorithms;
-else
-mdalgs = ((void *)0);
-return SMIME_write_ASN1(bio, (ASN1_VALUE *)cms, data, flags,
-ctype_nid, econt_nid, mdalgs,
-(CMS_ContentInfo_it()));
+    struct stack_st_X509_ALGOR *mdalgs;
+    int ctype_nid = OBJ_obj2nid(cms->contentType);
+    int econt_nid = OBJ_obj2nid(CMS_get0_eContentType(cms));
+    if (ctype_nid == 22)
+        mdalgs = cms->d.signedData->digestAlgorithms;
+    else
+        mdalgs = ((void *)0);
+    return SMIME_write_ASN1(bio, (ASN1_VALUE *)cms, data, flags,
+                            ctype_nid, econt_nid, mdalgs,
+                            (CMS_ContentInfo_it()));
 }
 CMS_ContentInfo *SMIME_read_CMS(BIO *bio, BIO **bcont)
 {
-return (CMS_ContentInfo *)SMIME_read_ASN1(bio, bcont,
-(CMS_ContentInfo_it()));
+    return (CMS_ContentInfo *)SMIME_read_ASN1(bio, bcont,
+            (CMS_ContentInfo_it()));
 #line 88 "crypto\\cms\\cms_io.c"
 }

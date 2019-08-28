@@ -205,11 +205,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -245,34 +245,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -298,51 +300,52 @@ extern unsigned long  __cdecl __threadid(void);
 extern uintptr_t __cdecl __threadhandle(void);
 #line 78 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stddef.h"
 #line 16 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/aes.h"
-struct aes_key_st {
-unsigned int rd_key[4 * (14 + 1)];
+struct aes_key_st
+{
+    unsigned int rd_key[4 * (14 + 1)];
 #line 37 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/aes.h"
-int rounds;
+    int rounds;
 };
 typedef struct aes_key_st AES_KEY;
 const char *AES_options(void);
 int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
-AES_KEY *key);
+                        AES_KEY *key);
 int AES_set_decrypt_key(const unsigned char *userKey, const int bits,
-AES_KEY *key);
+                        AES_KEY *key);
 void AES_encrypt(const unsigned char *in, unsigned char *out,
-const AES_KEY *key);
+                 const AES_KEY *key);
 void AES_decrypt(const unsigned char *in, unsigned char *out,
-const AES_KEY *key);
+                 const AES_KEY *key);
 void AES_ecb_encrypt(const unsigned char *in, unsigned char *out,
-const AES_KEY *key, const int enc);
+                     const AES_KEY *key, const int enc);
 void AES_cbc_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const AES_KEY *key,
-unsigned char *ivec, const int enc);
+                     size_t length, const AES_KEY *key,
+                     unsigned char *ivec, const int enc);
 void AES_cfb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const AES_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                        size_t length, const AES_KEY *key,
+                        unsigned char *ivec, int *num, const int enc);
 void AES_cfb1_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const AES_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                      size_t length, const AES_KEY *key,
+                      unsigned char *ivec, int *num, const int enc);
 void AES_cfb8_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const AES_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                      size_t length, const AES_KEY *key,
+                      unsigned char *ivec, int *num, const int enc);
 void AES_ofb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const AES_KEY *key,
-unsigned char *ivec, int *num);
+                        size_t length, const AES_KEY *key,
+                        unsigned char *ivec, int *num);
 void AES_ige_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const AES_KEY *key,
-unsigned char *ivec, const int enc);
+                     size_t length, const AES_KEY *key,
+                     unsigned char *ivec, const int enc);
 void AES_bi_ige_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const AES_KEY *key,
-const AES_KEY *key2, const unsigned char *ivec,
-const int enc);
+                        size_t length, const AES_KEY *key,
+                        const AES_KEY *key2, const unsigned char *ivec,
+                        const int enc);
 int AES_wrap_key(AES_KEY *key, const unsigned char *iv,
-unsigned char *out,
-const unsigned char *in, unsigned int inlen);
+                 unsigned char *out,
+                 const unsigned char *in, unsigned int inlen);
 int AES_unwrap_key(AES_KEY *key, const unsigned char *iv,
-unsigned char *out,
-const unsigned char *in, unsigned int inlen);
+                   unsigned char *out,
+                   const unsigned char *in, unsigned int inlen);
 #line 93 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/aes.h"
 #line 12 "crypto\\aes\\aes_misc.c"
 #line 1 "d:\\07.opensrc\\gmssl\\crypto\\aes\\aes_locl.h"
@@ -439,15 +442,16 @@ typedef unsigned long long uintmax_t;
 #line 1 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 21 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma pack(push,8)
-struct _iobuf {
-char *_ptr;
-int   _cnt;
-char *_base;
-int   _flag;
-int   _file;
-int   _charbuf;
-int   _bufsiz;
-char *_tmpfname;
+struct _iobuf
+{
+    char *_ptr;
+    int   _cnt;
+    char *_base;
+    int   _flag;
+    int   _file;
+    int   _charbuf;
+    int   _bufsiz;
+    char *_tmpfname;
 };
 typedef struct _iobuf FILE;
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -475,7 +479,7 @@ int __cdecl ferror(  FILE * _File);
 int __cdecl fflush(  FILE * _File);
 int __cdecl fgetc(  FILE * _File);
 int __cdecl _fgetchar(void);
-int __cdecl fgetpos(  FILE * _File ,   fpos_t * _Pos);
+int __cdecl fgetpos(  FILE * _File,   fpos_t * _Pos);
 char * __cdecl fgets(  char * _Buf,   int _MaxCount,   FILE * _File);
 int __cdecl _fileno(  FILE * _File);
 #line 205 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -586,13 +590,15 @@ int __cdecl vsnprintf_s(  char * _DstBuf,   size_t _DstSize,   size_t _MaxCount,
 int __cdecl _vsnprintf_s(  char * _DstBuf,   size_t _SizeInBytes,   size_t _MaxCount,     const char * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);   int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
+int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);
+int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl vsprintf_s(  char * _DstBuf,   size_t _SizeInBytes,     const char * _Format, va_list _ArgList);
 #line 355 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);   int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
+int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);
+int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _vscprintf(    const char * _Format, va_list _ArgList);
 int __cdecl _snprintf_c(  char * _DstBuf,   size_t _MaxCount,     const char * _Format, ...);
@@ -675,7 +681,8 @@ int __cdecl _snwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _M
 int __cdecl _vsnwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _MaxCount,     const wchar_t * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);   int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
+int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);
+int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _fwprintf_p(  FILE * _File,     const wchar_t * _Format, ...);
 int __cdecl _wprintf_p(    const wchar_t * _Format, ...);
@@ -713,8 +720,10 @@ int __cdecl _vsnwprintf_s_l(  wchar_t * _DstBuf,   size_t _DstSize,   size_t _Ma
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4141 4996 4793)
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
 #pragma warning(pop)
 #line 1 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
 #pragma once
@@ -724,19 +733,19 @@ __declspec(deprecated("swprintf has been changed to conform with the ISO C stand
 #pragma warning( disable : 4793 4412 )
 static __inline int swprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl vswprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 }
 #pragma warning( pop )
 #line 57 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -744,19 +753,19 @@ return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 #pragma warning( disable : 4793 4412 )
 static __inline int _swprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl _vswprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
 }
 #pragma warning( pop )
 #line 128 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -790,7 +799,7 @@ int __cdecl wscanf_s(    const wchar_t * _Format, ...);
 #line 583 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 int __cdecl _wscanf_s_l(    const wchar_t * _Format,   _locale_t _Locale, ...);
 #pragma warning(pop)
-FILE * __cdecl _wfdopen(  int _FileHandle ,   const wchar_t * _Mode);
+FILE * __cdecl _wfdopen(  int _FileHandle,   const wchar_t * _Mode);
 FILE * __cdecl _wfopen(  const wchar_t * _Filename,   const wchar_t * _Mode);
 errno_t __cdecl _wfopen_s(  FILE ** _File,   const wchar_t * _Filename,   const wchar_t * _Mode);
 FILE * __cdecl _wfreopen(  const wchar_t * _Filename,   const wchar_t * _Mode,   FILE * _OldFile);
@@ -859,37 +868,45 @@ typedef int (__cdecl * _onexit_t)(void);
 #line 61 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 66 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct _div_t {
-int quot;
-int rem;
+typedef struct _div_t
+{
+    int quot;
+    int rem;
 } div_t;
-typedef struct _ldiv_t {
-long quot;
-long rem;
+typedef struct _ldiv_t
+{
+    long quot;
+    long rem;
 } ldiv_t;
-typedef struct _lldiv_t {
-long long quot;
-long long rem;
+typedef struct _lldiv_t
+{
+    long long quot;
+    long long rem;
 } lldiv_t;
 #line 92 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma pack(4)
-typedef struct {
-unsigned char ld[10];
+typedef struct
+{
+    unsigned char ld[10];
 } _LDOUBLE;
 #pragma pack()
 #line 121 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct {
-double x;
+typedef struct
+{
+    double x;
 } _CRT_DOUBLE;
-typedef struct {
-float f;
+typedef struct
+{
+    float f;
 } _CRT_FLOAT;
-typedef struct {
-long double x;
+typedef struct
+{
+    long double x;
 } _LONGDOUBLE;
 #pragma pack(4)
-typedef struct {
-unsigned char ld12[12];
+typedef struct
+{
+    unsigned char ld12[12];
 } _LDBL12;
 #pragma pack()
 #line 151 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -898,12 +915,12 @@ extern int __mb_cur_max;
 int __cdecl ___mb_cur_max_func(void);
 int __cdecl ___mb_cur_max_l_func(_locale_t);
 #line 171 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_purecall_handler)(void); 
+typedef void (__cdecl *_purecall_handler)(void);
 _purecall_handler __cdecl _set_purecall_handler(  _purecall_handler _Handler);
 _purecall_handler __cdecl _get_purecall_handler(void);
 #line 214 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 225 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t); 
+typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t);
 _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(  _invalid_parameter_handler _Handler);
 _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
 #line 234 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -913,21 +930,21 @@ errno_t __cdecl _get_doserrno(  unsigned long * _Value);
 char ** __cdecl __sys_errlist(void);
 int * __cdecl __sys_nerr(void);
 #line 273 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern int __argc;          
-extern char ** __argv;      
-extern wchar_t ** __wargv;  
+extern int __argc;
+extern char ** __argv;
+extern wchar_t ** __wargv;
 #line 288 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 290 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char ** _environ;    
-extern wchar_t ** _wenviron;    
+extern char ** _environ;
+extern wchar_t ** _wenviron;
 #line 301 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 303 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char * _pgmptr;      
-extern wchar_t * _wpgmptr;  
+extern char * _pgmptr;
+extern wchar_t * _wpgmptr;
 #line 327 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _get_pgmptr(  char ** _Value);
 errno_t __cdecl _get_wpgmptr(  wchar_t ** _Value);
-extern int _fmode;          
+extern int _fmode;
 #line 338 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _set_fmode(  int _Mode);
 errno_t __cdecl _get_fmode(  int * _PMode);
@@ -954,20 +971,20 @@ int    __cdecl atoi(  const char *_Str);
 int    __cdecl _atoi_l(  const char *_Str,   _locale_t _Locale);
 long   __cdecl atol(  const char *_Str);
 long   __cdecl _atol_l(  const char *_Str,   _locale_t _Locale);
-void * __cdecl bsearch_s(  const void * _Key,   const void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
+void * __cdecl bsearch_s(  const void * _Key,   const void * _Base,
+                           rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                           int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
 #line 430 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void * __cdecl bsearch(  const void * _Key,   const void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
-void __cdecl qsort_s(  void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
+void * __cdecl bsearch(  const void * _Key,   const void * _Base,
+                         size_t _NumOfElements,   size_t _SizeOfElements,
+                         int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort_s(  void * _Base,
+                       rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                       int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
 #line 439 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void __cdecl qsort(  void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements, 
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort(  void * _Base,
+                     size_t _NumOfElements,   size_t _SizeOfElements,
+                     int (__cdecl * _PtFuncCompare)(const void *, const void *));
 #line 443 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 unsigned short __cdecl _byteswap_ushort(  unsigned short _Short);
 unsigned long  __cdecl _byteswap_ulong (  unsigned long _Long);
@@ -1084,7 +1101,7 @@ __int64   __cdecl _wtoi64_l(  const wchar_t *_Str,   _locale_t _Locale);
 __int64   __cdecl _wcstoi64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
 __int64   __cdecl _wcstoi64_l(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 unsigned __int64  __cdecl _wcstoui64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
-unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str ,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
+unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 #line 724 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 739 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 char * __cdecl _fullpath(  char * _FullPath,   const char * _Path,   size_t _SizeInBytes);
@@ -1104,14 +1121,14 @@ int __cdecl _atoflt_l(  _CRT_FLOAT * _Result,   char * _Str,   _locale_t _Locale
 unsigned long __cdecl _lrotl(  unsigned long _Val,   int _Shift);
 unsigned long __cdecl _lrotr(  unsigned long _Val,   int _Shift);
 errno_t   __cdecl _makepath_s(  char * _PathResult,   size_t _SizeInWords,   const char * _Drive,   const char * _Dir,   const char * _Filename,
-const char * _Ext);
+                                const char * _Ext);
 void __cdecl _makepath(  char *_Path,  const char * _Drive,  const char * _Dir,  const char * _Filename,  const char * _Ext);
 #line 783 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 796 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 _onexit_t __cdecl _onexit(  _onexit_t _Func);
 #line 798 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning (push)
-#pragma warning (disable:6540) 
+#pragma warning (disable:6540)
 int    __cdecl _putenv(  const char * _EnvString);
 errno_t __cdecl _putenv_s(  const char * _Name,   const char * _Value);
 #line 811 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -1124,17 +1141,17 @@ errno_t __cdecl _searchenv_s(  const char * _Filename,   const char * _EnvVar,  
 void __cdecl _searchenv( const char * _Filename,  const char * _EnvVar,   char *_ResultPath);
 #line 823 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _splitpath(  const char * _FullPath,     char * _Drive,     char * _Dir,     char * _Filename,     char * _Ext);
-errno_t  __cdecl _splitpath_s(  const char * _FullPath, 
-char * _Drive,   size_t _DriveSize, 
-char * _Dir,   size_t _DirSize, 
-char * _Filename,   size_t _FilenameSize, 
-char * _Ext,   size_t _ExtSize);
+errno_t  __cdecl _splitpath_s(  const char * _FullPath,
+                                char * _Drive,   size_t _DriveSize,
+                                char * _Dir,   size_t _DirSize,
+                                char * _Filename,   size_t _FilenameSize,
+                                char * _Ext,   size_t _ExtSize);
 void   __cdecl _swab(    char * _Buf1,     char * _Buf2, int _SizeInBytes);
 #line 842 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 wchar_t * __cdecl _wfullpath(  wchar_t * _FullPath,   const wchar_t * _Path,   size_t _SizeInWords);
 #line 848 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _wmakepath_s(  wchar_t * _PathResult,   size_t _SIZE,   const wchar_t * _Drive,   const wchar_t * _Dir,   const wchar_t * _Filename,
-const wchar_t * _Ext);        
+                               const wchar_t * _Ext);
 void __cdecl _wmakepath(  wchar_t *_ResultPath,  const wchar_t * _Drive,  const wchar_t * _Dir,  const wchar_t * _Filename,  const wchar_t * _Ext);
 int    __cdecl _wputenv(  const wchar_t * _EnvString);
 errno_t __cdecl _wputenv_s(  const wchar_t * _Name,   const wchar_t * _Value);
@@ -1142,11 +1159,11 @@ errno_t __cdecl _wsearchenv_s(  const wchar_t * _Filename,   const wchar_t * _En
 void __cdecl _wsearchenv( const wchar_t * _Filename,  const wchar_t * _EnvVar,   wchar_t *_ResultPath);
 #line 865 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _wsplitpath(  const wchar_t * _FullPath,     wchar_t * _Drive,     wchar_t * _Dir,     wchar_t * _Filename,     wchar_t * _Ext);
-errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath, 
-wchar_t * _Drive,   size_t _DriveSize, 
-wchar_t * _Dir,   size_t _DirSize, 
-wchar_t * _Filename,   size_t _FilenameSize, 
-wchar_t * _Ext,   size_t _ExtSize);
+errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath,
+                                wchar_t * _Drive,   size_t _DriveSize,
+                                wchar_t * _Dir,   size_t _DirSize,
+                                wchar_t * _Filename,   size_t _FilenameSize,
+                                wchar_t * _Ext,   size_t _ExtSize);
 #line 876 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "SetErrorMode" " instead. See online help for details."))  void __cdecl _seterrormode(  int _Mode);
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "Beep" " instead. See online help for details."))  void __cdecl _beep(  unsigned _Frequency,   unsigned _Duration);
@@ -1156,7 +1173,7 @@ __declspec(deprecated("This function or variable has been superceded by newer li
 #line 896 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 903 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning(push)
-#pragma warning(disable: 4141)  
+#pragma warning(disable: 4141)
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_ecvt" ". See online help for details."))   char * __cdecl ecvt(  double _Val,   int _NumOfDigits,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_fcvt" ". See online help for details."))   char * __cdecl fcvt(  double _Val,   int _NumOfDec,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_gcvt" ". See online help for details.")) 		 char * __cdecl gcvt(  double _Val,   int _NumOfDigits,     char * _DstBuf);
@@ -1179,7 +1196,7 @@ _onexit_t __cdecl onexit(  _onexit_t _Func);
 #line 21 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 30 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 void *  __cdecl _memccpy(   void * _Dst,   const void * _Src,   int _Val,   size_t _MaxCount);
-void *  __cdecl memchr(   const void * _Buf ,   int _Val,   size_t _MaxCount);
+void *  __cdecl memchr(   const void * _Buf,   int _Val,   size_t _MaxCount);
 int     __cdecl _memicmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
 int     __cdecl _memicmp_l(  const void * _Buf1,   const void * _Buf2,   size_t _Size,   _locale_t _Locale);
 int     __cdecl memcmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
@@ -1207,7 +1224,7 @@ size_t  __cdecl strnlen(  const char * _Str,   size_t _MaxCount);
 static __inline
 size_t  __cdecl strnlen_s(  const char * _Str,   size_t _MaxCount)
 {
-return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
+    return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
 }
 #line 131 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl memmove_s(  void * _Dst,   rsize_t _DstSize,   const void * _Src,   rsize_t _MaxCount);
@@ -1295,7 +1312,7 @@ size_t __cdecl wcsnlen(  const wchar_t * _Src,   size_t _MaxCount);
 static __inline
 size_t __cdecl wcsnlen_s(  const wchar_t * _Src,   size_t _MaxCount)
 {
-return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
+    return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
 }
 #line 304 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl wcsncat_s(  wchar_t * _Dst,   rsize_t _SizeInWords,   const wchar_t * _Src,   rsize_t _MaxCount);
@@ -1370,6 +1387,6 @@ typedef unsigned char u8;
 #line 13 "crypto\\aes\\aes_misc.c"
 const char *AES_options(void)
 {
-return "aes(partial)";
+    return "aes(partial)";
 #line 21 "crypto\\aes\\aes_misc.c"
 }

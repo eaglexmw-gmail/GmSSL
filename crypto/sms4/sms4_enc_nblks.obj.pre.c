@@ -40,22 +40,22 @@
 #line 23 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 31 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 32 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 43 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 48 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 55 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 57 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned short _ino_t;          
+typedef unsigned short _ino_t;
 typedef unsigned short ino_t;
 #line 67 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 70 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned int _dev_t;            
+typedef unsigned int _dev_t;
 typedef unsigned int dev_t;
 #line 80 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 83 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef long _off_t;                    
+typedef long _off_t;
 typedef long off_t;
 #line 93 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 96 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
@@ -300,34 +300,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -392,7 +394,7 @@ typedef unsigned long long uintmax_t;
 #line 38 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 39 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 void *  __cdecl _memccpy(   void * _Dst,   const void * _Src,   int _Val,   size_t _MaxCount);
-void *  __cdecl memchr(   const void * _Buf ,   int _Val,   size_t _MaxCount);
+void *  __cdecl memchr(   const void * _Buf,   int _Val,   size_t _MaxCount);
 int     __cdecl _memicmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
 int     __cdecl _memicmp_l(  const void * _Buf1,   const void * _Buf2,   size_t _Size,   _locale_t _Locale);
 int     __cdecl memcmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
@@ -420,7 +422,7 @@ size_t  __cdecl strnlen(  const char * _Str,   size_t _MaxCount);
 static __inline
 size_t  __cdecl strnlen_s(  const char * _Str,   size_t _MaxCount)
 {
-return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
+    return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
 }
 #line 131 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl memmove_s(  void * _Dst,   rsize_t _DstSize,   const void * _Src,   rsize_t _MaxCount);
@@ -508,7 +510,7 @@ size_t __cdecl wcsnlen(  const wchar_t * _Src,   size_t _MaxCount);
 static __inline
 size_t __cdecl wcsnlen_s(  const wchar_t * _Src,   size_t _MaxCount)
 {
-return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
+    return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
 }
 #line 304 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl wcsncat_s(  wchar_t * _Dst,   rsize_t _SizeInWords,   const wchar_t * _Src,   rsize_t _MaxCount);
@@ -574,8 +576,9 @@ __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use 
 #line 420 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 427 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 64 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sms4.h"
-typedef struct {
-uint32_t rk[32];
+typedef struct
+{
+    uint32_t rk[32];
 } sms4_key_t;
 void sms4_set_encrypt_key(sms4_key_t *key, const unsigned char *user_key);
 void sms4_set_decrypt_key(sms4_key_t *key, const unsigned char *user_key);
@@ -584,20 +587,20 @@ void sms4_encrypt_init(sms4_key_t *key);
 void sms4_encrypt_8blocks(const unsigned char *in, unsigned char *out, const sms4_key_t *key);
 void sms4_encrypt_16blocks(const unsigned char *in, unsigned char *out, const sms4_key_t *key);
 void sms4_ecb_encrypt(const unsigned char *in, unsigned char *out,
-const sms4_key_t *key, int enc);
+                      const sms4_key_t *key, int enc);
 void sms4_cbc_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv, int enc);
+                      size_t len, const sms4_key_t *key, unsigned char *iv, int enc);
 void sms4_cfb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv, int *num, int enc);
+                         size_t len, const sms4_key_t *key, unsigned char *iv, int *num, int enc);
 void sms4_ofb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv, int *num);
+                         size_t len, const sms4_key_t *key, unsigned char *iv, int *num);
 void sms4_ctr128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const sms4_key_t *key, unsigned char *iv,
-unsigned char ecount_buf[16], unsigned int *num);
+                         size_t len, const sms4_key_t *key, unsigned char *iv,
+                         unsigned char ecount_buf[16], unsigned int *num);
 int sms4_wrap_key(sms4_key_t *key, const unsigned char *iv,
-unsigned char *out, const unsigned char *in, unsigned int inlen);
+                  unsigned char *out, const unsigned char *in, unsigned int inlen);
 int sms4_unwrap_key(sms4_key_t *key, const unsigned char *iv,
-unsigned char *out, const unsigned char *in, unsigned int inlen);
+                    unsigned char *out, const unsigned char *in, unsigned int inlen);
 #line 130 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sms4.h"
 #line 131 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sms4.h"
 #line 52 "crypto\\sms4\\sms4_enc_nblks.c"
@@ -606,17 +609,17 @@ void sms4_encrypt_init(sms4_key_t *key)
 }
 void sms4_encrypt_8blocks(const unsigned char *in, unsigned char *out, const sms4_key_t *key)
 {
-sms4_encrypt(in, out, key);
-sms4_encrypt(in + 16, out + 16, key);
-sms4_encrypt(in + 16 * 2, out + 16 * 2, key);
-sms4_encrypt(in + 16 * 3, out + 16 * 3, key);
-sms4_encrypt(in + 16 * 4, out + 16 * 4, key);
-sms4_encrypt(in + 16 * 5, out + 16 * 5, key);
-sms4_encrypt(in + 16 * 6, out + 16 * 6, key);
-sms4_encrypt(in + 16 * 7, out + 16 * 7, key);
+    sms4_encrypt(in, out, key);
+    sms4_encrypt(in + 16, out + 16, key);
+    sms4_encrypt(in + 16 * 2, out + 16 * 2, key);
+    sms4_encrypt(in + 16 * 3, out + 16 * 3, key);
+    sms4_encrypt(in + 16 * 4, out + 16 * 4, key);
+    sms4_encrypt(in + 16 * 5, out + 16 * 5, key);
+    sms4_encrypt(in + 16 * 6, out + 16 * 6, key);
+    sms4_encrypt(in + 16 * 7, out + 16 * 7, key);
 }
 void sms4_encrypt_16blocks(const unsigned char *in, unsigned char *out, const sms4_key_t *key)
 {
-sms4_encrypt_8blocks(in, out, key);
-sms4_encrypt_8blocks(in + 16 * 8, out + 16 * 8, key);
+    sms4_encrypt_8blocks(in, out, key);
+    sms4_encrypt_8blocks(in + 16 * 8, out + 16 * 8, key);
 }

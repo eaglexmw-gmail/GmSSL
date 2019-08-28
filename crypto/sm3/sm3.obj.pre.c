@@ -165,11 +165,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -205,34 +205,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -250,7 +252,7 @@ wchar_t * locale_name[6];
 #line 38 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 39 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 void *  __cdecl _memccpy(   void * _Dst,   const void * _Src,   int _Val,   size_t _MaxCount);
-void *  __cdecl memchr(   const void * _Buf ,   int _Val,   size_t _MaxCount);
+void *  __cdecl memchr(   const void * _Buf,   int _Val,   size_t _MaxCount);
 int     __cdecl _memicmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
 int     __cdecl _memicmp_l(  const void * _Buf1,   const void * _Buf2,   size_t _Size,   _locale_t _Locale);
 int     __cdecl memcmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
@@ -278,7 +280,7 @@ size_t  __cdecl strnlen(  const char * _Str,   size_t _MaxCount);
 static __inline
 size_t  __cdecl strnlen_s(  const char * _Str,   size_t _MaxCount)
 {
-return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
+    return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
 }
 #line 131 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl memmove_s(  void * _Dst,   rsize_t _DstSize,   const void * _Src,   rsize_t _MaxCount);
@@ -366,7 +368,7 @@ size_t __cdecl wcsnlen(  const wchar_t * _Src,   size_t _MaxCount);
 static __inline
 size_t __cdecl wcsnlen_s(  const wchar_t * _Src,   size_t _MaxCount)
 {
-return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
+    return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
 }
 #line 304 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl wcsncat_s(  wchar_t * _Dst,   rsize_t _SizeInWords,   const wchar_t * _Src,   rsize_t _MaxCount);
@@ -472,15 +474,15 @@ __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use 
 #pragma once
 #line 23 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 32 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned short _ino_t;          
+typedef unsigned short _ino_t;
 typedef unsigned short ino_t;
 #line 67 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 70 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned int _dev_t;            
+typedef unsigned int _dev_t;
 typedef unsigned int dev_t;
 #line 80 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 83 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef long _off_t;                    
+typedef long _off_t;
 typedef long off_t;
 #line 93 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 96 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
@@ -574,27 +576,29 @@ typedef unsigned long long uintmax_t;
 #line 307 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/e_os2.h"
 #line 312 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/e_os2.h"
 #line 65 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm3.h"
-typedef struct {
-uint32_t digest[8];
-uint64_t nblocks;
-unsigned char block[64];
-int num;
+typedef struct
+{
+    uint32_t digest[8];
+    uint64_t nblocks;
+    unsigned char block[64];
+    int num;
 } sm3_ctx_t;
 void sm3_init(sm3_ctx_t *ctx);
 void sm3_update(sm3_ctx_t *ctx, const unsigned char* data, size_t data_len);
 void sm3_final(sm3_ctx_t *ctx, unsigned char digest[32]);
 void sm3_compress(uint32_t digest[8], const unsigned char block[64]);
 void sm3(const unsigned char *data, size_t datalen,
-unsigned char digest[32]);
-typedef struct {
-sm3_ctx_t sm3_ctx;
-unsigned char key[64];
+         unsigned char digest[32]);
+typedef struct
+{
+    sm3_ctx_t sm3_ctx;
+    unsigned char key[64];
 } sm3_hmac_ctx_t;
 void sm3_hmac_init(sm3_hmac_ctx_t *ctx, const unsigned char *key, size_t key_len);
 void sm3_hmac_update(sm3_hmac_ctx_t *ctx, const unsigned char *data, size_t data_len);
 void sm3_hmac_final(sm3_hmac_ctx_t *ctx, unsigned char mac[(32)]);
 void sm3_hmac(const unsigned char *data, size_t data_len,
-const unsigned char *key, size_t key_len, unsigned char mac[(32)]);
+              const unsigned char *key, size_t key_len, unsigned char mac[(32)]);
 #line 101 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm3.h"
 #line 102 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm3.h"
 #line 52 "crypto\\sm3\\sm3.c"
@@ -604,127 +608,139 @@ const unsigned char *key, size_t key_len, unsigned char mac[(32)]);
 #line 53 "crypto\\sm3\\sm3.c"
 void sm3_init(sm3_ctx_t *ctx)
 {
-memset(ctx, 0, sizeof(*ctx));
-ctx->digest[0] = 0x7380166F;
-ctx->digest[1] = 0x4914B2B9;
-ctx->digest[2] = 0x172442D7;
-ctx->digest[3] = 0xDA8A0600;
-ctx->digest[4] = 0xA96F30BC;
-ctx->digest[5] = 0x163138AA;
-ctx->digest[6] = 0xE38DEE4D;
-ctx->digest[7] = 0xB0FB0E4E;
+    memset(ctx, 0, sizeof(*ctx));
+    ctx->digest[0] = 0x7380166F;
+    ctx->digest[1] = 0x4914B2B9;
+    ctx->digest[2] = 0x172442D7;
+    ctx->digest[3] = 0xDA8A0600;
+    ctx->digest[4] = 0xA96F30BC;
+    ctx->digest[5] = 0x163138AA;
+    ctx->digest[6] = 0xE38DEE4D;
+    ctx->digest[7] = 0xB0FB0E4E;
 }
 void sm3_update(sm3_ctx_t *ctx, const unsigned char *data, size_t data_len)
 {
-if (ctx->num) {
-unsigned int left = 64 - ctx->num;
-if (data_len < left) {
-memcpy(ctx->block + ctx->num, data, data_len);
-ctx->num += data_len;
-return;
-} else {
-memcpy(ctx->block + ctx->num, data, left);
-sm3_compress(ctx->digest, ctx->block);
-ctx->nblocks++;
-data += left;
-data_len -= left;
-}
-}
-while (data_len >= 64) {
-sm3_compress(ctx->digest, data);
-ctx->nblocks++;
-data += 64;
-data_len -= 64;
-}
-ctx->num = data_len;
-if (data_len) {
-memcpy(ctx->block, data, data_len);
-}
+    if (ctx->num)
+    {
+        unsigned int left = 64 - ctx->num;
+        if (data_len < left)
+        {
+            memcpy(ctx->block + ctx->num, data, data_len);
+            ctx->num += data_len;
+            return;
+        }
+        else
+        {
+            memcpy(ctx->block + ctx->num, data, left);
+            sm3_compress(ctx->digest, ctx->block);
+            ctx->nblocks++;
+            data += left;
+            data_len -= left;
+        }
+    }
+    while (data_len >= 64)
+    {
+        sm3_compress(ctx->digest, data);
+        ctx->nblocks++;
+        data += 64;
+        data_len -= 64;
+    }
+    ctx->num = data_len;
+    if (data_len)
+    {
+        memcpy(ctx->block, data, data_len);
+    }
 }
 void sm3_final(sm3_ctx_t *ctx, unsigned char *digest)
 {
-int i;
-uint32_t *pdigest = (uint32_t *)digest;
-uint32_t *count = (uint32_t *)(ctx->block + 64 - 8);
-ctx->block[ctx->num] = 0x80;
-if (ctx->num + 9 <= 64) {
-memset(ctx->block + ctx->num + 1, 0, 64 - ctx->num - 9);
-} else {
-memset(ctx->block + ctx->num + 1, 0, 64 - ctx->num - 1);
-sm3_compress(ctx->digest, ctx->block);
-memset(ctx->block, 0, 64 - 8);
-}
-count[0] = ((((uint32_t)(ctx->nblocks >> 23))>>24) | ((((uint32_t)(ctx->nblocks >> 23))>>8)&0xff00) | ((((uint32_t)(ctx->nblocks >> 23))<<8)&0xff0000) | (((uint32_t)(ctx->nblocks >> 23))<<24));
-count[1] = ((((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))>>24) | ((((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))>>8)&0xff00) | ((((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))<<8)&0xff0000) | (((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))<<24));
-sm3_compress(ctx->digest, ctx->block);
-for (i = 0; i < sizeof(ctx->digest)/sizeof(ctx->digest[0]); i++) {
-pdigest[i] = (((ctx->digest[i])>>24) | (((ctx->digest[i])>>8)&0xff00) | (((ctx->digest[i])<<8)&0xff0000) | ((ctx->digest[i])<<24));
-}
+    int i;
+    uint32_t *pdigest = (uint32_t *)digest;
+    uint32_t *count = (uint32_t *)(ctx->block + 64 - 8);
+    ctx->block[ctx->num] = 0x80;
+    if (ctx->num + 9 <= 64)
+    {
+        memset(ctx->block + ctx->num + 1, 0, 64 - ctx->num - 9);
+    }
+    else
+    {
+        memset(ctx->block + ctx->num + 1, 0, 64 - ctx->num - 1);
+        sm3_compress(ctx->digest, ctx->block);
+        memset(ctx->block, 0, 64 - 8);
+    }
+    count[0] = ((((uint32_t)(ctx->nblocks >> 23))>>24) | ((((uint32_t)(ctx->nblocks >> 23))>>8)&0xff00) | ((((uint32_t)(ctx->nblocks >> 23))<<8)&0xff0000) | (((uint32_t)(ctx->nblocks >> 23))<<24));
+    count[1] = ((((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))>>24) | ((((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))>>8)&0xff00) | ((((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))<<8)&0xff0000) | (((uint32_t)(ctx->nblocks << 9) + (ctx->num << 3))<<24));
+    sm3_compress(ctx->digest, ctx->block);
+    for (i = 0; i < sizeof(ctx->digest)/sizeof(ctx->digest[0]); i++)
+    {
+        pdigest[i] = (((ctx->digest[i])>>24) | (((ctx->digest[i])>>8)&0xff00) | (((ctx->digest[i])<<8)&0xff0000) | ((ctx->digest[i])<<24));
+    }
 }
 void sm3_compress(uint32_t digest[8], const unsigned char block[64])
 {
-uint32_t A = digest[0];
-uint32_t B = digest[1];
-uint32_t C = digest[2];
-uint32_t D = digest[3];
-uint32_t E = digest[4];
-uint32_t F = digest[5];
-uint32_t G = digest[6];
-uint32_t H = digest[7];
-const uint32_t *pblock = (const uint32_t *)block;
-uint32_t W[68], W1[64];
-uint32_t SS1, SS2, TT1, TT2;
-int j;
-for (j = 0; j < 16; j++)
-W[j] = (((pblock[j])>>24) | (((pblock[j])>>8)&0xff00) | (((pblock[j])<<8)&0xff0000) | ((pblock[j])<<24));
-for (; j < 68; j++)
-W[j] = ((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))) ^ ((((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))<<(15)) | (((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))>>(32-(15)))) ^ ((((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))<<(23)) | (((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))>>(32-(23)))))
-^ (((W[j - 13])<<(7)) | ((W[j - 13])>>(32-(7)))) ^ W[j - 6];
-for(j = 0; j < 64; j++)
-W1[j] = W[j] ^ W[j + 4];
-for (j = 0; j < 16; j++) {
-SS1 = (((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x79CC4519)<<(j)) | ((0x79CC4519)>>(32-(j))))))<<(7)) | ((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x79CC4519)<<(j)) | ((0x79CC4519)>>(32-(j))))))>>(32-(7))));
-SS2 = SS1 ^ (((A)<<(12)) | ((A)>>(32-(12))));
-TT1 = ((A) ^ (B) ^ (C)) + D + SS2 + W1[j];
-TT2 = ((E) ^ (F) ^ (G)) + H + SS1 + W[j];
-D = C;
-C = (((B)<<(9)) | ((B)>>(32-(9))));
-B = A;
-A = TT1;
-H = G;
-G = (((F)<<(19)) | ((F)>>(32-(19))));
-F = E;
-E = ((TT2) ^ ((((TT2))<<(9)) | (((TT2))>>(32-(9)))) ^ ((((TT2))<<(17)) | (((TT2))>>(32-(17)))));
-}
-for (; j < 64; j++) {
-SS1 = (((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x7A879D8A)<<(j % 32)) | ((0x7A879D8A)>>(32-(j % 32))))))<<(7)) | ((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x7A879D8A)<<(j % 32)) | ((0x7A879D8A)>>(32-(j % 32))))))>>(32-(7))));
-SS2 = SS1 ^ (((A)<<(12)) | ((A)>>(32-(12))));
-TT1 = (((A)&(B)) | ((A)&(C)) | ((B)&(C))) + D + SS2 + W1[j];
-TT2 = (((E)&(F)) | ((~(E))&(G))) + H + SS1 + W[j];
-D = C;
-C = (((B)<<(9)) | ((B)>>(32-(9))));
-B = A;
-A = TT1;
-H = G;
-G = (((F)<<(19)) | ((F)>>(32-(19))));
-F = E;
-E = ((TT2) ^ ((((TT2))<<(9)) | (((TT2))>>(32-(9)))) ^ ((((TT2))<<(17)) | (((TT2))>>(32-(17)))));
-}
-digest[0] ^= A;
-digest[1] ^= B;
-digest[2] ^= C;
-digest[3] ^= D;
-digest[4] ^= E;
-digest[5] ^= F;
-digest[6] ^= G;
-digest[7] ^= H;
+    uint32_t A = digest[0];
+    uint32_t B = digest[1];
+    uint32_t C = digest[2];
+    uint32_t D = digest[3];
+    uint32_t E = digest[4];
+    uint32_t F = digest[5];
+    uint32_t G = digest[6];
+    uint32_t H = digest[7];
+    const uint32_t *pblock = (const uint32_t *)block;
+    uint32_t W[68], W1[64];
+    uint32_t SS1, SS2, TT1, TT2;
+    int j;
+    for (j = 0; j < 16; j++)
+        W[j] = (((pblock[j])>>24) | (((pblock[j])>>8)&0xff00) | (((pblock[j])<<8)&0xff0000) | ((pblock[j])<<24));
+    for (; j < 68; j++)
+        W[j] = ((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))) ^ ((((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))<<(15)) | (((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))>>(32-(15)))) ^ ((((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))<<(23)) | (((W[j - 16] ^ W[j - 9] ^ (((W[j - 3])<<(15)) | ((W[j - 3])>>(32-(15))))))>>(32-(23)))))
+               ^ (((W[j - 13])<<(7)) | ((W[j - 13])>>(32-(7)))) ^ W[j - 6];
+    for(j = 0; j < 64; j++)
+        W1[j] = W[j] ^ W[j + 4];
+    for (j = 0; j < 16; j++)
+    {
+        SS1 = (((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x79CC4519)<<(j)) | ((0x79CC4519)>>(32-(j))))))<<(7)) | ((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x79CC4519)<<(j)) | ((0x79CC4519)>>(32-(j))))))>>(32-(7))));
+        SS2 = SS1 ^ (((A)<<(12)) | ((A)>>(32-(12))));
+        TT1 = ((A) ^ (B) ^ (C)) + D + SS2 + W1[j];
+        TT2 = ((E) ^ (F) ^ (G)) + H + SS1 + W[j];
+        D = C;
+        C = (((B)<<(9)) | ((B)>>(32-(9))));
+        B = A;
+        A = TT1;
+        H = G;
+        G = (((F)<<(19)) | ((F)>>(32-(19))));
+        F = E;
+        E = ((TT2) ^ ((((TT2))<<(9)) | (((TT2))>>(32-(9)))) ^ ((((TT2))<<(17)) | (((TT2))>>(32-(17)))));
+    }
+    for (; j < 64; j++)
+    {
+        SS1 = (((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x7A879D8A)<<(j % 32)) | ((0x7A879D8A)>>(32-(j % 32))))))<<(7)) | ((((((A)<<(12)) | ((A)>>(32-(12)))) + E + (((0x7A879D8A)<<(j % 32)) | ((0x7A879D8A)>>(32-(j % 32))))))>>(32-(7))));
+        SS2 = SS1 ^ (((A)<<(12)) | ((A)>>(32-(12))));
+        TT1 = (((A)&(B)) | ((A)&(C)) | ((B)&(C))) + D + SS2 + W1[j];
+        TT2 = (((E)&(F)) | ((~(E))&(G))) + H + SS1 + W[j];
+        D = C;
+        C = (((B)<<(9)) | ((B)>>(32-(9))));
+        B = A;
+        A = TT1;
+        H = G;
+        G = (((F)<<(19)) | ((F)>>(32-(19))));
+        F = E;
+        E = ((TT2) ^ ((((TT2))<<(9)) | (((TT2))>>(32-(9)))) ^ ((((TT2))<<(17)) | (((TT2))>>(32-(17)))));
+    }
+    digest[0] ^= A;
+    digest[1] ^= B;
+    digest[2] ^= C;
+    digest[3] ^= D;
+    digest[4] ^= E;
+    digest[5] ^= F;
+    digest[6] ^= G;
+    digest[7] ^= H;
 }
 void sm3(const unsigned char *msg, size_t msglen,
-unsigned char dgst[32])
+         unsigned char dgst[32])
 {
-sm3_ctx_t ctx;
-sm3_init(&ctx);
-sm3_update(&ctx, msg, msglen);
-sm3_final(&ctx, dgst);
-memset(&ctx, 0, sizeof(sm3_ctx_t));
+    sm3_ctx_t ctx;
+    sm3_init(&ctx);
+    sm3_update(&ctx, msg, msglen);
+    sm3_final(&ctx, dgst);
+    memset(&ctx, 0, sizeof(sm3_ctx_t));
 }

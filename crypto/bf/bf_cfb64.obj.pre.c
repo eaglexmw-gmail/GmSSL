@@ -242,11 +242,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -282,34 +282,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -366,23 +368,24 @@ typedef unsigned long long uintmax_t;
 #line 307 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/e_os2.h"
 #line 312 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/e_os2.h"
 #line 17 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/blowfish.h"
-typedef struct bf_key_st {
-unsigned int P[16 + 2];
-unsigned int S[4 * 256];
+typedef struct bf_key_st
+{
+    unsigned int P[16 + 2];
+    unsigned int S[4 * 256];
 } BF_KEY;
 void BF_set_key(BF_KEY *key, int len, const unsigned char *data);
 void BF_encrypt(unsigned int *data, const BF_KEY *key);
 void BF_decrypt(unsigned int *data, const BF_KEY *key);
 void BF_ecb_encrypt(const unsigned char *in, unsigned char *out,
-const BF_KEY *key, int enc);
+                    const BF_KEY *key, int enc);
 void BF_cbc_encrypt(const unsigned char *in, unsigned char *out, long length,
-const BF_KEY *schedule, unsigned char *ivec, int enc);
+                    const BF_KEY *schedule, unsigned char *ivec, int enc);
 void BF_cfb64_encrypt(const unsigned char *in, unsigned char *out,
-long length, const BF_KEY *schedule,
-unsigned char *ivec, int *num, int enc);
+                      long length, const BF_KEY *schedule,
+                      unsigned char *ivec, int *num, int enc);
 void BF_ofb64_encrypt(const unsigned char *in, unsigned char *out,
-long length, const BF_KEY *schedule,
-unsigned char *ivec, int *num);
+                      long length, const BF_KEY *schedule,
+                      unsigned char *ivec, int *num);
 const char *BF_options(void);
 #line 60 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/blowfish.h"
 #line 62 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/blowfish.h"
@@ -401,57 +404,64 @@ const char *BF_options(void);
 #line 71 "d:\\07.opensrc\\gmssl\\crypto\\bf\\bf_locl.h"
 #line 12 "crypto\\bf\\bf_cfb64.c"
 void BF_cfb64_encrypt(const unsigned char *in, unsigned char *out,
-long length, const BF_KEY *schedule,
-unsigned char *ivec, int *num, int encrypt)
+                      long length, const BF_KEY *schedule,
+                      unsigned char *ivec, int *num, int encrypt)
 {
-register unsigned int v0, v1, t;
-register int n = *num;
-register long l = length;
-unsigned int ti[2];
-unsigned char *iv, c, cc;
-iv = (unsigned char *)ivec;
-if (encrypt) {
-while (l--) {
-if (n == 0) {
-(v0 =((unsigned long)(*((iv)++)))<<24L, v0|=((unsigned long)(*((iv)++)))<<16L, v0|=((unsigned long)(*((iv)++)))<< 8L, v0|=((unsigned long)(*((iv)++))));
-ti[0] = v0;
-(v1 =((unsigned long)(*((iv)++)))<<24L, v1|=((unsigned long)(*((iv)++)))<<16L, v1|=((unsigned long)(*((iv)++)))<< 8L, v1|=((unsigned long)(*((iv)++))));
-ti[1] = v1;
-BF_encrypt((unsigned int *)ti, schedule);
-iv = (unsigned char *)ivec;
-t = ti[0];
-(*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
-t = ti[1];
-(*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
-iv = (unsigned char *)ivec;
-}
-c = *(in++) ^ iv[n];
-*(out++) = c;
-iv[n] = c;
-n = (n + 1) & 0x07;
-}
-} else {
-while (l--) {
-if (n == 0) {
-(v0 =((unsigned long)(*((iv)++)))<<24L, v0|=((unsigned long)(*((iv)++)))<<16L, v0|=((unsigned long)(*((iv)++)))<< 8L, v0|=((unsigned long)(*((iv)++))));
-ti[0] = v0;
-(v1 =((unsigned long)(*((iv)++)))<<24L, v1|=((unsigned long)(*((iv)++)))<<16L, v1|=((unsigned long)(*((iv)++)))<< 8L, v1|=((unsigned long)(*((iv)++))));
-ti[1] = v1;
-BF_encrypt((unsigned int *)ti, schedule);
-iv = (unsigned char *)ivec;
-t = ti[0];
-(*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
-t = ti[1];
-(*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
-iv = (unsigned char *)ivec;
-}
-cc = *(in++);
-c = iv[n];
-iv[n] = cc;
-*(out++) = c ^ cc;
-n = (n + 1) & 0x07;
-}
-}
-v0 = v1 = ti[0] = ti[1] = t = c = cc = 0;
-*num = n;
+    register unsigned int v0, v1, t;
+    register int n = *num;
+    register long l = length;
+    unsigned int ti[2];
+    unsigned char *iv, c, cc;
+    iv = (unsigned char *)ivec;
+    if (encrypt)
+    {
+        while (l--)
+        {
+            if (n == 0)
+            {
+                (v0 =((unsigned long)(*((iv)++)))<<24L, v0|=((unsigned long)(*((iv)++)))<<16L, v0|=((unsigned long)(*((iv)++)))<< 8L, v0|=((unsigned long)(*((iv)++))));
+                ti[0] = v0;
+                (v1 =((unsigned long)(*((iv)++)))<<24L, v1|=((unsigned long)(*((iv)++)))<<16L, v1|=((unsigned long)(*((iv)++)))<< 8L, v1|=((unsigned long)(*((iv)++))));
+                ti[1] = v1;
+                BF_encrypt((unsigned int *)ti, schedule);
+                iv = (unsigned char *)ivec;
+                t = ti[0];
+                (*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
+                t = ti[1];
+                (*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
+                iv = (unsigned char *)ivec;
+            }
+            c = *(in++) ^ iv[n];
+            *(out++) = c;
+            iv[n] = c;
+            n = (n + 1) & 0x07;
+        }
+    }
+    else
+    {
+        while (l--)
+        {
+            if (n == 0)
+            {
+                (v0 =((unsigned long)(*((iv)++)))<<24L, v0|=((unsigned long)(*((iv)++)))<<16L, v0|=((unsigned long)(*((iv)++)))<< 8L, v0|=((unsigned long)(*((iv)++))));
+                ti[0] = v0;
+                (v1 =((unsigned long)(*((iv)++)))<<24L, v1|=((unsigned long)(*((iv)++)))<<16L, v1|=((unsigned long)(*((iv)++)))<< 8L, v1|=((unsigned long)(*((iv)++))));
+                ti[1] = v1;
+                BF_encrypt((unsigned int *)ti, schedule);
+                iv = (unsigned char *)ivec;
+                t = ti[0];
+                (*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
+                t = ti[1];
+                (*((iv)++)=(unsigned char)(((t)>>24L)&0xff), *((iv)++)=(unsigned char)(((t)>>16L)&0xff), *((iv)++)=(unsigned char)(((t)>> 8L)&0xff), *((iv)++)=(unsigned char)(((t) )&0xff));
+                iv = (unsigned char *)ivec;
+            }
+            cc = *(in++);
+            c = iv[n];
+            iv[n] = cc;
+            *(out++) = c ^ cc;
+            n = (n + 1) & 0x07;
+        }
+    }
+    v0 = v1 = ti[0] = ti[1] = t = c = cc = 0;
+    *num = n;
 }

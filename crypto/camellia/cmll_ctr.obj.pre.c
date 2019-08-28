@@ -201,11 +201,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -241,34 +241,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -294,217 +296,219 @@ extern unsigned long  __cdecl __threadid(void);
 extern uintptr_t __cdecl __threadhandle(void);
 #line 78 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stddef.h"
 #line 17 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/camellia.h"
-typedef unsigned int KEY_TABLE_TYPE[(272 / 4)]; 
-struct camellia_key_st {
-union {
-double d;               
-KEY_TABLE_TYPE rd_key;
-} u;
-int grand_rounds;
+typedef unsigned int KEY_TABLE_TYPE[(272 / 4)];
+struct camellia_key_st
+{
+    union
+    {
+        double d;
+        KEY_TABLE_TYPE rd_key;
+    } u;
+    int grand_rounds;
 };
 typedef struct camellia_key_st CAMELLIA_KEY;
 int Camellia_set_key(const unsigned char *userKey, const int bits,
-CAMELLIA_KEY *key);
+                     CAMELLIA_KEY *key);
 void Camellia_encrypt(const unsigned char *in, unsigned char *out,
-const CAMELLIA_KEY *key);
+                      const CAMELLIA_KEY *key);
 void Camellia_decrypt(const unsigned char *in, unsigned char *out,
-const CAMELLIA_KEY *key);
+                      const CAMELLIA_KEY *key);
 void Camellia_ecb_encrypt(const unsigned char *in, unsigned char *out,
-const CAMELLIA_KEY *key, const int enc);
+                          const CAMELLIA_KEY *key, const int enc);
 void Camellia_cbc_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, const int enc);
+                          size_t length, const CAMELLIA_KEY *key,
+                          unsigned char *ivec, const int enc);
 void Camellia_cfb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                             size_t length, const CAMELLIA_KEY *key,
+                             unsigned char *ivec, int *num, const int enc);
 void Camellia_cfb1_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                           size_t length, const CAMELLIA_KEY *key,
+                           unsigned char *ivec, int *num, const int enc);
 void Camellia_cfb8_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num, const int enc);
+                           size_t length, const CAMELLIA_KEY *key,
+                           unsigned char *ivec, int *num, const int enc);
 void Camellia_ofb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char *ivec, int *num);
+                             size_t length, const CAMELLIA_KEY *key,
+                             unsigned char *ivec, int *num);
 void Camellia_ctr128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char ivec[16],
-unsigned char ecount_buf[16],
-unsigned int *num);
+                             size_t length, const CAMELLIA_KEY *key,
+                             unsigned char ivec[16],
+                             unsigned char ecount_buf[16],
+                             unsigned int *num);
 #line 82 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/camellia.h"
 #line 84 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/camellia.h"
 #line 11 "crypto\\camellia\\cmll_ctr.c"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/modes.h"
 typedef void (*block128_f) (const unsigned char in[16],
-unsigned char out[16], const void *key);
+                            unsigned char out[16], const void *key);
 typedef void (*cbc128_f) (const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], int enc);
+                          size_t len, const void *key,
+                          unsigned char ivec[16], int enc);
 typedef void (*ctr128_f) (const unsigned char *in, unsigned char *out,
-size_t blocks, const void *key,
-const unsigned char ivec[16]);
+                          size_t blocks, const void *key,
+                          const unsigned char ivec[16]);
 typedef void (*ccm128_f) (const unsigned char *in, unsigned char *out,
-size_t blocks, const void *key,
-const unsigned char ivec[16],
-unsigned char cmac[16]);
+                          size_t blocks, const void *key,
+                          const unsigned char ivec[16],
+                          unsigned char cmac[16]);
 void CRYPTO_cbc128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], block128_f block);
+                           size_t len, const void *key,
+                           unsigned char ivec[16], block128_f block);
 void CRYPTO_cbc128_decrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], block128_f block);
+                           size_t len, const void *key,
+                           unsigned char ivec[16], block128_f block);
 void CRYPTO_ctr128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16],
-unsigned char ecount_buf[16], unsigned int *num,
-block128_f block);
+                           size_t len, const void *key,
+                           unsigned char ivec[16],
+                           unsigned char ecount_buf[16], unsigned int *num,
+                           block128_f block);
 void CRYPTO_ctr128_encrypt_ctr32(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16],
-unsigned char ecount_buf[16],
-unsigned int *num, ctr128_f ctr);
+                                 size_t len, const void *key,
+                                 unsigned char ivec[16],
+                                 unsigned char ecount_buf[16],
+                                 unsigned int *num, ctr128_f ctr);
 void CRYPTO_ofb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], int *num,
-block128_f block);
+                           size_t len, const void *key,
+                           unsigned char ivec[16], int *num,
+                           block128_f block);
 void CRYPTO_cfb128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], int *num,
-int enc, block128_f block);
+                           size_t len, const void *key,
+                           unsigned char ivec[16], int *num,
+                           int enc, block128_f block);
 void CRYPTO_cfb128_8_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const void *key,
-unsigned char ivec[16], int *num,
-int enc, block128_f block);
+                             size_t length, const void *key,
+                             unsigned char ivec[16], int *num,
+                             int enc, block128_f block);
 void CRYPTO_cfb128_1_encrypt(const unsigned char *in, unsigned char *out,
-size_t bits, const void *key,
-unsigned char ivec[16], int *num,
-int enc, block128_f block);
+                             size_t bits, const void *key,
+                             unsigned char ivec[16], int *num,
+                             int enc, block128_f block);
 size_t CRYPTO_cts128_encrypt_block(const unsigned char *in,
-unsigned char *out, size_t len,
-const void *key, unsigned char ivec[16],
-block128_f block);
+                                   unsigned char *out, size_t len,
+                                   const void *key, unsigned char ivec[16],
+                                   block128_f block);
 size_t CRYPTO_cts128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], cbc128_f cbc);
+                             size_t len, const void *key,
+                             unsigned char ivec[16], cbc128_f cbc);
 size_t CRYPTO_cts128_decrypt_block(const unsigned char *in,
-unsigned char *out, size_t len,
-const void *key, unsigned char ivec[16],
-block128_f block);
+                                   unsigned char *out, size_t len,
+                                   const void *key, unsigned char ivec[16],
+                                   block128_f block);
 size_t CRYPTO_cts128_decrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], cbc128_f cbc);
+                             size_t len, const void *key,
+                             unsigned char ivec[16], cbc128_f cbc);
 size_t CRYPTO_nistcts128_encrypt_block(const unsigned char *in,
-unsigned char *out, size_t len,
-const void *key,
-unsigned char ivec[16],
-block128_f block);
+                                       unsigned char *out, size_t len,
+                                       const void *key,
+                                       unsigned char ivec[16],
+                                       block128_f block);
 size_t CRYPTO_nistcts128_encrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], cbc128_f cbc);
+                                 size_t len, const void *key,
+                                 unsigned char ivec[16], cbc128_f cbc);
 size_t CRYPTO_nistcts128_decrypt_block(const unsigned char *in,
-unsigned char *out, size_t len,
-const void *key,
-unsigned char ivec[16],
-block128_f block);
+                                       unsigned char *out, size_t len,
+                                       const void *key,
+                                       unsigned char ivec[16],
+                                       block128_f block);
 size_t CRYPTO_nistcts128_decrypt(const unsigned char *in, unsigned char *out,
-size_t len, const void *key,
-unsigned char ivec[16], cbc128_f cbc);
+                                 size_t len, const void *key,
+                                 unsigned char ivec[16], cbc128_f cbc);
 typedef struct gcm128_context GCM128_CONTEXT;
 GCM128_CONTEXT *CRYPTO_gcm128_new(void *key, block128_f block);
 void CRYPTO_gcm128_init(GCM128_CONTEXT *ctx, void *key, block128_f block);
 void CRYPTO_gcm128_setiv(GCM128_CONTEXT *ctx, const unsigned char *iv,
-size_t len);
+                         size_t len);
 int CRYPTO_gcm128_aad(GCM128_CONTEXT *ctx, const unsigned char *aad,
-size_t len);
+                      size_t len);
 int CRYPTO_gcm128_encrypt(GCM128_CONTEXT *ctx,
-const unsigned char *in, unsigned char *out,
-size_t len);
+                          const unsigned char *in, unsigned char *out,
+                          size_t len);
 int CRYPTO_gcm128_decrypt(GCM128_CONTEXT *ctx,
-const unsigned char *in, unsigned char *out,
-size_t len);
+                          const unsigned char *in, unsigned char *out,
+                          size_t len);
 int CRYPTO_gcm128_encrypt_ctr32(GCM128_CONTEXT *ctx,
-const unsigned char *in, unsigned char *out,
-size_t len, ctr128_f stream);
+                                const unsigned char *in, unsigned char *out,
+                                size_t len, ctr128_f stream);
 int CRYPTO_gcm128_decrypt_ctr32(GCM128_CONTEXT *ctx,
-const unsigned char *in, unsigned char *out,
-size_t len, ctr128_f stream);
+                                const unsigned char *in, unsigned char *out,
+                                size_t len, ctr128_f stream);
 int CRYPTO_gcm128_finish(GCM128_CONTEXT *ctx, const unsigned char *tag,
-size_t len);
+                         size_t len);
 void CRYPTO_gcm128_tag(GCM128_CONTEXT *ctx, unsigned char *tag, size_t len);
 void CRYPTO_gcm128_release(GCM128_CONTEXT *ctx);
 typedef struct ccm128_context CCM128_CONTEXT;
 void CRYPTO_ccm128_init(CCM128_CONTEXT *ctx,
-unsigned int M, unsigned int L, void *key,
-block128_f block);
+                        unsigned int M, unsigned int L, void *key,
+                        block128_f block);
 int CRYPTO_ccm128_setiv(CCM128_CONTEXT *ctx, const unsigned char *nonce,
-size_t nlen, size_t mlen);
+                        size_t nlen, size_t mlen);
 void CRYPTO_ccm128_aad(CCM128_CONTEXT *ctx, const unsigned char *aad,
-size_t alen);
+                       size_t alen);
 int CRYPTO_ccm128_encrypt(CCM128_CONTEXT *ctx, const unsigned char *inp,
-unsigned char *out, size_t len);
+                          unsigned char *out, size_t len);
 int CRYPTO_ccm128_decrypt(CCM128_CONTEXT *ctx, const unsigned char *inp,
-unsigned char *out, size_t len);
+                          unsigned char *out, size_t len);
 int CRYPTO_ccm128_encrypt_ccm64(CCM128_CONTEXT *ctx, const unsigned char *inp,
-unsigned char *out, size_t len,
-ccm128_f stream);
+                                unsigned char *out, size_t len,
+                                ccm128_f stream);
 int CRYPTO_ccm128_decrypt_ccm64(CCM128_CONTEXT *ctx, const unsigned char *inp,
-unsigned char *out, size_t len,
-ccm128_f stream);
+                                unsigned char *out, size_t len,
+                                ccm128_f stream);
 size_t CRYPTO_ccm128_tag(CCM128_CONTEXT *ctx, unsigned char *tag, size_t len);
 typedef struct xts128_context XTS128_CONTEXT;
 int CRYPTO_xts128_encrypt(const XTS128_CONTEXT *ctx,
-const unsigned char iv[16],
-const unsigned char *inp, unsigned char *out,
-size_t len, int enc);
+                          const unsigned char iv[16],
+                          const unsigned char *inp, unsigned char *out,
+                          size_t len, int enc);
 size_t CRYPTO_128_wrap(void *key, const unsigned char *iv,
-unsigned char *out,
-const unsigned char *in, size_t inlen,
-block128_f block);
+                       unsigned char *out,
+                       const unsigned char *in, size_t inlen,
+                       block128_f block);
 size_t CRYPTO_128_unwrap(void *key, const unsigned char *iv,
-unsigned char *out,
-const unsigned char *in, size_t inlen,
-block128_f block);
+                         unsigned char *out,
+                         const unsigned char *in, size_t inlen,
+                         block128_f block);
 size_t CRYPTO_128_wrap_pad(void *key, const unsigned char *icv,
-unsigned char *out, const unsigned char *in,
-size_t inlen, block128_f block);
+                           unsigned char *out, const unsigned char *in,
+                           size_t inlen, block128_f block);
 size_t CRYPTO_128_unwrap_pad(void *key, const unsigned char *icv,
-unsigned char *out, const unsigned char *in,
-size_t inlen, block128_f block);
+                             unsigned char *out, const unsigned char *in,
+                             size_t inlen, block128_f block);
 typedef struct ocb128_context OCB128_CONTEXT;
 typedef void (*ocb128_f) (const unsigned char *in, unsigned char *out,
-size_t blocks, const void *key,
-size_t start_block_num,
-unsigned char offset_i[16],
-const unsigned char L_[][16],
-unsigned char checksum[16]);
+                          size_t blocks, const void *key,
+                          size_t start_block_num,
+                          unsigned char offset_i[16],
+                          const unsigned char L_[][16],
+                          unsigned char checksum[16]);
 OCB128_CONTEXT *CRYPTO_ocb128_new(void *keyenc, void *keydec,
-block128_f encrypt, block128_f decrypt,
-ocb128_f stream);
+                                  block128_f encrypt, block128_f decrypt,
+                                  ocb128_f stream);
 int CRYPTO_ocb128_init(OCB128_CONTEXT *ctx, void *keyenc, void *keydec,
-block128_f encrypt, block128_f decrypt,
-ocb128_f stream);
+                       block128_f encrypt, block128_f decrypt,
+                       ocb128_f stream);
 int CRYPTO_ocb128_copy_ctx(OCB128_CONTEXT *dest, OCB128_CONTEXT *src,
-void *keyenc, void *keydec);
+                           void *keyenc, void *keydec);
 int CRYPTO_ocb128_setiv(OCB128_CONTEXT *ctx, const unsigned char *iv,
-size_t len, size_t taglen);
+                        size_t len, size_t taglen);
 int CRYPTO_ocb128_aad(OCB128_CONTEXT *ctx, const unsigned char *aad,
-size_t len);
+                      size_t len);
 int CRYPTO_ocb128_encrypt(OCB128_CONTEXT *ctx, const unsigned char *in,
-unsigned char *out, size_t len);
+                          unsigned char *out, size_t len);
 int CRYPTO_ocb128_decrypt(OCB128_CONTEXT *ctx, const unsigned char *in,
-unsigned char *out, size_t len);
+                          unsigned char *out, size_t len);
 int CRYPTO_ocb128_finish(OCB128_CONTEXT *ctx, const unsigned char *tag,
-size_t len);
+                         size_t len);
 int CRYPTO_ocb128_tag(OCB128_CONTEXT *ctx, unsigned char *tag, size_t len);
 void CRYPTO_ocb128_cleanup(OCB128_CONTEXT *ctx);
 #line 200 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/modes.h"
 #line 12 "crypto\\camellia\\cmll_ctr.c"
 void Camellia_ctr128_encrypt(const unsigned char *in, unsigned char *out,
-size_t length, const CAMELLIA_KEY *key,
-unsigned char ivec[16],
-unsigned char ecount_buf[16],
-unsigned int *num)
+                             size_t length, const CAMELLIA_KEY *key,
+                             unsigned char ivec[16],
+                             unsigned char ecount_buf[16],
+                             unsigned int *num)
 {
-CRYPTO_ctr128_encrypt(in, out, length, key, ivec, ecount_buf, num,
-(block128_f) Camellia_encrypt);
+    CRYPTO_ctr128_encrypt(in, out, length, key, ivec, ecount_buf, num,
+                          (block128_f) Camellia_encrypt);
 }

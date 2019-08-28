@@ -165,11 +165,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -205,34 +205,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -250,7 +252,7 @@ wchar_t * locale_name[6];
 #line 38 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 #line 39 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 void *  __cdecl _memccpy(   void * _Dst,   const void * _Src,   int _Val,   size_t _MaxCount);
-void *  __cdecl memchr(   const void * _Buf ,   int _Val,   size_t _MaxCount);
+void *  __cdecl memchr(   const void * _Buf,   int _Val,   size_t _MaxCount);
 int     __cdecl _memicmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
 int     __cdecl _memicmp_l(  const void * _Buf1,   const void * _Buf2,   size_t _Size,   _locale_t _Locale);
 int     __cdecl memcmp(  const void * _Buf1,   const void * _Buf2,   size_t _Size);
@@ -278,7 +280,7 @@ size_t  __cdecl strnlen(  const char * _Str,   size_t _MaxCount);
 static __inline
 size_t  __cdecl strnlen_s(  const char * _Str,   size_t _MaxCount)
 {
-return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
+    return (_Str==0) ? 0 : strnlen(_Str, _MaxCount);
 }
 #line 131 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl memmove_s(  void * _Dst,   rsize_t _DstSize,   const void * _Src,   rsize_t _MaxCount);
@@ -366,7 +368,7 @@ size_t __cdecl wcsnlen(  const wchar_t * _Src,   size_t _MaxCount);
 static __inline
 size_t __cdecl wcsnlen_s(  const wchar_t * _Src,   size_t _MaxCount)
 {
-return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
+    return (_Src == ((void *)0)) ? 0 : wcsnlen(_Src, _MaxCount);
 }
 #line 304 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\string.h"
 errno_t __cdecl wcsncat_s(  wchar_t * _Dst,   rsize_t _SizeInWords,   const wchar_t * _Src,   rsize_t _MaxCount);
@@ -472,15 +474,15 @@ __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use 
 #pragma once
 #line 23 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 32 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned short _ino_t;          
+typedef unsigned short _ino_t;
 typedef unsigned short ino_t;
 #line 67 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 70 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef unsigned int _dev_t;            
+typedef unsigned int _dev_t;
 typedef unsigned int dev_t;
 #line 80 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 83 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
-typedef long _off_t;                    
+typedef long _off_t;
 typedef long off_t;
 #line 93 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
 #line 96 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\sys/types.h"
@@ -574,73 +576,80 @@ typedef unsigned long long uintmax_t;
 #line 307 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/e_os2.h"
 #line 312 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/e_os2.h"
 #line 65 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm3.h"
-typedef struct {
-uint32_t digest[8];
-uint64_t nblocks;
-unsigned char block[64];
-int num;
+typedef struct
+{
+    uint32_t digest[8];
+    uint64_t nblocks;
+    unsigned char block[64];
+    int num;
 } sm3_ctx_t;
 void sm3_init(sm3_ctx_t *ctx);
 void sm3_update(sm3_ctx_t *ctx, const unsigned char* data, size_t data_len);
 void sm3_final(sm3_ctx_t *ctx, unsigned char digest[32]);
 void sm3_compress(uint32_t digest[8], const unsigned char block[64]);
 void sm3(const unsigned char *data, size_t datalen,
-unsigned char digest[32]);
-typedef struct {
-sm3_ctx_t sm3_ctx;
-unsigned char key[64];
+         unsigned char digest[32]);
+typedef struct
+{
+    sm3_ctx_t sm3_ctx;
+    unsigned char key[64];
 } sm3_hmac_ctx_t;
 void sm3_hmac_init(sm3_hmac_ctx_t *ctx, const unsigned char *key, size_t key_len);
 void sm3_hmac_update(sm3_hmac_ctx_t *ctx, const unsigned char *data, size_t data_len);
 void sm3_hmac_final(sm3_hmac_ctx_t *ctx, unsigned char mac[(32)]);
 void sm3_hmac(const unsigned char *data, size_t data_len,
-const unsigned char *key, size_t key_len, unsigned char mac[(32)]);
+              const unsigned char *key, size_t key_len, unsigned char mac[(32)]);
 #line 101 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm3.h"
 #line 102 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/sm3.h"
 #line 52 "crypto\\sm3\\sm3_hmac.c"
 void sm3_hmac_init(sm3_hmac_ctx_t *ctx, const unsigned char *key, size_t key_len)
 {
-int i;
-if (key_len <= 64) {
-memcpy(ctx->key, key, key_len);
-memset(ctx->key + key_len, 0, 64 - key_len);
-} else {
-sm3_init(&ctx->sm3_ctx);
-sm3_update(&ctx->sm3_ctx, key, key_len);
-sm3_final(&ctx->sm3_ctx, ctx->key);
-memset(ctx->key + 32, 0,
-64 - 32);
-}
-for (i = 0; i < 64; i++) {
-ctx->key[i] ^= 0x36;
-}
-sm3_init(&ctx->sm3_ctx);
-sm3_update(&ctx->sm3_ctx, ctx->key, 64);
+    int i;
+    if (key_len <= 64)
+    {
+        memcpy(ctx->key, key, key_len);
+        memset(ctx->key + key_len, 0, 64 - key_len);
+    }
+    else
+    {
+        sm3_init(&ctx->sm3_ctx);
+        sm3_update(&ctx->sm3_ctx, key, key_len);
+        sm3_final(&ctx->sm3_ctx, ctx->key);
+        memset(ctx->key + 32, 0,
+               64 - 32);
+    }
+    for (i = 0; i < 64; i++)
+    {
+        ctx->key[i] ^= 0x36;
+    }
+    sm3_init(&ctx->sm3_ctx);
+    sm3_update(&ctx->sm3_ctx, ctx->key, 64);
 }
 void sm3_hmac_update(sm3_hmac_ctx_t *ctx,
-const unsigned char *data, size_t data_len)
+                     const unsigned char *data, size_t data_len)
 {
-sm3_update(&ctx->sm3_ctx, data, data_len);
+    sm3_update(&ctx->sm3_ctx, data, data_len);
 }
 void sm3_hmac_final(sm3_hmac_ctx_t *ctx, unsigned char mac[(32)])
 {
-int i;
-for (i = 0; i < 64; i++) {
-ctx->key[i] ^= (0x36 ^ 0x5C);
-}
-sm3_final(&ctx->sm3_ctx, mac);
-sm3_init(&ctx->sm3_ctx);
-sm3_update(&ctx->sm3_ctx, ctx->key, 64);
-sm3_update(&ctx->sm3_ctx, mac, 32);
-sm3_final(&ctx->sm3_ctx, mac);
+    int i;
+    for (i = 0; i < 64; i++)
+    {
+        ctx->key[i] ^= (0x36 ^ 0x5C);
+    }
+    sm3_final(&ctx->sm3_ctx, mac);
+    sm3_init(&ctx->sm3_ctx);
+    sm3_update(&ctx->sm3_ctx, ctx->key, 64);
+    sm3_update(&ctx->sm3_ctx, mac, 32);
+    sm3_final(&ctx->sm3_ctx, mac);
 }
 void sm3_hmac(const unsigned char *data, size_t data_len,
-const unsigned char *key, size_t key_len,
-unsigned char mac[(32)])
+              const unsigned char *key, size_t key_len,
+              unsigned char mac[(32)])
 {
-sm3_hmac_ctx_t ctx;
-sm3_hmac_init(&ctx, key, key_len);
-sm3_hmac_update(&ctx, data, data_len);
-sm3_hmac_final(&ctx, mac);
-memset(&ctx, 0, sizeof(ctx));
+    sm3_hmac_ctx_t ctx;
+    sm3_hmac_init(&ctx, key, key_len);
+    sm3_hmac_update(&ctx, data, data_len);
+    sm3_hmac_final(&ctx, mac);
+    memset(&ctx, 0, sizeof(ctx));
 }

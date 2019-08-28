@@ -165,11 +165,11 @@ typedef unsigned short wctype_t;
 #line 479 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 typedef int errno_t;
 #line 499 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __w64 long __time32_t;   
+typedef __w64 long __time32_t;
 #line 504 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __int64 __time64_t;     
+typedef __int64 __time64_t;
 #line 509 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
-typedef __time64_t time_t;      
+typedef __time64_t time_t;
 #line 516 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 518 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -205,34 +205,36 @@ typedef struct threadmbcinfostruct * pthreadmbcinfo;
 struct __lc_time_data;
 typedef struct localeinfo_struct
 {
-pthreadlocinfo locinfo;
-pthreadmbcinfo mbcinfo;
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
 } _locale_tstruct, *_locale_t;
-typedef struct localerefcount {
-char *locale;
-wchar_t *wlocale;
-int *refcount;
-int *wrefcount;
+typedef struct localerefcount
+{
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
 } locrefcount;
-typedef struct threadlocaleinfostruct {
-int refcount;
-unsigned int lc_codepage;
-unsigned int lc_collate_cp;
-unsigned int lc_time_cp;
-locrefcount lc_category[6];
-int lc_clike;
-int mb_cur_max;
-int * lconv_intl_refcount;
-int * lconv_num_refcount;
-int * lconv_mon_refcount;
-struct lconv * lconv;
-int * ctype1_refcount;
-unsigned short * ctype1;
-const unsigned short * pctype;
-const unsigned char * pclmap;
-const unsigned char * pcumap;
-struct __lc_time_data * lc_time_curr;
-wchar_t * locale_name[6];
+typedef struct threadlocaleinfostruct
+{
+    int refcount;
+    unsigned int lc_codepage;
+    unsigned int lc_collate_cp;
+    unsigned int lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    unsigned short * ctype1;
+    const unsigned short * pctype;
+    const unsigned char * pclmap;
+    const unsigned char * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
 } threadlocinfo;
 #line 2021 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 2029 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
@@ -247,15 +249,16 @@ wchar_t * locale_name[6];
 #line 2058 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\crtdefs.h"
 #line 21 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma pack(push,8)
-struct _iobuf {
-char *_ptr;
-int   _cnt;
-char *_base;
-int   _flag;
-int   _file;
-int   _charbuf;
-int   _bufsiz;
-char *_tmpfname;
+struct _iobuf
+{
+    char *_ptr;
+    int   _cnt;
+    char *_base;
+    int   _flag;
+    int   _file;
+    int   _charbuf;
+    int   _bufsiz;
+    char *_tmpfname;
 };
 typedef struct _iobuf FILE;
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -285,7 +288,7 @@ int __cdecl ferror(  FILE * _File);
 int __cdecl fflush(  FILE * _File);
 int __cdecl fgetc(  FILE * _File);
 int __cdecl _fgetchar(void);
-int __cdecl fgetpos(  FILE * _File ,   fpos_t * _Pos);
+int __cdecl fgetpos(  FILE * _File,   fpos_t * _Pos);
 char * __cdecl fgets(  char * _Buf,   int _MaxCount,   FILE * _File);
 int __cdecl _fileno(  FILE * _File);
 #line 205 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
@@ -396,13 +399,15 @@ int __cdecl vsnprintf_s(  char * _DstBuf,   size_t _DstSize,   size_t _MaxCount,
 int __cdecl _vsnprintf_s(  char * _DstBuf,   size_t _SizeInBytes,   size_t _MaxCount,     const char * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);   int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
+int __cdecl _snprintf(    char *_Dest,   size_t _Count,     const char * _Format, ...);
+int __cdecl _vsnprintf(    char *_Dest,   size_t _Count,     const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl vsprintf_s(  char * _DstBuf,   size_t _SizeInBytes,     const char * _Format, va_list _ArgList);
 #line 355 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);   int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
+int __cdecl sprintf(  char *_Dest,  const char * _Format, ...);
+int __cdecl vsprintf(  char *_Dest,  const char * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _vscprintf(    const char * _Format, va_list _ArgList);
 int __cdecl _snprintf_c(  char * _DstBuf,   size_t _MaxCount,     const char * _Format, ...);
@@ -485,7 +490,8 @@ int __cdecl _snwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _M
 int __cdecl _vsnwprintf_s(  wchar_t * _DstBuf,   size_t _SizeInWords,   size_t _MaxCount,     const wchar_t * _Format, va_list _ArgList);
 #pragma warning(push)
 #pragma warning(disable:4793)
-int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);   int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
+int __cdecl _snwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, ...);
+int __cdecl _vsnwprintf(    wchar_t *_Dest,   size_t _Count,     const wchar_t * _Format, va_list _Args);
 #pragma warning(pop)
 int __cdecl _fwprintf_p(  FILE * _File,     const wchar_t * _Format, ...);
 int __cdecl _wprintf_p(    const wchar_t * _Format, ...);
@@ -523,8 +529,10 @@ int __cdecl _vsnwprintf_s_l(  wchar_t * _DstBuf,   size_t _DstSize,   size_t _Ma
 #line 526 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 #pragma warning(push)
 #pragma warning(disable:4141 4996 4793)
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
-__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);  __declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _swprintf(    wchar_t *_Dest,     const wchar_t * _Format, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl _vswprintf(    wchar_t *_Dest,     const wchar_t * _Format, va_list _Args);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __swprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, ...);
+__declspec(deprecated("swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS."))  int __cdecl __vswprintf_l( wchar_t *_Dest,     const wchar_t * _Format, _locale_t _Plocinfo, va_list _Args);
 #pragma warning(pop)
 #line 1 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
 #pragma once
@@ -534,19 +542,19 @@ __declspec(deprecated("swprintf has been changed to conform with the ISO C stand
 #pragma warning( disable : 4793 4412 )
 static __inline int swprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Format) ) + ( (sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl vswprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 }
 #pragma warning( pop )
 #line 57 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -554,19 +562,19 @@ return _vswprintf_c_l(_String, _Count, _Format, ((void *)0), _Ap);
 #pragma warning( disable : 4793 4412 )
 static __inline int _swprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, ...)
 {
-va_list _Arglist;
-int _Ret;
-( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
-_Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
-( _Arglist = (va_list)0 );
-return _Ret;
+    va_list _Arglist;
+    int _Ret;
+    ( _Arglist = (va_list)( &(_Plocinfo) ) + ( (sizeof(_Plocinfo) + sizeof(int) - 1) & ~(sizeof(int) - 1) ) );
+    _Ret = _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Arglist);
+    ( _Arglist = (va_list)0 );
+    return _Ret;
 }
 #pragma warning( pop )
 #pragma warning( push )
 #pragma warning( disable : 4412 )
 static __inline int __cdecl _vswprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, va_list _Ap)
 {
-return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
+    return _vswprintf_c_l(_String, _Count, _Format, _Plocinfo, _Ap);
 }
 #pragma warning( pop )
 #line 128 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\swprintf.inl"
@@ -600,7 +608,7 @@ int __cdecl wscanf_s(    const wchar_t * _Format, ...);
 #line 583 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdio.h"
 int __cdecl _wscanf_s_l(    const wchar_t * _Format,   _locale_t _Locale, ...);
 #pragma warning(pop)
-FILE * __cdecl _wfdopen(  int _FileHandle ,   const wchar_t * _Mode);
+FILE * __cdecl _wfdopen(  int _FileHandle,   const wchar_t * _Mode);
 FILE * __cdecl _wfopen(  const wchar_t * _Filename,   const wchar_t * _Mode);
 errno_t __cdecl _wfopen_s(  FILE ** _File,   const wchar_t * _Filename,   const wchar_t * _Mode);
 FILE * __cdecl _wfreopen(  const wchar_t * _Filename,   const wchar_t * _Mode,   FILE * _OldFile);
@@ -898,37 +906,45 @@ typedef int (__cdecl * _onexit_t)(void);
 #line 61 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 66 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 69 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct _div_t {
-int quot;
-int rem;
+typedef struct _div_t
+{
+    int quot;
+    int rem;
 } div_t;
-typedef struct _ldiv_t {
-long quot;
-long rem;
+typedef struct _ldiv_t
+{
+    long quot;
+    long rem;
 } ldiv_t;
-typedef struct _lldiv_t {
-long long quot;
-long long rem;
+typedef struct _lldiv_t
+{
+    long long quot;
+    long long rem;
 } lldiv_t;
 #line 92 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma pack(4)
-typedef struct {
-unsigned char ld[10];
+typedef struct
+{
+    unsigned char ld[10];
 } _LDOUBLE;
 #pragma pack()
 #line 121 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef struct {
-double x;
+typedef struct
+{
+    double x;
 } _CRT_DOUBLE;
-typedef struct {
-float f;
+typedef struct
+{
+    float f;
 } _CRT_FLOAT;
-typedef struct {
-long double x;
+typedef struct
+{
+    long double x;
 } _LONGDOUBLE;
 #pragma pack(4)
-typedef struct {
-unsigned char ld12[12];
+typedef struct
+{
+    unsigned char ld12[12];
 } _LDBL12;
 #pragma pack()
 #line 151 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -937,12 +953,12 @@ extern int __mb_cur_max;
 int __cdecl ___mb_cur_max_func(void);
 int __cdecl ___mb_cur_max_l_func(_locale_t);
 #line 171 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_purecall_handler)(void); 
+typedef void (__cdecl *_purecall_handler)(void);
 _purecall_handler __cdecl _set_purecall_handler(  _purecall_handler _Handler);
 _purecall_handler __cdecl _get_purecall_handler(void);
 #line 214 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 225 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t); 
+typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t);
 _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(  _invalid_parameter_handler _Handler);
 _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
 #line 234 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -956,21 +972,21 @@ errno_t __cdecl _get_doserrno(  unsigned long * _Value);
 char ** __cdecl __sys_errlist(void);
 int * __cdecl __sys_nerr(void);
 #line 273 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern int __argc;          
-extern char ** __argv;      
-extern wchar_t ** __wargv;  
+extern int __argc;
+extern char ** __argv;
+extern wchar_t ** __wargv;
 #line 288 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 290 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char ** _environ;    
-extern wchar_t ** _wenviron;    
+extern char ** _environ;
+extern wchar_t ** _wenviron;
 #line 301 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 303 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-extern char * _pgmptr;      
-extern wchar_t * _wpgmptr;  
+extern char * _pgmptr;
+extern wchar_t * _wpgmptr;
 #line 327 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _get_pgmptr(  char ** _Value);
 errno_t __cdecl _get_wpgmptr(  wchar_t ** _Value);
-extern int _fmode;          
+extern int _fmode;
 #line 338 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _set_fmode(  int _Mode);
 errno_t __cdecl _get_fmode(  int * _PMode);
@@ -997,20 +1013,20 @@ int    __cdecl atoi(  const char *_Str);
 int    __cdecl _atoi_l(  const char *_Str,   _locale_t _Locale);
 long   __cdecl atol(  const char *_Str);
 long   __cdecl _atol_l(  const char *_Str,   _locale_t _Locale);
-void * __cdecl bsearch_s(  const void * _Key,   const void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
+void * __cdecl bsearch_s(  const void * _Key,   const void * _Base,
+                           rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                           int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void * _Context);
 #line 430 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void * __cdecl bsearch(  const void * _Key,   const void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
-void __cdecl qsort_s(  void * _Base, 
-rsize_t _NumOfElements,   rsize_t _SizeOfElements,
-int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
+void * __cdecl bsearch(  const void * _Key,   const void * _Base,
+                         size_t _NumOfElements,   size_t _SizeOfElements,
+                         int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort_s(  void * _Base,
+                       rsize_t _NumOfElements,   rsize_t _SizeOfElements,
+                       int (__cdecl * _PtFuncCompare)(void *, const void *, const void *), void *_Context);
 #line 439 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
-void __cdecl qsort(  void * _Base, 
-size_t _NumOfElements,   size_t _SizeOfElements, 
-int (__cdecl * _PtFuncCompare)(const void *, const void *));
+void __cdecl qsort(  void * _Base,
+                     size_t _NumOfElements,   size_t _SizeOfElements,
+                     int (__cdecl * _PtFuncCompare)(const void *, const void *));
 #line 443 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 unsigned short __cdecl _byteswap_ushort(  unsigned short _Short);
 unsigned long  __cdecl _byteswap_ulong (  unsigned long _Long);
@@ -1127,7 +1143,7 @@ __int64   __cdecl _wtoi64_l(  const wchar_t *_Str,   _locale_t _Locale);
 __int64   __cdecl _wcstoi64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
 __int64   __cdecl _wcstoi64_l(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 unsigned __int64  __cdecl _wcstoui64(  const wchar_t * _Str,     wchar_t ** _EndPtr,   int _Radix);
-unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str ,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
+unsigned __int64  __cdecl _wcstoui64_l(  const wchar_t *_Str,     wchar_t ** _EndPtr,   int _Radix,   _locale_t _Locale);
 #line 724 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 739 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 char * __cdecl _fullpath(  char * _FullPath,   const char * _Path,   size_t _SizeInBytes);
@@ -1147,14 +1163,14 @@ int __cdecl _atoflt_l(  _CRT_FLOAT * _Result,   char * _Str,   _locale_t _Locale
 unsigned long __cdecl _lrotl(  unsigned long _Val,   int _Shift);
 unsigned long __cdecl _lrotr(  unsigned long _Val,   int _Shift);
 errno_t   __cdecl _makepath_s(  char * _PathResult,   size_t _SizeInWords,   const char * _Drive,   const char * _Dir,   const char * _Filename,
-const char * _Ext);
+                                const char * _Ext);
 void __cdecl _makepath(  char *_Path,  const char * _Drive,  const char * _Dir,  const char * _Filename,  const char * _Ext);
 #line 783 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 796 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 _onexit_t __cdecl _onexit(  _onexit_t _Func);
 #line 798 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning (push)
-#pragma warning (disable:6540) 
+#pragma warning (disable:6540)
 int    __cdecl _putenv(  const char * _EnvString);
 errno_t __cdecl _putenv_s(  const char * _Name,   const char * _Value);
 #line 811 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
@@ -1167,17 +1183,17 @@ errno_t __cdecl _searchenv_s(  const char * _Filename,   const char * _EnvVar,  
 void __cdecl _searchenv( const char * _Filename,  const char * _EnvVar,   char *_ResultPath);
 #line 823 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _splitpath(  const char * _FullPath,     char * _Drive,     char * _Dir,     char * _Filename,     char * _Ext);
-errno_t  __cdecl _splitpath_s(  const char * _FullPath, 
-char * _Drive,   size_t _DriveSize, 
-char * _Dir,   size_t _DirSize, 
-char * _Filename,   size_t _FilenameSize, 
-char * _Ext,   size_t _ExtSize);
+errno_t  __cdecl _splitpath_s(  const char * _FullPath,
+                                char * _Drive,   size_t _DriveSize,
+                                char * _Dir,   size_t _DirSize,
+                                char * _Filename,   size_t _FilenameSize,
+                                char * _Ext,   size_t _ExtSize);
 void   __cdecl _swab(    char * _Buf1,     char * _Buf2, int _SizeInBytes);
 #line 842 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 wchar_t * __cdecl _wfullpath(  wchar_t * _FullPath,   const wchar_t * _Path,   size_t _SizeInWords);
 #line 848 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 errno_t __cdecl _wmakepath_s(  wchar_t * _PathResult,   size_t _SIZE,   const wchar_t * _Drive,   const wchar_t * _Dir,   const wchar_t * _Filename,
-const wchar_t * _Ext);        
+                               const wchar_t * _Ext);
 void __cdecl _wmakepath(  wchar_t *_ResultPath,  const wchar_t * _Drive,  const wchar_t * _Dir,  const wchar_t * _Filename,  const wchar_t * _Ext);
 int    __cdecl _wputenv(  const wchar_t * _EnvString);
 errno_t __cdecl _wputenv_s(  const wchar_t * _Name,   const wchar_t * _Value);
@@ -1185,11 +1201,11 @@ errno_t __cdecl _wsearchenv_s(  const wchar_t * _Filename,   const wchar_t * _En
 void __cdecl _wsearchenv( const wchar_t * _Filename,  const wchar_t * _EnvVar,   wchar_t *_ResultPath);
 #line 865 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 void   __cdecl _wsplitpath(  const wchar_t * _FullPath,     wchar_t * _Drive,     wchar_t * _Dir,     wchar_t * _Filename,     wchar_t * _Ext);
-errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath, 
-wchar_t * _Drive,   size_t _DriveSize, 
-wchar_t * _Dir,   size_t _DirSize, 
-wchar_t * _Filename,   size_t _FilenameSize, 
-wchar_t * _Ext,   size_t _ExtSize);
+errno_t __cdecl _wsplitpath_s(  const wchar_t * _FullPath,
+                                wchar_t * _Drive,   size_t _DriveSize,
+                                wchar_t * _Dir,   size_t _DirSize,
+                                wchar_t * _Filename,   size_t _FilenameSize,
+                                wchar_t * _Ext,   size_t _ExtSize);
 #line 876 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "SetErrorMode" " instead. See online help for details."))  void __cdecl _seterrormode(  int _Mode);
 __declspec(deprecated("This function or variable has been superceded by newer library or operating system functionality. Consider using " "Beep" " instead. See online help for details."))  void __cdecl _beep(  unsigned _Frequency,   unsigned _Duration);
@@ -1199,7 +1215,7 @@ __declspec(deprecated("This function or variable has been superceded by newer li
 #line 896 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #line 903 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\stdlib.h"
 #pragma warning(push)
-#pragma warning(disable: 4141)  
+#pragma warning(disable: 4141)
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_ecvt" ". See online help for details."))   char * __cdecl ecvt(  double _Val,   int _NumOfDigits,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_fcvt" ". See online help for details."))   char * __cdecl fcvt(  double _Val,   int _NumOfDec,   int * _PtDec,   int * _PtSign);
 __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: " "_gcvt" ". See online help for details.")) 		 char * __cdecl gcvt(  double _Val,   int _NumOfDigits,     char * _DstBuf);
@@ -1225,16 +1241,17 @@ _onexit_t __cdecl onexit(  _onexit_t _Func);
 #line 46 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.h"
 typedef long clock_t;
 #line 85 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.h"
-struct tm {
-int tm_sec;     
-int tm_min;     
-int tm_hour;    
-int tm_mday;    
-int tm_mon;     
-int tm_year;    
-int tm_wday;    
-int tm_yday;    
-int tm_isdst;   
+struct tm
+{
+    int tm_sec;
+    int tm_min;
+    int tm_hour;
+    int tm_mday;
+    int tm_mon;
+    int tm_year;
+    int tm_wday;
+    int tm_yday;
+    int tm_isdst;
 };
 #line 119 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.h"
 int* __cdecl __daylight(void);
@@ -1260,7 +1277,7 @@ size_t __cdecl strftime(  char * _Buf,   size_t _SizeInBytes,     const char * _
 size_t __cdecl _strftime_l(    char *_Buf,   size_t _Max_size,     const char * _Format,   const struct tm *_Tm,   _locale_t _Locale);
 errno_t __cdecl _strdate_s(    char *_Buf,   size_t _SizeInBytes);
 char * __cdecl _strdate( char *_Buffer);
-errno_t __cdecl _strtime_s(    char *_Buf ,   size_t _SizeInBytes);
+errno_t __cdecl _strtime_s(    char *_Buf,   size_t _SizeInBytes);
 char * __cdecl _strtime( char *_Buffer);
 __time32_t __cdecl _time32(  __time32_t * _Time);
 __time32_t __cdecl _mktime32(  struct tm * _Tm);
@@ -1302,12 +1319,12 @@ static __inline wchar_t * __cdecl _wctime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _wctime64(_Time);
+    return _wctime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl _wctime_s(wchar_t *_Buffer, size_t _SizeInWords, const time_t * _Time)
 {
-return _wctime64_s(_Buffer, _SizeInWords, _Time);
+    return _wctime64_s(_Buffer, _SizeInWords, _Time);
 }
 #line 57 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\wtime.inl"
 #pragma warning(pop)
@@ -1321,54 +1338,54 @@ return _wctime64_s(_Buffer, _SizeInWords, _Time);
 #line 22 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 static __inline double __cdecl difftime(time_t _Time1, time_t _Time2)
 {
-return _difftime64(_Time1,_Time2);
+    return _difftime64(_Time1,_Time2);
 }
 static __inline char * __cdecl ctime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _ctime64(_Time);
+    return _ctime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl ctime_s(char *_Buffer, size_t _SizeInBytes, const time_t * _Time)
 {
-return _ctime64_s(_Buffer, _SizeInBytes, _Time);
+    return _ctime64_s(_Buffer, _SizeInBytes, _Time);
 }
 #line 99 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 static __inline struct tm * __cdecl gmtime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _gmtime64(_Time);
+    return _gmtime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl gmtime_s(struct tm * _Tm, const time_t * _Time)
 {
-return _gmtime64_s(_Tm, _Time);
+    return _gmtime64_s(_Tm, _Time);
 }
 #line 112 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 static __inline struct tm * __cdecl localtime(const time_t * _Time)
 {
 #pragma warning( push )
 #pragma warning( disable : 4996 )
-return _localtime64(_Time);
+    return _localtime64(_Time);
 #pragma warning( pop )
 }
 static __inline errno_t __cdecl localtime_s(struct tm * _Tm, const time_t * _Time)
 {
-return _localtime64_s(_Tm, _Time);
+    return _localtime64_s(_Tm, _Time);
 }
 static __inline time_t __cdecl mktime(struct tm * _Tm)
 {
-return _mktime64(_Tm);
+    return _mktime64(_Tm);
 }
 static __inline time_t __cdecl _mkgmtime(struct tm * _Tm)
 {
-return _mkgmtime64(_Tm);
+    return _mkgmtime64(_Tm);
 }
 static __inline time_t __cdecl time(time_t * _Time)
 {
-return _time64(_Time);
+    return _time64(_Time);
 }
 #line 136 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
 #line 139 "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\INCLUDE\\time.inl"
@@ -1389,7 +1406,7 @@ __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use 
 #line 23 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 27 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/stack.h"
-typedef struct stack_st OPENSSL_STACK; 
+typedef struct stack_st OPENSSL_STACK;
 typedef int (*OPENSSL_sk_compfunc)(const void *, const void *);
 typedef void (*OPENSSL_sk_freefunc)(void *);
 typedef void *(*OPENSSL_sk_copyfunc)(const void *);
@@ -1425,10 +1442,283 @@ int OPENSSL_sk_is_sorted(const OPENSSL_STACK *st);
 #line 15 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/safestack.h"
 typedef char *OPENSSL_STRING;
 typedef const char *OPENSSL_CSTRING;
-struct stack_st_OPENSSL_STRING; typedef int (*sk_OPENSSL_STRING_compfunc)(const char * const *a, const char *const *b); typedef void (*sk_OPENSSL_STRING_freefunc)(char *a); typedef char * (*sk_OPENSSL_STRING_copyfunc)(const char *a); static __inline int sk_OPENSSL_STRING_num(const struct stack_st_OPENSSL_STRING *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline char *sk_OPENSSL_STRING_value(const struct stack_st_OPENSSL_STRING *sk, int idx) { return (char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new(sk_OPENSSL_STRING_compfunc compare) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new_null(void) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new_null(); } static __inline void sk_OPENSSL_STRING_free(struct stack_st_OPENSSL_STRING *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_STRING_zero(struct stack_st_OPENSSL_STRING *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline char *sk_OPENSSL_STRING_delete(struct stack_st_OPENSSL_STRING *sk, int i) { return (char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline char *sk_OPENSSL_STRING_delete_ptr(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return (char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_push(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_unshift(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline char *sk_OPENSSL_STRING_pop(struct stack_st_OPENSSL_STRING *sk) { return (char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline char *sk_OPENSSL_STRING_shift(struct stack_st_OPENSSL_STRING *sk) { return (char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_STRING_pop_free(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_OPENSSL_STRING_insert(struct stack_st_OPENSSL_STRING *sk, char *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline char *sk_OPENSSL_STRING_set(struct stack_st_OPENSSL_STRING *sk, int idx, char *ptr) { return (char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_find(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_STRING_find_ex(struct stack_st_OPENSSL_STRING *sk, char *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_OPENSSL_STRING_sort(struct stack_st_OPENSSL_STRING *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_OPENSSL_STRING_is_sorted(const struct stack_st_OPENSSL_STRING *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_STRING * sk_OPENSSL_STRING_dup(const struct stack_st_OPENSSL_STRING *sk) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_deep_copy(const struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_copyfunc copyfunc, sk_OPENSSL_STRING_freefunc freefunc) { return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_OPENSSL_STRING_compfunc sk_OPENSSL_STRING_set_cmp_func(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_compfunc compare) { return (sk_OPENSSL_STRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
-struct stack_st_OPENSSL_CSTRING; typedef int (*sk_OPENSSL_CSTRING_compfunc)(const char * const *a, const char *const *b); typedef void (*sk_OPENSSL_CSTRING_freefunc)(char *a); typedef char * (*sk_OPENSSL_CSTRING_copyfunc)(const char *a); static __inline int sk_OPENSSL_CSTRING_num(const struct stack_st_OPENSSL_CSTRING *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline const char *sk_OPENSSL_CSTRING_value(const struct stack_st_OPENSSL_CSTRING *sk, int idx) { return (const char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new(sk_OPENSSL_CSTRING_compfunc compare) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new_null(void) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new_null(); } static __inline void sk_OPENSSL_CSTRING_free(struct stack_st_OPENSSL_CSTRING *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_CSTRING_zero(struct stack_st_OPENSSL_CSTRING *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline const char *sk_OPENSSL_CSTRING_delete(struct stack_st_OPENSSL_CSTRING *sk, int i) { return (const char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline const char *sk_OPENSSL_CSTRING_delete_ptr(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return (const char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_push(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_unshift(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline const char *sk_OPENSSL_CSTRING_pop(struct stack_st_OPENSSL_CSTRING *sk) { return (const char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline const char *sk_OPENSSL_CSTRING_shift(struct stack_st_OPENSSL_CSTRING *sk) { return (const char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_CSTRING_pop_free(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_OPENSSL_CSTRING_insert(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline const char *sk_OPENSSL_CSTRING_set(struct stack_st_OPENSSL_CSTRING *sk, int idx, const char *ptr) { return (const char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_find(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_CSTRING_find_ex(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_OPENSSL_CSTRING_sort(struct stack_st_OPENSSL_CSTRING *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_OPENSSL_CSTRING_is_sorted(const struct stack_st_OPENSSL_CSTRING *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_CSTRING * sk_OPENSSL_CSTRING_dup(const struct stack_st_OPENSSL_CSTRING *sk) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_deep_copy(const struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_copyfunc copyfunc, sk_OPENSSL_CSTRING_freefunc freefunc) { return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_OPENSSL_CSTRING_compfunc sk_OPENSSL_CSTRING_set_cmp_func(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_compfunc compare) { return (sk_OPENSSL_CSTRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_OPENSSL_STRING;
+typedef int (*sk_OPENSSL_STRING_compfunc)(const char * const *a, const char *const *b);
+typedef void (*sk_OPENSSL_STRING_freefunc)(char *a);
+typedef char * (*sk_OPENSSL_STRING_copyfunc)(const char *a);
+static __inline int sk_OPENSSL_STRING_num(const struct stack_st_OPENSSL_STRING *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline char *sk_OPENSSL_STRING_value(const struct stack_st_OPENSSL_STRING *sk, int idx)
+{
+    return (char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new(sk_OPENSSL_STRING_compfunc compare)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_new_null(void)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_new_null();
+}
+static __inline void sk_OPENSSL_STRING_free(struct stack_st_OPENSSL_STRING *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_STRING_zero(struct stack_st_OPENSSL_STRING *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline char *sk_OPENSSL_STRING_delete(struct stack_st_OPENSSL_STRING *sk, int i)
+{
+    return (char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline char *sk_OPENSSL_STRING_delete_ptr(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return (char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_push(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_unshift(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline char *sk_OPENSSL_STRING_pop(struct stack_st_OPENSSL_STRING *sk)
+{
+    return (char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline char *sk_OPENSSL_STRING_shift(struct stack_st_OPENSSL_STRING *sk)
+{
+    return (char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_STRING_pop_free(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_OPENSSL_STRING_insert(struct stack_st_OPENSSL_STRING *sk, char *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline char *sk_OPENSSL_STRING_set(struct stack_st_OPENSSL_STRING *sk, int idx, char *ptr)
+{
+    return (char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_find(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_STRING_find_ex(struct stack_st_OPENSSL_STRING *sk, char *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_OPENSSL_STRING_sort(struct stack_st_OPENSSL_STRING *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_OPENSSL_STRING_is_sorted(const struct stack_st_OPENSSL_STRING *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_STRING * sk_OPENSSL_STRING_dup(const struct stack_st_OPENSSL_STRING *sk)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_STRING *sk_OPENSSL_STRING_deep_copy(const struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_copyfunc copyfunc, sk_OPENSSL_STRING_freefunc freefunc)
+{
+    return (struct stack_st_OPENSSL_STRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_OPENSSL_STRING_compfunc sk_OPENSSL_STRING_set_cmp_func(struct stack_st_OPENSSL_STRING *sk, sk_OPENSSL_STRING_compfunc compare)
+{
+    return (sk_OPENSSL_STRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
+struct stack_st_OPENSSL_CSTRING;
+typedef int (*sk_OPENSSL_CSTRING_compfunc)(const char * const *a, const char *const *b);
+typedef void (*sk_OPENSSL_CSTRING_freefunc)(char *a);
+typedef char * (*sk_OPENSSL_CSTRING_copyfunc)(const char *a);
+static __inline int sk_OPENSSL_CSTRING_num(const struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline const char *sk_OPENSSL_CSTRING_value(const struct stack_st_OPENSSL_CSTRING *sk, int idx)
+{
+    return (const char *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new(sk_OPENSSL_CSTRING_compfunc compare)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_new_null(void)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_new_null();
+}
+static __inline void sk_OPENSSL_CSTRING_free(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_CSTRING_zero(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline const char *sk_OPENSSL_CSTRING_delete(struct stack_st_OPENSSL_CSTRING *sk, int i)
+{
+    return (const char *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline const char *sk_OPENSSL_CSTRING_delete_ptr(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return (const char *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_push(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_unshift(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline const char *sk_OPENSSL_CSTRING_pop(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return (const char *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline const char *sk_OPENSSL_CSTRING_shift(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return (const char *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_CSTRING_pop_free(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_OPENSSL_CSTRING_insert(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline const char *sk_OPENSSL_CSTRING_set(struct stack_st_OPENSSL_CSTRING *sk, int idx, const char *ptr)
+{
+    return (const char *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_find(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_CSTRING_find_ex(struct stack_st_OPENSSL_CSTRING *sk, const char *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_OPENSSL_CSTRING_sort(struct stack_st_OPENSSL_CSTRING *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_OPENSSL_CSTRING_is_sorted(const struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_CSTRING * sk_OPENSSL_CSTRING_dup(const struct stack_st_OPENSSL_CSTRING *sk)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_CSTRING *sk_OPENSSL_CSTRING_deep_copy(const struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_copyfunc copyfunc, sk_OPENSSL_CSTRING_freefunc freefunc)
+{
+    return (struct stack_st_OPENSSL_CSTRING *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_OPENSSL_CSTRING_compfunc sk_OPENSSL_CSTRING_set_cmp_func(struct stack_st_OPENSSL_CSTRING *sk, sk_OPENSSL_CSTRING_compfunc compare)
+{
+    return (sk_OPENSSL_CSTRING_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 typedef void *OPENSSL_BLOCK;
-struct stack_st_OPENSSL_BLOCK; typedef int (*sk_OPENSSL_BLOCK_compfunc)(const void * const *a, const void *const *b); typedef void (*sk_OPENSSL_BLOCK_freefunc)(void *a); typedef void * (*sk_OPENSSL_BLOCK_copyfunc)(const void *a); static __inline int sk_OPENSSL_BLOCK_num(const struct stack_st_OPENSSL_BLOCK *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline void *sk_OPENSSL_BLOCK_value(const struct stack_st_OPENSSL_BLOCK *sk, int idx) { return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new(sk_OPENSSL_BLOCK_compfunc compare) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new_null(void) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new_null(); } static __inline void sk_OPENSSL_BLOCK_free(struct stack_st_OPENSSL_BLOCK *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_BLOCK_zero(struct stack_st_OPENSSL_BLOCK *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline void *sk_OPENSSL_BLOCK_delete(struct stack_st_OPENSSL_BLOCK *sk, int i) { return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline void *sk_OPENSSL_BLOCK_delete_ptr(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_push(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_unshift(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void *sk_OPENSSL_BLOCK_pop(struct stack_st_OPENSSL_BLOCK *sk) { return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline void *sk_OPENSSL_BLOCK_shift(struct stack_st_OPENSSL_BLOCK *sk) { return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_OPENSSL_BLOCK_pop_free(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_OPENSSL_BLOCK_insert(struct stack_st_OPENSSL_BLOCK *sk, void *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline void *sk_OPENSSL_BLOCK_set(struct stack_st_OPENSSL_BLOCK *sk, int idx, void *ptr) { return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_find(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_OPENSSL_BLOCK_find_ex(struct stack_st_OPENSSL_BLOCK *sk, void *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_OPENSSL_BLOCK_sort(struct stack_st_OPENSSL_BLOCK *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_OPENSSL_BLOCK_is_sorted(const struct stack_st_OPENSSL_BLOCK *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_BLOCK * sk_OPENSSL_BLOCK_dup(const struct stack_st_OPENSSL_BLOCK *sk) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_deep_copy(const struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_copyfunc copyfunc, sk_OPENSSL_BLOCK_freefunc freefunc) { return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_OPENSSL_BLOCK_compfunc sk_OPENSSL_BLOCK_set_cmp_func(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_compfunc compare) { return (sk_OPENSSL_BLOCK_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_OPENSSL_BLOCK;
+typedef int (*sk_OPENSSL_BLOCK_compfunc)(const void * const *a, const void *const *b);
+typedef void (*sk_OPENSSL_BLOCK_freefunc)(void *a);
+typedef void * (*sk_OPENSSL_BLOCK_copyfunc)(const void *a);
+static __inline int sk_OPENSSL_BLOCK_num(const struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline void *sk_OPENSSL_BLOCK_value(const struct stack_st_OPENSSL_BLOCK *sk, int idx)
+{
+    return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new(sk_OPENSSL_BLOCK_compfunc compare)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_new_null(void)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_new_null();
+}
+static __inline void sk_OPENSSL_BLOCK_free(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_BLOCK_zero(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_OPENSSL_BLOCK_delete(struct stack_st_OPENSSL_BLOCK *sk, int i)
+{
+    return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline void *sk_OPENSSL_BLOCK_delete_ptr(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_push(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_unshift(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void *sk_OPENSSL_BLOCK_pop(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_OPENSSL_BLOCK_shift(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_OPENSSL_BLOCK_pop_free(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_OPENSSL_BLOCK_insert(struct stack_st_OPENSSL_BLOCK *sk, void *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline void *sk_OPENSSL_BLOCK_set(struct stack_st_OPENSSL_BLOCK *sk, int idx, void *ptr)
+{
+    return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_find(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_OPENSSL_BLOCK_find_ex(struct stack_st_OPENSSL_BLOCK *sk, void *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_OPENSSL_BLOCK_sort(struct stack_st_OPENSSL_BLOCK *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_OPENSSL_BLOCK_is_sorted(const struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_BLOCK * sk_OPENSSL_BLOCK_dup(const struct stack_st_OPENSSL_BLOCK *sk)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_OPENSSL_BLOCK *sk_OPENSSL_BLOCK_deep_copy(const struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_copyfunc copyfunc, sk_OPENSSL_BLOCK_freefunc freefunc)
+{
+    return (struct stack_st_OPENSSL_BLOCK *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_OPENSSL_BLOCK_compfunc sk_OPENSSL_BLOCK_set_cmp_func(struct stack_st_OPENSSL_BLOCK *sk, sk_OPENSSL_BLOCK_compfunc compare)
+{
+    return (sk_OPENSSL_BLOCK_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 #line 165 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/safestack.h"
 #line 30 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/opensslv.h"
@@ -1456,8 +1746,9 @@ struct stack_st_OPENSSL_BLOCK; typedef int (*sk_OPENSSL_BLOCK_compfunc)(const vo
 #line 1 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/opensslv.h"
 #line 46 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 47 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
-typedef struct {
-int dummy;
+typedef struct
+{
+    int dummy;
 } CRYPTO_dynlock;
 #line 71 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 typedef void CRYPTO_RWLOCK;
@@ -1467,10 +1758,102 @@ int CRYPTO_THREAD_write_lock(CRYPTO_RWLOCK *lock);
 int CRYPTO_THREAD_unlock(CRYPTO_RWLOCK *lock);
 void CRYPTO_THREAD_lock_free(CRYPTO_RWLOCK *lock);
 int CRYPTO_atomic_add(int *val, int amount, int *ret, CRYPTO_RWLOCK *lock);
-struct crypto_ex_data_st {
-struct stack_st_void *sk;
+struct crypto_ex_data_st
+{
+    struct stack_st_void *sk;
 };
-struct stack_st_void; typedef int (*sk_void_compfunc)(const void * const *a, const void *const *b); typedef void (*sk_void_freefunc)(void *a); typedef void * (*sk_void_copyfunc)(const void *a); static __inline int sk_void_num(const struct stack_st_void *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline void *sk_void_value(const struct stack_st_void *sk, int idx) { return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_void *sk_void_new(sk_void_compfunc compare) { return (struct stack_st_void *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_void *sk_void_new_null(void) { return (struct stack_st_void *)OPENSSL_sk_new_null(); } static __inline void sk_void_free(struct stack_st_void *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_void_zero(struct stack_st_void *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline void *sk_void_delete(struct stack_st_void *sk, int i) { return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline void *sk_void_delete_ptr(struct stack_st_void *sk, void *ptr) { return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_void_push(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_void_unshift(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void *sk_void_pop(struct stack_st_void *sk) { return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline void *sk_void_shift(struct stack_st_void *sk) { return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_void_pop_free(struct stack_st_void *sk, sk_void_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_void_insert(struct stack_st_void *sk, void *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline void *sk_void_set(struct stack_st_void *sk, int idx, void *ptr) { return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_void_find(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_void_find_ex(struct stack_st_void *sk, void *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_void_sort(struct stack_st_void *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_void_is_sorted(const struct stack_st_void *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_void * sk_void_dup(const struct stack_st_void *sk) { return (struct stack_st_void *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_void *sk_void_deep_copy(const struct stack_st_void *sk, sk_void_copyfunc copyfunc, sk_void_freefunc freefunc) { return (struct stack_st_void *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_void_compfunc sk_void_set_cmp_func(struct stack_st_void *sk, sk_void_compfunc compare) { return (sk_void_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_void;
+typedef int (*sk_void_compfunc)(const void * const *a, const void *const *b);
+typedef void (*sk_void_freefunc)(void *a);
+typedef void * (*sk_void_copyfunc)(const void *a);
+static __inline int sk_void_num(const struct stack_st_void *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline void *sk_void_value(const struct stack_st_void *sk, int idx)
+{
+    return (void *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_void *sk_void_new(sk_void_compfunc compare)
+{
+    return (struct stack_st_void *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_void *sk_void_new_null(void)
+{
+    return (struct stack_st_void *)OPENSSL_sk_new_null();
+}
+static __inline void sk_void_free(struct stack_st_void *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_void_zero(struct stack_st_void *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_void_delete(struct stack_st_void *sk, int i)
+{
+    return (void *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline void *sk_void_delete_ptr(struct stack_st_void *sk, void *ptr)
+{
+    return (void *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_void_push(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_void_unshift(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void *sk_void_pop(struct stack_st_void *sk)
+{
+    return (void *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline void *sk_void_shift(struct stack_st_void *sk)
+{
+    return (void *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_void_pop_free(struct stack_st_void *sk, sk_void_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_void_insert(struct stack_st_void *sk, void *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline void *sk_void_set(struct stack_st_void *sk, int idx, void *ptr)
+{
+    return (void *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_void_find(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_void_find_ex(struct stack_st_void *sk, void *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_void_sort(struct stack_st_void *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_void_is_sorted(const struct stack_st_void *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_void * sk_void_dup(const struct stack_st_void *sk)
+{
+    return (struct stack_st_void *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_void *sk_void_deep_copy(const struct stack_st_void *sk, sk_void_copyfunc copyfunc, sk_void_freefunc freefunc)
+{
+    return (struct stack_st_void *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_void_compfunc sk_void_set_cmp_func(struct stack_st_void *sk, sk_void_compfunc compare)
+{
+    return (sk_void_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 int CRYPTO_mem_ctrl(int mode);
 size_t OPENSSL_strlcpy(char *dst, const char *src, size_t siz);
 size_t OPENSSL_strlcat(char *dst, const char *src, size_t siz);
@@ -1482,37 +1865,38 @@ unsigned long OpenSSL_version_num(void);
 const char *OpenSSL_version(int type);
 int OPENSSL_issetugid(void);
 typedef void CRYPTO_EX_new (void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-int idx, long argl, void *argp);
+                            int idx, long argl, void *argp);
 typedef void CRYPTO_EX_free (void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-int idx, long argl, void *argp);
+                             int idx, long argl, void *argp);
 typedef int CRYPTO_EX_dup (CRYPTO_EX_DATA *to, const CRYPTO_EX_DATA *from,
-void *srcp, int idx, long argl, void *argp);
+                           void *srcp, int idx, long argl, void *argp);
 int CRYPTO_get_ex_new_index(int class_index, long argl, void *argp,
-CRYPTO_EX_new *new_func, CRYPTO_EX_dup *dup_func,
-CRYPTO_EX_free *free_func);
+                            CRYPTO_EX_new *new_func, CRYPTO_EX_dup *dup_func,
+                            CRYPTO_EX_free *free_func);
 int CRYPTO_free_ex_index(int class_index, int idx);
 int CRYPTO_new_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
 int CRYPTO_dup_ex_data(int class_index, CRYPTO_EX_DATA *to,
-const CRYPTO_EX_DATA *from);
+                       const CRYPTO_EX_DATA *from);
 void CRYPTO_free_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
 int CRYPTO_set_ex_data(CRYPTO_EX_DATA *ad, int idx, void *val);
 void *CRYPTO_get_ex_data(const CRYPTO_EX_DATA *ad, int idx);
 int CRYPTO_num_locks(void);
 #line 223 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
-typedef struct crypto_threadid_st {
-int dummy;
+typedef struct crypto_threadid_st
+{
+    int dummy;
 } CRYPTO_THREADID;
 #line 257 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 #line 265 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 int CRYPTO_set_mem_functions(
-void *(*m) (size_t, const char *, int),
-void *(*r) (void *, size_t, const char *, int),
-void (*f) (void *, const char *, int));
+    void *(*m) (size_t, const char *, int),
+    void *(*r) (void *, size_t, const char *, int),
+    void (*f) (void *, const char *, int));
 int CRYPTO_set_mem_debug(int flag);
 void CRYPTO_get_mem_functions(
-void *(**m) (size_t, const char *, int),
-void *(**r) (void *, size_t, const char *, int),
-void (**f) (void *, const char *, int));
+    void *(**m) (size_t, const char *, int),
+    void *(**r) (void *, size_t, const char *, int),
+    void (**f) (void *, const char *, int));
 void *CRYPTO_malloc(size_t num, const char *file, int line);
 void *CRYPTO_zalloc(size_t num, const char *file, int line);
 void *CRYPTO_memdup(const void *str, size_t siz, const char *file, int line);
@@ -1522,7 +1906,7 @@ void CRYPTO_free(void *ptr, const char *file, int line);
 void CRYPTO_clear_free(void *ptr, size_t num, const char *file, int line);
 void *CRYPTO_realloc(void *addr, size_t num, const char *file, int line);
 void *CRYPTO_clear_realloc(void *addr, size_t old_num, size_t num,
-const char *file, int line);
+                           const char *file, int line);
 int CRYPTO_secure_malloc_init(size_t sz, int minsize);
 int CRYPTO_secure_malloc_done(void);
 void *CRYPTO_secure_malloc(size_t num, const char *file, int line);
@@ -1542,17 +1926,17 @@ void OPENSSL_init(void);
 struct tm *OPENSSL_gmtime(const time_t *timer, struct tm *result);
 int OPENSSL_gmtime_adj(struct tm *tm, int offset_day, long offset_sec);
 int OPENSSL_gmtime_diff(int *pday, int *psec,
-const struct tm *from, const struct tm *to);
+                        const struct tm *from, const struct tm *to);
 int CRYPTO_memcmp(const volatile void * volatile in_a,
-const volatile void * volatile in_b,
-size_t len);
+                  const volatile void * volatile in_b,
+                  size_t len);
 void OPENSSL_cleanup(void);
 int OPENSSL_init_crypto(uint64_t opts, const OPENSSL_INIT_SETTINGS *settings);
 int OPENSSL_atexit(void (*handler)(void));
 void OPENSSL_thread_stop(void);
 OPENSSL_INIT_SETTINGS *OPENSSL_INIT_new(void);
 int OPENSSL_INIT_set_config_appname(OPENSSL_INIT_SETTINGS *settings,
-const char *config_file);
+                                    const char *config_file);
 #line 400 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
 void OPENSSL_INIT_free(OPENSSL_INIT_SETTINGS *settings);
 #line 412 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/crypto.h"
@@ -1581,9 +1965,9 @@ int BN_GENCB_call(BN_GENCB *cb, int a, int b);
 BN_GENCB *BN_GENCB_new(void);
 void BN_GENCB_free(BN_GENCB *cb);
 void BN_GENCB_set_old(BN_GENCB *gencb, void (*callback) (int, int, void *),
-void *cb_arg);
+                      void *cb_arg);
 void BN_GENCB_set(BN_GENCB *gencb, int (*callback) (int, int, BN_GENCB *),
-void *cb_arg);
+                  void *cb_arg);
 void *BN_GENCB_get_arg(BN_GENCB *cb);
 int BN_abs_is_word(const BIGNUM *a, const unsigned int w);
 int BN_is_zero(const BIGNUM *a);
@@ -1631,23 +2015,23 @@ int BN_sqr(BIGNUM *r, const BIGNUM *a, BN_CTX *ctx);
 void BN_set_negative(BIGNUM *b, int n);
 int BN_is_negative(const BIGNUM *b);
 int BN_div(BIGNUM *dv, BIGNUM *rem, const BIGNUM *m, const BIGNUM *d,
-BN_CTX *ctx);
+           BN_CTX *ctx);
 int BN_nnmod(BIGNUM *r, const BIGNUM *m, const BIGNUM *d, BN_CTX *ctx);
 int BN_mod_add(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, const BIGNUM *m,
-BN_CTX *ctx);
+               BN_CTX *ctx);
 int BN_mod_add_quick(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *m);
+                     const BIGNUM *m);
 int BN_mod_sub(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, const BIGNUM *m,
-BN_CTX *ctx);
+               BN_CTX *ctx);
 int BN_mod_sub_quick(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *m);
+                     const BIGNUM *m);
 int BN_mod_mul(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, const BIGNUM *m,
-BN_CTX *ctx);
+               BN_CTX *ctx);
 int BN_mod_sqr(BIGNUM *r, const BIGNUM *a, const BIGNUM *m, BN_CTX *ctx);
 int BN_mod_lshift1(BIGNUM *r, const BIGNUM *a, const BIGNUM *m, BN_CTX *ctx);
 int BN_mod_lshift1_quick(BIGNUM *r, const BIGNUM *a, const BIGNUM *m);
 int BN_mod_lshift(BIGNUM *r, const BIGNUM *a, int n, const BIGNUM *m,
-BN_CTX *ctx);
+                  BN_CTX *ctx);
 int BN_mod_lshift_quick(BIGNUM *r, const BIGNUM *a, int n, const BIGNUM *m);
 unsigned int BN_mod_word(const BIGNUM *a, unsigned int w);
 unsigned int BN_div_word(BIGNUM *a, unsigned int w);
@@ -1663,19 +2047,19 @@ int BN_lshift(BIGNUM *r, const BIGNUM *a, int n);
 int BN_lshift1(BIGNUM *r, const BIGNUM *a);
 int BN_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p, BN_CTX *ctx);
 int BN_mod_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx);
+               const BIGNUM *m, BN_CTX *ctx);
 int BN_mod_exp_mont(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
+                    const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
 int BN_mod_exp_mont_consttime(BIGNUM *rr, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx,
-BN_MONT_CTX *in_mont);
+                              const BIGNUM *m, BN_CTX *ctx,
+                              BN_MONT_CTX *in_mont);
 int BN_mod_exp_mont_word(BIGNUM *r, unsigned int a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
+                         const BIGNUM *m, BN_CTX *ctx, BN_MONT_CTX *m_ctx);
 int BN_mod_exp2_mont(BIGNUM *r, const BIGNUM *a1, const BIGNUM *p1,
-const BIGNUM *a2, const BIGNUM *p2, const BIGNUM *m,
-BN_CTX *ctx, BN_MONT_CTX *m_ctx);
+                     const BIGNUM *a2, const BIGNUM *p2, const BIGNUM *m,
+                     BN_CTX *ctx, BN_MONT_CTX *m_ctx);
 int BN_mod_exp_simple(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx);
+                      const BIGNUM *m, BN_CTX *ctx);
 int BN_mask_bits(BIGNUM *a, int n);
 int BN_print_fp(FILE *fp, const BIGNUM *a);
 #line 262 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
@@ -1694,11 +2078,11 @@ int BN_hex2bn(BIGNUM **a, const char *str);
 int BN_dec2bn(BIGNUM **a, const char *str);
 int BN_asc2bn(BIGNUM **a, const char *str);
 int BN_gcd(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, BN_CTX *ctx);
-int BN_kronecker(const BIGNUM *a, const BIGNUM *b, BN_CTX *ctx); 
+int BN_kronecker(const BIGNUM *a, const BIGNUM *b, BN_CTX *ctx);
 BIGNUM *BN_mod_inverse(BIGNUM *ret,
-const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
+                       const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
 BIGNUM *BN_mod_sqrt(BIGNUM *ret,
-const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
+                    const BIGNUM *a, const BIGNUM *n, BN_CTX *ctx);
 void BN_consttime_swap(unsigned int swap, BIGNUM *a, BIGNUM *b, int nwords);
 BIGNUM *BN_generate_prime(BIGNUM *ret, int bits, int safe, const BIGNUM *add, const BIGNUM *rem, void (*callback) (int, int, void *), void *cb_arg);
 #line 294 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
@@ -1707,30 +2091,30 @@ int BN_is_prime(const BIGNUM *p, int nchecks, void (*callback) (int, int, void *
 int BN_is_prime_fasttest(const BIGNUM *p, int nchecks, void (*callback) (int, int, void *), BN_CTX *ctx, void *cb_arg, int do_trial_division);
 #line 303 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 int BN_generate_prime_ex(BIGNUM *ret, int bits, int safe, const BIGNUM *add,
-const BIGNUM *rem, BN_GENCB *cb);
+                         const BIGNUM *rem, BN_GENCB *cb);
 int BN_is_prime_ex(const BIGNUM *p, int nchecks, BN_CTX *ctx, BN_GENCB *cb);
 int BN_is_prime_fasttest_ex(const BIGNUM *p, int nchecks, BN_CTX *ctx,
-int do_trial_division, BN_GENCB *cb);
+                            int do_trial_division, BN_GENCB *cb);
 int BN_X931_generate_Xpq(BIGNUM *Xp, BIGNUM *Xq, int nbits, BN_CTX *ctx);
 int BN_X931_derive_prime_ex(BIGNUM *p, BIGNUM *p1, BIGNUM *p2,
-const BIGNUM *Xp, const BIGNUM *Xp1,
-const BIGNUM *Xp2, const BIGNUM *e, BN_CTX *ctx,
-BN_GENCB *cb);
+                            const BIGNUM *Xp, const BIGNUM *Xp1,
+                            const BIGNUM *Xp2, const BIGNUM *e, BN_CTX *ctx,
+                            BN_GENCB *cb);
 int BN_X931_generate_prime_ex(BIGNUM *p, BIGNUM *p1, BIGNUM *p2, BIGNUM *Xp1,
-BIGNUM *Xp2, const BIGNUM *Xp, const BIGNUM *e,
-BN_CTX *ctx, BN_GENCB *cb);
+                              BIGNUM *Xp2, const BIGNUM *Xp, const BIGNUM *e,
+                              BN_CTX *ctx, BN_GENCB *cb);
 BN_MONT_CTX *BN_MONT_CTX_new(void);
 int BN_mod_mul_montgomery(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-BN_MONT_CTX *mont, BN_CTX *ctx);
+                          BN_MONT_CTX *mont, BN_CTX *ctx);
 int BN_to_montgomery(BIGNUM *r, const BIGNUM *a, BN_MONT_CTX *mont,
-BN_CTX *ctx);
+                     BN_CTX *ctx);
 int BN_from_montgomery(BIGNUM *r, const BIGNUM *a, BN_MONT_CTX *mont,
-BN_CTX *ctx);
+                       BN_CTX *ctx);
 void BN_MONT_CTX_free(BN_MONT_CTX *mont);
 int BN_MONT_CTX_set(BN_MONT_CTX *mont, const BIGNUM *mod, BN_CTX *ctx);
 BN_MONT_CTX *BN_MONT_CTX_copy(BN_MONT_CTX *to, BN_MONT_CTX *from);
 BN_MONT_CTX *BN_MONT_CTX_set_locked(BN_MONT_CTX **pmont, CRYPTO_RWLOCK *lock,
-const BIGNUM *mod, BN_CTX *ctx);
+                                    const BIGNUM *mod, BN_CTX *ctx);
 BN_BLINDING *BN_BLINDING_new(const BIGNUM *A, const BIGNUM *Ai, BIGNUM *mod);
 void BN_BLINDING_free(BN_BLINDING *b);
 int BN_BLINDING_update(BN_BLINDING *b, BN_CTX *ctx);
@@ -1738,7 +2122,7 @@ int BN_BLINDING_convert(BIGNUM *n, BN_BLINDING *b, BN_CTX *ctx);
 int BN_BLINDING_invert(BIGNUM *n, BN_BLINDING *b, BN_CTX *ctx);
 int BN_BLINDING_convert_ex(BIGNUM *n, BIGNUM *r, BN_BLINDING *b, BN_CTX *);
 int BN_BLINDING_invert_ex(BIGNUM *n, const BIGNUM *r, BN_BLINDING *b,
-BN_CTX *);
+                          BN_CTX *);
 int BN_BLINDING_is_current_thread(BN_BLINDING *b);
 void BN_BLINDING_set_current_thread(BN_BLINDING *b);
 int BN_BLINDING_lock(BN_BLINDING *b);
@@ -1746,54 +2130,54 @@ int BN_BLINDING_unlock(BN_BLINDING *b);
 unsigned long BN_BLINDING_get_flags(const BN_BLINDING *);
 void BN_BLINDING_set_flags(BN_BLINDING *, unsigned long);
 BN_BLINDING *BN_BLINDING_create_param(BN_BLINDING *b,
-const BIGNUM *e, BIGNUM *m, BN_CTX *ctx,
-int (*bn_mod_exp) (BIGNUM *r,
-const BIGNUM *a,
-const BIGNUM *p,
-const BIGNUM *m,
-BN_CTX *ctx,
-BN_MONT_CTX *m_ctx),
-BN_MONT_CTX *m_ctx);
+                                      const BIGNUM *e, BIGNUM *m, BN_CTX *ctx,
+                                      int (*bn_mod_exp) (BIGNUM *r,
+                                              const BIGNUM *a,
+                                              const BIGNUM *p,
+                                              const BIGNUM *m,
+                                              BN_CTX *ctx,
+                                              BN_MONT_CTX *m_ctx),
+                                      BN_MONT_CTX *m_ctx);
 void BN_set_params(int mul, int high, int low, int mont);
-int BN_get_params(int which); 
+int BN_get_params(int which);
 BN_RECP_CTX *BN_RECP_CTX_new(void);
 void BN_RECP_CTX_free(BN_RECP_CTX *recp);
 int BN_RECP_CTX_set(BN_RECP_CTX *recp, const BIGNUM *rdiv, BN_CTX *ctx);
 int BN_mod_mul_reciprocal(BIGNUM *r, const BIGNUM *x, const BIGNUM *y,
-BN_RECP_CTX *recp, BN_CTX *ctx);
+                          BN_RECP_CTX *recp, BN_CTX *ctx);
 int BN_mod_exp_recp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-const BIGNUM *m, BN_CTX *ctx);
+                    const BIGNUM *m, BN_CTX *ctx);
 int BN_div_recp(BIGNUM *dv, BIGNUM *rem, const BIGNUM *m,
-BN_RECP_CTX *recp, BN_CTX *ctx);
+                BN_RECP_CTX *recp, BN_CTX *ctx);
 int BN_GF2m_add(BIGNUM *r, const BIGNUM *a, const BIGNUM *b);
 int BN_GF2m_mod(BIGNUM *r, const BIGNUM *a, const BIGNUM *p);
 int BN_GF2m_mod_mul(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *p, BN_CTX *ctx);
+                    const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_sqr(BIGNUM *r, const BIGNUM *a, const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_inv(BIGNUM *r, const BIGNUM *b, const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_div(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *p, BN_CTX *ctx);
+                    const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const BIGNUM *p, BN_CTX *ctx);
+                    const BIGNUM *p, BN_CTX *ctx);
 int BN_GF2m_mod_sqrt(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-BN_CTX *ctx);
+                     BN_CTX *ctx);
 int BN_GF2m_mod_solve_quad(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
-BN_CTX *ctx);
+                           BN_CTX *ctx);
 int BN_GF2m_mod_arr(BIGNUM *r, const BIGNUM *a, const int p[]);
 int BN_GF2m_mod_mul_arr(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const int p[], BN_CTX *ctx);
+                        const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_sqr_arr(BIGNUM *r, const BIGNUM *a, const int p[],
-BN_CTX *ctx);
+                        BN_CTX *ctx);
 int BN_GF2m_mod_inv_arr(BIGNUM *r, const BIGNUM *b, const int p[],
-BN_CTX *ctx);
+                        BN_CTX *ctx);
 int BN_GF2m_mod_div_arr(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const int p[], BN_CTX *ctx);
+                        const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_exp_arr(BIGNUM *r, const BIGNUM *a, const BIGNUM *b,
-const int p[], BN_CTX *ctx);
+                        const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_sqrt_arr(BIGNUM *r, const BIGNUM *a,
-const int p[], BN_CTX *ctx);
+                         const int p[], BN_CTX *ctx);
 int BN_GF2m_mod_solve_quad_arr(BIGNUM *r, const BIGNUM *a,
-const int p[], BN_CTX *ctx);
+                               const int p[], BN_CTX *ctx);
 int BN_GF2m_poly2arr(const BIGNUM *a, int p[], int max);
 int BN_GF2m_arr2poly(const int p[], BIGNUM *a);
 #line 449 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
@@ -1812,10 +2196,10 @@ const BIGNUM *BN_get0_nist_prime_521(void);
 const BIGNUM *BN_get0_sm2_prime_256(void);
 #line 470 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 int (*BN_nist_mod_func(const BIGNUM *p)) (BIGNUM *r, const BIGNUM *a,
-const BIGNUM *field, BN_CTX *ctx);
+        const BIGNUM *field, BN_CTX *ctx);
 int BN_generate_dsa_nonce(BIGNUM *out, const BIGNUM *range,
-const BIGNUM *priv, const unsigned char *message,
-size_t message_len, BN_CTX *ctx);
+                          const BIGNUM *priv, const unsigned char *message,
+                          size_t message_len, BN_CTX *ctx);
 BIGNUM *BN_get_rfc2409_prime_768(BIGNUM *bn);
 BIGNUM *BN_get_rfc2409_prime_1024(BIGNUM *bn);
 BIGNUM *BN_get_rfc3526_prime_1536(BIGNUM *bn);
@@ -1826,7 +2210,98 @@ BIGNUM *BN_get_rfc3526_prime_6144(BIGNUM *bn);
 BIGNUM *BN_get_rfc3526_prime_8192(BIGNUM *bn);
 #line 500 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 int BN_bntest_rand(BIGNUM *rnd, int bits, int top, int bottom);
-struct stack_st_BIGNUM; typedef int (*sk_BIGNUM_compfunc)(const BIGNUM * const *a, const BIGNUM *const *b); typedef void (*sk_BIGNUM_freefunc)(BIGNUM *a); typedef BIGNUM * (*sk_BIGNUM_copyfunc)(const BIGNUM *a); static __inline int sk_BIGNUM_num(const struct stack_st_BIGNUM *sk) { return OPENSSL_sk_num((const OPENSSL_STACK *)sk); } static __inline BIGNUM *sk_BIGNUM_value(const struct stack_st_BIGNUM *sk, int idx) { return (BIGNUM *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx); } static __inline struct stack_st_BIGNUM *sk_BIGNUM_new(sk_BIGNUM_compfunc compare) { return (struct stack_st_BIGNUM *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare); } static __inline struct stack_st_BIGNUM *sk_BIGNUM_new_null(void) { return (struct stack_st_BIGNUM *)OPENSSL_sk_new_null(); } static __inline void sk_BIGNUM_free(struct stack_st_BIGNUM *sk) { OPENSSL_sk_free((OPENSSL_STACK *)sk); } static __inline void sk_BIGNUM_zero(struct stack_st_BIGNUM *sk) { OPENSSL_sk_zero((OPENSSL_STACK *)sk); } static __inline BIGNUM *sk_BIGNUM_delete(struct stack_st_BIGNUM *sk, int i) { return (BIGNUM *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i); } static __inline BIGNUM *sk_BIGNUM_delete_ptr(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return (BIGNUM *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIGNUM_push(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIGNUM_unshift(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline BIGNUM *sk_BIGNUM_pop(struct stack_st_BIGNUM *sk) { return (BIGNUM *)OPENSSL_sk_pop((OPENSSL_STACK *)sk); } static __inline BIGNUM *sk_BIGNUM_shift(struct stack_st_BIGNUM *sk) { return (BIGNUM *)OPENSSL_sk_shift((OPENSSL_STACK *)sk); } static __inline void sk_BIGNUM_pop_free(struct stack_st_BIGNUM *sk, sk_BIGNUM_freefunc freefunc) { OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc); } static __inline int sk_BIGNUM_insert(struct stack_st_BIGNUM *sk, BIGNUM *ptr, int idx) { return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx); } static __inline BIGNUM *sk_BIGNUM_set(struct stack_st_BIGNUM *sk, int idx, BIGNUM *ptr) { return (BIGNUM *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr); } static __inline int sk_BIGNUM_find(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline int sk_BIGNUM_find_ex(struct stack_st_BIGNUM *sk, BIGNUM *ptr) { return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr); } static __inline void sk_BIGNUM_sort(struct stack_st_BIGNUM *sk) { OPENSSL_sk_sort((OPENSSL_STACK *)sk); } static __inline int sk_BIGNUM_is_sorted(const struct stack_st_BIGNUM *sk) { return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk); } static __inline struct stack_st_BIGNUM * sk_BIGNUM_dup(const struct stack_st_BIGNUM *sk) { return (struct stack_st_BIGNUM *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk); } static __inline struct stack_st_BIGNUM *sk_BIGNUM_deep_copy(const struct stack_st_BIGNUM *sk, sk_BIGNUM_copyfunc copyfunc, sk_BIGNUM_freefunc freefunc) { return (struct stack_st_BIGNUM *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc); } static __inline sk_BIGNUM_compfunc sk_BIGNUM_set_cmp_func(struct stack_st_BIGNUM *sk, sk_BIGNUM_compfunc compare) { return (sk_BIGNUM_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare); }
+struct stack_st_BIGNUM;
+typedef int (*sk_BIGNUM_compfunc)(const BIGNUM * const *a, const BIGNUM *const *b);
+typedef void (*sk_BIGNUM_freefunc)(BIGNUM *a);
+typedef BIGNUM * (*sk_BIGNUM_copyfunc)(const BIGNUM *a);
+static __inline int sk_BIGNUM_num(const struct stack_st_BIGNUM *sk)
+{
+    return OPENSSL_sk_num((const OPENSSL_STACK *)sk);
+}
+static __inline BIGNUM *sk_BIGNUM_value(const struct stack_st_BIGNUM *sk, int idx)
+{
+    return (BIGNUM *)OPENSSL_sk_value((const OPENSSL_STACK *)sk, idx);
+}
+static __inline struct stack_st_BIGNUM *sk_BIGNUM_new(sk_BIGNUM_compfunc compare)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_new((OPENSSL_sk_compfunc)compare);
+}
+static __inline struct stack_st_BIGNUM *sk_BIGNUM_new_null(void)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_new_null();
+}
+static __inline void sk_BIGNUM_free(struct stack_st_BIGNUM *sk)
+{
+    OPENSSL_sk_free((OPENSSL_STACK *)sk);
+}
+static __inline void sk_BIGNUM_zero(struct stack_st_BIGNUM *sk)
+{
+    OPENSSL_sk_zero((OPENSSL_STACK *)sk);
+}
+static __inline BIGNUM *sk_BIGNUM_delete(struct stack_st_BIGNUM *sk, int i)
+{
+    return (BIGNUM *)OPENSSL_sk_delete((OPENSSL_STACK *)sk, i);
+}
+static __inline BIGNUM *sk_BIGNUM_delete_ptr(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return (BIGNUM *)OPENSSL_sk_delete_ptr((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_push(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_push((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_unshift(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_unshift((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline BIGNUM *sk_BIGNUM_pop(struct stack_st_BIGNUM *sk)
+{
+    return (BIGNUM *)OPENSSL_sk_pop((OPENSSL_STACK *)sk);
+}
+static __inline BIGNUM *sk_BIGNUM_shift(struct stack_st_BIGNUM *sk)
+{
+    return (BIGNUM *)OPENSSL_sk_shift((OPENSSL_STACK *)sk);
+}
+static __inline void sk_BIGNUM_pop_free(struct stack_st_BIGNUM *sk, sk_BIGNUM_freefunc freefunc)
+{
+    OPENSSL_sk_pop_free((OPENSSL_STACK *)sk, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline int sk_BIGNUM_insert(struct stack_st_BIGNUM *sk, BIGNUM *ptr, int idx)
+{
+    return OPENSSL_sk_insert((OPENSSL_STACK *)sk, (const void *)ptr, idx);
+}
+static __inline BIGNUM *sk_BIGNUM_set(struct stack_st_BIGNUM *sk, int idx, BIGNUM *ptr)
+{
+    return (BIGNUM *)OPENSSL_sk_set((OPENSSL_STACK *)sk, idx, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_find(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_find((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline int sk_BIGNUM_find_ex(struct stack_st_BIGNUM *sk, BIGNUM *ptr)
+{
+    return OPENSSL_sk_find_ex((OPENSSL_STACK *)sk, (const void *)ptr);
+}
+static __inline void sk_BIGNUM_sort(struct stack_st_BIGNUM *sk)
+{
+    OPENSSL_sk_sort((OPENSSL_STACK *)sk);
+}
+static __inline int sk_BIGNUM_is_sorted(const struct stack_st_BIGNUM *sk)
+{
+    return OPENSSL_sk_is_sorted((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_BIGNUM * sk_BIGNUM_dup(const struct stack_st_BIGNUM *sk)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_dup((const OPENSSL_STACK *)sk);
+}
+static __inline struct stack_st_BIGNUM *sk_BIGNUM_deep_copy(const struct stack_st_BIGNUM *sk, sk_BIGNUM_copyfunc copyfunc, sk_BIGNUM_freefunc freefunc)
+{
+    return (struct stack_st_BIGNUM *)OPENSSL_sk_deep_copy((const OPENSSL_STACK *)sk, (OPENSSL_sk_copyfunc)copyfunc, (OPENSSL_sk_freefunc)freefunc);
+}
+static __inline sk_BIGNUM_compfunc sk_BIGNUM_set_cmp_func(struct stack_st_BIGNUM *sk, sk_BIGNUM_compfunc compare)
+{
+    return (sk_BIGNUM_compfunc)OPENSSL_sk_set_cmp_func((OPENSSL_STACK *)sk, (OPENSSL_sk_compfunc)compare);
+}
 int ERR_load_BN_strings(void);
 #line 610 "D:\\07.OpenSrc\\GmSSL\\include\\openssl/bn.h"
 #line 18 "fuzz\\bndiv.c"
@@ -1834,75 +2309,81 @@ int ERR_load_BN_strings(void);
 int FuzzerTestOneInput(const uint8_t *buf, size_t len);
 int FuzzerInitialize(int *argc, char ***argv);
 #line 19 "fuzz\\bndiv.c"
-int FuzzerInitialize(int *argc, char ***argv) {
-return 1;
+int FuzzerInitialize(int *argc, char ***argv)
+{
+    return 1;
 }
-int FuzzerTestOneInput(const uint8_t *buf, size_t len) {
-static BN_CTX *ctx;
-static BIGNUM *b1;
-static BIGNUM *b2;
-static BIGNUM *b3;
-static BIGNUM *b4;
-static BIGNUM *b5;
-int success = 0;
-size_t l1 = 0, l2 = 0;
-int s1 = 0, s2 = 0;
-if (ctx == ((void *)0)) {
-b1 = BN_new();
-b2 = BN_new();
-b3 = BN_new();
-b4 = BN_new();
-b5 = BN_new();
-ctx = BN_CTX_new();
-}
-if (len > 0) {
---len;
-l1 = ((buf[0] & 0x3f) * len) / 0x3f;
-s1 = buf[0] & 0x40;
-s2 = buf[0] & 0x80;
-++buf;
-l2 = len - l1;
-}
-(void)((BN_bin2bn(buf, l1, b1) == b1) ? 0 : (OPENSSL_die("assertion failed: " "BN_bin2bn(buf, l1, b1) == b1", "fuzz\\bndiv.c", 59), 1));
-BN_set_negative(b1, s1);
-(void)((BN_bin2bn(buf + l1, l2, b2) == b2) ? 0 : (OPENSSL_die("assertion failed: " "BN_bin2bn(buf + l1, l2, b2) == b2", "fuzz\\bndiv.c", 61), 1));
-BN_set_negative(b2, s2);
-if (BN_is_zero(b2)) {
-success = 1;
-goto done;
-}
-(void)((BN_div(b3, b4, b1, b2, ctx)) ? 0 : (OPENSSL_die("assertion failed: " "BN_div(b3, b4, b1, b2, ctx)", "fuzz\\bndiv.c", 70), 1));
-if (BN_is_zero(b1))
-success = BN_is_zero(b3) && BN_is_zero(b4);
-else if (BN_is_negative(b1))
-success = (BN_is_negative(b3) != BN_is_negative(b2) || BN_is_zero(b3))
-&& (BN_is_negative(b4) || BN_is_zero(b4));
-else
-success = (BN_is_negative(b3) == BN_is_negative(b2)  || BN_is_zero(b3))
-&& (!BN_is_negative(b4) || BN_is_zero(b4));
-(void)((BN_mul(b5, b3, b2, ctx)) ? 0 : (OPENSSL_die("assertion failed: " "BN_mul(b5, b3, b2, ctx)", "fuzz\\bndiv.c", 79), 1));
-(void)((BN_add(b5, b5, b4)) ? 0 : (OPENSSL_die("assertion failed: " "BN_add(b5, b5, b4)", "fuzz\\bndiv.c", 80), 1));
-success = success && BN_cmp(b5, b1) == 0;
-if (!success) {
-BN_print_fp((&__iob_func()[1]), b1);
-putchar('\n');
-BN_print_fp((&__iob_func()[1]), b2);
-putchar('\n');
-BN_print_fp((&__iob_func()[1]), b3);
-putchar('\n');
-BN_print_fp((&__iob_func()[1]), b4);
-putchar('\n');
-BN_print_fp((&__iob_func()[1]), b5);
-putchar('\n');
-printf("%d %d %d %d %d %d %d\n", BN_is_negative(b1),
-BN_is_negative(b2),
-BN_is_negative(b3), BN_is_negative(b4), BN_is_zero(b4),
-BN_is_negative(b3) != BN_is_negative(b2)
-&& (BN_is_negative(b4) || BN_is_zero(b4)),
-BN_cmp(b5, b1));
-puts("----\n");
-}
+int FuzzerTestOneInput(const uint8_t *buf, size_t len)
+{
+    static BN_CTX *ctx;
+    static BIGNUM *b1;
+    static BIGNUM *b2;
+    static BIGNUM *b3;
+    static BIGNUM *b4;
+    static BIGNUM *b5;
+    int success = 0;
+    size_t l1 = 0, l2 = 0;
+    int s1 = 0, s2 = 0;
+    if (ctx == ((void *)0))
+    {
+        b1 = BN_new();
+        b2 = BN_new();
+        b3 = BN_new();
+        b4 = BN_new();
+        b5 = BN_new();
+        ctx = BN_CTX_new();
+    }
+    if (len > 0)
+    {
+        --len;
+        l1 = ((buf[0] & 0x3f) * len) / 0x3f;
+        s1 = buf[0] & 0x40;
+        s2 = buf[0] & 0x80;
+        ++buf;
+        l2 = len - l1;
+    }
+    (void)((BN_bin2bn(buf, l1, b1) == b1) ? 0 : (OPENSSL_die("assertion failed: " "BN_bin2bn(buf, l1, b1) == b1", "fuzz\\bndiv.c", 59), 1));
+    BN_set_negative(b1, s1);
+    (void)((BN_bin2bn(buf + l1, l2, b2) == b2) ? 0 : (OPENSSL_die("assertion failed: " "BN_bin2bn(buf + l1, l2, b2) == b2", "fuzz\\bndiv.c", 61), 1));
+    BN_set_negative(b2, s2);
+    if (BN_is_zero(b2))
+    {
+        success = 1;
+        goto done;
+    }
+    (void)((BN_div(b3, b4, b1, b2, ctx)) ? 0 : (OPENSSL_die("assertion failed: " "BN_div(b3, b4, b1, b2, ctx)", "fuzz\\bndiv.c", 70), 1));
+    if (BN_is_zero(b1))
+        success = BN_is_zero(b3) && BN_is_zero(b4);
+    else if (BN_is_negative(b1))
+        success = (BN_is_negative(b3) != BN_is_negative(b2) || BN_is_zero(b3))
+                  && (BN_is_negative(b4) || BN_is_zero(b4));
+    else
+        success = (BN_is_negative(b3) == BN_is_negative(b2)  || BN_is_zero(b3))
+                  && (!BN_is_negative(b4) || BN_is_zero(b4));
+    (void)((BN_mul(b5, b3, b2, ctx)) ? 0 : (OPENSSL_die("assertion failed: " "BN_mul(b5, b3, b2, ctx)", "fuzz\\bndiv.c", 79), 1));
+    (void)((BN_add(b5, b5, b4)) ? 0 : (OPENSSL_die("assertion failed: " "BN_add(b5, b5, b4)", "fuzz\\bndiv.c", 80), 1));
+    success = success && BN_cmp(b5, b1) == 0;
+    if (!success)
+    {
+        BN_print_fp((&__iob_func()[1]), b1);
+        putchar('\n');
+        BN_print_fp((&__iob_func()[1]), b2);
+        putchar('\n');
+        BN_print_fp((&__iob_func()[1]), b3);
+        putchar('\n');
+        BN_print_fp((&__iob_func()[1]), b4);
+        putchar('\n');
+        BN_print_fp((&__iob_func()[1]), b5);
+        putchar('\n');
+        printf("%d %d %d %d %d %d %d\n", BN_is_negative(b1),
+               BN_is_negative(b2),
+               BN_is_negative(b3), BN_is_negative(b4), BN_is_zero(b4),
+               BN_is_negative(b3) != BN_is_negative(b2)
+               && (BN_is_negative(b4) || BN_is_zero(b4)),
+               BN_cmp(b5, b1));
+        puts("----\n");
+    }
 done:
-(void)((success) ? 0 : (OPENSSL_die("assertion failed: " "success", "fuzz\\bndiv.c", 104), 1));
-return 0;
+    (void)((success) ? 0 : (OPENSSL_die("assertion failed: " "success", "fuzz\\bndiv.c", 104), 1));
+    return 0;
 }
