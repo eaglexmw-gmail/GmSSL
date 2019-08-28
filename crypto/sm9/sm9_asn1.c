@@ -284,10 +284,10 @@ int SM9_signature_size(const SM9_MASTER_KEY *params)
 int SM9_ciphertext_size(const SM9_MASTER_KEY *params, size_t inlen)
 {
 	int ret;
+	int len = 0;
 	ASN1_OCTET_STRING s;
 	s.type = V_ASN1_OCTET_STRING;
 	s.data = NULL;
-	int len = 0;
 
 	if (inlen > SM9_MAX_PLAINTEXT_LENGTH) {
 		SM9err(SM9_F_SM9_CIPHERTEXT_SIZE, SM9_R_PLAINTEXT_TOO_LONG);

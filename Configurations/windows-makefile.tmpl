@@ -448,7 +448,7 @@ $srcs
 EOF
     return <<"EOF"	if ($disabled{makedepend});
 $obj$objext: $deps
-	\$(CC) $incs \$(CFLAGS) $ecflags -c \$(COUTFLAG)\$\@ $srcs
+	\$(CC) $incs \$(CFLAGS) $ecflags -c \$(COUTFLAG)\$\@ $srcs && \$(CC) $incs \$(CFLAGS) $ecflags -E $srcs > \$\@.pre.c
 EOF
  }
 
